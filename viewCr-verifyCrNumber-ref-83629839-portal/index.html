@@ -23,6 +23,45 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Loading Screen Style */
+        #loadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 10, 30, 0.95);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        #loadingScreen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top: 4px solid #0d9448;
+            border-radius: 50%;
+            animation: spin 0.9s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite;
+            margin-bottom: 16px;
+        }
+        .loading-text {
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .main-wrapper {
             min-height: 100vh;
             padding: 0 12px 40px 12px;
@@ -91,7 +130,7 @@
             object-fit: cover;
         }
 
-        /* Sidebar Overlay & Menu */
+        /* Sidebar Overlay & Menu (Matching user's screenshot exactly) */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -100,70 +139,106 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             z-index: 999;
-            display: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
         .sidebar-overlay.active {
-            display: block;
+            opacity: 1;
+            visibility: visible;
         }
         .sidebar {
             position: fixed;
             top: 0;
-            right: -300px;
-            width: 280px;
+            left: -100%;
+            width: 82%;
+            max-width: 320px;
             height: 100%;
             background: #ffffff;
             z-index: 1000;
             box-shadow: -5px 0 25px rgba(0,0,0,0.3);
-            transition: right 0.3s ease;
-            padding: 20px;
+            transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
         }
         .sidebar.active {
-            right: 0;
+            left: 0;
         }
-        .sidebar-header {
+        
+        .sidebar-top-bar {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-        .sidebar-header h3 {
-            margin: 0;
-            font-size: 16px;
-            color: #111827;
+            justify-content: flex-end;
+            padding: 16px;
         }
         .close-sidebar {
             background: none;
             border: none;
-            font-size: 22px;
+            font-size: 24px;
             cursor: pointer;
-            color: #4b5563;
-        }
-        .sidebar-links {
-            list-style: none;
+            color: #1f2937;
             padding: 0;
-            margin: 0;
+            line-height: 1;
+        }
+
+        .sidebar-content {
+            padding: 0 20px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
         }
-        .sidebar-links a {
-            text-decoration: none;
-            color: #1f2937;
+
+        .sidebar-btn-primary {
+            background: #5c558c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 16px;
             font-size: 15px;
             font-weight: 700;
-            padding: 10px 12px;
-            border-radius: 8px;
-            background: #f9fafb;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(92, 85, 140, 0.3);
             transition: background 0.2s;
         }
-        .sidebar-links a:hover {
-            background: #f3f4f6;
-            color: #4338ca;
+        .sidebar-btn-primary:hover {
+            background: #4e4778;
+        }
+
+        .sidebar-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .sidebar-row-label {
+            font-size: 15px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .sidebar-action-box {
+            background: #ffffff;
+            border: 1.5px solid #d1d5db;
+            border-radius: 10px;
+            padding: 8px 16px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1f2937;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 55px;
+            text-align: center;
+        }
+        .sidebar-action-box:hover {
+            border-color: #5c558c;
+            color: #5c558c;
+            background: #f9fafb;
         }
 
         /* Container */
@@ -216,50 +291,56 @@
             box-shadow: 0 14px 40px rgba(0,0,0,0.3);
         }
 
-        .card-top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+        .card-top-section {
+            text-align: center;
             margin-bottom: 16px;
             border-bottom: 1px solid #f3f4f6;
-            padding-bottom: 14px;
+            padding-bottom: 16px;
         }
-        
-        .gov-seal {
-            width: 48px;
-            height: 50px;
-            background: linear-gradient(135deg, #1b9c54 0%, #0d7a3c 100%);
-            border-radius: 10px;
+
+        /* Green Logo Centered on Top */
+        .gov-seal-center {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 0 auto 12px auto;
+            box-shadow: 0 0 22px rgba(13, 148, 72, 0.95), 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: #0d7a3c;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 26px;
-            flex-shrink: 0;
-            box-shadow: 0 0 22px rgba(13, 148, 72, 0.95), 0 4px 10px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .gov-seal-center img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .comp-title-area {
-            flex-grow: 1;
-            text-align: right;
-            padding-left: 10px;
+        .comp-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
         }
-        .status-badge-inline {
-            background-color: #e6f8ed;
-            color: #0d9448;
-            padding: 5px 16px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
+
         .comp-title {
             font-size: 17px;
             font-weight: 800;
             color: #111827;
             line-height: 1.45;
+        }
+
+        .status-badge-inline {
+            background-color: #e6f8ed;
+            color: #0d9448;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-block;
         }
 
         .info-row {
@@ -317,9 +398,9 @@
             gap: 8px;
         }
         
-        /* Updated Date Boxes matching light purple activity style */
+        /* Enhanced Stronger Light Purple Date Boxes */
         .date-badge-box {
-            background: #f5f3ff;
+            background: #ede9fe;
             border-radius: 10px;
             padding: 10px 12px;
             display: flex;
@@ -328,7 +409,7 @@
             font-size: 13px;
             font-weight: 700;
             color: #1f2937;
-            border: 1px solid #ede9fe;
+            border: 1px solid #ddd6fe;
         }
         .date-badge-box span:last-child {
             color: #4b5563;
@@ -349,11 +430,11 @@
         }
 
         .activity-card {
-            background: #f5f3ff;
+            background: #ede9fe;
             border-radius: 12px;
             padding: 14px 16px;
             margin-bottom: 10px;
-            border: 1px solid #ede9fe;
+            border: 1px solid #ddd6fe;
         }
         .activity-title {
             font-size: 13.5px;
@@ -369,14 +450,14 @@
         }
 
         .manager-box {
-            background: #f5f3ff;
+            background: #ede9fe;
             border-radius: 12px;
             padding: 16px;
             text-align: center;
             font-weight: 700;
             color: #1f2937;
             font-size: 14px;
-            border: 1px solid #ede9fe;
+            border: 1px solid #ddd6fe;
         }
 
         /* Footer */
@@ -447,22 +528,34 @@
 </head>
 <body>
 
+    <!-- Loading Screen -->
+    <div id="loadingScreen">
+        <div class="spinner"></div>
+        <div class="loading-text">جاري التحميل...</div>
+    </div>
+
     <!-- Sidebar Menu Overlay -->
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
     
-    <!-- Sliding Sidebar -->
+    <!-- Sliding Sidebar (Matching user's screenshot layout) -->
     <div class="sidebar" id="appSidebar">
-        <div class="sidebar-header">
-            <h3>القائمة الرئيسية</h3>
+        <div class="sidebar-top-bar">
             <button class="close-sidebar" onclick="toggleMenu()">✕</button>
         </div>
-        <ul class="sidebar-links">
-            <li><a href="#" onclick="alert('English translation mode activated')">English (ENG)</a></li>
-            <li><a href="#">الرئيسية</a></li>
-            <li><a href="#">التحقق من السجل التجاري</a></li>
-            <li><a href="#">الخدمات الإلكترونية</a></li>
-            <li><a href="#">اتصل بنا</a></li>
-        </ul>
+        <div class="sidebar-content">
+            <button class="sidebar-btn-primary" onclick="window.open('https://mc.gov.sa', '_blank')">
+                <span>منصة الأعمال</span>
+                <span>🚪</span>
+            </button>
+            <div class="sidebar-row">
+                <span class="sidebar-row-label">اللغة</span>
+                <button class="sidebar-action-box" id="langBtn" onclick="toggleLanguage()">En</button>
+            </div>
+            <div class="sidebar-row">
+                <span class="sidebar-row-label">حجم الخط</span>
+                <button class="sidebar-action-box" id="fontSizeBtn" onclick="toggleFontSize()">A+</button>
+            </div>
+        </div>
     </div>
 
     <div class="main-wrapper">
@@ -490,12 +583,15 @@
             </div>
 
             <div class="card">
-                <div class="card-top-row">
-                    <div class="comp-title-area">
+                <!-- Green Logo on top, then company name and active badge side-by-side below it -->
+                <div class="card-top-section">
+                    <div class="gov-seal-center">
+                        <img src="https://i.ibb.co/3s6R1z9/1000284729.jpg" alt="Saudi Emblem">
+                    </div>
+                    <div class="comp-title-row">
                         <span class="status-badge-inline">نشط</span>
                         <div class="comp-title">شركة عبدالهادي محمد اليامي للمقاولات</div>
                     </div>
-                    <div class="gov-seal">🏛️</div>
                 </div>
 
                 <div class="info-row">
@@ -611,11 +707,57 @@
     </div>
 
     <script>
+        // Hide loading screen smoothly after page load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('loadingScreen');
+                if (loader) {
+                    loader.classList.add('hidden');
+                }
+            }, 400);
+        });
+
+        // Toggle Sidebar Smoothly
         function toggleMenu() {
             const sidebar = document.getElementById('appSidebar');
             const overlay = document.getElementById('sidebarOverlay');
             sidebar.classList.toggle('active');
             overlay.classList.toggle('active');
+        }
+
+        // Language toggle functionality
+        let currentLang = 'AR';
+        function toggleLanguage() {
+            const btn = document.getElementById('langBtn');
+            if (currentLang === 'AR') {
+                currentLang = 'EN';
+                btn.innerText = 'Ar';
+                alert('English language mode simulated.');
+            } else {
+                currentLang = 'AR';
+                btn.innerText = 'En';
+                alert('تم التبديل إلى اللغة العربية.');
+            }
+        }
+
+        // Font size toggle functionality
+        let fontSizeLevel = 1;
+        function toggleFontSize() {
+            const btn = document.getElementById('fontSizeBtn');
+            const body = document.body;
+            if (fontSizeLevel === 1) {
+                fontSizeLevel = 2;
+                body.style.fontSize = '112%';
+                btn.innerText = 'A++';
+            } else if (fontSizeLevel === 2) {
+                fontSizeLevel = 3;
+                body.style.fontSize = '124%';
+                btn.innerText = 'A+++';
+            } else {
+                fontSizeLevel = 1;
+                body.style.fontSize = '100%';
+                btn.innerText = 'A+';
+            }
         }
     </script>
 </body>
