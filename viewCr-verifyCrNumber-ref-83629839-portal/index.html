@@ -6,29 +6,36 @@
     <title id="pageTitle">بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال</title>
     <style>
         :root {
-            --primary-color: #2e2652;
-            --bg-color: #f3f4f6;
             --card-bg: #ffffff;
             --text-main: #111827;
-            --text-muted: #4b5563;
+            --text-muted: #6b7280;
             --badge-green-bg: #e6f8ed;
             --badge-green-text: #0d9448;
-            --activity-bg: #f1f0f7;
+            --activity-bg: #f4f3f9;
             --font-scale: 0px;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--primary-color);
+            /* Official Background with City Night Overlay Image & Purple Gradient */
+            background: linear-gradient(180deg, rgba(35, 27, 61, 0.92) 0%, rgba(22, 17, 40, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1000&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
             color: var(--text-main);
             direction: rtl;
             text-align: right;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        /* Loader Overlay with Smooth Slide Reveal Animation */
+        /* Official Loading Overlay */
         #page-loader {
             position: fixed;
             top: 0;
@@ -39,14 +46,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 99999;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
         .spinner {
-            width: 45px;
-            height: 45px;
+            width: 42px;
+            height: 42px;
             border: 4px solid #e5e7eb;
-            border-top: 4px solid var(--primary-color);
+            border-top: 4px solid #231b3d;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
@@ -55,68 +62,73 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Main Content Slide Animation from Top */
+        /* Main Content Wrapper */
         .main-wrapper {
-            background-color: var(--primary-color);
             min-height: 100vh;
-            padding: 10px 12px 40px 12px;
-            transform: translateY(-40px);
+            padding: 0 12px 40px 12px;
             opacity: 0;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+            transform: translateY(-20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            position: relative;
         }
-        .main-wrapper.loaded {
-            transform: translateY(0);
+        .main-wrapper.page-loaded {
             opacity: 1;
+            transform: translateY(0);
         }
 
-        /* Exact Official Header */
+        /* Exact Official Header with Menu on Left/Right matching screen */
         .header {
-            background-color: #2e2652;
+            background: transparent;
             color: white;
-            padding: 14px 16px;
+            padding: 16px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: relative;
+            z-index: 10;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         .menu-btn {
             background: none;
             border: none;
             color: white;
-            font-size: 24px;
+            font-size: 26px;
             cursor: pointer;
             padding: 0;
+            line-height: 1;
         }
-        .header-center {
-            text-align: center;
-            flex-grow: 1;
-            padding: 0 10px;
+        .header-title-area {
+            text-align: right;
         }
         .header-title {
-            font-size: calc(14px + var(--font-scale));
+            font-size: calc(15px + var(--font-scale));
             font-weight: 700;
             margin: 0;
             line-height: 1.3;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.4);
         }
         .header-subtitle {
-            font-size: calc(9px + var(--font-scale));
+            font-size: calc(9.5px + var(--font-scale));
             font-weight: 400;
-            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.85);
             letter-spacing: 0.3px;
             margin-top: 2px;
         }
         .header-logo-section {
             display: flex;
             align-items: center;
-            gap: 6px;
         }
         .header-logo-icon {
-            font-size: 20px;
+            font-size: 24px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
         }
 
-        /* Side Menu Drawer - Exact Match to Screenshot 21 */
+        /* Side Menu Drawer */
         .side-menu-overlay {
             position: fixed;
             top: 0;
@@ -124,11 +136,14 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            display: none;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
             z-index: 1500;
         }
         .side-menu-overlay.active {
-            display: block;
+            visibility: visible;
+            opacity: 1;
         }
         .side-menu {
             position: fixed;
@@ -138,17 +153,19 @@
             height: 100%;
             background-color: #ffffff;
             color: var(--text-main);
-            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
-            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1600;
             display: flex;
             flex-direction: column;
+            text-align: right;
+            direction: rtl;
         }
         .side-menu.active {
             right: 0;
         }
         .side-menu-header {
-            padding: 14px 18px;
+            padding: 16px 20px;
             display: flex;
             justify-content: flex-start;
             border-bottom: 1px solid #f3f4f6;
@@ -159,15 +176,17 @@
             font-size: 22px;
             color: var(--text-muted);
             cursor: pointer;
+            padding: 0;
+            line-height: 1;
         }
         .side-menu-content {
-            padding: 24px 18px;
+            padding: 24px 20px;
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
         .menu-action-btn {
-            background-color: #6b6394;
+            background-color: #5c5384;
             color: white;
             border: none;
             border-radius: 8px;
@@ -184,7 +203,7 @@
             background: rgba(255, 255, 255, 0.2);
             padding: 2px 6px;
             border-radius: 4px;
-            font-size: 14px;
+            font-size: 13px;
         }
         .menu-row {
             display: flex;
@@ -205,7 +224,7 @@
             font-weight: 700;
             color: var(--text-main);
             cursor: pointer;
-            min-width: 36px;
+            min-width: 45px;
             text-align: center;
         }
 
@@ -213,22 +232,26 @@
         .container {
             max-width: 520px;
             margin: 0 auto;
+            position: relative;
+            z-index: 10;
         }
 
         .page-heading {
             text-align: center;
-            font-size: calc(22px + var(--font-scale));
+            font-size: calc(24px + var(--font-scale));
             font-weight: 800;
             color: #ffffff;
-            margin: 20px 0 16px 0;
+            margin: 16px 0 20px 0;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            letter-spacing: -0.5px;
         }
 
         .notice-banner {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 18px;
             padding: 16px;
             margin-bottom: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             display: flex;
             align-items: flex-start;
             gap: 12px;
@@ -251,7 +274,7 @@
             border-radius: 20px;
             padding: 20px 16px;
             margin-bottom: 16px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.22);
         }
 
         .card-top-row {
@@ -263,16 +286,17 @@
             padding-bottom: 14px;
         }
         .gov-seal {
-            width: 36px;
-            height: 38px;
-            background: #0d6efd;
-            border-radius: 6px;
+            width: 40px;
+            height: 42px;
+            background: #14723c;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 18px;
+            font-size: 20px;
             flex-shrink: 0;
+            box-shadow: 0 3px 8px rgba(20, 114, 60, 0.35);
         }
         .comp-title-area {
             flex-grow: 1;
@@ -282,7 +306,7 @@
         .status-badge-inline {
             background-color: var(--badge-green-bg);
             color: var(--badge-green-text);
-            padding: 3px 12px;
+            padding: 4px 14px;
             border-radius: 6px;
             font-size: calc(12.5px + var(--font-scale));
             font-weight: 700;
@@ -379,15 +403,16 @@
             padding-top: 14px;
         }
 
+        /* Activities & Managers */
         .activity-card {
             background: var(--activity-bg);
             border-radius: 12px;
-            padding: 12px 14px;
+            padding: 14px 16px;
             margin-bottom: 10px;
-            border: 1px solid #eae8f2;
+            border: 1px solid #e7e5ef;
         }
         .activity-title {
-            font-size: calc(13px + var(--font-scale));
+            font-size: calc(13.5px + var(--font-scale));
             font-weight: 700;
             color: #1f2937;
             margin-bottom: 6px;
@@ -395,19 +420,19 @@
         }
         .activity-code {
             font-size: calc(13px + var(--font-scale));
-            color: #1f2937;
-            font-weight: 700;
+            color: #4b5563;
+            font-weight: 600;
         }
 
         .manager-box {
             background: var(--activity-bg);
             border-radius: 12px;
-            padding: 14px;
+            padding: 16px;
             text-align: center;
             font-weight: 700;
             color: #1f2937;
             font-size: calc(14px + var(--font-scale));
-            border: 1px solid #eae8f2;
+            border: 1px solid #e7e5ef;
         }
 
         /* Footer */
@@ -415,7 +440,7 @@
             text-align: center;
             padding: 20px 16px;
             font-size: calc(11.5px + var(--font-scale));
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.85);
             line-height: 1.6;
         }
         .footer-brand {
@@ -449,54 +474,56 @@
             margin-bottom: 4px;
         }
         .footer-version {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.65);
             font-size: calc(11px + var(--font-scale));
         }
     </style>
 </head>
 <body>
 
-    <!-- Loader -->
+    <!-- Official Loader Overlay -->
     <div id="page-loader">
         <div class="spinner"></div>
     </div>
 
-    <!-- Header Section -->
-    <header class="header">
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-        <div class="header-center">
-            <h1 class="header-title" id="txtHeaderTitle">المركز السعودي للتنافسية والأعمال</h1>
-            <div class="header-subtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER</div>
-        </div>
-        <div class="header-logo-section">
-            <span class="header-logo-icon">🌴</span>
-        </div>
-    </header>
-
-    <!-- Side Menu Drawer (Exact Match) -->
-    <div class="side-menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
-    <div class="side-menu" id="sideDrawer">
-        <div class="side-menu-header">
-            <button class="close-menu-btn" onclick="toggleMenu()">✕</button>
-        </div>
-        <div class="side-menu-content">
-            <a href="https://qr.saudibusiness.gov.sa" class="menu-action-btn" target="_blank">
-                <span id="txtPlatformBtn">منصة الأعمال</span>
-                <span class="menu-action-icon">⬅</span>
-            </a>
-            <div class="menu-row">
-                <span id="txtLangLabel">اللغة</span>
-                <div class="menu-badge-box" id="langToggleBtn" onclick="toggleLanguage()">En</div>
-            </div>
-            <div class="menu-row">
-                <span id="txtFontLabel">حجم الخط</span>
-                <div class="menu-badge-box" onclick="toggleFontSize()">A+</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Wrapper with Slide-in Animation -->
+    <!-- Main Wrapper with City Background Overlay -->
     <div class="main-wrapper" id="mainWrapper">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-right">
+                <button class="menu-btn" onclick="toggleMenu()">☰</button>
+                <div class="header-title-area">
+                    <h1 class="header-title" id="txtHeaderTitle">المركز السعودي للتنافسية والأعمال</h1>
+                    <div class="header-subtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER</div>
+                </div>
+            </div>
+            <div class="header-logo-section">
+                <span class="header-logo-icon">🌴</span>
+            </div>
+        </header>
+
+        <!-- Side Menu Drawer -->
+        <div class="side-menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+        <div class="side-menu" id="sideDrawer">
+            <div class="side-menu-header">
+                <button class="close-menu-btn" onclick="toggleMenu()">✕</button>
+            </div>
+            <div class="side-menu-content">
+                <a href="https://qr.saudibusiness.gov.sa" class="menu-action-btn" target="_blank">
+                    <span id="txtPlatformBtn">منصة الأعمال</span>
+                    <span class="menu-action-icon">⬅</span>
+                </a>
+                <div class="menu-row">
+                    <span id="txtLangLabel">اللغة</span>
+                    <div class="menu-badge-box" id="langToggleBtn" onclick="toggleLanguage()">En</div>
+                </div>
+                <div class="menu-row">
+                    <span id="txtFontLabel">حجم الخط</span>
+                    <div class="menu-badge-box" onclick="toggleFontSize()">A+</div>
+                </div>
+            </div>
+        </div>
+
         <div class="container">
             <h2 class="page-heading" id="txtMainHeading">بيانات السجل التجاري</h2>
 
@@ -632,18 +659,18 @@
     </div>
 
     <script>
-        // Smooth Loader and Slide-in Effect
+        // Official Loader and Smooth Slide Down Effect
         window.addEventListener('load', function() {
             setTimeout(function() {
                 var loader = document.getElementById('page-loader');
                 var wrapper = document.getElementById('mainWrapper');
                 
                 loader.style.opacity = '0';
-                wrapper.classList.add('loaded');
+                wrapper.classList.add('page-loaded');
                 
                 setTimeout(function() {
                     loader.style.display = 'none';
-                }, 600);
+                }, 400);
             }, 600);
         });
 
@@ -761,7 +788,7 @@
                 document.getElementById('act1').innerText = 'الإنشاءات العامة للمباني السكنية';
                 document.getElementById('act2').innerText = 'الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق ....الخ)';
                 document.getElementById('act3').innerText = 'إنشاء المطارات ومرافقها';
-                document.getElementById('act4').innerText, document.getElementById('act4').innerText = 'الإنشاءات العامة للمباني الحكومية';
+                document.getElementById('act4').innerText = 'الإنشاءات العامة للمباني الحكومية';
                 document.getElementById('txtManagersTitle').innerText = 'قائمة المديرِينَ';
                 document.getElementById('txtFooterBrand').innerText = 'تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي (SDAIA)';
                 document.getElementById('txtLink1').innerText = 'سياسة الخصوصية';
