@@ -1,22 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="htmlRoot">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال</title>
+    <title>بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال</title>
     <style>
-        :root {
-            --card-bg: #ffffff;
-            --text-main: #111827;
-            --text-muted: #6b7280;
-            --badge-green-bg: #e6f8ed;
-            --badge-green-text: #0d9448;
-            --activity-bg: #DDD5ED; /* Slightly enhanced vibrant light purple box */
-            --date-box-bg: #3d2c5e;  /* Purple background for date boxes */
-            --date-box-text: #ffffff;
-            --font-scale: 0px;
-        }
-
         * {
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
@@ -26,57 +14,23 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(180deg, rgba(38, 28, 70, 0.95) 0%, rgba(15, 10, 30, 0.98) 100%), 
+            /* Exact deep purple background overlay with shining city building photography */
+            background: linear-gradient(180deg, rgba(30, 22, 58, 0.88) 0%, rgba(15, 10, 30, 0.95) 100%), 
                         url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=90&w=1200&auto=format&fit=crop') no-repeat center center fixed;
             background-size: cover;
-            color: var(--text-main);
+            color: #111827;
             direction: rtl;
             text-align: right;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        /* Loading Overlay */
-        #page-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 99999;
-            transition: opacity 0.4s ease, visibility 0.4s ease;
-        }
-        .spinner {
-            width: 42px;
-            height: 42px;
-            border: 4px solid #e5e7eb;
-            border-top: 4px solid #231b3d;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         .main-wrapper {
             min-height: 100vh;
             padding: 0 12px 40px 12px;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
             position: relative;
         }
-        .main-wrapper.page-loaded {
-            opacity: 1;
-            transform: translateY(0);
-        }
 
-        /* Header */
+        /* Header Style */
         .header {
             background: transparent;
             color: white;
@@ -84,8 +38,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 10;
         }
         .header-right {
             display: flex;
@@ -106,24 +58,19 @@
             text-align: right;
         }
         .header-title {
-            font-size: calc(14.5px + var(--font-scale));
+            font-size: 14.5px;
             font-weight: 700;
             margin: 0;
             line-height: 1.3;
             color: #ffffff;
-            text-shadow: 0 0 12px rgba(255,255,255,0.9), 0 1px 4px rgba(0,0,0,0.6);
+            text-shadow: 0 0 12px rgba(255,255,255,0.9);
         }
         .header-subtitle {
-            font-size: calc(9px + var(--font-scale));
+            font-size: 9px;
             font-weight: 500;
             color: rgba(255, 255, 255, 0.95);
             letter-spacing: 0.3px;
             margin-top: 2px;
-            text-shadow: 0 0 10px rgba(255,255,255,0.7);
-        }
-        .header-logo-section {
-            display: flex;
-            align-items: center;
         }
         .header-logo-icon {
             width: 38px;
@@ -139,127 +86,26 @@
             fill: #ffffff;
         }
 
-        /* Side Menu Drawer */
-        .side-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            z-index: 1500;
-        }
-        .side-menu-overlay.active {
-            visibility: visible;
-            opacity: 1;
-        }
-        .side-menu {
-            position: fixed;
-            top: 0;
-            right: -320px;
-            width: 300px;
-            height: 100%;
-            background-color: #ffffff;
-            color: var(--text-main);
-            box-shadow: -5px 0 25px rgba(0,0,0,0.2);
-            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1600;
-            display: flex;
-            flex-direction: column;
-            text-align: right;
-            direction: rtl;
-        }
-        .side-menu.active {
-            right: 0;
-        }
-        .side-menu-header {
-            padding: 16px 20px;
-            display: flex;
-            justify-content: flex-start;
-            border-bottom: 1px solid #f3f4f6;
-        }
-        .close-menu-btn {
-            background: none;
-            border: none;
-            font-size: 22px;
-            color: var(--text-muted);
-            cursor: pointer;
-            padding: 0;
-            line-height: 1;
-        }
-        .side-menu-content {
-            padding: 24px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .menu-action-btn {
-            background-color: #5c5384;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 16px;
-            font-size: 15px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .menu-action-icon {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 13px;
-        }
-        .menu-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #f3f4f6;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-        .menu-badge-box {
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            padding: 8px 16px;
-            background: #fff;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text-main);
-            cursor: pointer;
-            min-width: 45px;
-            text-align: center;
-        }
-
-        /* Container & Cards */
+        /* Container */
         .container {
             max-width: 520px;
             margin: 0 auto;
             position: relative;
-            z-index: 10;
         }
 
-        /* High Gloss Glowing Main Heading */
+        /* Main Heading */
         .page-heading {
             text-align: center;
-            font-size: calc(26px + var(--font-scale));
+            font-size: 26px;
             font-weight: 900;
             color: #ffffff;
             margin: 16px 0 20px 0;
             text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 2px 10px rgba(0, 0, 0, 0.9);
-            letter-spacing: -0.5px;
         }
 
+        /* Notice Banner */
         .notice-banner {
-            background: var(--card-bg);
+            background: #ffffff;
             border-radius: 18px;
             padding: 16px;
             margin-bottom: 16px;
@@ -275,14 +121,15 @@
         }
         .notice-banner p {
             margin: 0;
-            font-size: calc(13px + var(--font-scale));
+            font-size: 13.5px;
             line-height: 1.65;
             color: #111827;
-            font-weight: 700; /* Made bolder and darker as requested */
+            font-weight: 700;
         }
 
+        /* Card Style */
         .card {
-            background: var(--card-bg);
+            background: #ffffff;
             border-radius: 20px;
             padding: 20px 16px;
             margin-bottom: 16px;
@@ -298,7 +145,7 @@
             padding-bottom: 14px;
         }
         
-        /* Green Logo aligned precisely like reference screenshot */
+        /* Green Gov Seal Logo */
         .gov-seal {
             width: 48px;
             height: 50px;
@@ -320,17 +167,17 @@
             padding-left: 10px;
         }
         .status-badge-inline {
-            background-color: var(--badge-green-bg);
-            color: var(--badge-green-text);
+            background-color: #e6f8ed;
+            color: #0d9448;
             padding: 5px 16px;
             border-radius: 6px;
-            font-size: calc(13px + var(--font-scale));
+            font-size: 13px;
             font-weight: 700;
             display: inline-block;
             margin-bottom: 8px;
         }
         .comp-title {
-            font-size: calc(17px + var(--font-scale));
+            font-size: 17px;
             font-weight: 800;
             color: #111827;
             line-height: 1.45;
@@ -342,19 +189,19 @@
             align-items: center;
             padding: 12px 0;
             border-bottom: 1px solid #f9fafb;
-            font-size: calc(13.5px + var(--font-scale));
+            font-size: 13.5px;
         }
         .info-row:last-child {
             border-bottom: none;
         }
         .info-label {
-            color: var(--text-muted);
+            color: #6b7280;
             font-weight: 400;
             flex-shrink: 0;
         }
         .info-val {
             font-weight: 700;
-            color: var(--text-main);
+            color: #111827;
             text-align: left;
         }
 
@@ -363,7 +210,7 @@
             color: #374151;
             padding: 4px 12px;
             border-radius: 6px;
-            font-size: calc(13px + var(--font-scale));
+            font-size: 13px;
             font-weight: 600;
         }
         .chip-indigo {
@@ -371,7 +218,7 @@
             color: #4338ca;
             padding: 4px 12px;
             border-radius: 6px;
-            font-size: calc(13px + var(--font-scale));
+            font-size: 13px;
             font-weight: 600;
         }
 
@@ -380,8 +227,8 @@
             border-bottom: 1px solid #f9fafb;
         }
         .date-label-top {
-            color: var(--text-muted);
-            font-size: calc(13.5px + var(--font-scale));
+            color: #6b7280;
+            font-size: 13.5px;
             margin-bottom: 8px;
             line-height: 1.4;
         }
@@ -390,29 +237,30 @@
             grid-template-columns: 1fr 1fr;
             gap: 8px;
         }
-        /* Purple background for date boxes as requested */
+        /* Normal clear light date boxes matching screenshots */
         .date-badge-box {
-            background: var(--date-box-bg);
+            background: #f3f4f6;
             border-radius: 8px;
             padding: 8px 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: calc(12.5px + var(--font-scale));
+            font-size: 12.5px;
             font-weight: 700;
-            color: var(--date-box-text);
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
         }
         .date-badge-box span:last-child {
-            color: #f3f4f6;
+            color: #4b5563;
             font-weight: 600;
             font-size: 11px;
-            background: rgba(255, 255, 255, 0.2);
+            background: #e5e7eb;
             padding: 2px 6px;
             border-radius: 4px;
         }
 
         .section-title {
-            font-size: calc(15px + var(--font-scale));
+            font-size: 15px;
             font-weight: 800;
             color: #111827;
             margin: 18px 0 12px 0;
@@ -420,44 +268,45 @@
             padding-top: 14px;
         }
 
-        /* Enhanced light purple boxes */
         .activity-card {
-            background: var(--activity-bg);
+            background: #f5f3ff;
             border-radius: 12px;
             padding: 14px 16px;
             margin-bottom: 10px;
+            border: 1px solid #ede9fe;
         }
         .activity-title {
-            font-size: calc(13.5px + var(--font-scale));
+            font-size: 13.5px;
             font-weight: 700;
             color: #1f2937;
             margin-bottom: 6px;
             line-height: 1.5;
         }
         .activity-code {
-            font-size: calc(13px + var(--font-scale));
-            color: #1f2937;
+            font-size: 13px;
+            color: #4b5563;
             font-weight: 700;
         }
 
         .manager-box {
-            background: var(--activity-bg);
+            background: #f5f3ff;
             border-radius: 12px;
             padding: 16px;
             text-align: center;
             font-weight: 700;
             color: #1f2937;
-            font-size: calc(14px + var(--font-scale));
+            font-size: 14px;
+            border: 1px solid #ede9fe;
         }
 
-        /* Footer with clean un-heavy bottom background */
+        /* Footer */
         .footer {
             text-align: center;
             padding: 30px 16px 20px 16px;
-            font-size: calc(11.5px + var(--font-scale));
-            color: #1f2937; /* Dark readable text on clean background */
+            font-size: 11.5px;
+            color: #1f2937;
             line-height: 1.6;
-            background: #ffffff; /* Clean white background for the bottom as shown in screenshot */
+            background: #ffffff;
             border-radius: 20px 20px 0 0;
             margin-top: 30px;
             box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
@@ -472,10 +321,9 @@
         }
         .footer-brand {
             font-weight: 700;
-            font-size: calc(13px + var(--font-scale));
+            font-size: 13px;
             color: #1f2937;
         }
-        
         .sdaia-logo-badge {
             width: 40px;
             height: 40px;
@@ -492,7 +340,6 @@
             width: 100%;
             height: 100%;
         }
-
         .footer-links {
             display: flex;
             justify-content: center;
@@ -503,50 +350,33 @@
             color: #1f2937;
             text-decoration: none;
             font-weight: 700;
-            font-size: calc(12.5px + var(--font-scale));
-        }
-        .app-badges {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-        .app-badge-img {
-            height: 36px;
-            width: auto;
-            border-radius: 6px;
+            font-size: 12.5px;
         }
         .footer-copy {
             margin-bottom: 6px;
             font-weight: 700;
             color: #1f2937;
-            font-size: calc(12px + var(--font-scale));
+            font-size: 12px;
         }
         .footer-version {
             color: #4b5563;
-            font-size: calc(11px + var(--font-scale));
+            font-size: 11px;
             font-weight: 600;
         }
     </style>
 </head>
 <body>
 
-    <div id="page-loader">
-        <div class="spinner"></div>
-    </div>
-
-    <div class="main-wrapper" id="mainWrapper">
+    <div class="main-wrapper">
         <header class="header">
             <div class="header-right">
-                <button class="menu-btn" onclick="toggleMenu()">☰</button>
+                <button class="menu-btn">☰</button>
                 <div class="header-title-area">
-                    <h1 class="header-title" id="txtHeaderTitle">المركز السعودي للتنافسية والأعمال</h1>
+                    <h1 class="header-title">المركز السعودي للتنافسية والأعمال</h1>
                     <div class="header-subtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER</div>
                 </div>
             </div>
             <div class="header-logo-section">
-                <!-- Glowing White Palm Tree Logo -->
                 <div class="header-logo-icon">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2C11.45 2 11 2.45 11 3V5H9C8.45 5 8 5.45 8 6C8 6.55 8.45 7 9 7H11V9.17C9.22 9.68 8 11.2 8 13C8 14.8 9.22 16.32 11 16.83V21C11 21.55 11.45 22 12 22C12.55 22 13 21.55 13 21V16.83C14.78 16.32 16 14.8 16 13C16 11.2 14.78 9.68 13 9.17V7H15C15.55 7 16 6.55 16 6C16 5.45 15.55 5 15 5H13V3C13 2.45 12.55 2 12 2ZM12 4C12.28 4 12.5 4.22 12.5 4.5V5H11.5V4.5C11.5 4.22 11.72 4 12 4ZM10 6H14V6.5C14 6.78 13.78 7 13.5 7H10.5C10.22 7 10 6.78 10 6.5V6ZM12 11C13.66 11 15 12.34 15 14C15 15.66 13.66 17 12 17C10.34 17 9 15.66 9 14C9 12.34 10.34 11 12 11Z"/>
@@ -555,63 +385,42 @@
             </div>
         </header>
 
-        <div class="side-menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
-        <div class="side-menu" id="sideDrawer">
-            <div class="side-menu-header">
-                <button class="close-menu-btn" onclick="toggleMenu()">✕</button>
-            </div>
-            <div class="side-menu-content">
-                <a href="https://qr.saudibusiness.gov.sa" class="menu-action-btn" target="_blank">
-                    <span id="txtPlatformBtn">منصة الأعمال</span>
-                    <span class="menu-action-icon">⬅</span>
-                </a>
-                <div class="menu-row">
-                    <span id="txtLangLabel">اللغة</span>
-                    <div class="menu-badge-box" id="langToggleBtn" onclick="toggleLanguage()">En</div>
-                </div>
-                <div class="menu-row">
-                    <span id="txtFontLabel">حجم الخط</span>
-                    <div class="menu-badge-box" onclick="toggleFontSize()">A+</div>
-                </div>
-            </div>
-        </div>
-
         <div class="container">
-            <h2 class="page-heading" id="txtMainHeading">بيانات السجل التجاري</h2>
+            <h2 class="page-heading">بيانات السجل التجاري</h2>
 
             <div class="notice-banner">
                 <div class="notice-icon">ℹ️</div>
-                <p id="txtNotice">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
+                <p>المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
             </div>
 
             <div class="card">
                 <div class="card-top-row">
                     <div class="comp-title-area">
-                        <span class="status-badge-inline" id="txtStatus">نشط</span>
-                        <div class="comp-title" id="txtCompName">شركة عبدالهادي محمد اليامي للمقاولات</div>
+                        <span class="status-badge-inline">نشط</span>
+                        <div class="comp-title">شركة عبدالهادي محمد اليامي للمقاولات</div>
                     </div>
-                    <div class="gov-seal" title="وزارة التجارة">🏛️</div>
+                    <div class="gov-seal">🏛️</div>
                 </div>
 
                 <div class="info-row">
-                    <span class="info-label" id="txtTypeLabel">نوع المنشأة</span>
-                    <span class="info-val"><span class="chip" id="txtTypeVal">شركة</span></span>
+                    <span class="info-label">نوع المنشأة</span>
+                    <span class="info-val"><span class="chip">شركة</span></span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label" id="txtCoTypeLabel">نوع الشركة</span>
-                    <span class="info-val"><span class="chip" id="txtCoTypeValue">ذات مسؤولية محدودة</span></span>
+                    <span class="info-label">نوع الشركة</span>
+                    <span class="info-val"><span class="chip">ذات مسؤولية محدودة</span></span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label" id="txtNatNumLabel">الرقم الوطني الموحد للمنشأة</span>
+                    <span class="info-label">الرقم الوطني الموحد للمنشأة</span>
                     <span class="info-val">7052072944</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label" id="txtRegTypeLabel">نوع السجل</span>
-                    <span class="info-val"><span class="chip-indigo" id="txtRegTypeVal">سجل رئيسي</span></span>
+                    <span class="info-label">نوع السجل</span>
+                    <span class="info-val"><span class="chip-indigo">سجل رئيسي</span></span>
                 </div>
 
                 <div class="date-container">
-                    <div class="date-label-top" id="txtDate1Label">تاريخ قيد السجل التجاري</div>
+                    <div class="date-label-top">تاريخ قيد السجل التجاري</div>
                     <div class="date-badges-grid">
                         <div class="date-badge-box"><span>1447-04-22</span> <span>هـ</span></div>
                         <div class="date-badge-box"><span>14-10-2025</span> <span>م</span></div>
@@ -619,7 +428,7 @@
                 </div>
 
                 <div class="date-container">
-                    <div class="date-label-top" id="txtDate2Label">تاريخ التأكيد السنوي للسجل التجاري</div>
+                    <div class="date-label-top">تاريخ التأكيد السنوي للسجل التجاري</div>
                     <div class="date-badges-grid">
                         <div class="date-badge-box"><span>1448-05-02</span> <span>هـ</span></div>
                         <div class="date-badge-box"><span>13-10-2026</span> <span>م</span></div>
@@ -627,56 +436,55 @@
                 </div>
 
                 <div class="info-row">
-                    <span class="info-label" id="txtCityLabel">مدينة عنوان الأعمال المعتمـد للمنشأة</span>
-                    <span class="info-val" id="txtCityVal">الجبيـل حي الصفـاة شارع مكـة المكرمة</span>
+                    <span class="info-label">مدينة عنوان الأعمال المعتمـد للمنشأة</span>
+                    <span class="info-val">الجبيـل حي الصفـاة شارع مكـة المكرمة</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label" id="txtVerLabel">رقم نسخة السجل التجاري</span>
+                    <span class="info-label">رقم نسخة السجل التجاري</span>
                     <span class="info-val">-</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label" id="txtCapLabel">قيمة رأس المال الكلي</span>
+                    <span class="info-label">قيمة رأس المال الكلي</span>
                     <span class="info-val">ر 5,000.00</span>
                 </div>
 
-                <div class="section-title" id="txtContactTitle">بيانات الاتصال</div>
+                <div class="section-title">بيانات الاتصال</div>
                 <div class="info-row">
-                    <span class="info-label" id="txtPhoneLabel">رقم الجوال</span>
+                    <span class="info-label">رقم الجوال</span>
                     <span class="info-val" dir="ltr">00966558531945</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label" id="txtEmailLabel">البريد الإلكتروني</span>
-                    <span class="info-val" style="font-size: calc(12px + var(--font-scale));" dir="ltr">klhnfskfhbj@gmail.com</span>
+                    <span class="info-label">البريد الإلكتروني</span>
+                    <span class="info-val" style="font-size: 12px;" dir="ltr">klhnfskfhbj@gmail.com</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label" id="txtWebLabel">عنوان الموقع الإلكتروني</span>
+                    <span class="info-label">عنوان الموقع الإلكتروني</span>
                     <span class="info-val">-</span>
                 </div>
             </div>
 
             <div class="card">
-                <div class="section-title" style="margin-top: 0; border-top: none; padding-top: 0;" id="txtActivitiesTitle">قائمة أنشطة السجل التجاري</div>
-                
+                <div class="section-title" style="margin-top: 0; border-top: none; padding-top: 0;">قائمة أنشطة السجل التجاري</div>
                 <div class="activity-card">
-                    <div class="activity-title" id="act1">الإنشاءات العامة للمباني السكنية</div>
+                    <div class="activity-title">الإنشاءات العامة للمباني السكنية</div>
                     <div class="activity-code">410010</div>
                 </div>
                 <div class="activity-card">
-                    <div class="activity-title" id="act2">الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق ....الخ)</div>
+                    <div class="activity-title">الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق ....الخ)</div>
                     <div class="activity-code">410021</div>
                 </div>
                 <div class="activity-card">
-                    <div class="activity-title" id="act3">إنشاء المطارات ومرافقها</div>
+                    <div class="activity-title">إنشاء المطارات ومرافقها</div>
                     <div class="activity-code">410022</div>
                 </div>
                 <div class="activity-card">
-                    <div class="activity-title" id="act4">الإنشاءات العامة للمباني الحكومية</div>
+                    <div class="activity-title">الإنشاءات العامة للمباني الحكومية</div>
                     <div class="activity-code">410023</div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="section-title" style="margin-top: 0; border-top: none; padding-top: 0;" id="txtManagersTitle">قائمة المديرِينَ</div>
+                <div class="section-title" style="margin-top: 0; border-top: none; padding-top: 0;">قائمة المديرِينَ</div>
                 <div class="manager-box">
                     عبدالهادي محمد مبارك اليامي
                 </div>
@@ -690,170 +498,20 @@
                         <polygon points="50,10 65,35 90,30 72,52 85,75 60,70 50,95 40,70 15,75 28,52 10,30 35,35" fill="none" />
                         <path d="M50,20 L60,40 L80,35 L68,55 L78,75 L55,68 L50,85 L45,68 L22,75 L32,55 L20,35 L40,40 Z" fill="#0d9448" opacity="0.85"/>
                         <circle cx="50" cy="50" r="18" fill="#4338ca" opacity="0.9"/>
-                        <path d="M35,30 Q50,15 65,30 Q80,50 65,70 Q50,85 35,70 Q20,50 35,30 Z" fill="none" stroke="#e11d48" stroke-width="4"/>
-                        <path d="M25,25 L75,75 M75,25 L25,75" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
                     </svg>
                 </div>
-                <div class="footer-brand" id="txtFooterBrand">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي (SDAIA)</div>
+                <div class="footer-brand">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي (SDAIA)</div>
             </div>
 
             <div class="footer-links">
-                <a href="https://qr.saudibusiness.gov.sa" target="_blank" id="txtLink1">سياسة الخصوصية</a>
-                <a href="https://qr.saudibusiness.gov.sa" target="_blank" id="txtLink2">الشروط والأحكام</a>
-                <a href="https://qr.saudibusiness.gov.sa" target="_blank" id="txtLink3">الأسئلة الشائعة</a>
-            </div>
-            
-            <div class="app-badges">
-                <a href="https://apps.apple.com" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" class="app-badge-img">
-                </a>
-                <a href="https://play.google.com" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="app-badge-img">
-                </a>
+                <a href="#">سياسة الخصوصية</a>
+                <a href="#">الشروط والأحكام</a>
+                <a href="#">الأسئلة الشائعة</a>
             </div>
 
-            <div class="footer-copy" id="txtFooterCopy">جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026</div>
-            <div class="footer-version" id="txtFooterVer">الإصدار 1.1.9</div>
+            <div class="footer-copy">جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026</div>
+            <div class="footer-version">الإصدار 1.1.9</div>
         </footer>
     </div>
-
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                var loader = document.getElementById('page-loader');
-                var wrapper = document.getElementById('mainWrapper');
-                
-                loader.style.opacity = '0';
-                wrapper.classList.add('page-loaded');
-                
-                setTimeout(function() {
-                    loader.style.display = 'none';
-                }, 400);
-            }, 600);
-        });
-
-        function toggleMenu() {
-            var drawer = document.getElementById('sideDrawer');
-            var overlay = document.getElementById('menuOverlay');
-            drawer.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-
-        let fontStep = 0;
-        function toggleFontSize() {
-            fontStep = (fontStep + 1) % 3;
-            let root = document.documentElement;
-            if (fontStep === 1) {
-                root.style.setProperty('--font-scale', '2px');
-                event.target.innerText = 'A-';
-            } else if (fontStep === 2) {
-                root.style.setProperty('--font-scale', '-1px');
-                event.target.innerText = 'Norm';
-            } else {
-                root.style.setProperty('--font-scale', '0px');
-                event.target.innerText = 'A+';
-            }
-        }
-
-        let currentLang = 'ar';
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            let htmlRoot = document.getElementById('htmlRoot');
-            let langBtn = document.getElementById('langToggleBtn');
-
-            if (currentLang === 'en') {
-                htmlRoot.setAttribute('lang', 'en');
-                htmlRoot.setAttribute('dir', 'ltr');
-                document.body.style.direction = 'ltr';
-                document.body.style.textAlign = 'left';
-                langBtn.innerText = 'AR';
-
-                document.getElementById('pageTitle').innerText = 'Commercial Registration Details - Saudi Competitiveness & Business Center';
-                document.getElementById('txtHeaderTitle').innerText = 'Saudi Competitiveness & Business Center';
-                document.getElementById('txtPlatformBtn').innerText = 'Business Platform';
-                document.getElementById('txtLangLabel').innerText = 'Language';
-                document.getElementById('txtFontLabel').innerText = 'Font Size';
-                document.getElementById('txtMainHeading').innerText = 'بيانات السجل التجاري';
-                document.getElementById('txtNotice').innerText = 'The Saudi Competitiveness and Business Center is not responsible for any deficiency or discrepancy in the data, as data is retrieved via integration with relevant authorities.';
-                document.getElementById('txtStatus').innerText = 'Active';
-                document.getElementById('txtCompName').innerText = 'شركة عبدالهادي محمد اليامي للمقاولات';
-                document.getElementById('txtTypeLabel').innerText = 'Establishment Type';
-                document.getElementById('txtTypeVal').innerText = 'Company';
-                document.getElementById('txtCoTypeLabel').innerText = 'Company Type';
-                document.getElementById('txtCoTypeValue').innerText = 'Limited Liability';
-                document.getElementById('txtNatNumLabel').innerText = 'Unified National Number';
-                document.getElementById('txtRegTypeLabel').innerText = 'Registration Type';
-                document.getElementById('txtRegTypeVal').innerText = 'Main Registration';
-                document.getElementById('txtDate1Label').innerText = 'CR Issuance Date';
-                document.getElementById('txtDate2Label').innerText = 'CR Annual Confirmation Date';
-                document.getElementById('txtCityLabel').innerText = 'Business City';
-                document.getElementById('txtCityVal').innerText = 'Al-Jubail, Al-Safa Dist, Makkah St.';
-                document.getElementById('txtVerLabel').innerText = 'CR Copy Number';
-                document.getElementById('txtCapLabel').innerText = 'Total Capital';
-                document.getElementById('txtContactTitle').innerText = 'Contact Information';
-                document.getElementById('txtPhoneLabel').innerText = 'Mobile Number';
-                document.getElementById('txtEmailLabel').innerText = 'Email Address';
-                document.getElementById('txtWebLabel').innerText = 'Website URL';
-                document.getElementById('txtActivitiesTitle').innerText = 'Commercial Activities List';
-                document.getElementById('act1').innerText = 'General Construction of Residential Buildings';
-                document.getElementById('act2').innerText = 'General Construction of Non-Residential Buildings (e.g. schools, hospitals, hotels...)';
-                document.getElementById('act3').innerText = 'Construction of Airports and Facilities';
-                document.getElementById('act4').innerText = 'General Construction of Government Buildings';
-                document.getElementById('txtManagersTitle').innerText = 'Managers List';
-                document.getElementById('txtFooterBrand').innerText = 'Developed by Saudi Data and AI Authority (SDAIA)';
-                document.getElementById('txtLink1').innerText = 'Privacy Policy';
-                document.getElementById('txtLink2').innerText = 'Terms & Conditions';
-                document.getElementById('txtLink3').innerText = 'FAQ';
-                document.getElementById('txtFooterCopy').innerText = 'All rights reserved to the Saudi Competitiveness & Business Center 2026';
-                document.getElementById('txtFooterVer').innerText = 'Version 1.1.9';
-            } else {
-                htmlRoot.setAttribute('lang', 'ar');
-                htmlRoot.setAttribute('dir', 'rtl');
-                document.body.style.direction = 'rtl';
-                document.body.style.textAlign = 'right';
-                langBtn.innerText = 'En';
-
-                document.getElementById('pageTitle').innerText = 'بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال';
-                document.getElementById('txtHeaderTitle').innerText = 'المركز السعودي للتنافسية والأعمال';
-                document.getElementById('txtPlatformBtn').innerText = 'منصة الأعمال';
-                document.getElementById('txtLangLabel').innerText = 'اللغة';
-                document.getElementById('txtFontLabel').innerText = 'حجم الخط';
-                document.getElementById('txtMainHeading').innerText = 'بيانات السجل التجاري';
-                document.getElementById('txtNotice').innerText = 'المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.';
-                document.getElementById('txtStatus').innerText = 'نشط';
-                document.getElementById('txtCompName').innerText = 'شركة عبدالهادي محمد اليامي للمقاولات';
-                document.getElementById('txtTypeLabel').innerText = 'نوع المنشأة';
-                document.getElementById('txtTypeVal').innerText = 'شركة';
-                document.getElementById('txtCoTypeLabel').innerText = 'نوع الشركة';
-                document.getElementById('txtCoTypeValue').innerText = 'ذات مسؤولية محدودة';
-                document.getElementById('txtNatNumLabel').innerText = 'الرقم الوطني الموحد للمنشأة';
-                document.getElementById('txtRegTypeLabel').innerText = 'نوع السجل';
-                document.getElementById('txtRegTypeVal').innerText = 'سجل رئيسي';
-                document.getElementById('txtDate1Label').innerText = 'تاريخ قيد السجل التجاري';
-                document.getElementById('txtDate2Label').innerText = 'تاريخ التأكيد السنوي للسجل التجاري';
-                document.getElementById('txtCityLabel').innerText = 'مدينة عنوان الأعمال المعتمـد للمنشأة';
-                document.getElementById('txtCityVal').innerText = 'الجبيـل حي الصفـاة شارع مكـة المكرمة';
-                document.getElementById('txtVerLabel').innerText = 'رقم نسخة السجل التجاري';
-                document.getElementById('txtCapLabel').innerText = 'قيمة رأس المال الكلي';
-                document.getElementById('txtContactTitle').innerText = 'بيانات الاتصال';
-                document.getElementById('txtPhoneLabel').innerText = 'رقم الجوال';
-                document.getElementById('txtEmailLabel').innerText = 'البريد الإلكتروني';
-                document.getElementById('txtWebLabel').innerText = 'عنوان الموقع الإلكتروني';
-                document.getElementById('txtActivitiesTitle').innerText = 'قائمة أنشطة السجل التجاري';
-                document.getElementById('act1').innerText = 'الإنشاءات العامة للمباني السكنية';
-                document.getElementById('act2').innerText = 'الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق ....الخ)';
-                document.getElementById('act3').innerText = 'إنشاء المطارات ومرافقها';
-                document.getElementById('act4').innerText = 'الإنشاءات العامة للمباني الحكومية';
-                document.getElementById('txtManagersTitle').innerText = 'قائمة المديرِينَ';
-                document.getElementById('txtFooterBrand').innerText = 'تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي (SDAIA)';
-                document.getElementById('txtLink1').innerText = 'سياسة الخصوصية';
-                document.getElementById('txtLink2').innerText = 'الشروط والأحكام';
-                document.getElementById('txtLink3').innerText = 'الأسئلة الشائعة';
-                document.getElementById('txtFooterCopy').innerText = 'جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026';
-                document.getElementById('txtFooterVer').innerText = 'الإصدار 1.1.9';
-            }
-            toggleMenu();
-        }
-    </script>
 </body>
 </html>
