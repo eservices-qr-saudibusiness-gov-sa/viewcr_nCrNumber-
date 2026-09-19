@@ -124,7 +124,7 @@
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
         }
 
-        /* Custom Saudi Emblem Image Box */
+        /* Header Logo Icon */
         .header-logo-icon {
             width: 44px;
             height: 44px;
@@ -274,7 +274,7 @@
             position: relative;
         }
 
-        /* Main Heading - Glowing Effect */
+        /* Main Heading */
         .page-heading {
             text-align: center;
             font-size: 27px;
@@ -325,23 +325,31 @@
             margin-bottom: 16px;
             border-bottom: 1px solid #e5e7eb;
             padding-bottom: 16px;
+            position: relative;
         }
 
-        /* Green Logo Centered on Top */
-        .gov-seal-center {
-            width: 60px;
-            height: 60px;
-            border-radius: 14px;
+        /* Logo placed on the right side above Active status */
+        .card-side-logo {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+        body.ltr-mode .card-side-logo {
+            justify-content: flex-start;
+        }
+        .gov-seal-side {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
             overflow: hidden;
-            margin: 0 auto 12px auto;
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.9), 0 4px 12px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.9), 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.9);
             background: #0d7a3c;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .gov-seal-center img {
+        .gov-seal-side img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -515,33 +523,49 @@
         }
         .footer-brand-row {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 14px;
             flex-wrap: wrap;
+            text-align: right;
+        }
+        body.ltr-mode .footer-brand-row {
+            justify-content: flex-start;
+            text-align: left;
+        }
+        .footer-brand-text {
+            display: flex;
+            flex-direction: column;
         }
         .footer-brand {
-            font-weight: 800;
+            font-weight: 900;
             font-size: 13.5px;
             color: #0f172a;
         }
+        .footer-brand-sub {
+            font-weight: 700;
+            font-size: 11px;
+            color: #475569;
+            margin-top: 2px;
+        }
         .sdaia-logo-badge {
-            width: 40px;
-            height: 40px;
-            background: #0d7a3c;
-            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            background: #ffffff;
+            border-radius: 10px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             border: 1px solid #e5e7eb;
+            flex-shrink: 0;
         }
         .sdaia-logo-badge img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
         .footer-links {
             display: flex;
@@ -606,7 +630,7 @@
                 <button class="menu-btn" onclick="toggleMenu()">☰</button>
                 <div class="header-title-area">
                     <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
-                    <div class="header-subtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER</div>
+                    <div class="header-subtitle" id="headerSubtitle">تيسير | TAYSEER</div>
                 </div>
             </div>
             <div class="header-logo-section">
@@ -626,8 +650,11 @@
 
             <div class="card">
                 <div class="card-top-section">
-                    <div class="gov-seal-center">
-                        <img src="https://i.ibb.co/3s6R1z9/1000284729.jpg" alt="Saudi Emblem">
+                    <!-- Logo on the right side above Active status -->
+                    <div class="card-side-logo">
+                        <div class="gov-seal-side">
+                            <img src="https://i.ibb.co/3s6R1z9/1000284729.jpg" alt="Saudi Emblem">
+                        </div>
                     </div>
                     <div class="comp-title-row">
                         <span class="status-badge-inline" id="statusBadge">نشط</span>
@@ -727,9 +754,12 @@
         <footer class="footer">
             <div class="footer-brand-row">
                 <div class="sdaia-logo-badge">
-                    <img src="https://i.ibb.co/3s6R1z9/1000284729.jpg" alt="Saudi Emblem">
+                    <img src="https://i.ibb.co/3s6R1z9/1000284729.jpg" alt="SDAIA Logo">
                 </div>
-                <div class="footer-brand" id="footerBrand">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي (SDAIA)</div>
+                <div class="footer-brand-text">
+                    <div class="footer-brand" id="footerBrand">SDAIA</div>
+                    <div class="footer-brand-sub" id="footerBrandSub">الهيئة السعودية للبيانات والذكاء الاصطناعي</div>
+                </div>
             </div>
 
             <div class="footer-links">
@@ -778,6 +808,7 @@
                 document.getElementById('langRowLabel').innerText = "Language";
                 document.getElementById('fontRowLabel').innerText = "Font Size";
                 document.getElementById('headerTitle').innerText = "Saudi Competitiveness & Business Center";
+                document.getElementById('headerSubtitle').innerText = "TAYSEER | تيسير";
                 document.getElementById('mainHeading').innerText = "Commercial Register Data";
                 document.getElementById('noticeText').innerText = "The Saudi Competitiveness and Business Center is not responsible for any shortage or discrepancy in the data, as data is retrieved through integration with relevant authorities.";
                 document.getElementById('statusBadge').innerText = "Active";
@@ -806,7 +837,8 @@
                 document.getElementById('act4').innerText = "General construction of government buildings";
                 document.getElementById('secManagers').innerText = "Managers List";
                 document.getElementById('managerName').innerText = "Abdulhadi Mohammed Mubarak Al Yami";
-                document.getElementById('footerBrand').innerText = "Developed by Saudi Authority for Data and Artificial Intelligence (SDAIA)";
+                document.getElementById('footerBrand').innerText = "SDAIA";
+                document.getElementById('footerBrandSub').innerText = "Saudi Data & AI Authority";
                 document.getElementById('linkPrivacy').innerText = "Privacy Policy";
                 document.getElementById('linkTerms').innerText = "Terms & Conditions";
                 document.getElementById('linkFAQ').innerText = "FAQ";
@@ -826,6 +858,7 @@
                 document.getElementById('langRowLabel').innerText = "اللغة";
                 document.getElementById('fontRowLabel').innerText = "حجم الخط";
                 document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
+                document.getElementById('headerSubtitle').innerText = "تيسير | TAYSEER";
                 document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
                 document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
                 document.getElementById('statusBadge').innerText = "نشط";
@@ -854,7 +887,8 @@
                 document.getElementById('act4').innerText = "الإنشاءات العامة للمباني الحكومية";
                 document.getElementById('secManagers').innerText = "قائمة المديرِينَ";
                 document.getElementById('managerName').innerText = "عبدالهادي محمد مبارك اليامي";
-                document.getElementById('footerBrand').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي (SDAIA)";
+                document.getElementById('footerBrand').innerText = "SDAIA";
+                document.getElementById('footerBrandSub').innerText = "الهيئة السعودية للبيانات والذكاء الاصطناعي";
                 document.getElementById('linkPrivacy').innerText = "سياسة الخصوصية";
                 document.getElementById('linkTerms').innerText = "الشروط والأحكام";
                 document.getElementById('linkFAQ').innerText = "الأسئلة الشائعة";
