@@ -14,7 +14,6 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            /* Exact deep purple background overlay with shining city building photography */
             background: linear-gradient(180deg, rgba(30, 22, 58, 0.88) 0%, rgba(15, 10, 30, 0.95) 100%), 
                         url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=90&w=1200&auto=format&fit=crop') no-repeat center center fixed;
             background-size: cover;
@@ -72,18 +71,99 @@
             letter-spacing: 0.3px;
             margin-top: 2px;
         }
+
+        /* Custom Saudi Emblem Image Box */
         .header-logo-icon {
-            width: 38px;
-            height: 38px;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            border: 1.5px solid rgba(255, 255, 255, 0.6);
+            background: #0d7a3c;
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1));
         }
-        .header-logo-icon svg {
+        .header-logo-icon img {
             width: 100%;
             height: 100%;
-            fill: #ffffff;
+            object-fit: cover;
+        }
+
+        /* Sidebar Overlay & Menu */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+        .sidebar-overlay.active {
+            display: block;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100%;
+            background: #ffffff;
+            z-index: 1000;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.3);
+            transition: right 0.3s ease;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar.active {
+            right: 0;
+        }
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .sidebar-header h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #111827;
+        }
+        .close-sidebar {
+            background: none;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: #4b5563;
+        }
+        .sidebar-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .sidebar-links a {
+            text-decoration: none;
+            color: #1f2937;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 10px 12px;
+            border-radius: 8px;
+            background: #f9fafb;
+            display: block;
+            transition: background 0.2s;
+        }
+        .sidebar-links a:hover {
+            background: #f3f4f6;
+            color: #4338ca;
         }
 
         /* Container */
@@ -145,7 +225,6 @@
             padding-bottom: 14px;
         }
         
-        /* Green Gov Seal Logo */
         .gov-seal {
             width: 48px;
             height: 50px;
@@ -237,18 +316,19 @@
             grid-template-columns: 1fr 1fr;
             gap: 8px;
         }
-        /* Normal clear light date boxes matching screenshots */
+        
+        /* Updated Date Boxes matching light purple activity style */
         .date-badge-box {
-            background: #f3f4f6;
-            border-radius: 8px;
-            padding: 8px 10px;
+            background: #f5f3ff;
+            border-radius: 10px;
+            padding: 10px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12.5px;
+            font-size: 13px;
             font-weight: 700;
             color: #1f2937;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #ede9fe;
         }
         .date-badge-box span:last-child {
             color: #4b5563;
@@ -367,10 +447,28 @@
 </head>
 <body>
 
+    <!-- Sidebar Menu Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
+    
+    <!-- Sliding Sidebar -->
+    <div class="sidebar" id="appSidebar">
+        <div class="sidebar-header">
+            <h3>القائمة الرئيسية</h3>
+            <button class="close-sidebar" onclick="toggleMenu()">✕</button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="#" onclick="alert('English translation mode activated')">English (ENG)</a></li>
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#">التحقق من السجل التجاري</a></li>
+            <li><a href="#">الخدمات الإلكترونية</a></li>
+            <li><a href="#">اتصل بنا</a></li>
+        </ul>
+    </div>
+
     <div class="main-wrapper">
         <header class="header">
             <div class="header-right">
-                <button class="menu-btn">☰</button>
+                <button class="menu-btn" onclick="toggleMenu()">☰</button>
                 <div class="header-title-area">
                     <h1 class="header-title">المركز السعودي للتنافسية والأعمال</h1>
                     <div class="header-subtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER</div>
@@ -378,9 +476,7 @@
             </div>
             <div class="header-logo-section">
                 <div class="header-logo-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2C11.45 2 11 2.45 11 3V5H9C8.45 5 8 5.45 8 6C8 6.55 8.45 7 9 7H11V9.17C9.22 9.68 8 11.2 8 13C8 14.8 9.22 16.32 11 16.83V21C11 21.55 11.45 22 12 22C12.55 22 13 21.55 13 21V16.83C14.78 16.32 16 14.8 16 13C16 11.2 14.78 9.68 13 9.17V7H15C15.55 7 16 6.55 16 6C16 5.45 15.55 5 15 5H13V3C13 2.45 12.55 2 12 2ZM12 4C12.28 4 12.5 4.22 12.5 4.5V5H11.5V4.5C11.5 4.22 11.72 4 12 4ZM10 6H14V6.5C14 6.78 13.78 7 13.5 7H10.5C10.22 7 10 6.78 10 6.5V6ZM12 11C13.66 11 15 12.34 15 14C15 15.66 13.66 17 12 17C10.34 17 9 15.66 9 14C9 12.34 10.34 11 12 11Z"/>
-                    </svg>
+                    <img src="https://i.ibb.co/3s6R1z9/1000284729.jpg" alt="Saudi Emblem">
                 </div>
             </div>
         </header>
@@ -513,5 +609,14 @@
             <div class="footer-version">الإصدار 1.1.9</div>
         </footer>
     </div>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('appSidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
