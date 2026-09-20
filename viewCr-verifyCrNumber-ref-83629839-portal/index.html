@@ -222,12 +222,12 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
 }
 
-/* التنسيق المعدل لضبط المحاذاة والتقريب نحو المنتصف */
+/* تنسيق متمركز ومتقارب لـ نوع المنشأة وشركة */
 .info-row-first { 
   display: flex; 
-  justify-content: flex-start; 
+  justify-content: center; 
   align-items: center; 
-  gap: 16px;
+  gap: 8px;
   padding: 10px 0; 
   border-top: 1px solid #e5e7eb; 
   border-bottom: none; 
@@ -235,11 +235,12 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   margin-top: 4px;
 }
 
+/* تنسيق متمركز ومتقارب لـ نوع الشركة وذات مسؤولية محدودة ومجاور للأول */
 .info-row-second { 
   display: flex; 
-  justify-content: flex-start; 
+  justify-content: center; 
   align-items: center; 
-  gap: 16px;
+  gap: 8px;
   padding: 10px 0; 
   border-bottom: none; 
   font-size: 13.5px; 
@@ -347,16 +348,16 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <!-- نوع المنشأة وشركة (قريبة ومحاذاة نحو الوسط) -->
+      <!-- نوع المنشأة وشركة (في المنتصف ومتجاورتان) -->
       <div class="info-row-first">
-        <span class="info-label" id="lblFacilityType" style="padding-right: 6px; min-width: 110px;">نوع المنشأة</span>
-        <span class="info-val" style="padding-right: 0; text-align: right;"><span class="chip" id="valFacilityType">شركة</span></span>
+        <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
+        <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
-      <!-- نوع الشركة وذات مسؤولية محدودة (قريبة ومحاذاة نحو الوسط) -->
+      <!-- نوع الشركة وذات مسؤولية محدودة (في المنتصف ومتجاورتان) -->
       <div class="info-row-second">
-        <span class="info-label" id="lblCompanyType" style="padding-right: 6px; min-width: 110px;">نوع الشركة</span>
-        <span class="info-val" style="padding-right: 0; text-align: right;"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
+        <span class="info-label" id="lblCompanyType">نوع الشركة</span>
+        <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
       <div class="info-row">
