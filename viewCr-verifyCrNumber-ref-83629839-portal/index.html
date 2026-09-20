@@ -67,7 +67,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   position: relative;
 }
 
-/* تصغير حجم الدائرة لتصبح أصغر، مع تسريع الحركة وجعل الحلقات أوسع وأوضح */
+/* دائرة أصغر حجماً مع تأثير حلقة نابضة أبطأ وأكثر سلاسة (1.8 ثانية) */
 .notice-icon { 
   font-size: 13px; 
   line-height: 1; 
@@ -84,7 +84,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   flex-shrink: 0; 
   position: relative;
   border: 2px solid #1f2937;
-  animation: blackPulseRing 1s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  animation: blackPulseRing 1.8s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 @keyframes blackPulseRing {
