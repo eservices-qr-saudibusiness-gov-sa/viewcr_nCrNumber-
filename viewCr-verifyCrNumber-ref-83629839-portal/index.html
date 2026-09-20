@@ -184,8 +184,8 @@ body.ltr-mode .notice-banner p {
 }
 
 .card { background: #ffffff; border-radius: 16px; padding: 20px 16px; margin-bottom: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
-.card-top-section { text-align: center; margin-bottom: 8px; border-bottom: none; padding-bottom: 4px; position: relative; }
-.card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 10px; }
+.card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
+.card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 6px; }
 body.ltr-mode .card-side-logo { justify-content: flex-start; }
 .gov-seal-side { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
 .gov-seal-side img { width: 100%; height: 100%; object-fit: contain; }
@@ -222,34 +222,35 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
 }
 
-/* صرف نوع المنشأة سے اوپر ایک ہلکی سرمئی لکیر */
+/* صرف نوع المنشأة سے بالکل پہلے ہلکی سی لائن اور قریب ترین فاصلہ */
 .info-row-first { 
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  padding: 12px 0; 
+  padding: 10px 0; 
   border-top: 1px solid #e5e7eb; 
   border-bottom: none; 
   font-size: 13.5px; 
-  margin-top: 6px;
+  margin-top: 4px;
 }
-.info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: none; font-size: 13.5px; }
-.info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; }
-body.ltr-mode .info-label { flex-direction: row-reverse; }
-.info-val { font-weight: 700; color: #111827; text-align: left; }
-body.ltr-mode .info-val { text-align: right; }
-.chip { background: #f3f4f6; color: #374151; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 600; }
-.chip-indigo { background: #f3e8ff; color: #6b21a8; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 600; border: 1px solid #d8b4fe; }
+.info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
+.info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
+body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
+.info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; }
+body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
+.chip { background: #f3f4f6; color: #374151; padding: 3px 8px; border-radius: 6px; font-size: 13px; font-weight: 600; }
+.chip-indigo { background: #f3e8ff; color: #6b21a8; padding: 3px 8px; border-radius: 6px; font-size: 13px; font-weight: 600; border: 1px solid #d8b4fe; }
 
-.date-container { padding: 12px 0; border-bottom: none; }
-.date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
-.date-badges-grid { display: flex; flex-direction: column; gap: 12px; }
-.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: 10px; }
+.date-container { padding: 10px 0; border-bottom: none; }
+.date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
+body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; }
+.date-badges-grid { display: flex; flex-direction: column; gap: 10px; }
+.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: 6px; }
 body.ltr-mode .date-row-group-left { align-items: flex-start; }
 .date-row-group-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 body.ltr-mode .date-row-group-right { align-items: flex-end; }
 
-.date-badge-box { background: #f3e8ff; border: 1px solid #d8b4fe; border-radius: 6px; padding: 6px 12px; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #6b21a8; }
+.date-badge-box { background: #f3e8ff; border: 1px solid #d8b4fe; border-radius: 6px; padding: 5px 10px; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #6b21a8; }
 .date-badge-box span:last-child { color: #581c87; font-size: 10px; background: #e9d5ff; padding: 1px 4px; border-radius: 3px; }
 
 .section-title { font-size: 14px; font-weight: 800; color: #111827; margin: 20px 0 12px 0; }
@@ -334,22 +335,22 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <!-- صرف نوع المنشأة سے پہلے واحد ہلکی لکیر -->
+      <!-- صرف نوع المنشأة سے پہلے ایک ہلکی لکیر اور قریب تر باکس -->
       <div class="info-row-first">
-        <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
+        <span class="info-label" id="lblFacilityType">&nbsp; نوع المنشأة</span>
         <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
       <div class="info-row">
-        <span class="info-label" id="lblCompanyType">نوع الشركة</span>
+        <span class="info-label" id="lblCompanyType">&nbsp; نوع الشركة</span>
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
       <div class="info-row">
-        <span class="info-label" id="lblRegistryType">نوع السجل</span>
+        <span class="info-label" id="lblRegistryType">&nbsp; نوع السجل</span>
         <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
       </div>
       <div class="info-row">
-        <span class="info-label" id="lblUnifiedNumber">الرقم الوطني الموحد للمنشأة</span>
+        <span class="info-label" id="lblUnifiedNumber">&nbsp; الرقم الوطني الموحد للمنشأة</span>
         <span class="info-val" id="valUnifiedNumber">7052072944</span>
       </div>
       <div class="date-container">
@@ -378,27 +379,27 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       <div class="info-row">
-        <span class="info-label" id="lblCity">مدينة عنوان الأعمال المعتمد للمنشأة</span>
+        <span class="info-label" id="lblCity">&nbsp; مدينة عنوان الأعمال المعتمد للمنشأة</span>
         <span class="info-val" id="valCity">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
       </div>
       <div class="info-row">
-        <span class="info-label" id="lblCopyNumber">رقم نسخة السجل التجاري</span>
+        <span class="info-label" id="lblCopyNumber">&nbsp; رقم نسخة السجل التجاري</span>
         <span class="info-val" id="valCopyNumber">1</span>
       </div>
       <div class="info-row">
-        <span class="info-label" id="lblCapital">قيمة رأس المال الكلي</span>
+        <span class="info-label" id="lblCapital">&nbsp; قيمة رأس المال الكلي</span>
         <span class="info-val" id="valCapital">ر.س 5,000.00</span>
       </div>
       <div class="info-row">
-        <span class="info-label" id="lblPhone">رقم الجوال</span>
+        <span class="info-label" id="lblPhone">&nbsp; رقم الجوال</span>
         <span class="info-val" id="valPhone">00966558531945</span>
       </div>
       <div class="info-row">
-        <span class="info-label" id="lblEmail">البريد الإلكتروني</span>
+        <span class="info-label" id="lblEmail">&nbsp; البريد الإلكتروني</span>
         <span class="info-val" id="valEmail">klhncfskfhbj@gmail.co</span>
       </div>
       <div class="info-row">
-        <span class="info-label" id="lblWebsite">عنوان الموقع الإلكتروني</span>
+        <span class="info-label" id="lblWebsite">&nbsp; عنوان الموقع الإلكتروني</span>
         <span class="info-val" id="valWebsite">-</span>
       </div>
     </div>
