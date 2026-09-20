@@ -38,7 +38,7 @@ body.ltr-mode { direction: ltr; text-align: left; }
 body.ltr-mode .header-right { flex-direction: row-reverse; }
 .menu-btn { background: none; border: none; color: #ffffff; font-size: 24px; cursor: pointer; padding: 0; line-height: 1; text-shadow: 0 0 12px rgba(255, 255, 255, 0.8); }
 
-/* حاوية العناوين لضبط المحاذاة وجعل النص العربي والإنجليزي على خط واحد تماماً */
+/* حاوية العناوين لضبط المحاذاة وجعل النص الرئيسي والفرعي على خط واحد تماماً */
 .header-title-area { 
   text-align: right; 
   display: flex;
@@ -47,7 +47,7 @@ body.ltr-mode .header-right { flex-direction: row-reverse; }
 }
 body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
 
-/* تخصيص خط المركز السعودي للتنافسية والأعمال بنمط يشبه TheSans / GE SS Two */
+/* تخصيص خط المركز السعودي للتنافسية والأعمال */
 .header-title { 
   font-family: 'Cairo', sans-serif;
   font-size: 13.5px; 
@@ -56,9 +56,10 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
   color: #ffffff; 
   line-height: 1.2; 
   text-shadow: 0 0 10px rgba(255,255,255,0.6); 
+  white-space: nowrap;
 }
 
-/* تخصيص النص الإنجليزي بخط Arial/Helvetica عريض مع وضع الفاصل العمودي بينه وبين تيسير */
+/* تخصيص السطر الثاني (تيسير | TAYSEER) للأسفل تماماً وبخط عريض مع البار العمودي */
 .header-subtitle { 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 9px; 
@@ -222,7 +223,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       </div>
       <div class="header-title-area">
         <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
-        <div class="header-subtitle" id="headerSubtitle">SAUDI COMPETITIVENESS &amp; BUSINESS CENTER | TAYSEER</div>
+        <div class="header-subtitle" id="headerSubtitle">تيسير | TAYSEER</div>
       </div>
     </div>
     <div class="header-logo-section">
@@ -386,7 +387,7 @@ function toggleLanguage() {
     document.getElementById('langRowLabel').innerText = "Language";
     document.getElementById('fontRowLabel').innerText = "Font Size";
     document.getElementById('headerTitle').innerText = "Saudi Business Center";
-    document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER";
+    document.getElementById('headerSubtitle').innerText = "TAYSEER | SAUDI COMPETITIVENESS & BUSINESS CENTER";
     document.getElementById('mainHeading').innerText = "Commercial Registration Data";
     document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible whatsoever for any shortage or discrepancy in the data, as all data is retrieved and updated automatically in real-time via integration with relevant government authorities.";
     document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "Active");
@@ -429,7 +430,7 @@ function toggleLanguage() {
     document.getElementById('langRowLabel').innerText = "اللغة";
     document.getElementById('fontRowLabel').innerText = "حجم الخط";
     document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
-    document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER";
+    document.getElementById('headerSubtitle').innerText = "تيسير | TAYSEER";
     document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
     document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول نهائياً عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع وتحديث كافة البيانات بشكل آلي وفوري بالتكامل مع الجهات الحكومية المعنية.";
     document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
