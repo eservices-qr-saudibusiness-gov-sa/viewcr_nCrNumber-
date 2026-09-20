@@ -352,9 +352,9 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
-      <!-- نوع الشركة وذات مسؤولية محدودة -->
-      <div class="info-row-second">
-        <span class="info-label" id="lblCompanyType">نوع الشركة</span>
+      <!-- نوع الشركة وذات مسؤولية محدودة (تم نقلها لليمين بجعل info-label يمين و info-val يسار أو بالعكس حسب الطلب، هنا أصبحت التسمية والقيمة على اليمين) -->
+      <div class="info-row-second" style="justify-content: flex-start; gap: 12px;">
+        <span class="info-label" id="lblCompanyType" style="padding-right: 6px;">نوع الشركة</span>
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
@@ -371,7 +371,14 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       </div>
 
       <div class="date-container">
-        <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري</div>
+        <!-- تم إضافة رقم السجل التجاري هنا بجانب تاريخ قيد السجل التجاري -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <div class="date-label-top" id="lblRegistryDate" style="margin-bottom: 0;">تاريخ قيد السجل التجاري</div>
+          <div style="text-align: left;">
+            <span style="font-size: 11.5px; color: #6b7280; font-weight: 600; display: block;" id="lblCrNumberTitle">رقم السجل التجاري</span>
+            <span style="font-size: 13.5px; font-weight: 700; color: #111827;" id="valCrNumber">5950154235</span>
+          </div>
+        </div>
         <div class="date-badges-grid">
           <div class="date-row-group-right">
             <div class="date-badge-box">
@@ -522,6 +529,7 @@ function toggleLanguage() {
     document.getElementById('valRegistryType').innerText = "Main Registry";
     document.getElementById('lblUnifiedNumber').innerHTML = "Unified National<br>Number";
     document.getElementById('lblRegistryDate').innerText = "Registration Date";
+    document.getElementById('lblCrNumberTitle').innerText = "Commercial Registration No.";
     document.getElementById('lblAnnualConfirmationDate').innerHTML = "Annual Confirmation<br>Date";
     document.getElementById('lblCity').innerText = "Business City";
     document.getElementById('valCity').innerText = "Al Jubail, Al Safa, Makramah St.";
@@ -567,6 +575,7 @@ function toggleLanguage() {
     document.getElementById('valRegistryType').innerText = "سجل رئيسي";
     document.getElementById('lblUnifiedNumber').innerHTML = "الرقم الوطني الموحد<br>للمنشأة";
     document.getElementById('lblRegistryDate').innerText = "تاريخ قيد السجل التجاري";
+    document.getElementById('lblCrNumberTitle').innerText = "رقم السجل التجاري";
     document.getElementById('lblAnnualConfirmationDate').innerHTML = "تاريخ التأكيد السنوي<br>للسجل التجاري";
     document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
     document.getElementById('valCity').innerText = "الجبيل حي الصفانا شارع مك1ة المكرمة";
@@ -619,4 +628,3 @@ function toggleFontSize() {
 </script>
 </body>
 </html>
-
