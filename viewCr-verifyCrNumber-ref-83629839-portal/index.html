@@ -88,7 +88,12 @@
 
         .main-wrapper {
             min-height: 100vh;
-            background: linear-gradient(135deg, #2e1065 0%, #3b0764 40%, #1e1b4b 100%);
+            /* إضافة صورة الأبراج كخلفية مع تدرج لوني يتماشى مع الصورة المرفقة[span_0](start_span)[span_0](end_span) */
+            background: linear-gradient(135deg, rgba(30, 20, 60, 0.85) 0%, rgba(45, 15, 80, 0.9) 40%, rgba(20, 15, 50, 0.95) 100%), 
+                        url('https://i.ibb.co/V93M1mQ/SDAIA-Logo.png'); /* يمكن استبدالها برابط صورة الأبراج إن توفر، ومدمجة هنا بتصميم متناسق */
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
             padding-bottom: 40px;
         }
 
@@ -387,20 +392,29 @@
             margin-bottom: 10px;
         }
         
-        /* تصميم التواريخ: توزيع ذكي بحيث يكون تاريخ 2025 في جهة وتاريخ 2026 في الجهة المقابلة مع مسافة رأسية مرتبة */
+        /* تنسيق التواريخ على شكل درجتي سلم (الأولى يمين والأخرى يسار للأسفل بشكل متدرج) */
         .date-badges-grid {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 15px;
+            flex-direction: column;
+            gap: 12px;
         }
-        .date-row-group {
+        .date-row-group-left {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: flex-end;
+            margin-top: 8px; /* إعطاء مسافة للنزول للأسفل مثل الدرج */
+        }
+        body.ltr-mode .date-row-group-left {
+            align-items: flex-start;
+        }
+        .date-row-group-right {
             display: flex;
             flex-direction: column;
             gap: 6px;
             align-items: flex-start;
         }
-        body.ltr-mode .date-row-group {
+        body.ltr-mode .date-row-group-right {
             align-items: flex-end;
         }
 
@@ -595,8 +609,8 @@
                 <div class="date-container">
                     <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري تاريخ التأكيد السنوي للسجل التجاري</div>
                     <div class="date-badges-grid">
-                        <!-- مجموعة تاريخ 2025 (في الجهة اليمنى) -->
-                        <div class="date-row-group">
+                        <!-- مجموعة تاريخ 2025 (في الأعلى يمين) -->
+                        <div class="date-row-group-right">
                             <div class="date-badge-box">
                                 <span id="valRegistryHijri">1447-04-22</span>
                                 <span>هـ</span>
@@ -607,8 +621,8 @@
                             </div>
                         </div>
                         
-                        <!-- مجموعة تاريخ 2026 (في الجهة المقابلة اليسرى وبجانبها شارة نشط في أقصى اليسار) -->
-                        <div class="date-row-group" style="align-items: flex-end;">
+                        <!-- مجموعة تاريخ 2026 (في الأسفل يسار كأنها درجة سلم وبجانبها شارة نشط) -->
+                        <div class="date-row-group-left">
                             <div style="display: flex; align-items: center; gap: 6px;">
                                 <span class="status-badge-inline" id="statusBadge" style="margin-top: 0; padding: 2px 8px; font-size: 10.5px;">نشط</span>
                                 <div class="date-badge-box">
