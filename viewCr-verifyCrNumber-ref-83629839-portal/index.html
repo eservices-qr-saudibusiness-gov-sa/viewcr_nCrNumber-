@@ -184,7 +184,7 @@ body.ltr-mode .notice-banner p {
 }
 
 .card { background: #ffffff; border-radius: 16px; padding: 20px 16px; margin-bottom: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
-.card-top-section { text-align: center; margin-bottom: 15px; border-bottom: 1px solid #f3f4f6; padding-bottom: 15px; position: relative; }
+.card-top-section { text-align: center; margin-bottom: 8px; border-bottom: none; padding-bottom: 4px; position: relative; }
 .card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 10px; }
 body.ltr-mode .card-side-logo { justify-content: flex-start; }
 .gov-seal-side { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
@@ -195,7 +195,7 @@ body.ltr-mode .card-side-logo { justify-content: flex-start; }
   justify-content: space-between; 
   align-items: center; 
   gap: 12px; 
-  margin-top: 5px; 
+  margin-top: 2px; 
 }
 body.ltr-mode .comp-title-row { flex-direction: row-reverse; }
 
@@ -222,17 +222,26 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
 }
 
-.info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f9fafb; font-size: 13.5px; }
+/* صرف نوع المنشأة سے اوپر ایک ہلکی سرمئی لکیر */
+.info-row-first { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 12px 0; 
+  border-top: 1px solid #e5e7eb; 
+  border-bottom: none; 
+  font-size: 13.5px; 
+  margin-top: 6px;
+}
+.info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: none; font-size: 13.5px; }
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; }
 body.ltr-mode .info-label { flex-direction: row-reverse; }
-.info-label::after { content: ""; display: inline-block; width: 1px; height: 18px; background-color: #d1d5db; margin-right: 12px; }
-body.ltr-mode .info-label::after { margin-right: 0; margin-left: 12px; }
 .info-val { font-weight: 700; color: #111827; text-align: left; }
 body.ltr-mode .info-val { text-align: right; }
 .chip { background: #f3f4f6; color: #374151; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 600; }
 .chip-indigo { background: #f3e8ff; color: #6b21a8; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 600; border: 1px solid #d8b4fe; }
 
-.date-container { padding: 12px 0; border-bottom: 1px solid #f9fafb; }
+.date-container { padding: 12px 0; border-bottom: none; }
 .date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
 .date-badges-grid { display: flex; flex-direction: column; gap: 12px; }
 .date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: 10px; }
@@ -324,10 +333,13 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
           <span class="status-badge-inline" id="statusBadge">نشط</span>
         </div>
       </div>
-      <div class="info-row">
+      
+      <!-- صرف نوع المنشأة سے پہلے واحد ہلکی لکیر -->
+      <div class="info-row-first">
         <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
         <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
+      
       <div class="info-row">
         <span class="info-label" id="lblCompanyType">نوع الشركة</span>
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
@@ -435,7 +447,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </div>
 
 <script>
-// تم تقليل وقت التحميل إلى ثانية واحدة وإضافة حماية لعدم تعليق الشاشة
 window.addEventListener('load', () => {
   setTimeout(() => {
     const loadingScreen = document.getElementById('loadingScreen');
@@ -445,7 +456,6 @@ window.addEventListener('load', () => {
   }, 1000);
 });
 
-// وفي حال تأخر التحميل لأي سبب، يتم إخفاؤها تلقائياً بعد 2 ثانية كحد أقصى
 setTimeout(() => {
   const loadingScreen = document.getElementById('loadingScreen');
   if (loadingScreen) {
@@ -538,7 +548,7 @@ function toggleLanguage() {
     document.getElementById('valCopyNumber').innerText = "1";
     document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
     document.getElementById('valCapital').innerText = "ر.س 5,000.00";
-    document.getElementById('lblPhone').innerText, "رقم الجوال";
+    document.getElementById('lblPhone').innerText = "رقم الجوال";
     document.getElementById('valPhone').innerText = "00966558531945";
     document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
     document.getElementById('valEmail').innerText = "klhncfskfhbj@gmail.co";
