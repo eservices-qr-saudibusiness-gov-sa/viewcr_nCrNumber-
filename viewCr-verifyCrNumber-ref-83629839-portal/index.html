@@ -67,7 +67,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   position: relative;
 }
 
-/* تحديث أيقونة التحذير لتصبح أيقونة معلومات (i) دائرية باللون الأسود مع تأثير الحلقات المتحركة السوداء */
+/* تحديث أيقونة معلومات (i) مع حلقات أسرع وأصغر حجماً */
 .notice-icon { 
   font-size: 15px; 
   line-height: 1; 
@@ -84,22 +84,21 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   flex-shrink: 0; 
   position: relative;
   border: 2px solid #1f2937;
-  animation: blackPulseRing 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  animation: blackPulseRing 1.3s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 @keyframes blackPulseRing {
   0% {
-    box-shadow: 0 0 0 0 rgba(31, 41, 55, 0.4);
+    box-shadow: 0 0 0 0 rgba(31, 41, 55, 0.5);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(31, 41, 55, 0);
+    box-shadow: 0 0 0 6px rgba(31, 41, 55, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(31, 41, 55, 0);
   }
 }
 
-/* تخصيص خط Tajawal ووزن 800 أو 900 للنص داخل صندوق التنبيه */
 .notice-banner p { 
   margin: 0; 
   font-size: 13.5px; 
