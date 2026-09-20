@@ -255,8 +255,8 @@ body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px
 .date-container { padding: 10px 0; border-bottom: none; }
 .date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
 body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; }
-.date-badges-grid { display: flex; flex-direction: column; gap: 14px; }
-.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.date-badges-grid { display: flex; flex-direction: column; gap: 10px; }
+.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: 6px; }
 body.ltr-mode .date-row-group-left { align-items: flex-start; }
 .date-row-group-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 body.ltr-mode .date-row-group-right { align-items: flex-end; }
@@ -371,29 +371,26 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       </div>
 
       <div class="date-container">
+        <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري</div>
         <div class="date-badges-grid">
-          <!-- 1. تاريخ التأكيد السنوي للسجل التجاري في الأعلى -->
-          <div class="date-row-group-left">
-            <div class="date-label-top" id="lblAnnualConfirmationDate" style="font-size: 13px; margin-bottom: 8px; font-weight: 600; color: #6b7280;">تاريخ التأكيد السنوي للسجل التجاري</div>
-            <div class="date-badge-box">
-              <span id="valExpiryHijri">1448-05-02</span>
-              <span>هـ</span>
-            </div>
-            <div class="date-badge-box">
-              <span id="valExpiryGregorian">2026-10-13</span>
-              <span>م</span>
-            </div>
-          </div>
-          
-          <!-- 2. تاريخ قيد السجل التجاري تحته مباشرة -->
           <div class="date-row-group-right">
-            <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري</div>
             <div class="date-badge-box">
               <span id="valRegistryHijri">1447-04-22</span>
               <span>هـ</span>
             </div>
             <div class="date-badge-box">
               <span id="valRegistryGregorian">2025-10-14</span>
+              <span>م</span>
+            </div>
+          </div>
+          <div class="date-row-group-left">
+            <div class="date-label-top" id="lblAnnualConfirmationDate" style="font-size: 11.5px; margin-bottom: 2px; font-weight: 600; color: #6b7280; text-align: left; line-height: 1.3;">تاريخ التأكيد السنوي<br>للسجل التجاري</div>
+            <div class="date-badge-box" style="margin-top: 4px;">
+              <span id="valExpiryHijri">1448-05-02</span>
+              <span>هـ</span>
+            </div>
+            <div class="date-badge-box">
+              <span id="valExpiryGregorian">2026-10-13</span>
               <span>م</span>
             </div>
           </div>
@@ -525,7 +522,7 @@ function toggleLanguage() {
     document.getElementById('valRegistryType').innerText = "Main Registry";
     document.getElementById('lblUnifiedNumber').innerHTML = "Unified National<br>Number";
     document.getElementById('lblRegistryDate').innerText = "Registration Date";
-    document.getElementById('lblAnnualConfirmationDate').innerText = "Annual Confirmation Date";
+    document.getElementById('lblAnnualConfirmationDate').innerHTML = "Annual Confirmation<br>Date";
     document.getElementById('lblCity').innerText = "Business City";
     document.getElementById('valCity').innerText = "Al Jubail, Al Safa, Makramah St.";
     document.getElementById('lblCopyNumberLabel').innerText = "Copy Number";
@@ -570,7 +567,7 @@ function toggleLanguage() {
     document.getElementById('valRegistryType').innerText = "سجل رئيسي";
     document.getElementById('lblUnifiedNumber').innerHTML = "الرقم الوطني الموحد<br>للمنشأة";
     document.getElementById('lblRegistryDate').innerText = "تاريخ قيد السجل التجاري";
-    document.getElementById('lblAnnualConfirmationDate').innerText = "تاريخ التأكيد السنوي للسجل التجاري";
+    document.getElementById('lblAnnualConfirmationDate').innerHTML = "تاريخ التأكيد السنوي<br>للسجل التجاري";
     document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
     document.getElementById('valCity').innerText = "الجبيل حي الصفانا شارع مك1ة المكرمة";
     document.getElementById('lblCopyNumberLabel').innerText = "رقم نسخة السجل التجاري";
