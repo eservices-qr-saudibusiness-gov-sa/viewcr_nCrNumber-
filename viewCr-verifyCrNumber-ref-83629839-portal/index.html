@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="pageTitle">بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال</title>
-<!-- استيراد خطوط عربية قريبة من TheSans / GE SS Two -->
+<!-- استيراد خطوط عربية -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- استيراد خط TheSans Arabic من مكتبة خطوط لإتاحته -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/thesansarabic.css">
 <style>
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 body { 
@@ -173,7 +175,8 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   font-size: 11.5px; 
   line-height: 1.45; 
   color: #000000; 
-  font-family: 'Cairo', sans-serif;
+  /* تخصيص خط TheSans Arabic فقط هنا مع الاحتفاظ باللون الأصلي */
+  font-family: 'TheSansArabic', 'TheSans', 'Cairo', sans-serif;
   font-weight: 800; 
   letter-spacing: -0.1px;
 }
@@ -574,7 +577,7 @@ function toggleLanguage() {
     document.getElementById('headerEnglishSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER";
     document.getElementById('headerArabicSubtitle').innerText = "تيسير | TAYSEER";
     document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
-    document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول نهائياً عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع وتحديث كافة البيانات بشكل آلي وفوري بالتكامل مع الجهات الحكومية المعنية.";
+    document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول نهائياً عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع وتحديث كافة البيانات بشكل آلي والفوري بالتكامل مع الجهات الحكومية المعنية.";
     document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
     document.getElementById('compName').innerText = "شركة عبدالهادي محمد اليامي للمقاولات";
     document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
