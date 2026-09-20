@@ -358,15 +358,15 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
-      <!-- نوع السجل والرقم الوطني الموحد (معدل بحيث يكونان بجانب بعضهما بنفس التنسيق المطلوب) -->
+      <!-- الرقم الوطني الموحد على اليسار ونوع السجل على اليمين -->
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblUnifiedNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">الرقم الوطني الموحد للمنشأة</span>
-          <span class="info-val" id="valUnifiedNumber" style="font-size: 13.5px; font-weight: 700; color: #111827;">7052072944</span>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-end;">
           <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">نوع السجل</span>
           <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+          <span class="info-label" id="lblUnifiedNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">الرقم الوطني الموحد للمنشأة</span>
+          <span class="info-val" id="valUnifiedNumber" style="font-size: 13.5px; font-weight: 700; color: #111827;">7052072944</span>
         </div>
       </div>
 
@@ -399,10 +399,15 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <span class="info-label" id="lblCity">&nbsp; مدينة عنوان الأعمال المعتمد للمنشأة</span>
         <span class="info-val" id="valCity">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
       </div>
-      <div class="info-row">
-        <span class="info-label" id="lblCopyNumber">&nbsp; رقم نسخة السجل التجاري</span>
-        <span class="info-val" id="valCopyNumber">1</span>
+      
+      <!-- رقم نسخة السجل التجاري (تم جعله على اليسار والرقم على اليسار كما طلبت) -->
+      <div class="info-row" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
+          <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #111827;">1</span>
+        </div>
       </div>
+
       <div class="info-row">
         <span class="info-label" id="lblCapital">&nbsp; قيمة رأس المال الكلي</span>
         <span class="info-val" id="valCapital">ر.س 5,000.00</span>
@@ -518,7 +523,7 @@ function toggleLanguage() {
     document.getElementById('lblRegistryDate').innerText = "Registration & Annual Confirmation Date";
     document.getElementById('lblCity').innerText = "Business City";
     document.getElementById('valCity').innerText = "Al Jubail, Al Safa, Makramah St.";
-    document.getElementById('lblCopyNumber').innerText = "Copy Number";
+    document.getElementById('lblCopyNumberLabel').innerText = "Copy Number";
     document.getElementById('lblCapital').innerText = "Total Capital";
     document.getElementById('valCapital').innerText = "SAR 5,000.00";
     document.getElementById('lblPhone').innerText = "Mobile Number";
@@ -562,7 +567,7 @@ function toggleLanguage() {
     document.getElementById('lblRegistryDate').innerText = "تاريخ قيد السجل التجاري تاريخ التأكيد السنوي للسجل التجاري";
     document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
     document.getElementById('valCity').innerText = "الجبيل حي الصفانا شارع مك1ة المكرمة";
-    document.getElementById('lblCopyNumber').innerText = "رقم نسخة السجل التجاري";
+    document.getElementById('lblCopyNumberLabel').innerText = "رقم نسخة السجل التجاري";
     document.getElementById('valCopyNumber').innerText = "1";
     document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
     document.getElementById('valCapital').innerText = "ر.س 5,000.00";
