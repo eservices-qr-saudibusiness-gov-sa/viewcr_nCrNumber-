@@ -253,6 +253,25 @@
             text-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
 
+        /* تأثير اللمعان والبهرجة (Shining Effect) للنصوص السوداء الداكنة */
+        @keyframes textShine {
+            0% {
+                text-shadow: 0 0 2px rgba(124, 58, 237, 0.2), 0 0 5px rgba(255, 255, 255, 0.1);
+            }
+            50% {
+                text-shadow: 0 0 8px rgba(124, 58, 237, 0.6), 0 0 15px rgba(168, 85, 247, 0.4);
+            }
+            100% {
+                text-shadow: 0 0 2px rgba(124, 58, 237, 0.2), 0 0 5px rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        .shining-text {
+            color: #000000;
+            font-weight: 900;
+            animation: textShine 2.5s infinite ease-in-out;
+        }
+
         /* تعديلات شريط التنبيه والأيقونة النشطة */
         .notice-banner {
             background: #ffffff;
@@ -298,8 +317,6 @@
             margin: 0;
             font-size: 14px;
             line-height: 1.6;
-            color: #000000; /* أسود حالك/داكن جداً */
-            font-weight: 900; /* خط ثقيل جداً */
         }
 
         .card {
@@ -351,8 +368,6 @@
         
         .comp-title {
             font-size: 18px;
-            font-weight: 900;
-            color: #111827;
             line-height: 1.5;
             margin-top: 5px;
             text-align: center;
@@ -498,8 +513,6 @@
             border-radius: 10px;
             padding: 12px;
             text-align: center;
-            font-weight: 800;
-            color: #1f2937;
             font-size: 13.5px;
         }
 
@@ -592,7 +605,7 @@
                 </div>
                 <div class="header-title-area">
                     <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
-                    <div class="header-subtitle" id="headerSubtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER</div>
+                    <div class="header-subtitle" id="headerSubtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER - تيسير</div>
                 </div>
             </div>
             <div class="header-logo-section">
@@ -605,7 +618,7 @@
 
             <div class="notice-banner fade-in-element">
                 <div class="notice-icon">i</div>
-                <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
+                <p id="noticeText" class="shining-text">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
             </div>
 
             <div class="card fade-in-element">
@@ -616,7 +629,7 @@
                         </div>
                     </div>
                     <div class="comp-title-row">
-                        <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
+                        <div class="comp-title shining-text" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
                         <span class="status-badge-inline" id="statusBadge">نشط</span>
                     </div>
                 </div>
@@ -635,7 +648,7 @@
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblUnifiedNumber">الرقم الوطني الموحد للمنشأة</span>
-                    <span class="info-val" id="valUnifiedNumber">7052072944</span>
+                    <span class="info-val shining-text" id="valUnifiedNumber">7052072944</span>
                 </div>
 
                 <div class="date-container">
@@ -667,54 +680,54 @@
 
                 <div class="info-row">
                     <span class="info-label" id="lblCity">مدينة عنوان الأعمال المعتمد للمنشأة</span>
-                    <span class="info-val" id="valCity">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
+                    <span class="info-val shining-text" id="valCity">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblCopyNumber">رقم نسخة السجل التجاري</span>
-                    <span class="info-val" id="valCopyNumber">1</span>
+                    <span class="info-val shining-text" id="valCopyNumber">1</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblCapital">قيمة رأس المال الكلي</span>
-                    <span class="info-val" id="valCapital">ر.س 5,000.00</span>
+                    <span class="info-val shining-text" id="valCapital">ر.س 5,000.00</span>
                 </div>
 
                 <div class="info-row">
                     <span class="info-label" id="lblPhone">رقم الجوال</span>
-                    <span class="info-val" id="valPhone">00966558531945</span>
+                    <span class="info-val shining-text" id="valPhone">00966558531945</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblEmail">البريد الإلكتروني</span>
-                    <span class="info-val" id="valEmail">klhncfskfhbj@gmail.co</span>
+                    <span class="info-val shining-text" id="valEmail">klhncfskfhbj@gmail.co</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblWebsite">عنوان الموقع الإلكتروني</span>
-                    <span class="info-val" id="valWebsite">-</span>
+                    <span class="info-val shining-text" id="valWebsite">-</span>
                 </div>
             </div>
 
             <div class="card fade-in-element">
                 <div class="section-title" id="secActivities" style="margin-top: 0;">قائمة أنشطة السجل التجاري</div>
                 <div class="activity-card">
-                    <div class="activity-title" id="activityText1">الإنشاءات العامة للمباني السكنية</div>
+                    <div class="activity-title shining-text" id="activityText1">الإنشاءات العامة للمباني السكنية</div>
                     <div class="activity-code" id="activityCode1">410010</div>
                 </div>
                 <div class="activity-card">
-                    <div class="activity-title" id="activityText2">الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)</div>
+                    <div class="activity-title shining-text" id="activityText2">الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)</div>
                     <div class="activity-code" id="activityCode2">410021</div>
                 </div>
                 <div class="activity-card">
-                    <div class="activity-title" id="activityText3">إنشاء المطارات ومرافقها</div>
+                    <div class="activity-title shining-text" id="activityText3">إنشاء المطارات ومرافقها</div>
                     <div class="activity-code" id="activityCode3">410022</div>
                 </div>
                 <div class="activity-card">
-                    <div class="activity-title" id="activityText4">الإنشاءات العامة للمباني الحكومية</div>
+                    <div class="activity-title shining-text" id="activityText4">الإنشاءات العامة للمباني الحكومية</div>
                     <div class="activity-code" id="activityCode4">410023</div>
                 </div>
             </div>
 
             <div class="card fade-in-element">
                 <div class="section-title" id="secManagers" style="margin-top: 0;">قائمة المديرين</div>
-                <div class="manager-box" id="managerName">
+                <div class="manager-box shining-text" id="managerName">
                     عبدالهادي محمد مبارك اليامي
                 </div>
             </div>
@@ -765,7 +778,7 @@
                 document.getElementById('langRowLabel').innerText = "Language";
                 document.getElementById('fontRowLabel').innerText = "Font Size";
                 document.getElementById('headerTitle').innerText = "Saudi Business Center";
-                document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER";
+                document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER - تيسير";
                 document.getElementById('mainHeading').innerText = "Commercial Registration Data";
                 document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible for any shortage or discrepancy in the data, as data is retrieved via integration with relevant authorities.";
                 document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "Active");
@@ -808,7 +821,7 @@
                 document.getElementById('langRowLabel').innerText = "اللغة";
                 document.getElementById('fontRowLabel').innerText = "حجم الخط";
                 document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
-                document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | تيسير";
+                document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER - تيسير";
                 document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
                 document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
                 document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
