@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="pageTitle">بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال</title>
 <!-- استيراد خطوط عربية قريبة من TheSans / GE SS Two -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 body { 
@@ -33,10 +33,34 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
-.header { background: transparent; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+.header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
 .header-right { display: flex; align-items: center; gap: 12px; }
 body.ltr-mode .header-right { flex-direction: row-reverse; }
-.menu-btn { background: none; border: none; color: #ffffff; font-size: 24px; cursor: pointer; padding: 0; line-height: 1; text-shadow: 0 0 12px rgba(255, 255, 255, 0.8); }
+
+/* تعديل أيقونة القائمة لتطابق الصورة المرفقة */
+.menu-btn { 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  padding: 0; 
+  width: 26px; 
+  height: 20px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  align-items: flex-end;
+}
+body.ltr-mode .menu-btn { align-items: flex-start; }
+.menu-bar { 
+  display: block; 
+  height: 3px; 
+  background-color: #ffffff; 
+  border-radius: 2px; 
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8); 
+}
+.menu-bar:nth-child(1) { width: 100%; }
+.menu-bar:nth-child(2) { width: 65%; }
+.menu-bar:nth-child(3) { width: 100%; }
 
 .header-title-area { 
   text-align: right; 
@@ -44,14 +68,16 @@ body.ltr-mode .header-right { flex-direction: row-reverse; }
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 2px;
+  gap: 1px;
+  transform: translateY(-3px);
 }
 body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
 
+/* جعل الخطوط عادية وبوزن أخف ومرفوعة قليلاً */
 .header-title { 
   font-family: 'Cairo', sans-serif;
   font-size: 11px; 
-  font-weight: 800; 
+  font-weight: 400; 
   margin: 0; 
   color: #ffffff; 
   line-height: 1.2; 
@@ -63,8 +89,8 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
   font-family: Arial, Helvetica, sans-serif;
   font-size: 8px;
   color: #ffffff;
-  margin: 1px 0;
-  font-weight: 800;
+  margin: 0;
+  font-weight: 400;
   letter-spacing: 0.2px;
   text-shadow: 0 0 8px rgba(255,255,255,0.5);
   white-space: nowrap;
@@ -75,7 +101,7 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
   font-size: 9.5px; 
   color: #ffffff; 
   margin: 0; 
-  font-weight: 900; 
+  font-weight: 400; 
   letter-spacing: 0.2px; 
   text-shadow: 0 0 8px rgba(255,255,255,0.5); 
   white-space: nowrap;
@@ -238,7 +264,11 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       </div>
     </div>
     <div class="header-logo-section">
-      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
     </div>
   </header>
   <div class="container">
