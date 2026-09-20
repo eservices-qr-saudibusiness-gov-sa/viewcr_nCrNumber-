@@ -172,8 +172,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
 
 .notice-banner p { 
   margin: 0; 
-  /* تم تكبير حجم الخط هنا */
-  font-size: 13.5px; 
+  font-size: 13px; 
   line-height: 1.5; 
   color: #000000; 
   font-family: 'TheSansArabic', 'TheSans', 'Cairo', sans-serif;
@@ -288,7 +287,15 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 .section-title { font-size: 14px; font-weight: 800; color: #111827; margin: 20px 0 12px 0; }
 .activity-card { background: #f9fafb; border: 1px solid #f3f4f6; border-radius: 10px; padding: 12px; margin-bottom: 8px; }
 .activity-title { font-size: 13px; font-weight: 700; color: #000000; margin-bottom: 4px; }
-.activity-code { font-size: 12px; color: #6b7280; font-weight: 600; }
+
+/* تعديل الأكواد الأربعة لتكون بخط TheSans Arabic، وحجم أكبر قليلاً، ولون أسود داكن */
+.activity-code { 
+  font-family: 'TheSansArabic', 'TheSans', sans-serif;
+  font-size: 14px; 
+  color: #000000; 
+  font-weight: 900; 
+}
+
 .manager-box { background: #f9fafb; border: 1px solid #f3f4f6; border-radius: 10px; padding: 12px; text-align: center; font-weight: 700; color: #1f2937; font-size: 13.5px; }
 
 .footer { text-align: center; padding: 20px 16px; font-size: 11px; color: #6b7280; background: #ffffff; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
