@@ -238,13 +238,14 @@ body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; paddi
 .info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 4px; display: flex; align-items: center; gap: 8px; }
 body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 4px; }
 
-/* چھوٹی لکیر کو اب دाईਂ तरफ (Right side) सेट कर दिया गया है */
+/* تم ضبط الخط العمودي على أقصى اليمين تماماً بجوار الحافة */
 .custom-divider-line {
   display: inline-block;
   width: 1.5px;
   height: 16px;
   background-color: #d1d5db;
-  margin-left: 8px;
+  margin-left: 10px;
+  margin-right: 2px;
   vertical-align: middle;
 }
 
@@ -345,12 +346,14 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <!-- یہاں لکیر کو 'شركة' کے دائیں طرف (Right side) شفٹ کر دیا گیا ہے -->
+      <!-- الترتيب الدقيق: [الخط العمودي على أقصى اليمين] + [نوع المنشأة] + [مساحة] + [شركة] متجاورين -->
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType">&nbsp; نوع المنشأة</span>
         <span class="info-val">
           <span class="custom-divider-line"></span>
-          <span class="chip" id="valFacilityType">&nbsp;&nbsp;شركة</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px;">
+            <span class="chip" id="valFacilityType" style="margin-left: 0;">شركة</span>
+          </span>
         </span>
       </div>
       
