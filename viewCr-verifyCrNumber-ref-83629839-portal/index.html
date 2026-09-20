@@ -224,9 +224,8 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
 
 .info-row-first { 
   display: flex; 
-  justify-content: center; 
+  justify-content: space-between; 
   align-items: center; 
-  gap: 8px;
   padding: 10px 0; 
   border-top: 1px solid #e5e7eb; 
   border-bottom: none; 
@@ -236,9 +235,8 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
 
 .info-row-second { 
   display: flex; 
-  justify-content: center; 
+  justify-content: space-between; 
   align-items: center; 
-  gap: 8px;
   padding: 10px 0; 
   border-bottom: none; 
   font-size: 13.5px; 
@@ -574,7 +572,7 @@ function toggleLanguage() {
     document.getElementById('headerEnglishSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER";
     document.getElementById('headerArabicSubtitle').innerText = "تيسير | TAYSEER";
     document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
-    document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول نهائياً عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع وتحديث كافة البيانات بشكل آلي وفوري بالتكامل مع الجهات الحكومية المعنية.";
+    document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول نهائياً عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع وتحديث كافة البيانات بشكل آلي والفوري بالتكامل مع الجهات الحكومية المعنية.";
     document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
     document.getElementById('compName').innerText = "شركة عبدالهادي محمد اليامي للمقاولات";
     document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
