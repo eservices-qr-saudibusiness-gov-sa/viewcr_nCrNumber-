@@ -222,7 +222,6 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
 }
 
-/* تصویر کے مطابق چھوٹی لکیر اب 'نوع المنشأة' سے بالکل بائیں طرف (بعد میں) رکھی گئی ہے */
 .info-row-first { 
   display: flex; 
   justify-content: space-between; 
@@ -239,13 +238,13 @@ body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; paddi
 .info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 4px; display: flex; align-items: center; gap: 8px; }
 body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 4px; }
 
-/* چھوٹی لکیر کی اسٹائلنگ جو تصویر جیسی ہے */
+/* چھوٹی لکیر کو اب دाईਂ तरफ (Right side) सेट कर दिया गया है */
 .custom-divider-line {
   display: inline-block;
   width: 1.5px;
   height: 16px;
   background-color: #d1d5db;
-  margin-right: 8px;
+  margin-left: 8px;
   vertical-align: middle;
 }
 
@@ -346,12 +345,12 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <!-- یہاں 'نوع المنشأة' کے فورا بعد چھوٹی لکیر اور پھر 'شركة' بالکل ٹچ ہو کر موجود ہے جیسا کہ تصویر میں ہے -->
+      <!-- یہاں لکیر کو 'شركة' کے دائیں طرف (Right side) شفٹ کر دیا گیا ہے -->
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType">&nbsp; نوع المنشأة</span>
         <span class="info-val">
-          <span class="chip" id="valFacilityType">شركة</span>
           <span class="custom-divider-line"></span>
+          <span class="chip" id="valFacilityType">&nbsp;&nbsp;شركة</span>
         </span>
       </div>
       
