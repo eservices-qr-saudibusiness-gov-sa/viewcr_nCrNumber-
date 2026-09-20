@@ -436,15 +436,17 @@
             font-weight: 700;
         }
         
-        /* تم إزالة تأثير الوميض هنا ليكون لوناً ثابتاً ومستقراً */
-        .chip-indigo, .date-badge-box {
-            background: #f3e8ff;
-            color: #6b21a8;
-            border: 1.5px solid #d8b4fe;
+        .static-purple-box {
+            background: #f3e8ff !important;
+            color: #6b21a8 !important;
+            border: 1.5px solid #d8b4fe !important;
             border-radius: 6px;
             padding: 6px 12px;
             font-size: 13px;
             font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .date-container {
@@ -484,10 +486,16 @@
         }
 
         .date-badge-box {
+            background: #f3e8ff !important;
+            color: #6b21a8 !important;
+            border: 1.5px solid #d8b4fe !important;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-size: 12px;
         }
         .date-badge-box span:last-child {
             color: #581c87;
@@ -620,6 +628,8 @@
                 <div class="header-title-area">
                     <h1 class="header-title shining-white-text" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
                     <div class="header-subtitle shining-white-text" id="headerSubtitle" style="font-size: 9.5px;">SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER - تيسير</div>
+                    <!-- تمت إضافة عبارة بيانات السجل التجاري باللون الأبيض النقي المضيء، بحجم كبير وتحت عبارة تيسير مباشرة -->
+                    <div class="shining-white-text" id="subHeaderCRTitle" style="font-size: 14px; font-weight: 900; margin-top: 5px; text-shadow: 0 0 10px rgba(255,255,255,0.8);">بيانات السجل التجاري</div>
                 </div>
             </div>
             <div class="header-logo-section">
@@ -658,7 +668,7 @@
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblRegistryType">نوع السجل</span>
-                    <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
+                    <span class="info-val"><span class="static-purple-box" id="valRegistryType">سجل رئيسي</span></span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblUnifiedNumber">الرقم الوطني الموحد للمنشأة</span>
@@ -793,6 +803,7 @@
                 document.getElementById('fontRowLabel').innerText = "Font Size";
                 document.getElementById('headerTitle').innerText = "Saudi Business Center";
                 document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER - تيسير";
+                document.getElementById('subHeaderCRTitle').innerText = "Commercial Registration Data";
                 document.getElementById('mainHeading').innerText = "Commercial Registration Data";
                 document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible for any shortage or discrepancy in the data, as data is retrieved via integration with relevant authorities.";
                 document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "Active");
@@ -836,6 +847,7 @@
                 document.getElementById('fontRowLabel').innerText = "حجم الخط";
                 document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
                 document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER - تيسير";
+                document.getElementById('subHeaderCRTitle').innerText = "بيانات السجل التجاري";
                 document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
                 document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
                 document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
