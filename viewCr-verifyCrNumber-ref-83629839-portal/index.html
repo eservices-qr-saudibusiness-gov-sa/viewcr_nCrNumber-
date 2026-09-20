@@ -6,11 +6,11 @@
 <title id="pageTitle">بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال</title>
 <style>
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #17102e; color: #1f2937; direction: rtl; text-align: right; -webkit-font-smoothing: antialiased; }
+body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #0b132b; color: #1f2937; direction: rtl; text-align: right; -webkit-font-smoothing: antialiased; }
 body.ltr-mode { direction: ltr; text-align: left; }
 #loadingScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
 #loadingScreen.hidden { opacity: 0; visibility: hidden; }
-.spinner { width: 45px; height: 45px; border: 4px solid #f3f3f3; border-top: 4px solid #7c3aed; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 15px; }
+.spinner { width: 45px; height: 45px; border: 4px solid #f3f3f3; border-top: 4px solid #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 15px; }
 .loading-text { color: #4b5563; font-size: 14px; font-weight: 700; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 .fade-in-element { opacity: 0; transform: translateY(-15px); animation: smoothSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -21,13 +21,13 @@ body.ltr-mode { direction: ltr; text-align: left; }
 .footer { animation-delay: 0.5s; }
 @keyframes smoothSlideDown { 0% { opacity: 0; transform: translateY(-15px); } 100% { opacity: 1; transform: translateY(0); } }
 
-/* الخلفية المطابقة تماماً للصورة الأصلية */
+/* خلفية كحلي غامقة مع أفق مدينة ضبابي وإضاءة متدرجة وخطوط منحنية أنيقة */
 .main-wrapper { 
   min-height: 100vh; 
-  background-color: #17102e;
+  background-color: #0b132b;
   background-image: 
-    radial-gradient(circle at 50% 15%, rgba(65, 35, 110, 0.8) 0%, rgba(23, 16, 46, 0.95) 60%, #17102e 100%),
-    url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1000&auto=format&amp;fit=crop'); 
+    radial-gradient(circle at 50% 20%, rgba(29, 53, 87, 0.7) 0%, rgba(11, 19, 43, 0.95) 70%, #0b132b 100%),
+    url('https://images.unsplash.com/photo-1477959858617-67f30bc47b82?q=80&w=1000&auto=format&fit=crop'); 
   background-size: cover; 
   background-position: center; 
   background-blend-mode: overlay; 
@@ -36,7 +36,7 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
-/* إضافة الخطوط المنحنية الدقيقة الموجودة في الخلفية الأصلية */
+/* خطوط منحنية دقيقة ومظاهر إضاءة ناعمة */
 .main-wrapper::before {
   content: '';
   position: absolute;
@@ -44,8 +44,8 @@ body.ltr-mode { direction: ltr; text-align: left; }
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(circle at 20% 40%, transparent 40%, rgba(255, 255, 255, 0.04) 41%, transparent 42%),
-                    radial-gradient(circle at 80% 70%, transparent 50%, rgba(255, 255, 255, 0.03) 51%, transparent 52%);
+  background-image: radial-gradient(circle at 25% 30%, transparent 40%, rgba(59, 130, 246, 0.05) 41%, transparent 42%),
+                    radial-gradient(circle at 75% 60%, transparent 45%, rgba(14, 165, 233, 0.04) 46%, transparent 47%);
   pointer-events: none;
 }
 
@@ -56,7 +56,7 @@ body.ltr-mode .header-right { flex-direction: row-reverse; }
 .header-title-area { text-align: right; }
 body.ltr-mode .header-title-area { text-align: left; }
 .header-title { font-size: 13.5px; font-weight: 900; margin: 0; color: #ffffff; line-height: 1.2; text-shadow: 0 0 10px rgba(255,255,255,0.6); }
-.header-subtitle { font-size: 10px; color: #ffffff; margin-top: 3px; font-weight: 800; letter-spacing: 0.2px; text-shadow: 0 0 8px rgba(255,255,255,0.5); }
+.header-subtitle { font-size: 10px; color: #e2e8f0; margin-top: 3px; font-weight: 800; letter-spacing: 0.2px; text-shadow: 0 0 8px rgba(255,255,255,0.4); }
 .header-logo-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 10px rgba(255,255,255,0.7)); }
 .header-logo-icon img { width: 100%; height: 100%; object-fit: contain; }
 
@@ -70,51 +70,33 @@ body.ltr-mode .sidebar.active { left: auto; right: 0; }
 body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .close-sidebar { background: none; border: none; font-size: 22px; cursor: pointer; }
 .sidebar-content { padding: 0 20px; display: flex; flex-direction: column; gap: 15px; }
-.sidebar-btn-primary { background: #581c87; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 700; cursor: pointer; }
+.sidebar-btn-primary { background: #1e3a8a; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 700; cursor: pointer; }
 .sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
 .sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 700; cursor: pointer; }
 
 .container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
-.page-heading { text-align: right; font-size: 32px; font-weight: 900; color: #ffffff; margin: 25px 10px 20px 0; text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 2px 10px rgba(168, 85, 247, 0.9); }
+.page-heading { text-align: right; font-size: 32px; font-weight: 900; color: #ffffff; margin: 25px 10px 20px 0; text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 2px 10px rgba(30, 58, 138, 0.9); }
 body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
 
-/* صندوق التنبيه مع تأثير لمعان خفيف وغير مزعج للنص الأبيض */
+/* صندوق التنبيه بدون أي تأثير لمعان أو خطوط متحركة (تمت إزالة الـ animation بالكامل) */
 .notice-banner { 
   background: #ffffff; 
   border-radius: 12px; 
   padding: 10px 14px; 
   margin-bottom: 16px; 
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.7), 0 8px 30px rgba(168, 85, 247, 0.5); 
-  border: 2px solid #000000; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); 
+  border: 1px solid #e2e8f0; 
   display: flex; 
   align-items: center; 
   gap: 12px; 
   position: relative;
-  overflow: hidden;
-}
-
-.notice-banner::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(60deg, transparent 45%, rgba(255, 255, 255, 0.2) 50%, transparent 55%);
-  animation: shineAnimation 4s infinite linear;
-  pointer-events: none;
-}
-
-@keyframes shineAnimation {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
 }
 
 .notice-icon { 
   font-size: 19px; 
   line-height: 1; 
   user-select: none; 
-  background: linear-gradient(135deg, #7c3aed, #a855f7); 
+  background: #1e3a8a; 
   color: #ffffff; 
   width: 32px; 
   height: 32px; 
@@ -123,15 +105,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   justify-content: center; 
   border-radius: 50%; 
   font-weight: 900; 
-  border: 2px solid #e9d5ff; 
   flex-shrink: 0; 
-  box-shadow: 0 0 12px rgba(124, 58, 237, 0.8);
-  animation: pulseIcon 1.5s infinite alternate;
-}
-
-@keyframes pulseIcon {
-  0% { transform: scale(1); box-shadow: 0 0 8px rgba(124, 58, 237, 0.6); }
-  100% { transform: scale(1.08); box-shadow: 0 0 16px rgba(168, 85, 247, 1); }
 }
 
 .notice-banner p { 
@@ -139,12 +113,11 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   font-size: 14.5px; 
   line-height: 1.5; 
   color: #111827; 
-  font-weight: 900; 
-  text-shadow: 0 0 1px rgba(0,0,0,0.1);
+  font-weight: 800; 
   letter-spacing: -0.2px;
 }
 
-.card { background: #ffffff; border-radius: 16px; padding: 20px 16px; margin-bottom: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.25), 0 0 20px rgba(168, 85, 247, 0.25); }
+.card { background: #ffffff; border-radius: 16px; padding: 20px 16px; margin-bottom: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
 .card-top-section { text-align: center; margin-bottom: 15px; border-bottom: 1px solid #f3f4f6; padding-bottom: 15px; position: relative; }
 .card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 10px; }
 body.ltr-mode .card-side-logo { justify-content: flex-start; }
@@ -160,7 +133,7 @@ body.ltr-mode .status-badge-inline { align-self: flex-end; }
 body.ltr-mode .info-val { text-align: right; }
 .chip { background: #f3f4f6; color: #374151; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 700; }
 
-.chip-indigo { background: #e9d5ff; color: #581c87; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 700; }
+.chip-indigo { background: #dbeafe; color: #1e3a8a; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 700; }
 
 .date-container { padding: 12px 0; border-bottom: 1px solid #f9fafb; }
 .date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
@@ -170,8 +143,8 @@ body.ltr-mode .date-row-group-left { align-items: flex-start; }
 .date-row-group-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 body.ltr-mode .date-row-group-right { align-items: flex-end; }
 
-.date-badge-box { background: #e9d5ff; border: 1px solid #c084fc; border-radius: 6px; padding: 6px 12px; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #581c87; }
-.date-badge-box span:last-child { color: #4b0082; font-size: 10px; background: #d8b4fe; padding: 1px 4px; border-radius: 3px; }
+.date-badge-box { background: #dbeafe; border: 1px solid #93c5fd; border-radius: 6px; padding: 6px 12px; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #1e3a8a; }
+.date-badge-box span:last-child { color: #1e40af; font-size: 10px; background: #bfdbfe; padding: 1px 4px; border-radius: 3px; }
 
 .section-title { font-size: 15px; font-weight: 900; color: #111827; margin: 20px 0 12px 0; }
 .activity-card { background: #f3f4f6; border-radius: 10px; padding: 12px; margin-bottom: 8px; }
