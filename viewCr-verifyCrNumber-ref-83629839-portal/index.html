@@ -358,15 +358,15 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
-      <!-- الرقم الوطني الموحد على اليسار ونوع السجل على اليمين -->
+      <!-- الرقم الوطني الموحد للمنشأة على اليسار ونوع السجل على اليمين -->
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">نوع السجل</span>
           <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end;">
-          <span class="info-label" id="lblUnifiedNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">الرقم الوطني الموحد للمنشأة</span>
-          <span class="info-val" id="valUnifiedNumber" style="font-size: 13.5px; font-weight: 700; color: #111827;">7052072944</span>
+          <span class="info-label" id="lblUnifiedNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px; text-align: left; line-height: 1.3;">الرقم الوطني الموحد<br>للمنشأة</span>
+          <span class="info-val" id="valUnifiedNumber" style="font-size: 13.5px; font-weight: 700; color: #111827; margin-top: 2px;">7052072944</span>
         </div>
       </div>
 
@@ -400,7 +400,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <span class="info-val" id="valCity">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
       </div>
       
-      <!-- رقم نسخة السجل التجاري (تم جعله على اليسار والرقم على اليسار كما طلبت) -->
+      <!-- رقم نسخة السجل التجاري -->
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
@@ -519,7 +519,7 @@ function toggleLanguage() {
     document.getElementById('valCompanyType').innerText = "Limited Liability";
     document.getElementById('lblRegistryType').innerText = "Registry Type";
     document.getElementById('valRegistryType').innerText = "Main Registry";
-    document.getElementById('lblUnifiedNumber').innerText = "Unified National Number";
+    document.getElementById('lblUnifiedNumber').innerHTML = "Unified National<br>Number";
     document.getElementById('lblRegistryDate').innerText = "Registration & Annual Confirmation Date";
     document.getElementById('lblCity').innerText = "Business City";
     document.getElementById('valCity').innerText = "Al Jubail, Al Safa, Makramah St.";
@@ -563,7 +563,7 @@ function toggleLanguage() {
     document.getElementById('valCompanyType').innerText = "ذات مسؤولية محدودة";
     document.getElementById('lblRegistryType').innerText = "نوع السجل";
     document.getElementById('valRegistryType').innerText = "سجل رئيسي";
-    document.getElementById('lblUnifiedNumber').innerText = "الرقم الوطني الموحد للمنشأة";
+    document.getElementById('lblUnifiedNumber').innerHTML = "الرقم الوطني الموحد<br>للمنشأة";
     document.getElementById('lblRegistryDate').innerText = "تاريخ قيد السجل التجاري تاريخ التأكيد السنوي للسجل التجاري";
     document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
     document.getElementById('valCity').innerText = "الجبيل حي الصفانا شارع مك1ة المكرمة";
