@@ -184,8 +184,8 @@ body.ltr-mode .notice-banner p {
 }
 
 .card { background: #ffffff; border-radius: 16px; padding: 20px 16px; margin-bottom: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
-.card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
-.card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 6px; }
+.card-top-section { text-align: center; margin-bottom: 10px; border-bottom: none; padding-bottom: 0; position: relative; }
+.card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 8px; }
 body.ltr-mode .card-side-logo { justify-content: flex-start; }
 .gov-seal-side { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
 .gov-seal-side img { width: 100%; height: 100%; object-fit: contain; }
@@ -222,7 +222,7 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
 }
 
-/* صرف نوع المنشأة سے بالکل پہلے ہلکی سی لائن اور قریب ترین فاصلہ */
+/* صرف نوع المنشأة سے بالکل پہلے ایک چھوٹی ہلکی سی لکیر */
 .info-row-first { 
   display: flex; 
   justify-content: space-between; 
@@ -231,19 +231,19 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   border-top: 1px solid #e5e7eb; 
   border-bottom: none; 
   font-size: 13.5px; 
-  margin-top: 4px;
+  margin-top: 2px;
 }
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
-.info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
-body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
-.info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; }
-body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
+.info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 6px; padding-right: 4px; }
+body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 4px; }
+.info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 4px; }
+body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 4px; }
 .chip { background: #f3f4f6; color: #374151; padding: 3px 8px; border-radius: 6px; font-size: 13px; font-weight: 600; }
 .chip-indigo { background: #f3e8ff; color: #6b21a8; padding: 3px 8px; border-radius: 6px; font-size: 13px; font-weight: 600; border: 1px solid #d8b4fe; }
 
 .date-container { padding: 10px 0; border-bottom: none; }
-.date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
-body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; }
+.date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 4px; }
+body.ltr-mode .date-label-top { padding-right: 0; padding-left: 4px; }
 .date-badges-grid { display: flex; flex-direction: column; gap: 10px; }
 .date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: 6px; }
 body.ltr-mode .date-row-group-left { align-items: flex-start; }
@@ -335,7 +335,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <!-- صرف نوع المنشأة سے پہلے ایک ہلکی لکیر اور قریب تر باکس -->
+      <!-- یہاں صرف 'نوع المنشأة' سے پہلے ہلکی سی لکیر اور قریب تر فاصلہ ہے -->
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType">&nbsp; نوع المنشأة</span>
         <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
