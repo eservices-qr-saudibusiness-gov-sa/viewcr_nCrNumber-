@@ -555,9 +555,11 @@
         <header class="header fade-in-element">
             <div class="header-right">
                 <div class="header-logo-icon">
-                    <!-- حماية اللوجو الخاص بالسعودية ليعمل بشكل دائم بدون أخطاء -->
-                    <svg viewBox="0 0 100 100" width="100%" height="100%">
-                        <path fill="#ffffff" d="M50 5 C55 25, 75 35, 95 45 C75 55, 60 70, 50 95 C40 70, 25 55, 5 45 C25 35, 45 25, 50 5 Z"/>
+                    <!-- سب سے اوپر (Header) والا وائٹ لوگو (پہلی تصویر کے مطابق) -->
+                    <svg viewBox="0 0 200 200" width="100%" height="100%">
+                        <g fill="#ffffff">
+                            <path d="M100 20 C105 45, 135 60, 165 75 C135 90, 115 115, 100 155 C85 115, 65 90, 35 75 C65 60, 95 45, 100 20 Z"/>
+                        </g>
                     </svg>
                 </div>
                 <div class="header-title-area">
@@ -581,9 +583,11 @@
             <div class="card fade-in-element">
                 <div class="card-top-section">
                     <div class="card-side-logo">
-                        <div class="gov-seal-side">
-                            <svg viewBox="0 0 100 100" width="100%" height="100%">
-                                <path fill="#1a0b2e" d="M50 5 C55 25, 75 35, 95 45 C75 55, 60 70, 50 95 C40 70, 25 55, 5 45 C25 35, 45 25, 50 5 Z"/>
+                        <div class="gov-seal-side" style="background-color: #0e4225; border-radius: 50%; padding: 4px;">
+                            <!-- کارڈ کے اندر والا گرین والا لوگو (دوسری تصویر کے مطابق) -->
+                            <svg viewBox="0 0 500 500" width="100%" height="100%">
+                                <path fill="#ffffff" d="M250 40C230 110, 180 150, 120 180C180 210, 215 250, 230 320C245 250, 280 210, 340 180C280 150, 230 110, 250 40Z"/>
+                                <path fill="#ffffff" d="M120 340C160 330, 210 335, 250 365C290 335, 340 330, 380 340C350 380, 310 405, 250 435C190 405, 150 380, 120 340Z"/>
                             </svg>
                         </div>
                     </div>
@@ -806,9 +810,13 @@
                 document.getElementById('lblWebsite').innerText = "عنوان الموقع الإلكتروني";
                 document.getElementById('secActivities').innerText = "قائمة أنشطة السجل التجاري";
                 document.getElementById('activityText1').innerText = "الإنشاءات العامة للمباني السكنية";
+                document.getElementById('activityCode1').innerText = "410010";
                 document.getElementById('activityText2').innerText = "الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)";
+                document.getElementById('activityCode2').innerText = "410021";
                 document.getElementById('activityText3').innerText = "إنشاء المطارات ومرافقها";
+                document.getElementById('activityCode3').innerText = "410022";
                 document.getElementById('activityText4').innerText = "الإنشاءات العامة للمباني الحكومية";
+                document.getElementById('activityCode4').innerText = "410023";
                 document.getElementById('secManagers').innerText = "قائمة المديرين";
                 document.getElementById('managerName').innerText = "عبدالهادي محمد مبارك اليامي";
                 document.getElementById('footerBrandTitle').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
