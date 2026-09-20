@@ -86,17 +86,10 @@
             }
         }
 
-        /* تأثير وميض خلفية الصفحة الجامنية بالكامل لتتلألأ */
         @keyframes bgShinePulse {
-            0% {
-                filter: brightness(1) contrast(1);
-            }
-            50% {
-                filter: brightness(1.25) contrast(1.1);
-            }
-            100% {
-                filter: brightness(1) contrast(1);
-            }
+            0% { filter: brightness(1) contrast(1); }
+            50% { filter: brightness(1.25) contrast(1.1); }
+            100% { filter: brightness(1) contrast(1); }
         }
 
         .main-wrapper {
@@ -258,53 +251,50 @@
             padding: 0 16px;
         }
 
+        /* عنوان الصفحة الرئيسي: كبير، أبيض نقي، مع تأثير لمعان قوي ومميز */
         .page-heading {
             text-align: center;
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 900;
             color: #ffffff;
             margin: 25px 0 20px 0;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+            animation: pureWhiteShine 2.5s infinite ease-in-out;
         }
 
-        /* تأثير اللمعان الهادئ والناعم للنصوص السوداء */
-        @keyframes textShine {
+        @keyframes pureWhiteShine {
             0% {
-                text-shadow: 0 0 1px rgba(124, 58, 237, 0.15);
+                color: #ffffff;
+                text-shadow: 0 0 4px rgba(255, 255, 255, 0.6), 0 0 15px rgba(168, 85, 247, 0.5);
             }
             50% {
-                text-shadow: 0 0 5px rgba(124, 58, 237, 0.45);
+                color: #ffffff;
+                text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 25px rgba(216, 180, 254, 0.9);
             }
             100% {
-                text-shadow: 0 0 1px rgba(124, 58, 237, 0.15);
+                color: #ffffff;
+                text-shadow: 0 0 4px rgba(255, 255, 255, 0.6), 0 0 15px rgba(168, 85, 247, 0.5);
             }
+        }
+
+        /* تأثير لمعان خفيف وهادئ للنصوص العادية بدون إزعاج */
+        @keyframes softShine {
+            0% { opacity: 0.92; }
+            50% { opacity: 1; text-shadow: 0 0 3px rgba(124, 58, 237, 0.25); }
+            100% { opacity: 0.92; }
         }
 
         .shining-text {
             color: #000000;
             font-weight: 900;
-            animation: textShine 3s infinite ease-in-out;
-        }
-
-        /* تأثير اللمعان للنصوص البيضاء (مثل عناوين الصفحة البارزة) */
-        @keyframes whiteTextShine {
-            0% {
-                text-shadow: 0 0 2px rgba(255, 255, 255, 0.4), 0 0 10px rgba(168, 85, 247, 0.3);
-            }
-            50% {
-                text-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 0 20px rgba(168, 85, 247, 0.7);
-            }
-            100% {
-                text-shadow: 0 0 2px rgba(255, 255, 255, 0.4), 0 0 10px rgba(168, 85, 247, 0.3);
-            }
+            animation: softShine 3s infinite ease-in-out;
         }
 
         .shining-white-text {
             color: #ffffff;
-            animation: whiteTextShine 3s infinite ease-in-out;
+            animation: pureWhiteShine 3s infinite ease-in-out;
         }
 
-        /* تعديلات شريط التنبيه والأيقونة النشطة */
         .notice-banner {
             background: #ffffff;
             border-radius: 16px;
@@ -334,15 +324,9 @@
         }
 
         @keyframes pulseGlow {
-            0% {
-                box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 8px rgba(124, 58, 237, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(124, 58, 237, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
+            70% { box-shadow: 0 0 0 8px rgba(124, 58, 237, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
         }
 
         .notice-banner p {
@@ -646,6 +630,7 @@
         </header>
 
         <div class="container">
+            <!-- تم استرجاع عنوان "بيانات السجل التجاري" بخط كبير وبلون أبيض نقي مع تأثير لمعان -->
             <h2 class="page-heading fade-in-element shining-white-text" id="mainHeading">بيانات السجل التجاري</h2>
 
             <div class="notice-banner fade-in-element">
