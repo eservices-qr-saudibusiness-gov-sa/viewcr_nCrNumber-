@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="pageTitle">بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال</title>
 <!-- استيراد خطوط عربية قريبة من TheSans / GE SS Two -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 body { 
@@ -69,12 +69,11 @@ body.ltr-mode .menu-btn { align-items: flex-start; }
   align-items: flex-start;
   justify-content: center;
   gap: 1.5px;
-  /* تم خفض العنصر قليلاً للأسفل بناءً على طلبك */
-  transform: translateY(-1px);
+  /* تم إنزال السطر قليلاً للأسفل بناءً على طلبك */
+  transform: translateY(2px);
 }
 body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
 
-/* جعل الخطوط عادية وبوزن أخف ومرفوعة قليلاً */
 .header-title { 
   font-family: 'Cairo', sans-serif;
   font-size: 11px; 
@@ -121,14 +120,17 @@ body.ltr-mode .sidebar.active { left: auto; right: 0; }
 body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .close-sidebar { background: none; border: none; font-size: 22px; cursor: pointer; }
 .sidebar-content { padding: 0 20px; display: flex; flex-direction: column; gap: 15px; }
-.sidebar-btn-primary { background: #4f46e5; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 700; cursor: pointer; }
+
+/* تحديث خطوط عناصر القائمة الداخلية بوزن أثقل (700-800) بناءً على طلبك */
+.sidebar-btn-primary { background: #4f46e5; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 800; font-size: 14px; cursor: pointer; }
 .sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
-.sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 700; cursor: pointer; }
+.sidebar-row-label { font-weight: 700; font-size: 13.5px; color: #1f2937; }
+.sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 800; font-size: 13px; cursor: pointer; color: #1f2937; }
 
 .container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
 
-/* تم تكبير حجم عنوان الصفحة (بيايات السجل التجاري) بناءً على طلبك */
-.page-heading { text-align: right; font-size: 25px; font-weight: 900; color: #ffffff; margin: 25px 10px 20px 0; }
+/* تم تعديل وزن الخط لعنوان الصفحة الرئيسي ليصبح بوزن متوسط Semi-bold / Medium (550) بناءً على طلبك */
+.page-heading { text-align: right; font-size: 25px; font-weight: 600; color: #ffffff; margin: 25px 10px 20px 0; }
 body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
 
 .notice-banner { 
