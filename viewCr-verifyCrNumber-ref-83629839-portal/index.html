@@ -62,7 +62,7 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .page-heading { text-align: right; font-size: 32px; font-weight: 900; color: #ffffff; margin: 25px 10px 20px 0; text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 2px 10px rgba(168, 85, 247, 0.9); }
 body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
 
-/* إطار صندوق التنبيه أصبح باللون الأسود الصريح */
+/* إطار صندوق التنبيه مع تقليل تأثير اللمعان لضمان وضوح النص الأبيض */
 .notice-banner { 
   background: #ffffff; 
   border-radius: 12px; 
@@ -84,8 +84,8 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(60deg, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%);
-  animation: shineAnimation 3s infinite linear;
+  background: linear-gradient(60deg, transparent 45%, rgba(255, 255, 255, 0.2) 50%, transparent 55%);
+  animation: shineAnimation 4s infinite linear;
   pointer-events: none;
 }
 
@@ -442,6 +442,7 @@ function toggleLanguage() {
     document.getElementById('activityCode1').innerText = "410010";
     document.getElementById('activityText2').innerText = "الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)";
     document.getElementById('activityText3').innerText = "إنشاء المطارات ومرافقها";
+    document.getElementById('activityCode3').innerText = "410022";
     document.getElementById('activityText4').innerText = "الإنشاءات العامة للمباني الحكومية";
     document.getElementById('secManagers').innerText = "قائمة المديرين";
     document.getElementById('managerName').innerText = "عبدالهادي محمد مبارك اليامي";
