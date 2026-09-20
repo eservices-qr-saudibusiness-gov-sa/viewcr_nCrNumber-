@@ -346,26 +346,28 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
+      <!-- نوع المنشأة وشركة -->
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
         <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
+      <!-- نوع الشركة وذات مسؤولية محدودة -->
       <div class="info-row-second">
         <span class="info-label" id="lblCompanyType">نوع الشركة</span>
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
-      <!-- تم نقل نوع السجل ليصبح هنا -->
-      <div class="info-row">
-        <span class="info-label" id="lblRegistryType">&nbsp; نوع السجل</span>
-        <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
-      </div>
-      
-      <!-- تم نقل الرقم الوطني الموحد للمنشأة ليصبح هنا فوق رقمه -->
-      <div class="info-row">
-        <span class="info-label" id="lblUnifiedNumber">&nbsp; الرقم الوطني الموحد للمنشأة</span>
-        <span class="info-val" id="valUnifiedNumber">7052072944</span>
+      <!-- نوع السجل والرقم الوطني الموحد (معدل بحيث يكونان بجانب بعضهما بنفس التنسيق المطلوب) -->
+      <div class="info-row" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+          <span class="info-label" id="lblUnifiedNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">الرقم الوطني الموحد للمنشأة</span>
+          <span class="info-val" id="valUnifiedNumber" style="font-size: 13.5px; font-weight: 700; color: #111827;">7052072944</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+          <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">نوع السجل</span>
+          <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
+        </div>
       </div>
 
       <div class="date-container">
