@@ -28,7 +28,6 @@
             text-align: left;
         }
 
-        /* 3 Seconds Loading Screen */
         #loadingScreen {
             position: fixed;
             top: 0;
@@ -41,7 +40,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
         #loadingScreen.hidden {
             opacity: 0;
@@ -68,18 +67,34 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Smooth Content Reveal */
+        /* تأثير الظهور التدريجي السلس لعناصر الصفحة */
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: smoothSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .header { animation-delay: 0.1s; }
+        .page-heading { animation-delay: 0.2s; }
+        .notice-banner { animation-delay: 0.3s; }
+        .card { animation-delay: 0.4s; }
+        .footer { animation-delay: 0.5s; }
+
+        @keyframes smoothSlideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-25px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .main-wrapper {
             min-height: 100vh;
             padding: 0 12px 40px 12px;
             position: relative;
-            opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .main-wrapper.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .header {
@@ -356,16 +371,16 @@
         }
 
         .comp-title {
-            font-size: 21px;
+            font-size: 18px;
             font-weight: 900;
-            color: #000000;
+            color: #0f172a;
             line-height: 1.45;
         }
 
         .status-badge-inline {
             background-color: #d1fae5;
-            color: #044732;
-            padding: 4px 12px;
+            color: #065f46;
+            padding: 5px 14px;
             border-radius: 8px;
             font-size: 13.5px;
             font-weight: 800;
@@ -385,87 +400,74 @@
             border-bottom: none;
         }
         .info-label {
-            color: #64748b;
+            color: #475569;
             font-weight: 600;
             flex-shrink: 0;
         }
-        
-        /* رقم السجل التجاري کا رنگ پرانے جیسا نارمل */
         .info-val {
             font-weight: 800;
-            color: #1e293b;
+            color: #0f172a;
             text-align: left;
         }
         body.ltr-mode .info-val {
             text-align: right;
         }
 
-        /* السجل التجاري (رئيسي) جس کا باکس لائٹ پرپل ہے، اس کا اندرونی رنگ تاریخوں جیسا پرپل */
         .chip {
-            background: #f5f3ff;
-            color: #7c3aed;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 800;
-            border: 1px solid #ddd6fe;
-            display: inline-block;
-        }
-
-        .chip-indigo {
             background: #f1f5f9;
+            color: #1e293b;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 13.5px;
+            font-weight: 800;
+            border: 1px solid #e2e8f0;
+        }
+        .chip-indigo {
+            background: #f5f3ff;
             color: #4338ca;
             padding: 4px 10px;
             border-radius: 6px;
             font-size: 13px;
             font-weight: 800;
-            border: 1px solid #e2e8f0;
-            display: inline-block;
+            border: 1px solid #ddd6fe;
         }
 
-        .date-container-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            padding: 14px 0;
+        .date-container {
+            padding: 12px 0;
             border-bottom: 1px solid #f1f5f9;
         }
-        .date-col-box {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
         .date-label-top {
-            color: #64748b;
-            font-size: 12.5px;
+            color: #475569;
+            font-size: 14px;
             font-weight: 600;
-            line-height: 1.3;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .date-badges-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
         }
         
-        /* تاریخوں کے باکسز اور کلر */
         .date-badge-box {
             background: #f5f3ff;
-            border-radius: 4px;
-            padding: 2px 5px;
+            border-radius: 8px;
+            padding: 6px 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 10.5px;
+            font-size: 13px;
             font-weight: 800;
-            color: #7c3aed;
+            color: #4338ca;
             border: 1px solid #ddd6fe;
-            max-width: 75%;
-        }
-        .date-badge-box span {
-            color: #7c3aed !important;
         }
         .date-badge-box span:last-child {
+            color: #4338ca;
             font-weight: 800;
-            font-size: 9px;
+            font-size: 11px;
             background: #ede9fe;
-            padding: 1px 3px;
-            border-radius: 2px;
-            color: #7c3aed !important;
+            padding: 1px 5px;
+            border-radius: 4px;
         }
 
         .section-title {
@@ -529,6 +531,10 @@
             flex-wrap: wrap;
             text-align: right;
         }
+        body.ltr-mode .footer-brand-row {
+            justify-content: flex-end;
+            text-align: right;
+        }
         .footer-brand-text {
             display: flex;
             flex-direction: column;
@@ -590,7 +596,6 @@
 </head>
 <body>
 
-    <!-- 3 Seconds Loading Screen -->
     <div id="loadingScreen">
         <div class="spinner"></div>
         <div class="loading-text" id="loadingText">جاري التحميل...</div>
@@ -618,8 +623,8 @@
         </div>
     </div>
 
-    <div class="main-wrapper" id="mainWrapper">
-        <header class="header">
+    <div class="main-wrapper">
+        <header class="header fade-in-element">
             <div class="header-right">
                 <button class="menu-btn" onclick="toggleMenu()">☰</button>
                 <div class="header-title-area">
@@ -637,14 +642,14 @@
         </header>
 
         <div class="container">
-            <h2 class="page-heading" id="mainHeading">بيانات السجل التجاري</h2>
+            <h2 class="page-heading fade-in-element" id="mainHeading">بيانات السجل التجاري</h2>
 
-            <div class="notice-banner">
+            <div class="notice-banner fade-in-element">
                 <div class="notice-icon">ℹ️</div>
                 <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
             </div>
 
-            <div class="card">
+            <div class="card fade-in-element">
                 <div class="card-top-section">
                     <div class="card-side-logo">
                         <div class="gov-seal-side">
@@ -654,119 +659,255 @@
                         </div>
                     </div>
                     <div class="comp-title-row">
-                        <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
                         <span class="status-badge-inline" id="statusBadge">نشط</span>
+                        <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
                     </div>
                 </div>
 
                 <div class="info-row">
-                    <span class="info-label">رقم السجل التجاري</span>
-                    <span class="info-val">2055135246</span>
+                    <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
+                    <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" id="lblCompanyType">نوع الشركة</span>
+                    <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" id="lblRegistryType">نوع السجل</span>
+                    <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" id="lblUnifiedNumber">الرقم الوطني الموحد للمنشأة</span>
+                    <span class="info-val" id="valUnifiedNumber">7052072944</span>
+                </div>
+
+                <div class="date-container">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div>
+                            <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري</div>
+                            <div class="date-badges-grid">
+                                <div class="date-badge-box">
+                                    <span id="valRegistryHijri">1447-04-22</span>
+                                    <span>ه</span>
+                                </div>
+                                <div class="date-badge-box">
+                                    <span id="valRegistryGregorian">14-10-2025</span>
+                                    <span>م</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="date-label-top" id="lblExpiryDate">تاريخ التأكيد السنوي للسجل التجاري</div>
+                            <div class="date-badges-grid">
+                                <div class="date-badge-box">
+                                    <span id="valExpiryHijri">1448-05-02</span>
+                                    <span>ه</span>
+                                </div>
+                                <div class="date-badge-box">
+                                    <span id="valExpiryGregorian">13-10-2026</span>
+                                    <span>م</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="info-row">
-                    <span class="info-label">نوع السجل</span>
-                    <span class="info-val"><span class="chip">رئيسي</span></span>
+                    <span class="info-label" id="lblCity">مدينة عنوان الأعمال المعتمد للمنشأة</span>
+                    <span class="info-val" id="valCity">الجبيل حي الصفانا شارع مكدة المكرمة</span>
                 </div>
-
                 <div class="info-row">
-                    <span class="info-label">الكيان القانوني</span>
-                    <span class="info-val"><span class="chip-indigo">شركة ذات مسؤولية محدودة</span></span>
+                    <span class="info-label" id="lblCopyNumber">رقم نسخة السجل التجاري</span>
+                    <span class="info-val" id="valCopyNumber">1</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" id="lblCapital">قيمة رأس المال الكلي</span>
+                    <span class="info-val" id="valCapital">ر.س 5,000.00</span>
                 </div>
 
-                <div class="date-container-grid">
-                    <div class="date-col-box">
-                        <span class="date-label-top">تاريخ البداية (هجري)</span>
-                        <div class="date-badge-box">
-                            <span>1444/04/15</span>
-                            <span>هجري</span>
-                        </div>
-                    </div>
-                    <div class="date-col-box">
-                        <span class="date-label-top">تاريخ البداية (ميلادي)</span>
-                        <div class="date-badge-box">
-                            <span>2022/11/09</span>
-                            <span>ميلادي</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="date-container-grid">
-                    <div class="date-col-box">
-                        <span class="date-label-top">تاريخ النهاية (هجري)</span>
-                        <div class="date-badge-box">
-                            <span>1447/04/15</span>
-                            <span>هجري</span>
-                        </div>
-                    </div>
-                    <div class="date-col-box">
-                        <span class="date-label-top">تاريخ النهاية (ميلادي)</span>
-                        <div class="date-badge-box">
-                            <span>2025/10/17</span>
-                            <span>ميلادي</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-title">أنشطة المنشأة</div>
-                
+                <div class="section-title" id="secActivities">الأنشطة التجارية</div>
                 <div class="activity-card">
-                    <div class="activity-title">مقاولات عامة للمباني السكنية وغير السكنية</div>
-                    <div class="activity-code">رمز النشاط: 410012</div>
+                    <div class="activity-title" id="activityText1">مقاولات عامة للمباني السكنية وغير السكنية</div>
+                    <div class="activity-code" id="activityCode1">410002</div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-title" id="activityText2">إنشاء الطرق والstreets والجسور</div>
+                    <div class="activity-code" id="activityCode2">421001</div>
                 </div>
 
-                <div class="section-title">المدير / المسؤول</div>
-                <div class="manager-box">
-                    عبدالهادي محمد اليامي
+                <div class="section-title" id="secManagers">المديرون</div>
+                <div class="manager-box" id="managerName">
+                    عبدالهادي محمد سالم اليامي
+                </div>
+
+                <div class="section-title" id="secContact">بيانات الاتصال</div>
+                <div class="info-row">
+                    <span class="info-label" id="lblPhone">رقم الجوال</span>
+                    <span class="info-val" id="valPhone">00966558531945</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" id="lblEmail">البريد الإلكتروني</span>
+                    <span class="info-val" id="valEmail">klhncfskfhbj@gmail.com</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" id="lblWebsite">عنوان الموقع الإلكتروني</span>
+                    <span class="info-val" id="valWebsite">-</span>
                 </div>
             </div>
+
+            <footer class="footer fade-in-element">
+                <div class="footer-brand-row">
+                    <div class="footer-logo-section">
+                        <div class="sdaia-logo-badge">
+                            <img src="https://i.ibb.co/V93M1mQ/SDAIA-Logo.png" alt="SDAIA Logo" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop'">
+                        </div>
+                    </div>
+                    <div class="footer-brand-text">
+                        <span class="footer-brand" id="footerBrandTitle">الهيئة السعودية للبيانات والذكاء الاصطناعي</span>
+                        <span class="footer-brand-sub" id="footerBrandSub">سعودي ديتا | SaudiData</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#" id="footerLinkTerms">شروط الاستخدام</a>
+                    <a href="#" id="footerLinkPrivacy">سياسة الخصوصية</a>
+                </div>
+                <div class="footer-copy" id="footerCopy">جميع الحقوق محفوظة © 2026</div>
+                <div class="footer-version" id="footerVersion">الإصدار 3.2.0</div>
+            </footer>
         </div>
-
-        <footer class="footer">
-            <div class="footer-brand-row">
-                <div class="sdaia-logo-badge">
-                    <svg viewBox="0 0 24 24" fill="white" width="60%" height="60%">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <div class="footer-brand-text">
-                    <span class="footer-brand">المركز السعودي للتنافسية والأعمال</span>
-                    <span class="footer-brand-sub">Saudi Business Center</span>
-                </div>
-            </div>
-            <div class="footer-links">
-                <a href="#">شروط الاستخدام</a>
-                <a href="#">سياسة الخصوصية</a>
-                <a href="#">اتصل بنا</a>
-            </div>
-            <div class="footer-copy">جميع الحقوق محفوظة © 2026</div>
-            <div class="footer-version">الإصدار 4.2.1</div>
-        </footer>
     </div>
 
     <script>
-        // 3 Seconds exact timer for loading screen, followed by smooth reveal
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                const loadingScreen = document.getElementById('loadingScreen');
-                const mainWrapper = document.getElementById('mainWrapper');
-                
-                loadingScreen.classList.add('hidden');
-                mainWrapper.classList.add('visible');
-            }, 3000); // 3000 milliseconds = 3 seconds
-        });
+        // ضبط وقت التحميل ليكون 3 ثوانٍ בדיוק بشكل سلس
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            loadingScreen.classList.add('hidden');
+        }, 3000);
 
         function toggleMenu() {
-            document.getElementById('appSidebar').classList.toggle('active');
-            document.getElementById('sidebarOverlay').classList.toggle('active');
+            const sidebar = document.getElementById('appSidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
         }
+
+        let isEnglish = false;
         function toggleLanguage() {
-            document.body.classList.toggle('ltr-mode');
+            isEnglish = !isEnglish;
+            const body = document.body;
             const langBtn = document.getElementById('langBtn');
-            langBtn.textContent = document.body.classList.contains('ltr-mode') ? 'Ar' : 'En';
+            
+            if (isEnglish) {
+                body.classList.add('ltr-mode');
+                langBtn.innerText = 'Ar';
+                document.getElementById('pageTitle').innerText = "Commercial Registration Data - Saudi Business Center";
+                document.getElementById('loadingText').innerText = "Loading...";
+                document.getElementById('sidebarPlatformBtn').innerText = "Business Platform";
+                document.getElementById('langRowLabel').innerText = "Language";
+                document.getElementById('fontRowLabel').innerText = "Font Size";
+                document.getElementById('headerTitle').innerText = "Saudi Business Center";
+                document.getElementById('headerSubtitle').innerText = "TAYSEER";
+                document.getElementById('mainHeading').innerText = "Commercial Registration Data";
+                document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible for any shortage or discrepancy in the data, as data is retrieved via integration with relevant authorities.";
+                document.getElementById('statusBadge').innerText = "Active";
+                document.getElementById('compName').innerText = "Abdulhadi Mohammed Al Yami Contracting Company";
+                document.getElementById('lblFacilityType').innerText = "Facility Type";
+                document.getElementById('valFacilityType').innerText = "Company";
+                document.getElementById('lblCompanyType').innerText = "Company Type";
+                document.getElementById('valCompanyType').innerText = "Limited Liability";
+                document.getElementById('lblRegistryType').innerText = "Registry Type";
+                document.getElementById('valRegistryType').innerText = "Main Registry";
+                document.getElementById('lblUnifiedNumber').innerText = "Unified National Number";
+                document.getElementById('lblRegistryDate').innerText = "Commercial Registration Date";
+                document.getElementById('lblExpiryDate').innerText = "Annual Confirmation Date";
+                document.getElementById('lblCity').innerText = "Business City";
+                document.getElementById('valCity').innerText = "Al Jubail, Al Safa, Makramah St.";
+                document.getElementById('lblCopyNumber').innerText = "Copy Number";
+                document.getElementById('lblCapital').innerText = "Total Capital";
+                document.getElementById('valCapital').innerText = "SAR 5,000.00";
+                document.getElementById('secActivities').innerText = "Commercial Activities";
+                document.getElementById('activityText1').innerText = "General contracting for residential and non-residential buildings";
+                document.getElementById('activityCode1').innerText = "410002";
+                document.getElementById('activityText2').innerText = "Construction of roads and bridges";
+                document.getElementById('activityCode2').innerText = "421001";
+                document.getElementById('secManagers').innerText = "Managers";
+                document.getElementById('managerName').innerText = "Abdulhadi Mohammed Salem Al Yami";
+                document.getElementById('secContact').innerText = "Contact Information";
+                document.getElementById('lblPhone').innerText = "Mobile Number";
+                document.getElementById('lblEmail').innerText = "Email";
+                document.getElementById('lblWebsite').innerText = "Website";
+                document.getElementById('footerBrandTitle').innerText = "Saudi Data and AI Authority";
+                document.getElementById('footerBrandSub').innerText = "SaudiData";
+                document.getElementById('footerLinkTerms').innerText = "Terms of Use";
+                document.getElementById('footerLinkPrivacy').innerText = "Privacy Policy";
+                document.getElementById('footerCopy').innerText = "All rights reserved © 2026";
+                document.getElementById('footerVersion').innerText = "Version 3.2.0";
+            } else {
+                body.classList.remove('ltr-mode');
+                langBtn.innerText = 'En';
+                document.getElementById('pageTitle').innerText = "بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال";
+                document.getElementById('loadingText').innerText = "جاري التحميل...";
+                document.getElementById('sidebarPlatformBtn').innerText = "منصة الأعمال";
+                document.getElementById('langRowLabel').innerText = "اللغة";
+                document.getElementById('fontRowLabel').innerText = "حجم الخط";
+                document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
+                document.getElementById('headerSubtitle').innerText = "تيسير | TAYSEER";
+                document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
+                document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
+                document.getElementById('statusBadge').innerText = "نشط";
+                document.getElementById('compName').innerText = "شركة عبدالهادي محمد اليامي للمقاولات";
+                document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
+                document.getElementById('valFacilityType').innerText = "شركة";
+                document.getElementById('lblCompanyType').innerText = "نوع الشركة";
+                document.getElementById('valCompanyType').innerText = "ذات مسؤولية محدودة";
+                document.getElementById('lblRegistryType').innerText = "نوع السجل";
+                document.getElementById('valRegistryType').innerText = "سجل رئيسي";
+                document.getElementById('lblUnifiedNumber').innerText = "الرقم الوطني الموحد للمنشأة";
+                document.getElementById('lblRegistryDate').innerText = "تاريخ قيد السجل التجاري";
+                document.getElementById('lblExpiryDate').innerText = "تاريخ التأكيد السنوي للسجل التجاري";
+                document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
+                document.getElementById('valCity').innerText = "الجبيل حي الصفانا شارع مكدة المكرمة";
+                document.getElementById('lblCopyNumber').innerText = "رقم نسخة السجل التجاري";
+                document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
+                document.getElementById('valCapital').innerText = "ر.س 5,000.00";
+                document.getElementById('secActivities').innerText = "الأنشطة التجارية";
+                document.getElementById('activityText1').innerText = "مقاولات عامة للمباني السكنية وغير السكنية";
+                document.getElementById('activityCode1').innerText = "410002";
+                document.getElementById('activityText2').innerText = "إنشاء الطرق والstreets والجسور";
+                document.getElementById('activityCode2').innerText = "421001";
+                document.getElementById('secManagers').innerText = "المديرون";
+                document.getElementById('managerName').innerText = "عبدالهادي محمد سالم اليامي";
+                document.getElementById('secContact').innerText = "بيانات الاتصال";
+                document.getElementById('lblPhone').innerText = "رقم الجوال";
+                document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
+                document.getElementById('lblWebsite').innerText = "عنوان الموقع الإلكتروني";
+                document.getElementById('footerBrandTitle').innerText = "الهيئة السعودية للبيانات والذكاء الاصطناعي";
+                document.getElementById('footerBrandSub').innerText = "سعودي ديتا | SaudiData";
+                document.getElementById('footerLinkTerms').innerText = "شروط الاستخدام";
+                document.getElementById('footerLinkPrivacy').innerText = "سياسة الخصوصية";
+                document.getElementById('footerCopy').innerText = "جميع الحقوق محفوظة © 2026";
+                document.getElementById('footerVersion').innerText = "الإصدار 3.2.0";
+            }
+            toggleMenu();
         }
+
+        let currentFontState = 0;
         function toggleFontSize() {
-            document.body.style.fontSize = document.body.style.fontSize === '1.15rem' ? '1rem' : '1.15rem';
+            currentFontState = (currentFontState + 1) % 3;
+            const container = document.querySelector('.container');
+            const fontSizeBtn = document.getElementById('fontSizeBtn');
+            
+            if (currentFontState === 1) {
+                container.style.fontSize = '108%';
+                fontSizeBtn.innerText = 'A++';
+            } else if (currentFontState === 2) {
+                container.style.fontSize = '115%';
+                fontSizeBtn.innerText = 'A';
+            } else {
+                container.style.fontSize = '100%';
+                fontSizeBtn.innerText = 'A+';
+            }
+            toggleMenu();
         }
     </script>
 </body>
