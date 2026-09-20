@@ -252,7 +252,7 @@
         }
 
         .page-heading {
-            text-align: center;
+            text-align: right; /* تم التعديل لتكون جهة اليمين */
             font-size: 26px;
             font-weight: 900;
             color: #ffffff;
@@ -293,7 +293,6 @@
             animation: pureWhiteShine 3s infinite ease-in-out;
         }
 
-        /* تعديل صندوق التنبيه العلوي: تكبير الصندوق والنص وإضافة تأثير اللمعان */
         .notice-banner {
             background: #ffffff;
             border-radius: 16px;
@@ -437,12 +436,12 @@
             font-weight: 700;
         }
         
-        /* إزالة أي تأثيرات عن نوع السجل (سجل رئيسي) وجعله ثابتاً ونظيفاً */
-        .chip-indigo {
+        .chip-indigo, .date-badge-box {
             background: #f3e8ff;
             color: #6b21a8;
-            padding: 4px 10px;
+            border: 1px solid #d8b4fe;
             border-radius: 6px;
+            padding: 6px 12px;
             font-size: 13px;
             font-weight: 700;
         }
@@ -483,18 +482,11 @@
             align-items: flex-end;
         }
 
-        /* إزالة أي تأثيرات عن مربعات التواريخ الأربعة وجعلها ثابتة وبسيطة */
         .date-badge-box {
-            background: #f3e8ff;
-            border: 1px solid #d8b4fe;
-            border-radius: 6px;
-            padding: 6px 12px;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             font-size: 12px;
-            font-weight: 700;
-            color: #6b21a8;
         }
         .date-badge-box span:last-child {
             color: #581c87;
@@ -635,6 +627,7 @@
         </header>
 
         <div class="container">
+            <!-- العبارة المضافة الجديدة بخط كبير وواضح باللون الأبيض وجهة اليمين -->
             <h2 class="page-heading fade-in-element shining-white-text" id="mainHeading">بيانات السجل التجاري</h2>
 
             <div class="notice-banner fade-in-element">
