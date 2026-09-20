@@ -311,29 +311,25 @@
             gap: 8px;
             position: relative;
         }
-        /* نقل زر نشط لليسار وجعله أكثر إشراقاً وبريقاً */
-        .status-badge-inline {
-            position: absolute;
-            top: -5px;
-            left: 0;
-            background-color: #10b981;
-            color: #ffffff;
-            padding: 4px 14px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 800;
-            box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
-        }
-        body.ltr-mode .status-badge-inline {
-            left: auto;
-            right: 0;
-        }
+        
+        /* اسم الشركة بالأعلى، وشارة نشط بالأسفل مع لون أخضر فاتح جداً */
         .comp-title {
             font-size: 18px;
             font-weight: 900;
             color: #111827;
             line-height: 1.5;
-            margin-top: 15px;
+            margin-top: 5px;
+        }
+
+        .status-badge-inline {
+            background-color: #ecfdf5;
+            color: #059669;
+            padding: 2px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            border: 1px solid #a7f3d0;
+            display: inline-block;
         }
 
         .info-row {
@@ -387,26 +383,27 @@
         .date-badges-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6px;
+            gap: 4px;
         }
+        /* تصغير مربعات التواريخ ونصوصها بشكل كبير */
         .date-badge-box {
             background: #f5f3ff;
             border: 1px solid #ddd6fe;
-            border-radius: 6px;
-            padding: 4px 8px;
+            border-radius: 4px;
+            padding: 2px 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 11.5px;
+            font-size: 10px;
             font-weight: 700;
             color: #5b21b6;
         }
         .date-badge-box span:last-child {
             color: #6d28d9;
-            font-size: 9.5px;
+            font-size: 8px;
             background: #ede9fe;
-            padding: 1px 4px;
-            border-radius: 3px;
+            padding: 1px 3px;
+            border-radius: 2px;
         }
 
         .section-title {
@@ -555,8 +552,8 @@
                         </div>
                     </div>
                     <div class="comp-title-row">
-                        <span class="status-badge-inline" id="statusBadge">نشط</span>
                         <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
+                        <span class="status-badge-inline" id="statusBadge">نشط</span>
                     </div>
                 </div>
 
