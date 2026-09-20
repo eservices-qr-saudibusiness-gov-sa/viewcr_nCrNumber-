@@ -222,7 +222,7 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
 }
 
-/* صرف نوع المنشأة سے بالکل پہلے ایک چھوٹی ہلکی سی لکیر */
+/* تصویر کے مطابق چھوٹی لکیر اب 'نوع المنشأة' سے بالکل بائیں طرف (بعد میں) رکھی گئی ہے */
 .info-row-first { 
   display: flex; 
   justify-content: space-between; 
@@ -236,8 +236,19 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 6px; padding-right: 4px; }
 body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 4px; }
-.info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 4px; }
+.info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 4px; display: flex; align-items: center; gap: 8px; }
 body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 4px; }
+
+/* چھوٹی لکیر کی اسٹائلنگ جو تصویر جیسی ہے */
+.custom-divider-line {
+  display: inline-block;
+  width: 1.5px;
+  height: 16px;
+  background-color: #d1d5db;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
 .chip { background: #f3f4f6; color: #374151; padding: 3px 8px; border-radius: 6px; font-size: 13px; font-weight: 600; }
 .chip-indigo { background: #f3e8ff; color: #6b21a8; padding: 3px 8px; border-radius: 6px; font-size: 13px; font-weight: 600; border: 1px solid #d8b4fe; }
 
@@ -335,10 +346,13 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <!-- یہاں صرف 'نوع المنشأة' سے پہلے ہلکی سی لکیر اور قریب تر فاصلہ ہے -->
+      <!-- یہاں 'نوع المنشأة' کے فورا بعد چھوٹی لکیر اور پھر 'شركة' بالکل ٹچ ہو کر موجود ہے جیسا کہ تصویر میں ہے -->
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType">&nbsp; نوع المنشأة</span>
-        <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
+        <span class="info-val">
+          <span class="chip" id="valFacilityType">شركة</span>
+          <span class="custom-divider-line"></span>
+        </span>
       </div>
       
       <div class="info-row">
