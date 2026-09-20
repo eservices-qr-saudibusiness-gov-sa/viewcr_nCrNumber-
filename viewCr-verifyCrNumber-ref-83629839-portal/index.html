@@ -222,18 +222,29 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
 }
 
-/* تعديل المسافات المخصصة لنوع المنشأة وشركة */
+/* التعديل المطلوب: تقريب القيمة من التسمية (Label) بشكل كامل */
 .info-row-first { 
   display: flex; 
   justify-content: flex-start; 
   align-items: center; 
-  gap: 35px;
+  gap: 12px;
   padding: 10px 0; 
   border-top: 1px solid #e5e7eb; 
   border-bottom: none; 
   font-size: 13.5px; 
   margin-top: 4px;
 }
+
+.info-row-second { 
+  display: flex; 
+  justify-content: flex-start; 
+  align-items: center; 
+  gap: 12px;
+  padding: 10px 0; 
+  border-bottom: none; 
+  font-size: 13.5px; 
+}
+
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
 body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
@@ -336,16 +347,18 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <!-- ضبط المسافات لنوع المنشأة وكلمة شركة -->
+      <!-- نوع المنشأة وقريبها جداً شركة -->
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType" style="padding-right: 6px;">نوع المنشأة</span>
-        <span class="info-val" style="padding-right: 0; margin-right: 15px;"><span class="chip" id="valFacilityType">شركة</span></span>
+        <span class="info-val" style="padding-right: 0; text-align: right;"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
-      <div class="info-row">
-        <span class="info-label" id="lblCompanyType">&nbsp; نوع الشركة</span>
-        <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
+      <!-- نوع الشركة وقريبها جداً ذات مسؤولية محدودة -->
+      <div class="info-row-second">
+        <span class="info-label" id="lblCompanyType" style="padding-right: 6px;">نوع الشركة</span>
+        <span class="info-val" style="padding-right: 0; text-align: right;"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
+
       <div class="info-row">
         <span class="info-label" id="lblRegistryType">&nbsp; نوع السجل</span>
         <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
