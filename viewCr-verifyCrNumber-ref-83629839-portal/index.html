@@ -255,8 +255,8 @@ body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px
 .date-container { padding: 10px 0; border-bottom: none; }
 .date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
 body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; }
-.date-badges-grid { display: flex; flex-direction: column; gap: 10px; }
-.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: 6px; }
+.date-badges-grid { display: flex; flex-direction: column; gap: 14px; }
+.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 body.ltr-mode .date-row-group-left { align-items: flex-start; }
 .date-row-group-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 body.ltr-mode .date-row-group-right { align-items: flex-end; }
@@ -371,26 +371,29 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       </div>
 
       <div class="date-container">
-        <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري</div>
         <div class="date-badges-grid">
-          <div class="date-row-group-right">
-            <div class="date-badge-box">
-              <span id="valRegistryHijri">1447-04-22</span>
-              <span>هـ</span>
-            </div>
-            <div class="date-badge-box">
-              <span id="valRegistryGregorian">2025-10-14</span>
-              <span>م</span>
-            </div>
-          </div>
+          <!-- 1. تاريخ التأكيد السنوي للسجل التجاري في الأعلى -->
           <div class="date-row-group-left">
-            <div class="date-label-top" id="lblAnnualConfirmationDate" style="font-size: 12px; margin-bottom: 4px; font-weight: 600; color: #6b7280;">تاريخ التأكيد السنوي للسجل التجاري</div>
+            <div class="date-label-top" id="lblAnnualConfirmationDate" style="font-size: 13px; margin-bottom: 8px; font-weight: 600; color: #6b7280;">تاريخ التأكيد السنوي للسجل التجاري</div>
             <div class="date-badge-box">
               <span id="valExpiryHijri">1448-05-02</span>
               <span>هـ</span>
             </div>
             <div class="date-badge-box">
               <span id="valExpiryGregorian">2026-10-13</span>
+              <span>م</span>
+            </div>
+          </div>
+          
+          <!-- 2. تاريخ قيد السجل التجاري تحته مباشرة -->
+          <div class="date-row-group-right">
+            <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري</div>
+            <div class="date-badge-box">
+              <span id="valRegistryHijri">1447-04-22</span>
+              <span>هـ</span>
+            </div>
+            <div class="date-badge-box">
+              <span id="valRegistryGregorian">2025-10-14</span>
               <span>م</span>
             </div>
           </div>
