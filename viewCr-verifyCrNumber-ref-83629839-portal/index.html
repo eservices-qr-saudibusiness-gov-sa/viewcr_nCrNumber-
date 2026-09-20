@@ -248,7 +248,6 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        /* نوٹس بینر کو مزید موٹا اور نمایاں کیا گیا ہے */
         .notice-banner {
             background: #ffffff;
             border-radius: 16px;
@@ -312,7 +311,6 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
-            position: relative;
         }
         
         .comp-title {
@@ -324,7 +322,6 @@
             text-align: center;
         }
 
-        /* اسٹیٹس (Active/نشط) کو بائیں طرف (Left side) منتقل کر دیا گیا ہے */
         .status-badge-inline {
             background-color: #ecfdf5;
             color: #059669;
@@ -333,13 +330,12 @@
             font-size: 11.5px;
             font-weight: 800;
             border: 1px solid #a7f3d0;
-            position: absolute;
-            left: 0;
-            top: 0;
+            display: inline-block;
+            margin-top: 6px;
+            align-self: flex-start;
         }
         body.ltr-mode .status-badge-inline {
-            left: auto;
-            right: 0;
+            align-self: flex-end;
         }
 
         .info-row {
@@ -388,40 +384,43 @@
             color: #6b7280;
             font-size: 13px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         
+        /* تحديث تنسيق عرض التواريخ ليتم ترتيبها فوق بعضها مع مسافة فاصلة */
         .date-badges-grid {
-            display: grid;
-            grid-template-columns: repeat(4, auto);
-            gap: 4px;
-            justify-content: flex-start;
-            margin-left: -8px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        body.ltr-mode .date-badges-grid {
-            justify-content: flex-end;
-            margin-left: 0;
-            margin-right: -8px;
+        .date-row-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: flex-start;
+        }
+        body.ltr-mode .date-row-group {
+            align-items: flex-end;
         }
 
         .date-badge-box {
             background: #f5f3ff;
             border: 1px solid #ddd6fe;
-            border-radius: 4px;
-            padding: 3px 5px;
-            display: flex;
+            border-radius: 6px;
+            padding: 6px 12px;
+            display: inline-flex;
             align-items: center;
-            gap: 2px;
-            font-size: 9.5px;
+            gap: 6px;
+            font-size: 12px;
             font-weight: 700;
             color: #5b21b6;
         }
         .date-badge-box span:last-child {
             color: #6d28d9;
-            font-size: 7.5px;
+            font-size: 10px;
             background: #ede9fe;
-            padding: 0px 2px;
-            border-radius: 2px;
+            padding: 1px 4px;
+            border-radius: 3px;
         }
 
         .section-title {
@@ -564,9 +563,6 @@
 
             <div class="card fade-in-element">
                 <div class="card-top-section">
-                    <!-- بائیں جانب شفٹ کیا گیا اسٹیٹس (نشط) -->
-                    <span class="status-badge-inline" id="statusBadge">نشط</span>
-
                     <div class="card-side-logo">
                         <div class="gov-seal-side">
                             <img src="https://i.ibb.co/V93M1mQ/SDAIA-Logo.png" alt="Seal" onerror="this.style.display='none'">
@@ -574,6 +570,7 @@
                     </div>
                     <div class="comp-title-row">
                         <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
+                        <span class="status-badge-inline" id="statusBadge">نشط</span>
                     </div>
                 </div>
 
@@ -597,21 +594,28 @@
                 <div class="date-container">
                     <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري تاريخ التأكيد السنوي للسجل التجاري</div>
                     <div class="date-badges-grid">
-                        <div class="date-badge-box">
-                            <span id="valRegistryHijri">1447-04-22</span>
-                            <span>هـ</span>
+                        <!-- المجموع الأولى: التاريخ الهجري وتحته الميلادي -->
+                        <div class="date-row-group">
+                            <div class="date-badge-box">
+                                <span id="valRegistryHijri">1447-04-22</span>
+                                <span>هـ</span>
+                            </div>
+                            <div class="date-badge-box">
+                                <span id="valRegistryGregorian">2025-10-14</span>
+                                <span>م</span>
+                            </div>
                         </div>
-                        <div class="date-badge-box">
-                            <span id="valRegistryGregorian">2025-10-14</span>
-                            <span>م</span>
-                        </div>
-                        <div class="date-badge-box">
-                            <span id="valExpiryHijri">1448-05-02</span>
-                            <span>هـ</span>
-                        </div>
-                        <div class="date-badge-box">
-                            <span id="valExpiryGregorian">2026-10-13</span>
-                            <span>م</span>
+                        
+                        <!-- المجموع الثانية بعد مسافة: التاريخ الهجري وتحته الميلادي -->
+                        <div class="date-row-group">
+                            <div class="date-badge-box">
+                                <span id="valExpiryHijri">1448-05-02</span>
+                                <span>هـ</span>
+                            </div>
+                            <div class="date-badge-box">
+                                <span id="valExpiryGregorian">2026-10-13</span>
+                                <span>م</span>
+                            </div>
                         </div>
                     </div>
                 </div>
