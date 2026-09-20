@@ -67,15 +67,15 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   position: relative;
 }
 
-/* تحديث أيقونة معلومات (i) مع حلقات أسرع وأصغر حجماً */
+/* تصغير حجم الدائرة لتصبح أصغر، مع تسريع الحركة وجعل الحلقات أوسع وأوضح */
 .notice-icon { 
-  font-size: 15px; 
+  font-size: 13px; 
   line-height: 1; 
   user-select: none; 
   background: #ffffff; 
   color: #1f2937; 
-  width: 32px; 
-  height: 32px; 
+  width: 24px; 
+  height: 24px; 
   display: flex; 
   align-items: center; 
   justify-content: center; 
@@ -84,7 +84,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   flex-shrink: 0; 
   position: relative;
   border: 2px solid #1f2937;
-  animation: blackPulseRing 1.3s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  animation: blackPulseRing 1s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 @keyframes blackPulseRing {
@@ -92,7 +92,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
     box-shadow: 0 0 0 0 rgba(31, 41, 55, 0.5);
   }
   70% {
-    box-shadow: 0 0 0 6px rgba(31, 41, 55, 0);
+    box-shadow: 0 0 0 10px rgba(31, 41, 55, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(31, 41, 55, 0);
