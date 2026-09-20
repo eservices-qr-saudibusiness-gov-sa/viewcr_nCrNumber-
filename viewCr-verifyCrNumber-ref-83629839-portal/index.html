@@ -86,21 +86,14 @@
             }
         }
 
-        @keyframes bgShinePulse {
-            0% { filter: brightness(1) contrast(1); }
-            50% { filter: brightness(1.25) contrast(1.1); }
-            100% { filter: brightness(1) contrast(1); }
-        }
-
         .main-wrapper {
             min-height: 100vh;
-            background: linear-gradient(180deg, rgba(35, 12, 65, 0.85) 0%, rgba(20, 5, 40, 0.95) 100%), 
+            background: linear-gradient(135deg, rgba(45, 10, 95, 0.88) 0%, rgba(26, 7, 58, 0.92) 50%, rgba(15, 3, 35, 0.95) 100%), 
                         url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1000&auto=format&fit=crop');
             background-size: cover;
-            background-position: top center;
-            background-repeat: no-repeat;
+            background-position: center;
+            background-blend-mode: hard-light;
             padding-bottom: 40px;
-            animation: bgShinePulse 4s infinite ease-in-out;
         }
 
         .header {
@@ -154,7 +147,7 @@
             align-items: center;
             justify-content: center;
         }
-        .header-logo-icon img, .header-logo-icon svg {
+        .header-logo-icon img {
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -252,88 +245,34 @@
         }
 
         .page-heading {
-            text-align: right;
-            font-size: 26px;
+            text-align: center;
+            font-size: 24px;
             font-weight: 900;
             color: #ffffff;
             margin: 25px 0 20px 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
-            animation: pureWhiteShine 2.5s infinite ease-in-out;
-        }
-
-        @keyframes pureWhiteShine {
-            0% {
-                color: #ffffff;
-                text-shadow: 0 0 4px rgba(255, 255, 255, 0.6), 0 0 15px rgba(168, 85, 247, 0.5);
-            }
-            50% {
-                color: #ffffff;
-                text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 25px rgba(216, 180, 254, 0.9);
-            }
-            100% {
-                color: #ffffff;
-                text-shadow: 0 0 4px rgba(255, 255, 255, 0.6), 0 0 15px rgba(168, 85, 247, 0.5);
-            }
-        }
-
-        @keyframes softShine {
-            0% { opacity: 0.92; }
-            50% { opacity: 1; text-shadow: 0 0 3px rgba(124, 58, 237, 0.25); }
-            100% { opacity: 0.92; }
-        }
-
-        .shining-text {
-            color: #000000;
-            font-weight: 900;
-            animation: softShine 3s infinite ease-in-out;
-        }
-
-        .shining-white-text {
-            color: #ffffff;
-            animation: pureWhiteShine 3s infinite ease-in-out;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
 
         .notice-banner {
             background: #ffffff;
             border-radius: 16px;
-            padding: 24px 20px;
-            margin-bottom: 18px;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-            border: 2px solid #7c3aed;
+            padding: 20px 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            border: 2px solid #e5e7eb;
             display: flex;
             align-items: flex-start;
-            gap: 14px;
-            position: relative;
+            gap: 12px;
         }
-        
         .notice-icon {
-            font-size: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            background: #f3e8ff;
-            color: #7c3aed;
-            border-radius: 50%;
-            border: 1.5px solid #d8b4fe;
-            animation: pulseGlow 1.5s infinite;
-            flex-shrink: 0;
+            font-size: 20px;
         }
-
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
-            70% { box-shadow: 0 0 0 8px rgba(124, 58, 237, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
-        }
-
         .notice-banner p {
             margin: 0;
-            font-size: 15px;
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: #1f2937;
             font-weight: 800;
-            line-height: 1.7;
-            color: #111827;
-            animation: softShine 3s infinite ease-in-out;
         }
 
         .card {
@@ -353,22 +292,18 @@
         }
         .card-side-logo {
             display: flex;
-            justify-content: flex-start;
+            justify-content: flex-end;
             margin-bottom: 10px;
         }
         body.ltr-mode .card-side-logo {
-            justify-content: flex-end;
+            justify-content: flex-start;
         }
         .gov-seal-side {
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            border-radius: 50%;
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
         }
         .gov-seal-side img {
             width: 100%;
@@ -385,6 +320,8 @@
         
         .comp-title {
             font-size: 18px;
+            font-weight: 900;
+            color: #111827;
             line-height: 1.5;
             margin-top: 5px;
             text-align: center;
@@ -397,7 +334,7 @@
             border-radius: 6px;
             font-size: 11.5px;
             font-weight: 800;
-            border: 1.5px solid #a7f3d0;
+            border: 1px solid #a7f3d0;
             display: inline-block;
             margin-top: 6px;
             align-self: flex-start;
@@ -435,18 +372,13 @@
             font-size: 13px;
             font-weight: 700;
         }
-        
-        .static-purple-box {
-            background: #f3e8ff !important;
-            color: #6b21a8 !important;
-            border: 1.5px solid #d8b4fe !important;
+        .chip-indigo {
+            background: #f3e8ff;
+            color: #6b21a8;
+            padding: 4px 10px;
             border-radius: 6px;
-            padding: 6px 12px;
             font-size: 13px;
             font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .date-container {
@@ -486,16 +418,16 @@
         }
 
         .date-badge-box {
-            background: #f3e8ff !important;
-            color: #6b21a8 !important;
-            border: 1.5px solid #d8b4fe !important;
+            background: #f3e8ff;
+            border: 1px solid #d8b4fe;
             border-radius: 6px;
             padding: 6px 12px;
-            font-size: 12px;
-            font-weight: 700;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #6b21a8;
         }
         .date-badge-box span:last-child {
             color: #581c87;
@@ -535,6 +467,8 @@
             border-radius: 10px;
             padding: 12px;
             text-align: center;
+            font-weight: 800;
+            color: #1f2937;
             font-size: 13.5px;
         }
 
@@ -619,29 +553,27 @@
 
     <div class="main-wrapper">
         <header class="header fade-in-element">
+            <!-- الشعار الجديد مكان الزر القديم في اليمين -->
             <div class="header-right">
                 <div class="header-logo-icon">
-                    <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor" style="color: #ffffff;">
-                        <path d="M12 2C11.45 2 11 2.45 11 3V5H7C5.9 5 5 5.9 5 7V9H3C2.45 9 2 9.45 2 10V11C2 11.55 2.45 12 3 12H5V14H3C2.45 14 2 14.45 2 15V16C2 16.55 2.45 17 3 17H5V21C5 21.55 5.45 22 6 22H8C8.55 22 9 21.55 9 21V17H15V21C15 21.55 15.45 22 16 22H18C18.55 22 19 21.55 19 21V17H21C21.55 17 22 16.55 22 16V15C22 14.45 21.55 14 21 14H19V12H21C21.55 12 22 11.55 22 11V10C22 9.45 21.55 9 21 9H19V7C19 5.9 18.1 5 17 5H13V3C13 2.45 12.55 2 12 2M12 4C12.55 4 13 4.45 13 5V6H11V5C11 4.45 11.45 4 12 4M7 7H17C17 7.55 17.45 8 18 8V9H6V8C6.55 8 7 7.55 7 7M7 11H17V12H7V11M7 14H17V15H7V14Z"/>
-                    </svg>
+                    <img src="https://i.ibb.co/6ZzXf3v/1000285250.png" alt="Logo" onerror="this.style.display='none'">
                 </div>
                 <div class="header-title-area">
-                    <h1 class="header-title shining-white-text" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
-                    <div class="header-subtitle shining-white-text" id="headerSubtitle" style="font-size: 9.5px;">SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER - تيسير</div>
-                    <!-- تمت إضافة عبارة بيانات السجل التجاري باللون الأبيض النقي المضيء، بحجم كبير وتحت عبارة تيسير مباشرة -->
-                    <div class="shining-white-text" id="subHeaderCRTitle" style="font-size: 14px; font-weight: 900; margin-top: 5px; text-shadow: 0 0 10px rgba(255,255,255,0.8);">بيانات السجل التجاري</div>
+                    <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
+                    <div class="header-subtitle" id="headerSubtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER</div>
                 </div>
             </div>
+            <!-- زر القائمة (Menu) تم نقله إلى اليسار -->
             <div class="header-logo-section">
-                <button class="menu-btn shining-white-text" onclick="toggleMenu()">☰</button>
+                <button class="menu-btn" onclick="toggleMenu()">☰</button>
             </div>
         </header>
 
         <div class="container">
-            <h2 class="page-heading fade-in-element shining-white-text" id="mainHeading">بيانات السجل التجاري</h2>
+            <h2 class="page-heading fade-in-element" id="mainHeading">بيانات السجل التجاري</h2>
 
             <div class="notice-banner fade-in-element">
-                <div class="notice-icon">i</div>
+                <div class="notice-icon">ℹ️</div>
                 <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
             </div>
 
@@ -649,30 +581,30 @@
                 <div class="card-top-section">
                     <div class="card-side-logo">
                         <div class="gov-seal-side">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Emblem_of_Saudi_Arabia.svg/200px-Emblem_of_Saudi_Arabia.svg.png" alt="شعار السيفين والنخلة">
+                            <img src="https://i.ibb.co/6ZzXf3v/1000285250.png" alt="Seal" onerror="this.style.display='none'">
                         </div>
                     </div>
                     <div class="comp-title-row">
-                        <div class="comp-title shining-text" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
+                        <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
                         <span class="status-badge-inline" id="statusBadge">نشط</span>
                     </div>
                 </div>
 
                 <div class="info-row">
                     <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
-                    <span class="info-val"><span class="chip shining-text" id="valFacilityType" style="display: inline-block;">شركة</span></span>
+                    <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblCompanyType">نوع الشركة</span>
-                    <span class="info-val"><span class="chip shining-text" id="valCompanyType" style="display: inline-block;">ذات مسؤولية محدودة</span></span>
+                    <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblRegistryType">نوع السجل</span>
-                    <span class="info-val"><span class="static-purple-box" id="valRegistryType">سجل رئيسي</span></span>
+                    <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblUnifiedNumber">الرقم الوطني الموحد للمنشأة</span>
-                    <span class="info-val shining-text" id="valUnifiedNumber">7052072944</span>
+                    <span class="info-val" id="valUnifiedNumber">7052072944</span>
                 </div>
 
                 <div class="date-container">
@@ -704,54 +636,54 @@
 
                 <div class="info-row">
                     <span class="info-label" id="lblCity">مدينة عنوان الأعمال المعتمد للمنشأة</span>
-                    <span class="info-val shining-text" id="valCity">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
+                    <span class="info-val" id="valCity">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblCopyNumber">رقم نسخة السجل التجاري</span>
-                    <span class="info-val shining-text" id="valCopyNumber">1</span>
+                    <span class="info-val" id="valCopyNumber">1</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblCapital">قيمة رأس المال الكلي</span>
-                    <span class="info-val shining-text" id="valCapital">ر.س 5,000.00</span>
+                    <span class="info-val" id="valCapital">ر.س 5,000.00</span>
                 </div>
 
                 <div class="info-row">
                     <span class="info-label" id="lblPhone">رقم الجوال</span>
-                    <span class="info-val shining-text" id="valPhone">00966558531945</span>
+                    <span class="info-val" id="valPhone">00966558531945</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblEmail">البريد الإلكتروني</span>
-                    <span class="info-val shining-text" id="valEmail">klhncfskfhbj@gmail.co</span>
+                    <span class="info-val" id="valEmail">klhncfskfhbj@gmail.co</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label" id="lblWebsite">عنوان الموقع الإلكتروني</span>
-                    <span class="info-val shining-text" id="valWebsite">-</span>
+                    <span class="info-val" id="valWebsite">-</span>
                 </div>
             </div>
 
             <div class="card fade-in-element">
                 <div class="section-title" id="secActivities" style="margin-top: 0;">قائمة أنشطة السجل التجاري</div>
                 <div class="activity-card">
-                    <div class="activity-title shining-text" id="activityText1">الإنشاءات العامة للمباني السكنية</div>
+                    <div class="activity-title" id="activityText1">الإنشاءات العامة للمباني السكنية</div>
                     <div class="activity-code" id="activityCode1">410010</div>
                 </div>
                 <div class="activity-card">
-                    <div class="activity-title shining-text" id="activityText2">الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)</div>
+                    <div class="activity-title" id="activityText2">الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)</div>
                     <div class="activity-code" id="activityCode2">410021</div>
                 </div>
                 <div class="activity-card">
-                    <div class="activity-title shining-text" id="activityText3">إنشاء المطارات ومرافقها</div>
+                    <div class="activity-title" id="activityText3">إنشاء المطارات ومرافقها</div>
                     <div class="activity-code" id="activityCode3">410022</div>
                 </div>
                 <div class="activity-card">
-                    <div class="activity-title shining-text" id="activityText4">الإنشاءات العامة للمباني الحكومية</div>
+                    <div class="activity-title" id="activityText4">الإنشاءات العامة للمباني الحكومية</div>
                     <div class="activity-code" id="activityCode4">410023</div>
                 </div>
             </div>
 
             <div class="card fade-in-element">
                 <div class="section-title" id="secManagers" style="margin-top: 0;">قائمة المديرين</div>
-                <div class="manager-box shining-text" id="managerName">
+                <div class="manager-box" id="managerName">
                     عبدالهادي محمد مبارك اليامي
                 </div>
             </div>
@@ -802,8 +734,7 @@
                 document.getElementById('langRowLabel').innerText = "Language";
                 document.getElementById('fontRowLabel').innerText = "Font Size";
                 document.getElementById('headerTitle').innerText = "Saudi Business Center";
-                document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER - تيسير";
-                document.getElementById('subHeaderCRTitle').innerText = "Commercial Registration Data";
+                document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER";
                 document.getElementById('mainHeading').innerText = "Commercial Registration Data";
                 document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible for any shortage or discrepancy in the data, as data is retrieved via integration with relevant authorities.";
                 document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "Active");
@@ -846,8 +777,7 @@
                 document.getElementById('langRowLabel').innerText = "اللغة";
                 document.getElementById('fontRowLabel').innerText = "حجم الخط";
                 document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
-                document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER - تيسير";
-                document.getElementById('subHeaderCRTitle').innerText = "بيانات السجل التجاري";
+                document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | تيسير";
                 document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
                 document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
                 document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
@@ -873,13 +803,9 @@
                 document.getElementById('lblWebsite').innerText = "عنوان الموقع الإلكتروني";
                 document.getElementById('secActivities').innerText = "قائمة أنشطة السجل التجاري";
                 document.getElementById('activityText1').innerText = "الإنشاءات العامة للمباني السكنية";
-                document.getElementById('activityCode1').innerText = "410010";
                 document.getElementById('activityText2').innerText = "الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)";
-                document.getElementById('activityCode2').innerText = "410021";
                 document.getElementById('activityText3').innerText = "إنشاء المطارات ومرافقها";
-                document.getElementById('activityCode3').innerText = "410022";
                 document.getElementById('activityText4').innerText = "الإنشاءات العامة للمباني الحكومية";
-                document.getElementById('activityCode4').innerText = "410023";
                 document.getElementById('secManagers').innerText = "قائمة المديرين";
                 document.getElementById('managerName').innerText = "عبدالهادي محمد مبارك اليامي";
                 document.getElementById('footerBrandTitle').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
