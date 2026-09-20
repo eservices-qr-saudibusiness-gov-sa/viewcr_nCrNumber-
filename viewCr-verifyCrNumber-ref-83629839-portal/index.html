@@ -14,7 +14,7 @@ body {
   margin: 0; 
   padding: 0; 
   font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-  background-color: #0f0c1b; 
+  background-color: #faf5ff; 
   color: #1f2937; 
   direction: rtl; 
   text-align: right; 
@@ -29,10 +29,7 @@ body.ltr-mode { direction: ltr; text-align: left; }
 
 .main-wrapper { 
   min-height: 100vh; 
-  background: url('1000285115.png');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
+  background: linear-gradient(to bottom, #111827 0%, #1e1b4b 160px, #311042 320px, #faf5ff 400px, #faf5ff 100%);
   padding-bottom: 40px; 
   position: relative;
   overflow: hidden;
@@ -155,7 +152,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
   position: relative;
 }
 
-/* Normal Speed Expanding Rings Effect */
+/* Multiple Expanding Rings Effect */
 .notice-icon { 
   font-size: 11px; 
   line-height: 1; 
@@ -182,7 +179,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1.5px solid rgba(31, 41, 55, 0.6);
+  border: 1.5px solid rgba(31, 41, 55, 0.7);
   width: 100%;
   height: 100%;
   animation: rippleRings 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -200,8 +197,8 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
     opacity: 1;
   }
   100% {
-    width: 210%;
-    height: 210%;
+    width: 200%;
+    height: 200%;
     opacity: 0;
   }
 }
