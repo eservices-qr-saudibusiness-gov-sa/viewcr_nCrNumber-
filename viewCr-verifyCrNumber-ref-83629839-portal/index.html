@@ -88,11 +88,12 @@
 
         .main-wrapper {
             min-height: 100vh;
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            background: #f8f9fc; /* إزالة الخلفية البنفسجية بالكامل */
             padding-bottom: 40px;
         }
 
         .header {
+            background: #312e81; /* شريط العلوي فقط بلون مميز */
             padding: 16px 20px;
             display: flex;
             justify-content: space-between;
@@ -240,10 +241,10 @@
 
         .page-heading {
             text-align: center;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 900;
-            color: #ffffff;
-            margin: 15px 0 20px 0;
+            color: #1f2937; /* تعديل اللون ليناسب الخلفية الفاتحة */
+            margin: 20px 0 15px 0;
         }
 
         .notice-banner {
@@ -376,21 +377,23 @@
             grid-template-columns: 1fr 1fr;
             gap: 6px;
         }
+        /* تعديل مربعات التواريخ لتكون أصغر وذات طابع بنفسجي */
         .date-badge-box {
-            background: #f3f4f6;
+            background: #f5f3ff;
+            border: 1px solid #ddd6fe;
             border-radius: 6px;
-            padding: 6px 8px;
+            padding: 4px 8px; /* تصغير الهوامش لتكون أصغر */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 700;
-            color: #374151;
+            color: #5b21b6; /* كتابة باللون البنفسجي */
         }
         .date-badge-box span:last-child {
-            color: #6b7280;
-            font-size: 10px;
-            background: #e5e7eb;
+            color: #6d28d9;
+            font-size: 9.5px;
+            background: #ede9fe;
             padding: 1px 4px;
             border-radius: 3px;
         }
@@ -658,7 +661,6 @@
     </div>
 
     <script>
-        // ضبط وقت التحميل ليكون 3 ثوانٍ בדיוק
         setTimeout(() => {
             const loadingScreen = document.getElementById('loadingScreen');
             loadingScreen.classList.add('hidden');
