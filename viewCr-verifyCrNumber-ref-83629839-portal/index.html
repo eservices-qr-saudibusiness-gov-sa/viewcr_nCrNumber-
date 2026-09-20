@@ -65,11 +65,12 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   position: relative;
 }
 
+/* تعديل أيقونة التحذير لتكون باللون الأسود مع تأثير الحلقات المتحركة */
 .notice-icon { 
-  font-size: 18px; 
+  font-size: 16px; 
   line-height: 1; 
   user-select: none; 
-  background: #111827; 
+  background: #000000; 
   color: #ffffff; 
   width: 32px; 
   height: 32px; 
@@ -78,9 +79,35 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   justify-content: center; 
   border-radius: 50%; 
   font-weight: 900; 
-  border: 2px solid #d1d5db; 
   flex-shrink: 0; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.notice-icon::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  animation: pulseRings 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@keyframes pulseRings {
+  0% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
 }
 
 .notice-banner p { 
