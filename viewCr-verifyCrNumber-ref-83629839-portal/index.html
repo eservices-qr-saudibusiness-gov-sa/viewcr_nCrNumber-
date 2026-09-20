@@ -387,11 +387,12 @@
             margin-bottom: 10px;
         }
         
-        /* تحديث تنسيق عرض التواريخ ليتم ترتيبها فوق بعضها مع مسافة فاصلة */
+        /* تعديل تصميم التواريخ ليصبح جنباً إلى جنب (2025 في جهة و 2026 في الجهة المقابلة) وبتحت كل تاريخ هجري تاريخه الميلادي */
         .date-badges-grid {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
         }
         .date-row-group {
             display: flex;
@@ -594,7 +595,7 @@
                 <div class="date-container">
                     <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري تاريخ التأكيد السنوي للسجل التجاري</div>
                     <div class="date-badges-grid">
-                        <!-- المجموع الأولى: التاريخ الهجري وتحته الميلادي -->
+                        <!-- المجموعة الأولى: تاريخ 2025 (الهجري وتحته الميلادي) -->
                         <div class="date-row-group">
                             <div class="date-badge-box">
                                 <span id="valRegistryHijri">1447-04-22</span>
@@ -606,15 +607,18 @@
                             </div>
                         </div>
                         
-                        <!-- المجموع الثانية بعد مسافة: التاريخ الهجري وتحته الميلادي -->
-                        <div class="date-row-group">
+                        <!-- المجموعة الثانية: تاريخ 2026 في الجهة المقابلة (الهجري وتحته الميلادي مع شارة نشط بجانبه) -->
+                        <div class="date-row-group" style="align-items: flex-end;">
                             <div class="date-badge-box">
                                 <span id="valExpiryHijri">1448-05-02</span>
                                 <span>هـ</span>
                             </div>
-                            <div class="date-badge-box">
-                                <span id="valExpiryGregorian">2026-10-13</span>
-                                <span>م</span>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <span class="status-badge-inline" id="statusBadge" style="margin-top: 0; padding: 2px 8px; font-size: 10.5px;">نشط</span>
+                                <div class="date-badge-box">
+                                    <span id="valExpiryGregorian">2026-10-13</span>
+                                    <span>م</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -723,7 +727,7 @@
                 document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER";
                 document.getElementById('mainHeading').innerText = "Commercial Registration Data";
                 document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible for any shortage or discrepancy in the data, as data is retrieved via integration with relevant authorities.";
-                document.getElementById('statusBadge').innerText = "Active";
+                document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "Active");
                 document.getElementById('compName').innerText = "Abdulhadi Mohammed Al Yami Contracting Company";
                 document.getElementById('lblFacilityType').innerText = "Facility Type";
                 document.getElementById('valFacilityType').innerText = "Company";
@@ -766,7 +770,7 @@
                 document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER";
                 document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
                 document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
-                document.getElementById('statusBadge').innerText = "نشط";
+                document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
                 document.getElementById('compName').innerText = "شركة عبدالهادي محمد اليامي للمقاولات";
                 document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
                 document.getElementById('valFacilityType').innerText = "شركة";
