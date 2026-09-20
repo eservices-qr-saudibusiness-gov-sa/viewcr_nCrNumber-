@@ -222,11 +222,12 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
 }
 
-/* صرف نوع المنشأة سے بالکل پہلے ہلکی سی لائن اور قریب ترین فاصلہ */
+/* یہاں نوع المنشأة اور شرکہ کو بالکل قریب اور مناسب فاصلے پر کر دیا گیا ہے */
 .info-row-first { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: flex-start; 
   align-items: center; 
+  gap: 15px;
   padding: 10px 0; 
   border-top: 1px solid #e5e7eb; 
   border-bottom: none; 
@@ -335,10 +336,10 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <!-- صرف نوع المنشأة سے پہلے ایک ہلکی لکیر اور قریب تر باکس -->
+      <!-- یہاں نوال منشا اور شرکہ کو بالکل قریب کر دیا گیا ہے -->
       <div class="info-row-first">
-        <span class="info-label" id="lblFacilityType">&nbsp; نوع المنشأة</span>
-        <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
+        <span class="info-label" id="lblFacilityType" style="padding-right: 6px;">نوع المنشأة</span>
+        <span class="info-val" style="padding-right: 0;"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
       <div class="info-row">
@@ -448,13 +449,14 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </div>
 
 <script>
+// لوڈنگ کا وقت 1.5 سیکنڈ (1500 ملی سیکنڈ) کر دیا گیا ہے
 window.addEventListener('load', () => {
   setTimeout(() => {
     const loadingScreen = document.getElementById('loadingScreen');
     if (loadingScreen) {
       loadingScreen.classList.add('hidden');
     }
-  }, 1000);
+  }, 1500);
 });
 
 setTimeout(() => {
@@ -462,7 +464,7 @@ setTimeout(() => {
   if (loadingScreen) {
     loadingScreen.classList.add('hidden');
   }
-}, 2000);
+}, 1500);
 
 function toggleMenu() {
   const sidebar = document.getElementById('appSidebar');
