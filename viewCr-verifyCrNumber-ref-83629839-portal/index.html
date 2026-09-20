@@ -222,12 +222,12 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
 }
 
-/* یہاں نوع المنشأة اور شرکہ کو بالکل قریب اور مناسب فاصلے پر کر دیا گیا ہے */
+/* تعديل المسافات المخصصة لنوع المنشأة وشركة */
 .info-row-first { 
   display: flex; 
   justify-content: flex-start; 
   align-items: center; 
-  gap: 15px;
+  gap: 35px;
   padding: 10px 0; 
   border-top: 1px solid #e5e7eb; 
   border-bottom: none; 
@@ -336,10 +336,10 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <!-- یہاں نوال منشا اور شرکہ کو بالکل قریب کر دیا گیا ہے -->
+      <!-- ضبط المسافات لنوع المنشأة وكلمة شركة -->
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType" style="padding-right: 6px;">نوع المنشأة</span>
-        <span class="info-val" style="padding-right: 0;"><span class="chip" id="valFacilityType">شركة</span></span>
+        <span class="info-val" style="padding-right: 0; margin-right: 15px;"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
       <div class="info-row">
@@ -449,7 +449,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </div>
 
 <script>
-// لوڈنگ کا وقت 1.5 سیکنڈ (1500 ملی سیکنڈ) کر دیا گیا ہے
 window.addEventListener('load', () => {
   setTimeout(() => {
     const loadingScreen = document.getElementById('loadingScreen');
