@@ -223,7 +223,10 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
 }
 
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f9fafb; font-size: 13.5px; }
-.info-label { color: #6b7280; font-weight: 600; }
+.info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+body.ltr-mode .info-label { flex-direction: row-reverse; }
+.info-label::after { content: ""; display: inline-block; width: 1px; height: 18px; background-color: #d1d5db; margin-right: 12px; }
+body.ltr-mode .info-label::after { margin-right: 0; margin-left: 12px; }
 .info-val { font-weight: 700; color: #111827; text-align: left; }
 body.ltr-mode .info-val { text-align: right; }
 .chip { background: #f3f4f6; color: #374151; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 600; }
@@ -551,19 +554,4 @@ let currentFontState = 0;
 function toggleFontSize() {
   currentFontState = (currentFontState + 1) % 3;
   const container = document.querySelector('.container');
-  const fontSizeBtn = document.getElementById('fontSizeBtn');
-  if (currentFontState === 1) {
-    container.style.fontSize = '105%';
-    fontSizeBtn.innerText = 'A++';
-  } else if (currentFontState === 2) {
-    container.style.fontSize = '110%';
-    fontSizeBtn.innerText = 'A';
-  } else {
-    container.style.fontSize = '100%';
-    fontSizeBtn.innerText = 'A+';
-  }
-  toggleMenu();
-}
-</script>
-</body>
-</html>
+  const fontSizeBtn = لقد تم تحديث الكود وإضافة الخط الفاصل (Divider Line) بجانب تسميات "نوع المنشأة" و"نوع الشركة" بنفس الشكل والتصميم المطلوب تماماً كما ظهر في الصورة[span_0](start_span)[span_0](end_span).
