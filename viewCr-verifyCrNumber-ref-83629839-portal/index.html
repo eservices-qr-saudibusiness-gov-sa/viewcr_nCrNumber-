@@ -312,7 +312,6 @@
             position: relative;
         }
         
-        /* اسم الشركة بالأعلى، وشارة نشط بالأسفل مع لون أخضر فاتح جداً */
         .comp-title {
             font-size: 18px;
             font-weight: 900;
@@ -383,26 +382,51 @@
         .date-badges-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4px;
+            gap: 6px;
         }
-        /* تصغير مربعات التواريخ ونصوصها بشكل كبير */
+        
+        /* تعديل تصميم الصناديق لتصبح أصغر حجماً، التواريخ فوق بعضها (الهجري أعلى والميلادي أسفل) */
         .date-badge-box {
             background: #f5f3ff;
             border: 1px solid #ddd6fe;
             border-radius: 4px;
-            padding: 2px 6px;
+            padding: 4px 8px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             font-size: 10px;
             font-weight: 700;
             color: #5b21b6;
+            text-align: center;
+            gap: 2px;
         }
-        .date-badge-box span:last-child {
+        .date-line-top {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 10px;
+            color: #5b21b6;
+        }
+        .date-line-top span:last-child {
             color: #6d28d9;
             font-size: 8px;
             background: #ede9fe;
-            padding: 1px 3px;
+            padding: 0px 2px;
+            border-radius: 2px;
+        }
+        .date-line-bottom {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 10px;
+            color: #5b21b6;
+        }
+        .date-line-bottom span:last-child {
+            color: #6d28d9;
+            font-size: 8px;
+            background: #ede9fe;
+            padding: 0px 2px;
             border-radius: 2px;
         }
 
@@ -577,21 +601,27 @@
                 <div class="date-container">
                     <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري تاريخ التأكيد السنوي للسجل التجاري</div>
                     <div class="date-badges-grid">
+                        <!-- تاريخ القيد (الهجري بالأعلى والميلادي بالأسفل) -->
                         <div class="date-badge-box">
-                            <span id="valRegistryHijri">1447-04-22</span>
-                            <span>ه</span>
+                            <div class="date-line-top">
+                                <span id="valRegistryHijri">1447-04-22</span>
+                                <span>هـ</span>
+                            </div>
+                            <div class="date-line-bottom">
+                                <span id="valRegistryGregorian">2025-10-14</span>
+                                <span>م</span>
+                            </div>
                         </div>
+                        <!-- تاريخ انتهاء السجل (الهجري بالأعلى والميلادي بالأسفل) -->
                         <div class="date-badge-box">
-                            <span id="valRegistryGregorian">14-10-2025</span>
-                            <span>م</span>
-                        </div>
-                        <div class="date-badge-box">
-                            <span id="valExpiryHijri">1448-05-02</span>
-                            <span>ه</span>
-                        </div>
-                        <div class="date-badge-box">
-                            <span id="valExpiryGregorian">13-10-2026</span>
-                            <span>م</span>
+                            <div class="date-line-top">
+                                <span id="valExpiryHijri">1448-05-02</span>
+                                <span>هـ</span>
+                            </div>
+                            <div class="date-line-bottom">
+                                <span id="valExpiryGregorian">2026-10-13</span>
+                                <span>م</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -755,6 +785,7 @@
                 document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
                 document.getElementById('valCity').innerText = "الجبيل حي الصفانا شارع مك1ة المكرمة";
                 document.getElementById('lblCopyNumber').innerText = "رقم نسخة السجل التجاري";
+                document.getElementById('valCopyNumber').innerText = "1";
                 document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
                 document.getElementById('valCapital').innerText = "ر.س 5,000.00";
                 document.getElementById('lblPhone').innerText = "رقم الجوال";
