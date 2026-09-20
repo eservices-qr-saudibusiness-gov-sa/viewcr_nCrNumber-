@@ -20,7 +20,7 @@ body {
 }
 body.ltr-mode { direction: ltr; text-align: left; }
 #loadingScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
-#loadingScreen.hidden { opacity: 0; visibility: hidden; }
+#loadingScreen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .spinner { width: 45px; height: 45px; border: 4px solid #f3f3f3; border-top: 4px solid #4f46e5; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 15px; }
 .loading-text { color: #4b5563; font-size: 14px; font-weight: 700; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -435,10 +435,23 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </div>
 
 <script>
+// تم تقليل وقت التحميل إلى ثانية واحدة وإضافة حماية لعدم تعليق الشاشة
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen) {
+      loadingScreen.classList.add('hidden');
+    }
+  }, 1000);
+});
+
+// وفي حال تأخر التحميل لأي سبب، يتم إخفاؤها تلقائياً بعد 2 ثانية كحد أقصى
 setTimeout(() => {
   const loadingScreen = document.getElementById('loadingScreen');
-  loadingScreen.classList.add('hidden');
-}, 3000);
+  if (loadingScreen) {
+    loadingScreen.classList.add('hidden');
+  }
+}, 2000);
 
 function toggleMenu() {
   const sidebar = document.getElementById('appSidebar');
@@ -525,7 +538,7 @@ function toggleLanguage() {
     document.getElementById('valCopyNumber').innerText = "1";
     document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
     document.getElementById('valCapital').innerText = "ر.س 5,000.00";
-    document.getElementById('lblPhone').innerText = "رقم الجوال";
+    document.getElementById('lblPhone').innerText, "رقم الجوال";
     document.getElementById('valPhone').innerText = "00966558531945";
     document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
     document.getElementById('valEmail').innerText = "klhncfskfhbj@gmail.co";
@@ -554,4 +567,19 @@ let currentFontState = 0;
 function toggleFontSize() {
   currentFontState = (currentFontState + 1) % 3;
   const container = document.querySelector('.container');
-  const fontSizeBtn = لقد تم تحديث الكود وإضافة الخط الفاصل (Divider Line) بجانب تسميات "نوع المنشأة" و"نوع الشركة" بنفس الشكل والتصميم المطلوب تماماً كما ظهر في الصورة[span_0](start_span)[span_0](end_span).
+  const fontSizeBtn = document.getElementById('fontSizeBtn');
+  if (currentFontState === 1) {
+    container.style.fontSize = '105%';
+    fontSizeBtn.innerText = 'A++';
+  } else if (currentFontState === 2) {
+    container.style.fontSize = '110%';
+    fontSizeBtn.innerText = 'A';
+  } else {
+    container.style.fontSize = '100%';
+    fontSizeBtn.innerText = 'A+';
+  }
+  toggleMenu();
+}
+</script>
+</body>
+</html>
