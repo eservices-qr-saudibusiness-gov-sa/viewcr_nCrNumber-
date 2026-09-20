@@ -14,7 +14,7 @@ body {
   margin: 0; 
   padding: 0; 
   font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-  background-color: #faf5ff; 
+  background-color: #f3e8ff; 
   color: #1f2937; 
   direction: rtl; 
   text-align: right; 
@@ -29,7 +29,7 @@ body.ltr-mode { direction: ltr; text-align: left; }
 
 .main-wrapper { 
   min-height: 100vh; 
-  background: linear-gradient(to bottom, #111827 0%, #1e1b4b 160px, #311042 320px, #faf5ff 400px, #faf5ff 100%);
+  background: linear-gradient(to bottom, #111827 0%, #1e1b4b 160px, #311042 320px, #f3e8ff 400px, #f3e8ff 100%);
   padding-bottom: 40px; 
   position: relative;
   overflow: hidden;
@@ -129,15 +129,8 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 
 .container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
 
-.page-heading { 
-  text-align: right; 
-  font-size: 27.5px; 
-  font-weight: 800; 
-  color: #f9fafb; 
-  margin: 12px 10px 16px 0; 
-  text-shadow: 0 2px 6px rgba(0,0,0,0.3); 
-}
-body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
+.page-heading { text-align: right; font-size: 25px; font-weight: 650; color: #f9fafb; margin: 25px 10px 20px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
 
 .notice-banner { 
   background: #ffffff; 
@@ -201,15 +194,15 @@ body.ltr-mode .card-side-logo { justify-content: flex-start; }
 
 .comp-title-row { 
   display: flex; 
-  justify-content: flex-start; 
+  justify-content: space-between; 
   align-items: center; 
-  gap: 8px; 
+  gap: 12px; 
   margin-top: 2px; 
 }
-body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
+body.ltr-mode .comp-title-row { flex-direction: row-reverse; }
 
 .comp-title { 
-  font-size: 18px; 
+  font-size: 15px; 
   font-weight: 900; 
   color: #000000; 
   line-height: 1.4; 
@@ -219,13 +212,12 @@ body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: fl
 }
 body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5px; }
 
-/* تعديل حجم خانة الحالة لتكون أصغر قليلاً */
 .status-badge-inline { 
   background-color: #ecfdf5; 
   color: #059669; 
-  padding: 2.5px 8px; 
-  border-radius: 5px; 
-  font-size: 10.5px; 
+  padding: 4px 12px; 
+  border-radius: 6px; 
+  font-size: 11.5px; 
   font-weight: 700; 
   border: 1px solid #a7f3d0; 
   white-space: nowrap;
@@ -260,9 +252,7 @@ body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; paddi
 .info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; }
 body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
 .chip { background: #f3f4f6; color: #000000; padding: 3px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; }
-
-/* تفتيح لون الـ chip-indigo الخاص بالبنفسجي */
-.chip-indigo { background: #fbf5ff; color: #7e22ce; padding: 3px 8px; border-radius: 6px; font-size: 13px; font-weight: 600; border: 1px solid #f3e8ff; }
+.chip-indigo { background: #f3e8ff; color: #6b21a8; padding: 3px 8px; border-radius: 6px; font-size: 13px; font-weight: 600; border: 1px solid #d8b4fe; }
 
 .date-container { padding: 10px 0; border-bottom: none; }
 .date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
@@ -273,10 +263,9 @@ body.ltr-mode .date-row-group-left { align-items: flex-start; }
 .date-row-group-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 body.ltr-mode .date-row-group-right { align-items: flex-end; }
 
-/* تفتيح ألوان الـ date-badge-box البنفسجية */
 .date-badge-box { 
-  background: #fdf4ff; 
-  border: 1px solid #f3e8ff; 
+  background: #f3e8ff; 
+  border: 1px solid #d8b4fe; 
   border-radius: 5px; 
   padding: 2px 7px; 
   display: inline-flex; 
@@ -284,50 +273,38 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   gap: 5px; 
   font-size: 11px; 
   font-weight: 700; 
-  color: #7e22ce; 
+  color: #6b21a8; 
   width: fit-content;
 }
 .date-badge-box span:last-child { 
-  color: #6b21a8; 
+  color: #581c87; 
   font-size: 9px; 
-  background: #fae8ff; 
+  background: #e9d5ff; 
   padding: 1px 3px; 
   border-radius: 2px; 
 }
 
-.section-title { 
-  font-size: 17px; 
-  font-weight: 900; 
-  color: #000000; 
-  margin: 20px 0 12px 0; 
-}
-
+.section-title { font-size: 14px; font-weight: 800; color: #111827; margin: 20px 0 12px 0; }
 .activity-card { background: #f9fafb; border: 1px solid #f3f4f6; border-radius: 10px; padding: 12px; margin-bottom: 8px; }
 
+/* تعديل أسماء الأنشطة لتكون بخط TheSans Arabic، وحجم أكبر (15px)، ولون أسود داكن (#000000) */
 .activity-title { 
-  font-size: 14.5px; 
-  font-weight: 800; 
+  font-family: 'TheSansArabic', 'TheSans', sans-serif;
+  font-size: 15px; 
+  font-weight: 900; 
   color: #000000; 
-  margin-bottom: 4px; 
+  margin-bottom: 6px; 
 }
 
+/* تعديل الأكواد الأربعة لتكون بخط TheSans Arabic، وحجم أكبر (14.5px)، ولون أسود داكن (#000000) */
 .activity-code { 
   font-family: 'TheSansArabic', 'TheSans', sans-serif;
-  font-size: 16px; 
+  font-size: 14.5px; 
   color: #000000; 
   font-weight: 900; 
 }
 
-.manager-box { 
-  background: #f9fafb; 
-  border: 1px solid #f3f4f6; 
-  border-radius: 10px; 
-  padding: 12px; 
-  text-align: center; 
-  font-weight: 800; 
-  color: #000000; 
-  font-size: 14.5px; 
-}
+.manager-box { background: #f9fafb; border: 1px solid #f3f4f6; border-radius: 10px; padding: 12px; text-align: center; font-weight: 700; color: #1f2937; font-size: 13.5px; }
 
 .footer { text-align: center; padding: 20px 16px; font-size: 11px; color: #6b7280; background: #ffffff; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
 .footer-brand-row { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; }
@@ -405,16 +382,19 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
+      <!-- نوع المنشأة وشركة -->
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
         <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
+      <!-- نوع الشركة وذات مسؤولية محدودة -->
       <div class="info-row-second">
         <span class="info-label" id="lblCompanyType">نوع الشركة</span>
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
+      <!-- الرقم الوطني الموحد للمنشأة على اليسار ونوع السجل على اليمين -->
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">نوع السجل</span>
@@ -457,6 +437,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <span class="info-val" id="valCity" style="color: #000000;">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
       </div>
       
+      <!-- رقم نسخة السجل التجاري -->
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
@@ -503,7 +484,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
     
     <div class="card">
-      <div class="section-title" id="secManagers" style="margin-top: 0; font-size: 17px; font-weight: 900; color: #000000;">قائمة المديرين</div>
+      <div class="section-title" id="secManagers" style="margin-top: 0;">قائمة المديرين</div>
       <div class="manager-box" id="managerName"> عبدالهادي محمد مبارك اليامي </div>
     </div>
     
