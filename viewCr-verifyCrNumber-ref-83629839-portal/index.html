@@ -222,7 +222,7 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
 }
 
-/* التعديل المطلوب: تقريب القيمة من التسمية (Label) بشكل كامل */
+/* التعديلات الجديدة بناءً على طلبك الأخير */
 .info-row-first { 
   display: flex; 
   justify-content: flex-start; 
@@ -347,16 +347,19 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <!-- نوع المنشأة وقريبها جداً شركة -->
+      <!-- تعديل الترتيب: شركة (الشيركا) تم جلبها لليسار لتصبح بجانب महदूد (ذات مسؤولية محدودة) -->
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType" style="padding-right: 6px;">نوع المنشأة</span>
-        <span class="info-val" style="padding-right: 0; text-align: right;"><span class="chip" id="valFacilityType">شركة</span></span>
+        <span class="info-val" style="padding-right: 0; text-align: right; display: flex; align-items: center; gap: 8px;">
+          <span class="chip" id="valFacilityType">شركة</span>
+          <span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span>
+        </span>
       </div>
       
-      <!-- نوع الشركة وقريبها جداً ذات مسؤولية محدودة -->
-      <div class="info-row-second">
-        <span class="info-label" id="lblCompanyType" style="padding-right: 6px;">نوع الشركة</span>
-        <span class="info-val" style="padding-right: 0; text-align: right;"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
+      <!-- تم دمج الصفوف لتلبية طلب تقريب نوع المنشأة من الشيركا والمحَدود -->
+      <div class="info-row-second" style="display: none;">
+        <span class="info-label" id="lblCompanyType">نوع الشركة</span>
+        <span class="info-val"></span>
       </div>
 
       <div class="info-row">
@@ -507,7 +510,6 @@ function toggleLanguage() {
     document.getElementById('compName').innerText = "Abdulhadi Mohammed Al Yami Contracting Company";
     document.getElementById('lblFacilityType').innerText = "Facility Type";
     document.getElementById('valFacilityType').innerText = "Company";
-    document.getElementById('lblCompanyType').innerText = "Company Type";
     document.getElementById('valCompanyType').innerText = "Limited Liability";
     document.getElementById('lblRegistryType').innerText = "Registry Type";
     document.getElementById('valRegistryType').innerText = "Main Registry";
@@ -551,7 +553,6 @@ function toggleLanguage() {
     document.getElementById('compName').innerText = "شركة عبدالهادي محمد اليامي للمقاولات";
     document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
     document.getElementById('valFacilityType').innerText = "شركة";
-    document.getElementById('lblCompanyType').innerText = "نوع الشركة";
     document.getElementById('valCompanyType').innerText = "ذات مسؤولية محدودة";
     document.getElementById('lblRegistryType').innerText = "نوع السجل";
     document.getElementById('valRegistryType').innerText = "سجل رئيسي";
