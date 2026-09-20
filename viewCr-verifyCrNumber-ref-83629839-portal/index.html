@@ -266,7 +266,11 @@ body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px
 
 .chip { background: #ffffff; color: #000000; padding: 1px 6px; border-radius: 5px; font-size: 11.5px; font-weight: 700; border: 1px solid #e5e7eb; }
 
-.chip-indigo { background: #fbf5ff; color: #7e22ce; padding: 1px 5px; border-radius: 4px; font-size: 11.5px; font-weight: 600; border: 1px solid #f3e8ff; }
+/* تبدیل رنگ سجل رئيسي، تاریخ والے بکس اور نیچے والے 5 خانوں کے لیے یکساں ہلکا جامنی رنگ */
+.chip-indigo, .date-badge-box, .activity-card, .manager-box { 
+  background: #f3e8ff !important; 
+  border: 1px solid #e9d5ff !important; 
+}
 
 .date-container { padding: 10px 0; border-bottom: none; }
 .date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
@@ -278,8 +282,6 @@ body.ltr-mode .date-row-group-left { align-items: flex-start; }
 body.ltr-mode .date-row-group-right { align-items: flex-end; }
 
 .date-badge-box { 
-  background: #fdf4ff; 
-  border: 1px solid #f3e8ff; 
   border-radius: 5px; 
   padding: 2px 7px; 
   display: inline-flex; 
@@ -293,7 +295,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 .date-badge-box span:last-child { 
   color: #6b21a8; 
   font-size: 9px; 
-  background: #fae8ff; 
+  background: #e5ccff; 
   padding: 1px 3px; 
   border-radius: 2px; 
 }
@@ -305,7 +307,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   margin: 20px 0 12px 0; 
 }
 
-.activity-card { background: #fcf8ff; border: 1px solid #f3e8ff; border-radius: 10px; padding: 12px; margin-bottom: 8px; }
+.activity-card { border-radius: 10px; padding: 12px; margin-bottom: 8px; }
 
 .activity-title { 
   font-size: 14.5px; 
@@ -322,8 +324,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 }
 
 .manager-box { 
-  background: #fcf8ff; 
-  border: 1px solid #f3e8ff; 
   border-radius: 10px; 
   padding: 12px; 
   text-align: center; 
