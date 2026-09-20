@@ -256,7 +256,7 @@ body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px
 .date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
 body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; }
 .date-badges-grid { display: flex; flex-direction: column; gap: 10px; }
-.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: -70px; }
+.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: 6px; }
 body.ltr-mode .date-row-group-left { align-items: flex-start; }
 .date-row-group-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 body.ltr-mode .date-row-group-right { align-items: flex-end; }
@@ -371,30 +371,26 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       </div>
 
       <div class="date-container">
-        <!-- تاريخ قيد السجل التجاري وجواره رقم السجل التجاري -->
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-          <div style="display: flex; flex-direction: column; align-items: flex-start;">
-            <div class="date-label-top" id="lblRegistryDate" style="margin-bottom: 4px;">تاريخ قيد السجل التجاري</div>
-            <div style="display: flex; gap: 6px;">
-              <div class="date-badge-box">
-                <span id="valRegistryHijri">1447-04-22</span>
-                <span>هـ</span>
-              </div>
-              <div class="date-badge-box">
-                <span id="valRegistryGregorian">2025-10-14</span>
-                <span>م</span>
-              </div>
-            </div>
-          </div>
-          <div style="display: flex; flex-direction: column; align-items: flex-end;">
-            <span id="lblCommercialNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px; text-align: left;">رقم السجل التجاري</span>
-            <span id="valCommercialNumber" style="font-size: 13.5px; font-weight: 700; color: #111827;">5950154235</span>
+        <!-- تم إضافة رقم السجل التجاري هنا بجانب تاريخ قيد السجل التجاري -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <div class="date-label-top" id="lblRegistryDate" style="margin-bottom: 0;">تاريخ قيد السجل التجاري</div>
+          <div style="text-align: left;">
+            <span style="font-size: 11.5px; color: #6b7280; font-weight: 600; display: block;" id="lblCrNumberTitle">رقم السجل التجاري</span>
+            <span style="font-size: 13.5px; font-weight: 700; color: #111827;" id="valCrNumber">5950154235</span>
           </div>
         </div>
-
         <div class="date-badges-grid">
-          <div class="date-row-group-right" style="display: none;"></div>
-          <div class="date-row-group-left" style="margin-top: 0; width: 100%; align-items: flex-end;">
+          <div class="date-row-group-right">
+            <div class="date-badge-box">
+              <span id="valRegistryHijri">1447-04-22</span>
+              <span>هـ</span>
+            </div>
+            <div class="date-badge-box">
+              <span id="valRegistryGregorian">2025-10-14</span>
+              <span>م</span>
+            </div>
+          </div>
+          <div class="date-row-group-left">
             <div class="date-label-top" id="lblAnnualConfirmationDate" style="font-size: 11.5px; margin-bottom: 2px; font-weight: 600; color: #6b7280; text-align: left; line-height: 1.3;">تاريخ التأكيد السنوي<br>للسجل التجاري</div>
             <div class="date-badge-box" style="margin-top: 4px;">
               <span id="valExpiryHijri">1448-05-02</span>
@@ -488,7 +484,7 @@ window.addEventListener('load', () => {
     if (loadingScreen) {
       loadingScreen.classList.add('hidden');
     }
-  }, 1000);
+  }, 1500);
 });
 
 setTimeout(() => {
@@ -496,7 +492,7 @@ setTimeout(() => {
   if (loadingScreen) {
     loadingScreen.classList.add('hidden');
   }
-}, 1000);
+}, 1500);
 
 function toggleMenu() {
   const sidebar = document.getElementById('appSidebar');
@@ -533,7 +529,7 @@ function toggleLanguage() {
     document.getElementById('valRegistryType').innerText = "Main Registry";
     document.getElementById('lblUnifiedNumber').innerHTML = "Unified National<br>Number";
     document.getElementById('lblRegistryDate').innerText = "Registration Date";
-    document.getElementById('lblCommercialNumber').innerText = "Commercial Registration No.";
+    document.getElementById('lblCrNumberTitle').innerText = "Commercial Registration No.";
     document.getElementById('lblAnnualConfirmationDate').innerHTML = "Annual Confirmation<br>Date";
     document.getElementById('lblCity').innerText = "Business City";
     document.getElementById('valCity').innerText = "Al Jubail, Al Safa, Makramah St.";
@@ -579,7 +575,7 @@ function toggleLanguage() {
     document.getElementById('valRegistryType').innerText = "سجل رئيسي";
     document.getElementById('lblUnifiedNumber').innerHTML = "الرقم الوطني الموحد<br>للمنشأة";
     document.getElementById('lblRegistryDate').innerText = "تاريخ قيد السجل التجاري";
-    document.getElementById('lblCommercialNumber').innerText = "رقم السجل التجاري";
+    document.getElementById('lblCrNumberTitle').innerText = "رقم السجل التجاري";
     document.getElementById('lblAnnualConfirmationDate').innerHTML = "تاريخ التأكيد السنوي<br>للسجل التجاري";
     document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
     document.getElementById('valCity').innerText = "الجبيل حي الصفانا شارع مك1ة المكرمة";
