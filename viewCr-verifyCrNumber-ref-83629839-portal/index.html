@@ -222,12 +222,12 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
 }
 
-/* التعديلات الجديدة بناءً على طلبك الأخير */
+/* التنسيق المعدل لضبط المحاذاة والتقريب نحو المنتصف */
 .info-row-first { 
   display: flex; 
   justify-content: flex-start; 
   align-items: center; 
-  gap: 12px;
+  gap: 16px;
   padding: 10px 0; 
   border-top: 1px solid #e5e7eb; 
   border-bottom: none; 
@@ -239,7 +239,7 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   display: flex; 
   justify-content: flex-start; 
   align-items: center; 
-  gap: 12px;
+  gap: 16px;
   padding: 10px 0; 
   border-bottom: none; 
   font-size: 13.5px; 
@@ -347,19 +347,16 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <!-- تعديل الترتيب: شركة (الشيركا) تم جلبها لليسار لتصبح بجانب महदूد (ذات مسؤولية محدودة) -->
+      <!-- نوع المنشأة وشركة (قريبة ومحاذاة نحو الوسط) -->
       <div class="info-row-first">
-        <span class="info-label" id="lblFacilityType" style="padding-right: 6px;">نوع المنشأة</span>
-        <span class="info-val" style="padding-right: 0; text-align: right; display: flex; align-items: center; gap: 8px;">
-          <span class="chip" id="valFacilityType">شركة</span>
-          <span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span>
-        </span>
+        <span class="info-label" id="lblFacilityType" style="padding-right: 6px; min-width: 110px;">نوع المنشأة</span>
+        <span class="info-val" style="padding-right: 0; text-align: right;"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
-      <!-- تم دمج الصفوف لتلبية طلب تقريب نوع المنشأة من الشيركا والمحَدود -->
-      <div class="info-row-second" style="display: none;">
-        <span class="info-label" id="lblCompanyType">نوع الشركة</span>
-        <span class="info-val"></span>
+      <!-- نوع الشركة وذات مسؤولية محدودة (قريبة ومحاذاة نحو الوسط) -->
+      <div class="info-row-second">
+        <span class="info-label" id="lblCompanyType" style="padding-right: 6px; min-width: 110px;">نوع الشركة</span>
+        <span class="info-val" style="padding-right: 0; text-align: right;"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
       <div class="info-row">
@@ -510,6 +507,7 @@ function toggleLanguage() {
     document.getElementById('compName').innerText = "Abdulhadi Mohammed Al Yami Contracting Company";
     document.getElementById('lblFacilityType').innerText = "Facility Type";
     document.getElementById('valFacilityType').innerText = "Company";
+    document.getElementById('lblCompanyType').innerText = "Company Type";
     document.getElementById('valCompanyType').innerText = "Limited Liability";
     document.getElementById('lblRegistryType').innerText = "Registry Type";
     document.getElementById('valRegistryType').innerText = "Main Registry";
@@ -553,6 +551,7 @@ function toggleLanguage() {
     document.getElementById('compName').innerText = "شركة عبدالهادي محمد اليامي للمقاولات";
     document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
     document.getElementById('valFacilityType').innerText = "شركة";
+    document.getElementById('lblCompanyType').innerText = "نوع الشركة";
     document.getElementById('valCompanyType').innerText = "ذات مسؤولية محدودة";
     document.getElementById('lblRegistryType').innerText = "نوع السجل";
     document.getElementById('valRegistryType').innerText = "سجل رئيسي";
