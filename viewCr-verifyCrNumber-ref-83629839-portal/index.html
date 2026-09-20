@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #1a0b2e;
+            background-color: #f3f4f6; /* जमनी रंग हटाकर हल्का बैकग्राउंड कर दिया गया है */
             color: #1f2937;
             direction: rtl;
             text-align: right;
@@ -88,16 +88,12 @@
 
         .main-wrapper {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(45, 10, 95, 0.88) 0%, rgba(26, 7, 58, 0.92) 50%, rgba(15, 3, 35, 0.95) 100%), 
-                        url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: hard-light;
+            background: #f8fafc; /* यहाँ से तेज जमनी रंग पूरी तरह हटा दिया गया है */
             padding-bottom: 40px;
         }
 
         .header {
-            background: transparent;
+            background: #1a0b2e;
             padding: 16px 20px;
             display: flex;
             justify-content: space-between;
@@ -135,7 +131,7 @@
         }
         .header-subtitle {
             font-size: 10px;
-            color: #ffffff;
+            color: #e2e8f0;
             margin-top: 3px;
             font-weight: 600;
             letter-spacing: 0.2px;
@@ -246,11 +242,10 @@
 
         .page-heading {
             text-align: center;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 900;
-            color: #ffffff;
+            color: #1f2937;
             margin: 25px 0 20px 0;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
 
         .notice-banner {
@@ -258,8 +253,8 @@
             border-radius: 16px;
             padding: 20px 18px;
             margin-bottom: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            border: 2px solid #e5e7eb;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e5e7eb;
             display: flex;
             align-items: flex-start;
             gap: 12px;
@@ -280,7 +275,7 @@
             border-radius: 16px;
             padding: 20px 16px;
             margin-bottom: 16px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         .card-top-section {
@@ -290,15 +285,18 @@
             padding-bottom: 15px;
             position: relative;
         }
-        /* تم ضبط الشعار ليكون في جهة اليمين تماماً (في وضع الـ RTL) */
-        .card-side-logo {
+        
+        .card-header-row {
             display: flex;
-            justify-content: flex-start;
-            margin-bottom: 10px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
         }
-        body.ltr-mode .card-side-logo {
-            justify-content: flex-end;
+        body.ltr-mode .card-header-row {
+            flex-direction: row-reverse;
         }
+
+        /* दाईं तरफ नेशनल लोगो */
         .gov-seal-side {
             width: 48px;
             height: 48px;
@@ -314,6 +312,27 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+
+        /* शहर की फोटो (चमक के साथ - जैसा आपने इमेज में भेजा है)[span_1](start_span)[span_1](end_span) */
+        .city-glowing-container {
+            width: 85px;
+            height: 85px;
+            padding: 4px;
+            border-radius: 20px;
+            background: #ffffff;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4), inset 0 0 10px rgba(16, 185, 129, 0.2);
+            border: 2px solid #a7f3d0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+        }
+        .city-glowing-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
         }
 
         .comp-title-row {
@@ -484,7 +503,7 @@
             color: #6b7280;
             background: #ffffff;
             border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
         .footer-brand-row {
             display: flex;
@@ -584,12 +603,20 @@
 
             <div class="card fade-in-element">
                 <div class="card-top-section">
-                    <div class="card-side-logo">
+                    <div class="card-header-row">
+                        <!-- दाईं तरफ नेशनल लोगो -->
                         <div class="gov-seal-side">
-                            <!-- شعار السيفين والنخلة في الجهة اليمين (Right Side) -->
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Emblem_of_Saudi_Arabia.svg/200px-Emblem_of_Saudi_Arabia.svg.png" alt="شعار السيفين والنخلة">
                         </div>
+                        <!-- बाईं या खाली जगह बैलेंस करने के लिए खाली डिव -->
+                        <div style="width: 48px;"></div>
                     </div>
+
+                    <!-- शहर की चमकती हुई फोटो[span_2](start_span)[span_2](end_span) -->
+                    <div class="city-glowing-container">
+                        <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=300&auto=format&fit=crop" alt="City View">
+                    </div>
+
                     <div class="comp-title-row">
                         <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
                         <span class="status-badge-inline" id="statusBadge">نشط</span>
