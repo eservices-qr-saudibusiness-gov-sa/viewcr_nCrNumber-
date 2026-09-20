@@ -88,9 +88,8 @@
 
         .main-wrapper {
             min-height: 100vh;
-            /* إضافة صورة الأبراج كخلفية مع تدرج لوني يتماشى مع الصورة المرفقة[span_0](start_span)[span_0](end_span) */
             background: linear-gradient(135deg, rgba(30, 20, 60, 0.85) 0%, rgba(45, 15, 80, 0.9) 40%, rgba(20, 15, 50, 0.95) 100%), 
-                        url('https://i.ibb.co/V93M1mQ/SDAIA-Logo.png'); /* يمكن استبدالها برابط صورة الأبراج إن توفر، ومدمجة هنا بتصميم متناسق */
+                        url('https://i.ibb.co/V93M1mQ/SDAIA-Logo.png');
             background-size: cover;
             background-position: center;
             background-blend-mode: overlay;
@@ -392,7 +391,7 @@
             margin-bottom: 10px;
         }
         
-        /* تنسيق التواريخ على شكل درجتي سلم (الأولى يمين والأخرى يسار للأسفل بشكل متدرج) */
+        /* تنسيق التواريخ على شكل درجتي سلم (الأولى يمين والأخرى يسار للأسفل بشكل متدرج ومتباعد) */
         .date-badges-grid {
             display: flex;
             flex-direction: column;
@@ -403,7 +402,7 @@
             flex-direction: column;
             gap: 6px;
             align-items: flex-end;
-            margin-top: 8px; /* إعطاء مسافة للنزول للأسفل مثل الدرج */
+            margin-top: 10px; /* نزول تدريجي لتمثيل شكل السلم في الجهة المعاكسة */
         }
         body.ltr-mode .date-row-group-left {
             align-items: flex-start;
@@ -621,14 +620,11 @@
                             </div>
                         </div>
                         
-                        <!-- مجموعة تاريخ 2026 (في الأسفل يسار كأنها درجة سلم وبجانبها شارة نشط) -->
+                        <!-- مجموعة تاريخ 2026 (في الأسفل يسار كأنها درجة سلم - بدون كلمة نشط) -->
                         <div class="date-row-group-left">
-                            <div style="display: flex; align-items: center; gap: 6px;">
-                                <span class="status-badge-inline" id="statusBadge" style="margin-top: 0; padding: 2px 8px; font-size: 10.5px;">نشط</span>
-                                <div class="date-badge-box">
-                                    <span id="valExpiryHijri">1448-05-02</span>
-                                    <span>هـ</span>
-                                </div>
+                            <div class="date-badge-box">
+                                <span id="valExpiryHijri">1448-05-02</span>
+                                <span>هـ</span>
                             </div>
                             <div class="date-badge-box">
                                 <span id="valExpiryGregorian">2026-10-13</span>
