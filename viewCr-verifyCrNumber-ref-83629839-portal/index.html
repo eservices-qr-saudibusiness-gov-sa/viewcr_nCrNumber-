@@ -14,7 +14,6 @@ body.ltr-mode { direction: ltr; text-align: left; }
 .loading-text { color: #4b5563; font-size: 14px; font-weight: 700; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/* خلفية جامني علوية فقط، وينتهي التدرج إلى لون فاتح جداً من عند منطقة نشط فصاعداً */
 .main-wrapper { 
   min-height: 100vh; 
   background: linear-gradient(to bottom, #231942 0%, #35235f 220px, #f4f2f8 350px, #f8fafc 100%);
@@ -81,12 +80,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   border: 2px solid #e9d5ff; 
   flex-shrink: 0; 
   box-shadow: 0 0 12px rgba(124, 58, 237, 0.8);
-  animation: pulseIcon 1.5s infinite alternate;
-}
-
-@keyframes pulseIcon {
-  0% { transform: scale(1); box-shadow: 0 0 8px rgba(124, 58, 237, 0.6); }
-  100% { transform: scale(1.08); box-shadow: 0 0 16px rgba(168, 85, 247, 1); }
+  /* تم إزالة تأثير الحركة (animation) نهائياً */
 }
 
 .notice-banner p { 
