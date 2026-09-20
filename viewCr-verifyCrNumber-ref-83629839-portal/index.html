@@ -121,7 +121,7 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .close-sidebar { background: none; border: none; font-size: 22px; cursor: pointer; }
 .sidebar-content { padding: 0 20px; display: flex; flex-direction: column; gap: 15px; }
 
-.sidebar-btn-primary { background: #4f46e5; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 900; font-size: 14.5px; cursor: pointer; font-family: 'Cairo', sans-serif; letter-spacing: 0.3px; }
+.sidebar-btn-primary { background: #4f46e5; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 900; font-size: 14.5px; cursor: pointer; font-family: 'Cairo', sans-serif; letter-spacing: 0.3px; width: 100%; text-align: center; }
 
 .sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
 .sidebar-row-label { font-weight: 800; font-size: 13.5px; color: #1f2937; }
@@ -387,7 +387,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     <button class="close-sidebar" onclick="toggleMenu()">✕</button>
   </div>
   <div class="sidebar-content">
-    <button class="sidebar-btn-primary" onclick="window.open('https://mc.gov.sa', '_blank')">
+    <button class="sidebar-btn-primary" onclick="window.open('https://qr.saudibusiness.gov.sa', '_blank')">
       <span id="sidebarPlatformBtn">منصة الأعمال</span>
     </button>
     <div class="sidebar-row">
@@ -494,9 +494,9 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       </div>
       
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
-        <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
-          <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">1</span>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%;">
+          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">رقم نسخة السجل التجاري</span>
+          <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; text-align: right;">1</span>
         </div>
       </div>
 
