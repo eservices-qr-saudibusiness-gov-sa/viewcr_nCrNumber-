@@ -251,7 +251,6 @@
             padding: 0 16px;
         }
 
-        /* عنوان الصفحة الرئيسي: كبير، أبيض نقي، مع تأثير لمعان قوي ومميز */
         .page-heading {
             text-align: center;
             font-size: 26px;
@@ -277,7 +276,6 @@
             }
         }
 
-        /* تأثير لمعان خفيف وهادئ للنصوص العادية بدون إزعاج */
         @keyframes softShine {
             0% { opacity: 0.92; }
             50% { opacity: 1; text-shadow: 0 0 3px rgba(124, 58, 237, 0.25); }
@@ -295,26 +293,27 @@
             animation: pureWhiteShine 3s infinite ease-in-out;
         }
 
+        /* تعديل صندوق التنبيه العلوي: تكبير الصندوق والنص وإضافة تأثير اللمعان */
         .notice-banner {
             background: #ffffff;
             border-radius: 16px;
-            padding: 20px 18px;
-            margin-bottom: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            padding: 24px 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
             border: 2px solid #7c3aed;
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 14px;
             position: relative;
         }
         
         .notice-icon {
-            font-size: 20px;
+            font-size: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             background: #f3e8ff;
             color: #7c3aed;
             border-radius: 50%;
@@ -331,8 +330,11 @@
 
         .notice-banner p {
             margin: 0;
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 15px;
+            font-weight: 800;
+            line-height: 1.7;
+            color: #111827;
+            animation: softShine 3s infinite ease-in-out;
         }
 
         .card {
@@ -434,6 +436,8 @@
             font-size: 13px;
             font-weight: 700;
         }
+        
+        /* إزالة أي تأثيرات عن نوع السجل (سجل رئيسي) وجعله ثابتاً ونظيفاً */
         .chip-indigo {
             background: #f3e8ff;
             color: #6b21a8;
@@ -479,6 +483,7 @@
             align-items: flex-end;
         }
 
+        /* إزالة أي تأثيرات عن مربعات التواريخ الأربعة وجعلها ثابتة وبسيطة */
         .date-badge-box {
             background: #f3e8ff;
             border: 1px solid #d8b4fe;
@@ -630,12 +635,11 @@
         </header>
 
         <div class="container">
-            <!-- تم استرجاع عنوان "بيانات السجل التجاري" بخط كبير وبلون أبيض نقي مع تأثير لمعان -->
             <h2 class="page-heading fade-in-element shining-white-text" id="mainHeading">بيانات السجل التجاري</h2>
 
             <div class="notice-banner fade-in-element">
                 <div class="notice-icon">i</div>
-                <p id="noticeText" class="shining-text">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
+                <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
             </div>
 
             <div class="card fade-in-element">
