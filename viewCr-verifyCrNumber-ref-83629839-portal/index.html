@@ -55,7 +55,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
 .notice-banner { 
   background: #ffffff; 
   border-radius: 12px; 
-  padding: 12px 16px; 
+  padding: 14px 16px; 
   margin-bottom: 16px; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
   border: 1px solid #e5e7eb; 
@@ -66,10 +66,10 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
 }
 
 .notice-icon { 
-  font-size: 19px; 
+  font-size: 18px; 
   line-height: 1; 
   user-select: none; 
-  background: linear-gradient(135deg, #4f46e5, #7c3aed); 
+  background: #111827; 
   color: #ffffff; 
   width: 32px; 
   height: 32px; 
@@ -78,15 +78,15 @@ body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
   justify-content: center; 
   border-radius: 50%; 
   font-weight: 900; 
-  border: 2px solid #e9d5ff; 
+  border: 2px solid #d1d5db; 
   flex-shrink: 0; 
-  box-shadow: 0 0 12px rgba(79, 70, 229, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .notice-banner p { 
   margin: 0; 
-  font-size: 14.5px; 
-  line-height: 1.5; 
+  font-size: 13.5px; 
+  line-height: 1.6; 
   color: #111827; 
   font-weight: 900; 
   letter-spacing: -0.2px;
@@ -187,8 +187,8 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     <h2 class="page-heading" id="mainHeading">بيانات السجل التجاري</h2>
     
     <div class="notice-banner">
-      <div class="notice-icon" role="img" aria-label="تحذير">ⓘ</div>
-      <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
+      <div class="notice-icon" role="img" aria-label="تحذير">!</div>
+      <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول نهائياً عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع وتحديث كافة البيانات بشكل آلي وفوري بالتكامل مع الجهات الحكومية المعنية.</p>
     </div>
     
     <div class="card">
@@ -342,7 +342,7 @@ function toggleLanguage() {
     document.getElementById('headerTitle').innerText = "Saudi Business Center";
     document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER";
     document.getElementById('mainHeading').innerText = "Commercial Registration Data";
-    document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible for any shortage or discrepancy in the data, as data is retrieved via integration with relevant authorities.";
+    document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible whatsoever for any shortage or discrepancy in the data, as all data is retrieved and updated automatically in real-time via integration with relevant government authorities.";
     document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "Active");
     document.getElementById('compName').innerText = "Abdulhadi Mohammed Al Yami Contracting Company";
     document.getElementById('lblFacilityType').innerText = "Facility Type";
@@ -385,7 +385,7 @@ function toggleLanguage() {
     document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
     document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | تيسير TAYSEER";
     document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
-    document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
+    document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول نهائياً عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع وتحديث كافة البيانات بشكل آلي وفوري بالتكامل مع الجهات الحكومية المعنية.";
     document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
     document.getElementById('compName').innerText = "شركة عبدالهادي محمد اليامي للمقاولات";
     document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
