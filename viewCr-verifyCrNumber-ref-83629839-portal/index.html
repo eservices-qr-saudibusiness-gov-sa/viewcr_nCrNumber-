@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f8f9fc;
+            background-color: #2e1065;
             color: #1f2937;
             direction: rtl;
             text-align: right;
@@ -88,12 +88,12 @@
 
         .main-wrapper {
             min-height: 100vh;
-            background: #f8f9fc; /* إزالة الخلفية البنفسجية بالكامل */
+            background: linear-gradient(135deg, #2e1065 0%, #3b0764 40%, #1e1b4b 100%);
             padding-bottom: 40px;
         }
 
         .header {
-            background: #312e81; /* شريط العلوي فقط بلون مميز */
+            background: transparent;
             padding: 16px 20px;
             display: flex;
             justify-content: space-between;
@@ -136,8 +136,8 @@
             font-weight: 600;
         }
         .header-logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -241,10 +241,11 @@
 
         .page-heading {
             text-align: center;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 900;
-            color: #1f2937; /* تعديل اللون ليناسب الخلفية الفاتحة */
-            margin: 20px 0 15px 0;
+            color: #ffffff;
+            margin: 25px 0 20px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .notice-banner {
@@ -252,7 +253,7 @@
             border-radius: 16px;
             padding: 16px;
             margin-bottom: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             display: flex;
             align-items: flex-start;
             gap: 12px;
@@ -273,7 +274,7 @@
             border-radius: 16px;
             padding: 20px 16px;
             margin-bottom: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
         .card-top-section {
@@ -308,20 +309,31 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
+            position: relative;
         }
+        /* نقل زر نشط لليسار وجعله أكثر إشراقاً وبريقاً */
         .status-badge-inline {
-            background-color: #d1fae5;
-            color: #065f46;
-            padding: 4px 12px;
+            position: absolute;
+            top: -5px;
+            left: 0;
+            background-color: #10b981;
+            color: #ffffff;
+            padding: 4px 14px;
             border-radius: 6px;
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 800;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+        }
+        body.ltr-mode .status-badge-inline {
+            left: auto;
+            right: 0;
         }
         .comp-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 900;
             color: #111827;
-            line-height: 1.4;
+            line-height: 1.5;
+            margin-top: 15px;
         }
 
         .info-row {
@@ -377,18 +389,17 @@
             grid-template-columns: 1fr 1fr;
             gap: 6px;
         }
-        /* تعديل مربعات التواريخ لتكون أصغر وذات طابع بنفسجي */
         .date-badge-box {
             background: #f5f3ff;
             border: 1px solid #ddd6fe;
             border-radius: 6px;
-            padding: 4px 8px; /* تصغير الهوامش لتكون أصغر */
+            padding: 4px 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 11.5px;
             font-weight: 700;
-            color: #5b21b6; /* كتابة باللون البنفسجي */
+            color: #5b21b6;
         }
         .date-badge-box span:last-child {
             color: #6d28d9;
@@ -440,7 +451,7 @@
             color: #6b7280;
             background: #ffffff;
             border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         .footer-brand-row {
             display: flex;
@@ -750,7 +761,9 @@
                 document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
                 document.getElementById('valCapital').innerText = "ر.س 5,000.00";
                 document.getElementById('lblPhone').innerText = "رقم الجوال";
+                document.getElementById('valPhone').innerText = "00966558531945";
                 document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
+                document.getElementById('valEmail').innerText = "klhncfskfhbj@gmail.co";
                 document.getElementById('lblWebsite').innerText = "عنوان الموقع الإلكتروني";
                 document.getElementById('secActivities').innerText = "قائمة أنشطة السجل التجاري";
                 document.getElementById('activityText1').innerText = "الإنشاءات العامة للمباني السكنية";
