@@ -299,16 +299,18 @@
             justify-content: flex-start;
         }
         .gov-seal-side {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+            border-radius: 50%;
         }
-        .gov-seal-side img, .gov-seal-side svg {
+        .gov-seal-side img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
 
         .comp-title-row {
@@ -555,7 +557,6 @@
         <header class="header fade-in-element">
             <div class="header-right">
                 <div class="header-logo-icon">
-                    <!-- شعار السيفين والنخلة الأبيض في الهيدر -->
                     <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
                         <path d="M12 2C11.45 2 11 2.45 11 3V5H7C5.9 5 5 5.9 5 7V9H3C2.45 9 2 9.45 2 10V11C2 11.55 2.45 12 3 12H5V14H3C2.45 14 2 14.45 2 15V16C2 16.55 2.45 17 3 17H5V21C5 21.55 5.45 22 6 22H8C8.55 22 9 21.55 9 21V17H15V21C15 21.55 15.45 22 16 22H18C18.55 22 19 21.55 19 21V17H21C21.55 17 22 16.55 22 16V15C22 14.45 21.55 14 21 14H19V12H21C21.55 12 22 11.55 22 11V10C22 9.45 21.55 9 21 9H19V7C19 5.9 18.1 5 17 5H13V3C13 2.45 12.55 2 12 2M12 4C12.55 4 13 4.45 13 5V6H11V5C11 4.45 11.45 4 12 4M7 7H17C17 7.55 17.45 8 18 8V9H6V8C6.55 8 7 7.55 7 7M7 11H17V12H7V11M7 14H17V15H7V14Z"/>
                     </svg>
@@ -581,11 +582,9 @@
             <div class="card fade-in-element">
                 <div class="card-top-section">
                     <div class="card-side-logo">
-                        <div class="gov-seal-side" style="background-color: #0e4225; border-radius: 50%; padding: 6px;">
-                            <!-- شعار السيفين والنخلة الأخضر داخل البطاقة -->
-                            <svg viewBox="0 0 24 24" width="100%" height="100%" fill="#ffffff">
-                                <path d="M12 2C11.45 2 11 2.45 11 3V5H7C5.9 5 5 5.9 5 7V9H3C2.45 9 2 9.45 2 10V11C2 11.55 2.45 12 3 12H5V14H3C2.45 14 2 14.45 2 15V16C2 16.55 2.45 17 3 17H5V21C5 21.55 5.45 22 6 22H8C8.55 22 9 21.55 9 21V17H15V21C15 21.55 15.45 22 16 22H18C18.55 22 19 21.55 19 21V17H21C21.55 17 22 16.55 22 16V15C22 14.45 21.55 14 21 14H19V12H21C21.55 12 22 11.55 22 11V10C22 9.45 21.55 9 21 9H19V7C19 5.9 18.1 5 17 5H13V3C13 2.45 12.55 2 12 2M12 4C12.55 4 13 4.45 13 5V6H11V5C11 4.45 11.45 4 12 4M7 7H17C17 7.55 17.45 8 18 8V9H6V8C6.55 8 7 7.55 7 7M7 11H17V12H7V11M7 14H17V15H7V14Z"/>
-                            </svg>
+                        <div class="gov-seal-side">
+                            <!-- الشعار الجديد المرسل -->
+                            <img src="https://i.ibb.co/R4L2S9S/1000284729-2.jpg" alt="شعار السيفين والنخلة">
                         </div>
                     </div>
                     <div class="comp-title-row">
