@@ -244,19 +244,25 @@
             padding: 0 16px;
         }
 
+        /* Updated Page Heading: Bigger size, shifted to the right, white color */
         .page-heading {
-            text-align: center;
-            font-size: 24px;
+            text-align: right;
+            font-size: 30px;
             font-weight: 900;
             color: #ffffff;
-            margin: 25px 0 20px 0;
+            margin: 25px 10px 20px 0;
             text-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
+        body.ltr-mode .page-heading {
+            text-align: left;
+            margin: 25px 0 20px 10px;
+        }
 
+        /* Updated Notice Banner: Bigger text, bold, 4 lines layout, active exclamation mark */
         .notice-banner {
             background: #ffffff;
             border-radius: 16px;
-            padding: 20px 18px;
+            padding: 22px 18px;
             margin-bottom: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.25);
             border: 2px solid #e5e7eb;
@@ -265,14 +271,15 @@
             gap: 12px;
         }
         .notice-icon {
-            font-size: 20px;
+            font-size: 22px;
+            user-select: none;
         }
         .notice-banner p {
             margin: 0;
-            font-size: 13.5px;
-            line-height: 1.6;
-            color: #1f2937;
-            font-weight: 800;
+            font-size: 14.5px;
+            line-height: 1.75;
+            color: #111827;
+            font-weight: 900;
         }
 
         .card {
@@ -553,17 +560,16 @@
 
     <div class="main-wrapper">
         <header class="header fade-in-element">
-            <!-- الشعار الجديد مكان الزر القديم في اليمين -->
             <div class="header-right">
                 <div class="header-logo-icon">
                     <img src="https://i.ibb.co/6ZzXf3v/1000285250.png" alt="Logo" onerror="this.style.display='none'">
                 </div>
                 <div class="header-title-area">
                     <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
-                    <div class="header-subtitle" id="headerSubtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER | TAYSEER</div>
+                    <!-- Added Arabic translation alongside TAYSEER -->
+                    <div class="header-subtitle" id="headerSubtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER | تيسير TAYSEER</div>
                 </div>
             </div>
-            <!-- زر القائمة (Menu) تم نقله إلى اليسار -->
             <div class="header-logo-section">
                 <button class="menu-btn" onclick="toggleMenu()">☰</button>
             </div>
@@ -573,7 +579,7 @@
             <h2 class="page-heading fade-in-element" id="mainHeading">بيانات السجل التجاري</h2>
 
             <div class="notice-banner fade-in-element">
-                <div class="notice-icon">ℹ️</div>
+                <div class="notice-icon" role="img" aria-label="تحذير">ℹ️</div>
                 <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
             </div>
 
@@ -777,7 +783,7 @@
                 document.getElementById('langRowLabel').innerText = "اللغة";
                 document.getElementById('fontRowLabel').innerText = "حجم الخط";
                 document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
-                document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | تيسير";
+                document.getElementById('headerSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER | تيسير TAYSEER";
                 document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
                 document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
                 document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
