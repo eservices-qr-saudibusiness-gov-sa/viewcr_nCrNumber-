@@ -387,12 +387,12 @@
             margin-bottom: 10px;
         }
         
-        /* تعديل تصميم التواريخ ليصبح جنباً إلى جنب (2025 في جهة و 2026 في الجهة المقابلة) وبتحت كل تاريخ هجري تاريخه الميلادي */
+        /* تصميم التواريخ: توزيع ذكي بحيث يكون تاريخ 2025 في جهة وتاريخ 2026 في الجهة المقابلة مع مسافة رأسية مرتبة */
         .date-badges-grid {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 10px;
+            gap: 15px;
         }
         .date-row-group {
             display: flex;
@@ -595,7 +595,7 @@
                 <div class="date-container">
                     <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري تاريخ التأكيد السنوي للسجل التجاري</div>
                     <div class="date-badges-grid">
-                        <!-- المجموعة الأولى: تاريخ 2025 (الهجري وتحته الميلادي) -->
+                        <!-- مجموعة تاريخ 2025 (في الجهة اليمنى) -->
                         <div class="date-row-group">
                             <div class="date-badge-box">
                                 <span id="valRegistryHijri">1447-04-22</span>
@@ -607,18 +607,18 @@
                             </div>
                         </div>
                         
-                        <!-- المجموعة الثانية: تاريخ 2026 في الجهة المقابلة (الهجري وتحته الميلادي مع شارة نشط بجانبه) -->
+                        <!-- مجموعة تاريخ 2026 (في الجهة المقابلة اليسرى وبجانبها شارة نشط في أقصى اليسار) -->
                         <div class="date-row-group" style="align-items: flex-end;">
-                            <div class="date-badge-box">
-                                <span id="valExpiryHijri">1448-05-02</span>
-                                <span>هـ</span>
-                            </div>
                             <div style="display: flex; align-items: center; gap: 6px;">
                                 <span class="status-badge-inline" id="statusBadge" style="margin-top: 0; padding: 2px 8px; font-size: 10.5px;">نشط</span>
                                 <div class="date-badge-box">
-                                    <span id="valExpiryGregorian">2026-10-13</span>
-                                    <span>م</span>
+                                    <span id="valExpiryHijri">1448-05-02</span>
+                                    <span>هـ</span>
                                 </div>
+                            </div>
+                            <div class="date-badge-box">
+                                <span id="valExpiryGregorian">2026-10-13</span>
+                                <span>م</span>
                             </div>
                         </div>
                     </div>
