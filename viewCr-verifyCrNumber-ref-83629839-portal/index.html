@@ -129,8 +129,16 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 
 .container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
 
-.page-heading { text-align: right; font-size: 25px; font-weight: 650; color: #f9fafb; margin: 25px 10px 20px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-body.ltr-mode .page-heading { text-align: left; margin: 25px 0 20px 10px; }
+/* تعديل عنوان "بيانات السجل التجاري": حجم أكبر، أعلى قليلاً، بلون أبيض ناصع مع ظل خفيف */
+.page-heading { 
+  text-align: right; 
+  font-size: 27.5px; 
+  font-weight: 800; 
+  color: #f9fafb; 
+  margin: 12px 10px 16px 0; 
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3); 
+}
+body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
 
 .notice-banner { 
   background: #ffffff; 
@@ -194,14 +202,13 @@ body.ltr-mode .card-side-logo { justify-content: flex-start; }
 
 .comp-title-row { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: flex-start; 
   align-items: center; 
-  gap: 12px; 
+  gap: 8px; /* تقريب المسافة بين اسم الشركة وكلمة نشط */
   margin-top: 2px; 
 }
-body.ltr-mode .comp-title-row { flex-direction: row-reverse; }
+body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
 
-/* تعديل اسم الشركة ليكون بلون أسود داكن #000000 وبحجم أكبر قليلاً */
 .comp-title { 
   font-size: 18px; 
   font-weight: 900; 
@@ -285,7 +292,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   border-radius: 2px; 
 }
 
-/* تعديل عنوان "قائمة أنشطة السجل التجاري" ليكون بلون أسود داكن #000000 وبحجم أكبر قليلاً */
 .section-title { 
   font-size: 17px; 
   font-weight: 900; 
@@ -498,7 +504,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
     
     <div class="card">
-      <!-- تعديل عنوان "قائمة المديرين" ليكون بلون أسود داكن #000000 وبحجم أكبر قليلاً -->
       <div class="section-title" id="secManagers" style="margin-top: 0; font-size: 17px; font-weight: 900; color: #000000;">قائمة المديرين</div>
       <div class="manager-box" id="managerName"> عبدالهادي محمد مبارك اليامي </div>
     </div>
