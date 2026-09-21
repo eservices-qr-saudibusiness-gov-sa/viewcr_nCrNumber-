@@ -35,7 +35,7 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
-/* ===== CITY BACKGROUND WITH BLUR ===== */
+/* ===== CITY BACKGROUND WITH SLIGHT BLUR ===== */
 .main-wrapper::before {
     content: "";
     position: absolute;
@@ -53,11 +53,10 @@ body.ltr-mode { direction: ltr; text-align: left; }
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center center;
-    /* إضفاء تأثير الضبابية (Blur) الخفيف على الخلفية */
-    filter: blur(3.5px);
-    -webkit-filter: blur(3.5px);
-    /* تكبير طفيف لتجنب حواف البلاور البيضاء الجانبية */
-    transform: scale(1.04);
+    /* ضبابية خفيفة جداً كما طلبت */
+    filter: blur(1.2px);
+    -webkit-filter: blur(1.2px);
+    transform: scale(1.02);
     z-index: 0;
 }
 
