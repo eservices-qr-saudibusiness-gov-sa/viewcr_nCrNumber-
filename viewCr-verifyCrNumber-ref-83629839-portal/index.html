@@ -36,26 +36,9 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
-/* --- نیا اور درست ہیڈر ڈیزائن --- */
-.header { 
-  background: transparent; 
-  padding: 10px 16px; 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  position: relative; 
-  z-index: 2; 
-  width: 100%;
-}
-.header-right { 
-  display: flex; 
-  align-items: center; 
-  gap: 10px; 
-  flex-grow: 1;
-}
-body.ltr-mode .header-right { 
-  flex-direction: row-reverse; 
-}
+.header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+body.ltr-mode .header-right { flex-direction: row-reverse; }
 
 .menu-btn { 
   background: none; 
@@ -89,48 +72,43 @@ body.ltr-mode .menu-btn { align-items: flex-start; }
   justify-content: center;
   gap: 1px;
 }
-body.ltr-mode .header-title-area { text-align: left; }
+body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
 
 .header-title { 
   font-family: 'Cairo', 'GE SS Two', 'TheSans', sans-serif;
-  font-size: 12px; 
+  font-size: 13px; 
   font-weight: 800; 
   margin: 0; 
   color: #ffffff; 
   line-height: 1.2; 
+  letter-spacing: 0.2px;
   text-shadow: 0 0 10px rgba(255,255,255,0.6); 
+  white-space: nowrap;
 }
 
 .header-english-subtitle {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 8.5px;
+  font-size: 9px;
   color: #ffffff;
-  margin: 0;
+  margin: 0px 0;
   font-weight: 900;
+  letter-spacing: 0.2px;
   text-shadow: 0 0 8px rgba(255,255,255,0.5);
+  white-space: nowrap;
 }
 
 .header-arabic-subtitle { 
   font-family: 'Cairo', sans-serif;
-  font-size: 9.5px; 
+  font-size: 10.5px; 
   color: #ffffff; 
-  margin: 0; 
+  margin: -1px 0 0 0; 
   font-weight: 400; 
+  letter-spacing: 0.2px; 
   text-shadow: 0 0 8px rgba(255,255,255,0.5); 
+  white-space: nowrap;
 }
 
-.header-logo-icon { 
-  width: 40px; 
-  height: 40px; 
-  min-width: 40px;
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  background: #ffffff; 
-  border-radius: 8px; 
-  padding: 4px; 
-  box-shadow: 0 0 10px rgba(255,255,255,0.7); 
-}
+.header-logo-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 10px rgba(255,255,255,0.7)); }
 .header-logo-icon img { width: 100%; height: 100%; object-fit: contain; }
 
 .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: 0.3s; }
@@ -160,7 +138,7 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
   margin: 12px 0 16px 0; 
   text-shadow: 0 2px 6px rgba(0,0,0,0.3); 
 }
-body.ltr-mode .page-heading { text-align: left; }
+body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 0; }
 
 .notice-banner { 
   background: #ffffff; 
@@ -193,6 +171,30 @@ body.ltr-mode .page-heading { text-align: left; }
   position: relative;
 }
 
+.notice-icon::before,
+.notice-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(31, 41, 55, 0.7);
+  width: 100%;
+  height: 100%;
+  animation: rippleRings 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.notice-icon::after {
+  animation-delay: 1s;
+}
+
+@keyframes rippleRings {
+  0% { width: 100%; height: 100%; opacity: 1; }
+  100% { width: 200%; height: 200%; opacity: 0; }
+}
+
 .notice-banner p { 
   margin: 0; 
   font-size: 15.5px; 
@@ -200,8 +202,13 @@ body.ltr-mode .page-heading { text-align: left; }
   color: #000000; 
   font-family: 'TheSansArabic', 'TheSans', 'Cairo', sans-serif;
   font-weight: 800; 
+  letter-spacing: -0.1px;
 }
-body.ltr-mode .notice-banner p { text-align: left; }
+
+body.ltr-mode .notice-banner p {
+  text-align: left;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
 .card { 
   background: #ffffff; 
@@ -211,10 +218,10 @@ body.ltr-mode .notice-banner p { text-align: left; }
   box-shadow: 0 6px 20px rgba(0,0,0,0.04); 
   border: 1px solid #f3e8ff; 
 }
-.card-top-section { text-align: center; margin-bottom: 6px; position: relative; }
+.card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
 .card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 6px; }
 body.ltr-mode .card-side-logo { justify-content: flex-start; }
-.gov-seal-side { width: 140px; height: 45px; display: flex; align-items: center; justify-content: center; }
+.gov-seal-side { width: 110px; height: 42px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
 .gov-seal-side img { width: 100%; height: 100%; object-fit: contain; }
 
 .comp-title-row { 
@@ -224,7 +231,7 @@ body.ltr-mode .card-side-logo { justify-content: flex-start; }
   gap: 8px; 
   margin-top: 2px; 
 }
-body.ltr-mode .comp-title-row { flex-direction: row-reverse; }
+body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
 
 .comp-title { 
   font-size: 20px; 
@@ -249,28 +256,55 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   flex-shrink: 0;
   margin-right: 12px;
 }
-body.ltr-mode .status-badge-inline { margin-right: 0; margin-left: 12px; }
+body.ltr-mode .status-badge-inline {
+  margin-right: 0;
+  margin-left: 12px;
+}
 
-.info-row-first, .info-row-second { 
+.info-row-first { 
   display: flex; 
   justify-content: center; 
   align-items: center; 
   gap: 8px;
   padding: 12px 0; 
+  border-top: none; 
+  border-bottom: none; 
+  font-size: 15px; 
+  margin-top: 4px;
+}
+
+.info-row-second { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 8px;
+  padding: 12px 0; 
+  border-bottom: none; 
   font-size: 15px; 
 }
 
-.info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; font-size: 15px; } 
+.info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: none; font-size: 15px; } 
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; font-size: 14.5px; } 
 body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
 .info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; font-size: 15.5px; } 
 body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
 
 .chip { background: #ffffff; color: #000000; padding: 2px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; border: 1px solid #e5e7eb; }
-.chip-indigo { background: #f3e8ff !important; border: 1px solid #e9d5ff !important; color: #7e22ce !important; font-size: 11.5px !important; padding: 3px 8px !important; }
-.date-badge-box, .activity-card, .manager-box { background: #f3e8ff !important; border: 1px solid #e9d5ff !important; }
 
-.date-container { padding: 12px 0; }
+.chip-indigo { 
+  background: #f3e8ff !important; 
+  border: 1px solid #e9d5ff !important; 
+  color: #7e22ce !important; 
+  font-size: 11.5px !important; 
+  padding: 3px 8px !important; 
+}
+
+.date-badge-box, .activity-card, .manager-box { 
+  background: #f3e8ff !important; 
+  border: 1px solid #e9d5ff !important; 
+}
+
+.date-container { padding: 12px 0; border-bottom: none; }
 .date-label-top { color: #6b7280; font-size: 14.5px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
 body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; }
 .date-badges-grid { display: flex; flex-direction: column; gap: 10px; position: relative; }
@@ -290,13 +324,45 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   color: #7e22ce; 
   width: fit-content;
 }
-.date-badge-box span:last-child { color: #6b21a8; font-size: 10.5px; background: #e5ccff; padding: 1px 4px; border-radius: 3px; }
+.date-badge-box span:last-child { 
+  color: #6b21a8; 
+  font-size: 10.5px; 
+  background: #e5ccff; 
+  padding: 1px 4px; 
+  border-radius: 3px; 
+}
 
-.section-title { font-size: 19px; font-weight: 900; color: #000000; margin: 20px 0 12px 0; }
+.section-title { 
+  font-size: 19px; 
+  font-weight: 900; 
+  color: #000000; 
+  margin: 20px 0 12px 0; 
+}
+
 .activity-card { border-radius: 10px; padding: 14px; margin-bottom: 10px; }
-.activity-title { font-size: 16px; font-weight: 800; color: #000000; margin-bottom: 6px; }
-.activity-code { font-family: 'TheSansArabic', 'TheSans', sans-serif; font-size: 17.5px; color: #000000; font-weight: 900; }
-.manager-box { border-radius: 10px; padding: 14px; text-align: center; font-weight: 800; color: #000000; font-size: 16px; }
+
+.activity-title { 
+  font-size: 16px; 
+  font-weight: 800; 
+  color: #000000; 
+  margin-bottom: 6px; 
+}
+
+.activity-code { 
+  font-family: 'TheSansArabic', 'TheSans', sans-serif;
+  font-size: 17.5px; 
+  color: #000000; 
+  font-weight: 900; 
+}
+
+.manager-box { 
+  border-radius: 10px; 
+  padding: 14px; 
+  text-align: center; 
+  font-weight: 800; 
+  color: #000000; 
+  font-size: 16px; 
+}
 
 .footer { 
   text-align: center; 
@@ -346,7 +412,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   <header class="header">
     <div class="header-right">
       <div class="header-logo-icon">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Emblem_of_Saudi_Arabia.svg" alt="Logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Emblem_of_Saudi_Arabia.svg" alt="Logo" onerror="this.style.display='none'">
       </div>
       <div class="header-title-area">
         <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
@@ -374,7 +440,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       <div class="card-top-section">
         <div class="card-side-logo">
           <div class="gov-seal-side">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Ministry_of_Commerce_Saudi_Arabia_Logo.svg" alt="Ministry of Commerce" onerror="this.style.display='none'">
+            <img src="https://i.ibb.co/L957P5j/1000285714.webp" alt="Ministry of Commerce" onerror="this.style.display='none'">
           </div>
         </div>
         <div class="comp-title-row">
@@ -493,7 +559,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       <div class="footer-brand-row">
         <span class="footer-brand" id="footerBrandTitle">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي</span>
         <div class="sdaia-logo-badge">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/SDAIA_logo.svg" alt="SDAIA" onerror="this.src='https://i.ibb.co/V93M1mQ/SDAIA-Logo.png'">
+          <img src="https://i.ibb.co/V93M1mQ/SDAIA-Logo.png" alt="SDAIA">
         </div>
       </div>
       <div class="footer-links">
@@ -511,9 +577,18 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 window.addEventListener('load', () => {
   setTimeout(() => {
     const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen) loadingScreen.classList.add('hidden');
+    if (loadingScreen) {
+      loadingScreen.classList.add('hidden');
+    }
   }, 1000);
 });
+
+setTimeout(() => {
+  const loadingScreen = document.getElementById('loadingScreen');
+  if (loadingScreen) {
+    loadingScreen.classList.add('hidden');
+  }
+}, 1000);
 
 function toggleMenu() {
   const sidebar = document.getElementById('appSidebar');
@@ -590,7 +665,7 @@ function toggleLanguage() {
     document.getElementById('compName').innerText = "شركة عبدالهادي محمد اليامي للمقاولات";
     document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
     document.getElementById('valFacilityType').innerText = "شركة";
-    document.getElementById('lblCompanyType').innerText, document.getElementById('lblCompanyType').innerText = "نوع الشركة";
+    document.getElementById('lblCompanyType').innerText = "نوع الشركة";
     document.getElementById('valCompanyType').innerText = "ذات مسؤولية محدودة";
     document.getElementById('lblRegistryType').innerText = "نوع السجل";
     document.getElementById('valRegistryType').innerText = "سجل رئيسي";
