@@ -234,7 +234,7 @@ body.ltr-mode .card-side-logo { justify-content: flex-start; }
 body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
 
 .comp-title { 
-  font-size: 20px; 
+  font-size: 17.5px; /* تم تصغيره قليلاً بناءً على طلبك */
   font-weight: 900; 
   color: #000000; 
   line-height: 1.4; 
@@ -333,7 +333,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 }
 
 .section-title { 
-  font-size: 19px; 
+  font-size: 16.5px; /* تم تصغيره قليلاً بناءً على طلبك */
   font-weight: 900; 
   color: #000000; 
   margin: 20px 0 12px 0; 
@@ -433,7 +433,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     
     <div class="notice-banner">
       <div class="notice-icon" role="img" aria-label="معلومات">i</div>
-      <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول نهائياً عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع وتحديث كافة البيانات بشكل آلي والفوري بالتكامل مع الجهات الحكومية المعنية.</p>
+      <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول نهائياً<br>عن أي نقص أو اختلاف في البيانات، حيث يتم<br>استرجاع وتحديث كافة البيانات بشكل آلي<br>والفوري بالتكامل مع<br>الجهات الحكومية المعنية.</p>
     </div>
     
     <div class="card">
@@ -551,7 +551,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
     
     <div class="card">
-      <div class="section-title" id="secManagers" style="margin-top: 0; font-size: 19px; font-weight: 900; color: #000000;">قائمة المديرين</div>
+      <div class="section-title" id="secManagers" style="margin-top: 0; font-weight: 900; color: #000000;">قائمة المديرين</div>
       <div class="manager-box" id="managerName"> عبدالهادي محمد مبارك اليامي </div>
     </div>
     
@@ -614,7 +614,7 @@ function toggleLanguage() {
     document.getElementById('headerEnglishSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER";
     document.getElementById('headerArabicSubtitle').innerText = "تيسير | TAYSEER";
     document.getElementById('mainHeading').innerText = "Commercial Registration Data";
-    document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible whatsoever for any shortage or discrepancy in the data, as all data is retrieved and updated automatically in real-time via integration with relevant government authorities.";
+    document.getElementById('noticeText').innerHTML = "The Saudi Business Center is not responsible whatsoever<br>for any shortage or discrepancy in the data, as all data<br>is retrieved and updated automatically in real-time<br>via integration with relevant<br>government authorities.";
     document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "Active");
     document.getElementById('compName').innerText = "Abdulhadi Mohammed Al Yami Contracting Company";
     document.getElementById('lblFacilityType').innerText = "Facility Type";
@@ -660,7 +660,7 @@ function toggleLanguage() {
     document.getElementById('headerEnglishSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER";
     document.getElementById('headerArabicSubtitle').innerText = "تيسير | TAYSEER";
     document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
-    document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول نهائياً عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع وتحديث كافة البيانات بشكل آلي والفوري بالتكامل مع الجهات الحكومية المعنية.";
+    document.getElementById('noticeText').innerHTML = "المركز السعودي للتنافسية والأعمال غير مسؤول نهائياً<br>عن أي نقص أو اختلاف في البيانات، حيث يتم<br>استرجاع وتحديث كافة البيانات بشكل آلي<br>والفوري بالتكامل مع<br>الجهات الحكومية المعنية.";
     document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
     document.getElementById('compName').innerText = "شركة عبدالهادي محمد اليامي للمقاولات";
     document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
