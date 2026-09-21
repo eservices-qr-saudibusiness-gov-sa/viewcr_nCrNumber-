@@ -256,7 +256,7 @@ body.ltr-mode .card-side-logo { justify-content: flex-start; }
   display: flex; 
   justify-content: flex-start; 
   align-items: center; 
-  gap: 8px; 
+  gap: 4px; /* فاصل کم کیا تاکہ دائیں جانب زیادہ جگہ بنے */
   margin-top: 2px; 
 }
 body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
@@ -268,25 +268,25 @@ body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: fl
   line-height: 1.4; 
   text-align: right; 
   flex-grow: 1;
-  padding-right: 5px;
+  padding-right: 0px; /* دائیں طرف شفٹ کرنے کے لیے پیडिंग ختم کی */
 }
-body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5px; }
+body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 0px; }
 
 .status-badge-inline { 
   background-color: #ecfdf5; 
-  color: #059669; 
-  padding: 2.5px 8px; 
+  color: #047857; /* رنگ کو تھوڑا اور گہرا کیا تاکہ لکھाई تیز (bold/clear) لگے */
+  padding: 3px 9px; 
   border-radius: 5px; 
-  font-size: 10.5px; 
-  font-weight: 700; 
-  border: 1px solid #a7f3d0; 
+  font-size: 11px; 
+  font-weight: 900; /* وزن کو 900 کیا تاکہ لکھाई زیادہ تیز اور واضح ہو */
+  border: 1.5px solid #6ee7b7; /* بارڈر کو بھی تھوڑا واضح کیا */
   white-space: nowrap;
   flex-shrink: 0;
-  margin-right: 12px;
+  margin-right: 4px; /* دائیں ہاتھ کی طرف مزید شفٹ کیا */
 }
 body.ltr-mode .status-badge-inline {
   margin-right: 0;
-  margin-left: 12px;
+  margin-left: 4px;
 }
 
 .info-row-first { 
@@ -433,7 +433,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
     <div class="sidebar-row">
       <span class="sidebar-row-label" id="fontRowLabel">حجم الخط</span>
-      <!-- Sirf aik single button A+ aur A- ke toggle ke liye -->
       <button class="sidebar-action-box" id="fontSizeBtn" onclick="toggleFontSize()">A+</button>
     </div>
   </div>
@@ -731,7 +730,6 @@ function toggleLanguage() {
   toggleMenu();
 }
 
-// Single Button Toggle Logic (A+ aur A- exchange hona)
 let isZoomed = false;
 function toggleFontSize() {
   isZoomed = !isZoomed;
@@ -747,7 +745,6 @@ function toggleFontSize() {
   const footers = document.querySelectorAll('.footer, .footer-brand, .footer-links a, .footer-copy, .footer-version');
 
   if (isZoomed) {
-    // Jab bara karna ho toh button ka text "A-" ho jaye ga taake wapas chhota karne ke liye use ho sake
     fontSizeBtn.innerText = 'A-';
     
     if(notice) notice.style.fontSize = '17.5px';
@@ -760,13 +757,11 @@ function toggleFontSize() {
     sectionTitles.forEach(el => el.style.fontSize = '20px');
     footers.forEach(el => el.style.fontSize = '13px');
   } else {
-    // Jab wapas original karna ho toh button ka text "A+" ho jaye ga
     fontSizeBtn.innerText = 'A+';
     
     if(notice) notice.style.fontSize = '';
     if(compName) compName.style.fontSize = '';
     if(statusBadge) statusBadge.style.fontSize = '';
-    if(pageHeading) statusBadge.style.fontSize = '';
     if(pageHeading) pageHeading.style.fontSize = '';
     
     labels.forEach(el => el.style.fontSize = '');
