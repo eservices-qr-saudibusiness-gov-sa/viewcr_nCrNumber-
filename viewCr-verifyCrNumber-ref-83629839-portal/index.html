@@ -107,6 +107,9 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
   white-space: nowrap;
 }
 
+/* مساحة فارغة مخصصة لإضافة الشعار الأول مستقبلاً */
+.header-logo-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; }
+
 .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: 0.3s; }
 .sidebar-overlay.active { opacity: 1; visibility: visible; }
 .sidebar { position: fixed; top: 0; left: -100%; width: 80%; max-width: 300px; height: 100%; background: #ffffff; z-index: 1000; transition: 0.35s ease; display: flex; flex-direction: column; }
@@ -215,6 +218,11 @@ body.ltr-mode .notice-banner p {
   border: 1px solid #f3e8ff; 
 }
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
+.card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 6px; }
+body.ltr-mode .card-side-logo { justify-content: flex-start; }
+
+/* مساحة فارغة مخصصة لإضافة الشعار الثاني مستقبلاً */
+.gov-seal-side { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
 
 .comp-title-row { 
   display: flex; 
@@ -368,6 +376,10 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 }
 .footer-brand-row { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; }
 .footer-brand { font-weight: 700; font-size: 12px; color: #4b5563; }
+
+/* مساحة فارغة مخصصة لإضافة الشعار الثالث مستقبلاً */
+.sdaia-logo-badge { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+
 .footer-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 10px; }
 .footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 12px; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
@@ -401,6 +413,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 <div class="main-wrapper">
   <header class="header">
     <div class="header-right">
+      <div class="header-logo-icon"></div>
       <div class="header-title-area">
         <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
         <div class="header-english-subtitle" id="headerEnglishSubtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER</div>
@@ -425,6 +438,9 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     
     <div class="card">
       <div class="card-top-section">
+        <div class="card-side-logo">
+          <div class="gov-seal-side"></div>
+        </div>
         <div class="comp-title-row">
           <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
           <span class="status-badge-inline" id="statusBadge">نشط</span>
@@ -540,6 +556,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     <footer class="footer">
       <div class="footer-brand-row">
         <span class="footer-brand" id="footerBrandTitle">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي</span>
+        <div class="sdaia-logo-badge"></div>
       </div>
       <div class="footer-links">
         <a href="#" id="footerLinkPrivacy">سياسة الخصوصية</a>
