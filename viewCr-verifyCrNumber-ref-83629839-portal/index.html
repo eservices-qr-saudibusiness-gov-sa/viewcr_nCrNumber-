@@ -254,12 +254,13 @@ body.ltr-mode .card-side-logo { justify-content: flex-start; }
 
 .comp-title-row { 
   display: flex; 
-  justify-content: flex-start; 
+  flex-direction: row-reverse; /* تم عكس الاتجاه لجعل الشارة في أقصى اليمين بجانب اسم الشركة مباشرة */
+  justify-content: flex-end; 
   align-items: center; 
-  gap: 4px; /* فاصل کم کیا تاکہ دائیں جانب زیادہ جگہ بنے */
+  gap: 8px; 
   margin-top: 2px; 
 }
-body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
+body.ltr-mode .comp-title-row { flex-direction: row; justify-content: flex-start; }
 
 .comp-title { 
   font-size: 18px; 
@@ -268,25 +269,19 @@ body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: fl
   line-height: 1.4; 
   text-align: right; 
   flex-grow: 1;
-  padding-right: 0px; /* دائیں طرف شفٹ کرنے کے لیے پیडिंग ختم کی */
 }
-body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 0px; }
+body.ltr-mode .comp-title { text-align: left; }
 
 .status-badge-inline { 
   background-color: #ecfdf5; 
-  color: #047857; /* رنگ کو تھوڑا اور گہرا کیا تاکہ لکھाई تیز (bold/clear) لگے */
-  padding: 3px 9px; 
+  color: #047857; 
+  padding: 3px 10px; 
   border-radius: 5px; 
-  font-size: 11px; 
-  font-weight: 900; /* وزن کو 900 کیا تاکہ لکھाई زیادہ تیز اور واضح ہو */
-  border: 1.5px solid #6ee7b7; /* بارڈر کو بھی تھوڑا واضح کیا */
+  font-size: 11.5px; 
+  font-weight: 900; 
+  border: 1.5px solid #6ee7b7; 
   white-space: nowrap;
   flex-shrink: 0;
-  margin-right: 4px; /* دائیں ہاتھ کی طرف مزید شفٹ کیا */
-}
-body.ltr-mode .status-badge-inline {
-  margin-right: 0;
-  margin-left: 4px;
 }
 
 .info-row-first { 
@@ -469,8 +464,8 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
           <div class="gov-seal-side"></div>
         </div>
         <div class="comp-title-row">
-          <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
           <span class="status-badge-inline" id="statusBadge">نشط</span>
+          <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
         </div>
       </div>
       
