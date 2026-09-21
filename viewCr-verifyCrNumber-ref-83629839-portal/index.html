@@ -140,7 +140,7 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
 
 .notice-banner { 
-  background: #fcf8ff; 
+  background: #ffffff; /* تم التعديل إلى أبيض نقي */
   border-radius: 12px; 
   padding: 12px 14px; 
   margin: 0 8px 16px 8px; 
@@ -218,7 +218,14 @@ body.ltr-mode .notice-banner p {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.card { background: #fcf8ff; border-radius: 16px; padding: 20px 16px; margin-bottom: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.04); border: 1px solid #f3e8ff; }
+.card { 
+  background: #ffffff; /* تم التعديل إلى أبيض نقي */
+  border-radius: 16px; 
+  padding: 20px 16px; 
+  margin-bottom: 16px; 
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04); 
+  border: 1px solid #f3e8ff; 
+}
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
 .card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 6px; }
 body.ltr-mode .card-side-logo { justify-content: flex-start; }
@@ -365,7 +372,16 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   font-size: 14.5px; 
 }
 
-.footer { text-align: center; padding: 20px 16px; font-size: 11px; color: #4b5563; background: #fcf8ff; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.04); border: 1px solid #f3e8ff; }
+.footer { 
+  text-align: center; 
+  padding: 20px 16px; 
+  font-size: 11px; 
+  color: #4b5563; 
+  background: #ffffff; /* تم التعديل إلى أبيض نقي */
+  border-radius: 16px; 
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04); 
+  border: 1px solid #f3e8ff; 
+}
 .footer-brand-row { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; }
 .footer-brand { font-weight: 700; font-size: 12px; color: #4b5563; }
 .sdaia-logo-badge { width: 32px; height: 32px; }
@@ -493,7 +509,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <span class="info-val" id="valCity" style="color: #000000;">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
       </div>
       
-      <!-- تم التعديل هنا: نقل رقم نسخة السجل التجاري ليكون بالأسفل، وإضافة رقم السجل التجاري في الجهة المقابلة -->
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
@@ -683,9 +698,11 @@ function toggleLanguage() {
     document.getElementById('activityText1').innerText = "الإنشاءات العامة للمباني السكنية";
     document.getElementById('activityCode1').innerText = "410010";
     document.getElementById('activityText2').innerText = "الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)";
+    document.getElementById('activityCode2').innerText = "410021";
     document.getElementById('activityText3').innerText = "إنشاء المطارات ومرافقها";
     document.getElementById('activityCode3').innerText = "410022";
     document.getElementById('activityText4').innerText = "الإنشاءات العامة للمباني الحكومية";
+    document.getElementById('activityCode4').innerText = "410023";
     document.getElementById('secManagers').innerText = "قائمة المديرين";
     document.getElementById('managerName').innerText = "عبدالهادي محمد مبارك اليامي";
     document.getElementById('footerBrandTitle').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
