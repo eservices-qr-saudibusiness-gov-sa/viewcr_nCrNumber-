@@ -74,8 +74,8 @@ body.ltr-mode .header-right { flex-direction: row-reverse; }
   border: none; 
   cursor: pointer; 
   padding: 0; 
-  width: 24px; 
-  height: 18px; 
+  width: 20px; 
+  height: 15px; 
   display: flex; 
   flex-direction: column; 
   justify-content: space-between; 
@@ -85,7 +85,7 @@ body.ltr-mode .menu-btn { align-items: flex-start; }
 .menu-bar { 
   display: block; 
   height: 2.5px; 
-  background-color: #FFFFFF; 
+  background-color: #ffffff; 
   border-radius: 2px; 
   box-shadow: none; 
 }
@@ -163,17 +163,17 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
   font-size: 22.5px; 
   font-weight: 800; 
   color: #f9fafb; 
-  margin: 12px 10px 16px 0; 
+  margin: 12px 0 16px 0; 
   text-shadow: 0 2px 6px rgba(0,0,0,0.3); 
 }
-body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
+body.ltr-mode .page-heading { text-align: left; }
 
 .notice-banner { 
   background: #ffffff; 
-  border-radius: 12px; 
-  padding: 12px 14px; 
-  margin: 0 8px 16px 8px; 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04); 
+  border-radius: 16px; 
+  padding: 20px 16px; 
+  margin-bottom: 16px; 
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04); 
   border: 1px solid #E5E3F1; 
   display: flex; 
   align-items: center; 
@@ -258,8 +258,6 @@ body.ltr-mode .card-side-logo { justify-content: flex-start; }
   align-items: center; 
   gap: 8px; 
   margin-top: 2px; 
-  position: relative;
-  padding-bottom: 14px;
 }
 body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
 
@@ -277,45 +275,41 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
 .status-badge-inline { 
   background-color: #ecfdf5; 
   color: #059669; 
-  padding: 2.5px 12px; 
-  border-radius: 6px; 
-  font-size: 11px; 
+  padding: 2.5px 8px; 
+  border-radius: 5px; 
+  font-size: 10.5px; 
   font-weight: 700; 
   border: 1px solid #a7f3d0; 
   white-space: nowrap;
   flex-shrink: 0;
-  position: absolute;
-  right: 0;
-  top: 45px;
+  margin-right: 12px;
 }
 body.ltr-mode .status-badge-inline {
-  right: auto;
-  left: 0;
+  margin-right: 0;
+  margin-left: 12px;
 }
-
-/* افقی لائن کو مکمل ختم کر دیا گیا ہے */
 
 .info-row-first { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: center; 
   align-items: center; 
-  padding: 10px 0 10px 12px; 
-  border-top: none; 
+  gap: 8px;
+  padding: 10px 0; 
+  border-top: 1px solid #E5E3F1; 
   border-bottom: none; 
   font-size: 13.5px; 
-  margin-top: 15px;
+  margin-top: 4px;
 }
-body.ltr-mode .info-row-first { padding: 10px 12px 10px 0; }
 
 .info-row-second { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: center; 
   align-items: center; 
-  padding: 10px 0 10px 12px; 
+  gap: 8px;
+  padding: 10px 0; 
   border-bottom: none; 
   font-size: 13.5px; 
 }
-body.ltr-mode .info-row-second { padding: 10px 12px 10px 0; }
 
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
@@ -480,19 +474,19 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <div class="info-row-first" style="border-right: 2.5px solid #d1d5db;">
-        <span class="info-label" id="lblFacilityType" style="padding-right: 0;">نوع المنشأة</span>
+      <div class="info-row-first">
+        <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
         <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
       <div class="info-row-second">
-        <span class="info-label" id="lblCompanyType" style="padding-right: 0;">نوع الشركة</span>
+        <span class="info-label" id="lblCompanyType">نوع الشركة</span>
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 4px; padding-right: 0;">نوع السجل</span>
+          <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">نوع السجل</span>
           <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 8px;">
@@ -534,7 +528,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px; padding-right: 0;">رقم نسخة السجل التجاري</span>
+          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
           <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">1</span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end;">
