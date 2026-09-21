@@ -261,7 +261,35 @@ body.ltr-mode .status-badge-inline {
   margin-left: 12px;
 }
 
-.chip { background: #ffffff; color: #000000; padding: 2px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; border: 1px solid #e5e7eb; display: inline-block; }
+.info-row-first { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 8px;
+  padding: 12px 0; 
+  border-top: none; 
+  border-bottom: none; 
+  font-size: 15px; 
+  margin-top: 4px;
+}
+
+.info-row-second { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 8px;
+  padding: 12px 0; 
+  border-bottom: none; 
+  font-size: 15px; 
+}
+
+.info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: none; font-size: 15px; } 
+.info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; font-size: 14.5px; } 
+body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
+.info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; font-size: 15.5px; } 
+body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
+
+.chip { background: #ffffff; color: #000000; padding: 2px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; border: 1px solid #e5e7eb; }
 
 .chip-indigo { 
   background: #f3e8ff !important; 
@@ -269,13 +297,21 @@ body.ltr-mode .status-badge-inline {
   color: #7e22ce !important; 
   font-size: 11.5px !important; 
   padding: 3px 8px !important; 
-  display: inline-block;
 }
 
 .date-badge-box, .activity-card, .manager-box { 
   background: #f3e8ff !important; 
   border: 1px solid #e9d5ff !important; 
 }
+
+.date-container { padding: 12px 0; border-bottom: none; }
+.date-label-top { color: #6b7280; font-size: 14.5px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
+body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; }
+.date-badges-grid { display: flex; flex-direction: column; gap: 10px; }
+.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: -90px; } 
+body.ltr-mode .date-row-group-left { align-items: flex-start; }
+.date-row-group-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+body.ltr-mode .date-row-group-right { align-items: flex-end; }
 
 .date-badge-box { 
   border-radius: 6px; 
@@ -413,107 +449,84 @@ body.ltr-mode .status-badge-inline {
         </div>
       </div>
       
-      <!-- أعلى جزئية: نوع المنشأة ونوع الشركة كما طلبتم (بدون تغيير) -->
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0;">
-        <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblFacilityType" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">نوع المنشأة</span>
-          <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-end;">
-          <span class="info-label" id="lblCompanyType" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">نوع الشركة</span>
-          <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
-        </div>
+      <div class="info-row-first">
+        <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
+        <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
+      </div>
+      
+      <div class="info-row-second">
+        <span class="info-label" id="lblCompanyType">نوع الشركة</span>
+        <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
-      <!-- الصف الثاني: نوع السجل والرقم الوطني الموحد (نظام متقابل عمودياً) -->
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0;">
+      <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <span class="info-label" id="lblRegistryType" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">نوع السجل</span>
           <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
         </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+        <div style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 8px;">
           <span class="info-label" id="lblUnifiedNumber" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px; text-align: left; line-height: 1.3;">الرقم الوطني الموحد<br>للمنشأة</span>
           <span class="info-val" id="valUnifiedNumber" style="font-size: 15.5px; font-weight: 700; color: #000000; margin-top: 4px;">7052072944</span>
         </div>
       </div>
 
-      <!-- قسم تواريخ السجل والتأكيد السنوي المنظم -->
-      <div style="padding: 12px 0;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;">
-          <!-- العمود الأيمن: تاريخ قيد السجل التجاري -->
-          <div style="flex: 1; display: flex; flex-direction: column; align-items: flex-start;">
-            <span id="lblRegistryDate" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 6px; line-height: 1.3; text-align: right;">تاريخ قيد السجل التجاري</span>
-            <div style="display: flex; flex-direction: column; gap: 6px; width: 100%;">
-              <div class="date-badge-box">
-                <span id="valRegistryHijri">1447-04-22</span>
-                <span>هـ</span>
-              </div>
-              <div class="date-badge-box">
-                <span id="valRegistryGregorian">2025-10-14</span>
-                <span>م</span>
-              </div>
+      <div class="date-container">
+        <div class="date-label-top" id="lblRegistryDate" style="text-align: right; line-height: 1.3;">تاريخ قيد السجل<br>التجاري</div>
+        <div class="date-badges-grid">
+          <div class="date-row-group-right">
+            <div class="date-badge-box">
+              <span id="valRegistryHijri">1447-04-22</span>
+              <span>هـ</span>
+            </div>
+            <div class="date-badge-box">
+              <span id="valRegistryGregorian">2025-10-14</span>
+              <span>م</span>
             </div>
           </div>
-          <!-- العمود الأيسر: تاريخ التأكيد السنوي للسجل التجاري -->
-          <div style="flex: 1; display: flex; flex-direction: column; align-items: flex-end;">
-            <span id="lblAnnualConfirmationDate" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 6px; line-height: 1.3; text-align: left;">تاريخ التأكيد السنوي للسجل التجاري</span>
-            <div style="display: flex; flex-direction: column; gap: 6px; width: 100%; align-items: flex-end;">
-              <div class="date-badge-box">
-                <span id="valExpiryHijri">1448-05-02</span>
-                <span>هـ</span>
-              </div>
-              <div class="date-badge-box">
-                <span id="valExpiryGregorian">2026-10-13</span>
-                <span>م</span>
-              </div>
+          <div class="date-row-group-left">
+            <div class="date-label-top" id="lblAnnualConfirmationDate" style="font-size: 13px; margin-bottom: 2px; font-weight: 600; color: #6b7280; text-align: left; line-height: 1.3;">تاريخ التأكيد السنوي<br>للسجل التجاري</div>
+            <div class="date-badge-box" style="margin-top: 4px;">
+              <span id="valExpiryHijri">1448-05-02</span>
+              <span>هـ</span>
+            </div>
+            <div class="date-badge-box">
+              <span id="valExpiryGregorian">2026-10-13</span>
+              <span>م</span>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- مدينة عنوان الأعمال ورقم نسخة السجل -->
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0;">
-        <div style="display: flex; flex-direction: column; align-items: flex-start; max-width: 65%;">
-          <span class="info-label" id="lblCity" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">مدينة عنوان الأعمال المعتمد للمنشأة</span>
-          <span class="info-val" id="valCity" style="color: #000000; font-size: 15px; margin-top: 4px;">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-end;">
-          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
-          <span class="info-val" id="valCopyNumber" style="font-size: 15.5px; font-weight: 700; color: #000000; margin-top: 4px;">1</span>
-        </div>
+      <div class="info-row">
+        <span class="info-label" id="lblCity">&nbsp; مدينة عنوان الأعمال المعتمد للمنشأة</span>
+        <span class="info-val" id="valCity" style="color: #000000;">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
       </div>
       
-      <!-- رقم السجل التجاري وقيمة رأس المال الكلي -->
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0;">
+      <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblCommercialNumber" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم السجل التجاري</span>
-          <span class="info-val" id="valCommercialNumber" style="font-size: 15.5px; font-weight: 700; color: #000000; margin-top: 4px;">5950154235</span>
+          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
+          <span class="info-val" id="valCopyNumber" style="font-size: 15.5px; font-weight: 700; color: #000000;">1</span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end;">
-          <span class="info-label" id="lblCapital" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">قيمة رأس المال الكلي</span>
-          <span class="info-val" id="valCapital" style="color: #000000; font-size: 15.5px; font-weight: 700; margin-top: 4px;">ر.س 5,000.00</span>
+          <span class="info-label" id="lblCommercialNumber" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم السجل التجاري</span>
+          <span class="info-val" id="valCommercialNumber" style="font-size: 15.5px; font-weight: 700; color: #000000;">5950154235</span>
         </div>
       </div>
 
-      <!-- عنوان قسم بيانات الاتصال -->
-      <div style="text-align: center; font-weight: 800; font-size: 17px; margin: 18px 0 8px 0; color: #000000;" id="secContactInfo">بيانات الاتصال</div>
-
-      <!-- رقم الجوال والبريد الإلكتروني -->
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0;">
-        <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblPhone" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم الجوال</span>
-          <span class="info-val" id="valPhone" style="color: #000000; font-size: 15px; margin-top: 4px; direction: ltr; text-align: right;">00966558531945</span>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-end; max-width: 55%;">
-          <span class="info-label" id="lblEmail" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">البريد الإلكتروني</span>
-          <span class="info-val" id="valEmail" style="color: #000000; font-size: 14px; margin-top: 4px; word-break: break-all; text-align: left;">klhncfskfhbj@gmail.co</span>
-        </div>
+      <div class="info-row">
+        <span class="info-label" id="lblCapital">&nbsp; قيمة رأس المال الكلي</span>
+        <span class="info-val" id="valCapital" style="color: #000000;">ر.س 5,000.00</span>
       </div>
-
-      <!-- عنوان الموقع الإلكتروني -->
-      <div style="display: flex; flex-direction: column; align-items: flex-start; padding: 12px 0;">
-        <span class="info-label" id="lblWebsite" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">عنوان الموقع الإلكتروني</span>
-        <span class="info-val" id="valWebsite" style="color: #000000; font-size: 15.5px; font-weight: 700; margin-top: 4px;">-</span>
+      <div class="info-row">
+        <span class="info-label" id="lblPhone">&nbsp; رقم الجوال</span>
+        <span class="info-val" id="valPhone" style="color: #000000;">00966558531945</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label" id="lblEmail">&nbsp; البريد الإلكتروني</span>
+        <span class="info-val" id="valEmail" style="color: #000000;">klhncfskfhbj@gmail.co</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label" id="lblWebsite">&nbsp; عنوان الموقع الإلكتروني</span>
+        <span class="info-val" id="valWebsite" style="color: #000000;">-</span>
       </div>
     </div>
     
@@ -612,14 +625,13 @@ function toggleLanguage() {
     document.getElementById('valRegistryType').innerText = "Main Registry";
     document.getElementById('lblUnifiedNumber').innerHTML = "Unified National<br>Number";
     document.getElementById('lblRegistryDate').innerHTML = "Registration Date";
-    document.getElementById('lblAnnualConfirmationDate').innerHTML = "Annual Confirmation Date";
+    document.getElementById('lblAnnualConfirmationDate').innerHTML = "Annual Confirmation<br>Date";
     document.getElementById('lblCity').innerText = "Business City";
     document.getElementById('valCity').innerText = "Al Jubail, Al Safa, Makramah St.";
     document.getElementById('lblCopyNumberLabel').innerText = "Copy Number";
     document.getElementById('lblCommercialNumber').innerText = "Commercial Registration No.";
     document.getElementById('lblCapital').innerText = "Total Capital";
     document.getElementById('valCapital').innerText = "SAR 5,000.00";
-    document.getElementById('secContactInfo').innerText = "Contact Information";
     document.getElementById('lblPhone').innerText = "Mobile Number";
     document.getElementById('lblEmail').innerText = "Email";
     document.getElementById('lblWebsite').innerText = "Website";
@@ -658,8 +670,8 @@ function toggleLanguage() {
     document.getElementById('lblRegistryType').innerText = "نوع السجل";
     document.getElementById('valRegistryType').innerText = "سجل رئيسي";
     document.getElementById('lblUnifiedNumber').innerHTML = "الرقم الوطني الموحد<br>للمنشأة";
-    document.getElementById('lblRegistryDate').innerHTML = "تاريخ قيد السجل التجاري";
-    document.getElementById('lblAnnualConfirmationDate').innerHTML = "تاريخ التأكيد السنوي للسجل التجاري";
+    document.getElementById('lblRegistryDate').innerHTML = "تاريخ قيد السجل<br>التجاري";
+    document.getElementById('lblAnnualConfirmationDate').innerHTML = "تاريخ التأكيد السنوي<br>للسجل التجاري";
     document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
     document.getElementById('valCity').innerText = "الجبيل حي الصفانا شارع مك1ة المكرمة";
     document.getElementById('lblCopyNumberLabel').innerText = "رقم نسخة السجل التجاري";
@@ -668,9 +680,10 @@ function toggleLanguage() {
     document.getElementById('valCommercialNumber').innerText = "5950154235";
     document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
     document.getElementById('valCapital').innerText = "ر.س 5,000.00";
-    document.getElementById('secContactInfo').innerText = "بيانات الاتصال";
     document.getElementById('lblPhone').innerText = "رقم الجوال";
+    document.getElementById('valPhone').innerText = "00966558531945";
     document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
+    document.getElementById('valEmail').innerText = "klhncfskfhbj@gmail.co";
     document.getElementById('lblWebsite').innerText = "عنوان الموقع الإلكتروني";
     document.getElementById('valWebsite').innerText = "-";
     document.getElementById('secActivities').innerText = "قائمة أنشطة السجل التجاري";
