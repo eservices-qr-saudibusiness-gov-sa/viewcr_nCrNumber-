@@ -29,10 +29,40 @@ body.ltr-mode { direction: ltr; text-align: left; }
 
 .main-wrapper { 
   min-height: 100vh; 
-  background: linear-gradient(to bottom, #111827 0%, #1e1b4b 160px, #311042 320px, #faf5ff 400px, #faf5ff 100%);
+  background: #faf5ff;
   padding-bottom: 40px; 
   position: relative;
   overflow: hidden;
+}
+
+.main-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 410px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(25, 28, 55, 0.7) 0%,
+      rgba(25, 28, 55, 0.6) 70%,
+      rgba(40, 30, 65, 0.75) 92%,
+      rgba(49, 38, 78, 0.95) 100%
+    ),
+    url("city.png");
+
+  background-size: 380% auto;
+  background-position: 92% 16%;
+  background-repeat: no-repeat;
+
+  z-index: 0;
+}
+
+.main-wrapper > * {
+  position: relative;
+  z-index: 2;
 }
 
 .header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
@@ -107,7 +137,6 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
   white-space: nowrap;
 }
 
-/* مساحة فارغة مخصصة لإضافة الشعار الأول مستقبلاً */
 .header-logo-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; }
 
 .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: 0.3s; }
@@ -221,7 +250,6 @@ body.ltr-mode .notice-banner p {
 .card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 6px; }
 body.ltr-mode .card-side-logo { justify-content: flex-start; }
 
-/* مساحة فارغة مخصصة لإضافة الشعار الثاني مستقبلاً */
 .gov-seal-side { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
 
 .comp-title-row { 
@@ -377,7 +405,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 .footer-brand-row { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; }
 .footer-brand { font-weight: 700; font-size: 12px; color: #4b5563; }
 
-/* مساحة فارغة مخصصة لإضافة الشعار الثالث مستقبلاً */
 .sdaia-logo-badge { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
 
 .footer-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 10px; }
@@ -406,6 +433,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
     <div class="sidebar-row">
       <span class="sidebar-row-label" id="fontRowLabel">حجم الخط</span>
+      <!-- Sirf aik single button A+ aur A- ke toggle ke liye -->
       <button class="sidebar-action-box" id="fontSizeBtn" onclick="toggleFontSize()">A+</button>
     </div>
   </div>
@@ -703,22 +731,49 @@ function toggleLanguage() {
   toggleMenu();
 }
 
-let currentFontState = 0;
+// Single Button Toggle Logic (A+ aur A- exchange hona)
+let isZoomed = false;
 function toggleFontSize() {
-  currentFontState = (currentFontState + 1) % 3;
-  const container = document.querySelector('.container');
+  isZoomed = !isZoomed;
   const fontSizeBtn = document.getElementById('fontSizeBtn');
-  if (currentFontState === 1) {
-    container.style.fontSize = '105%';
-    fontSizeBtn.innerText = 'A++';
-  } else if (currentFontState === 2) {
-    container.style.fontSize = '110%';
-    fontSizeBtn.innerText = 'A';
+  
+  const notice = document.querySelector('.notice-banner p');
+  const compName = document.getElementById('compName');
+  const statusBadge = document.getElementById('statusBadge');
+  const pageHeading = document.getElementById('mainHeading');
+  const labels = document.querySelectorAll('.info-label, .date-label-top, .sidebar-row-label');
+  const values = document.querySelectorAll('.info-val, .chip, .date-badge-box, .activity-title, .activity-code, .manager-box');
+  const sectionTitles = document.querySelectorAll('.section-title');
+  const footers = document.querySelectorAll('.footer, .footer-brand, .footer-links a, .footer-copy, .footer-version');
+
+  if (isZoomed) {
+    // Jab bara karna ho toh button ka text "A-" ho jaye ga taake wapas chhota karne ke liye use ho sake
+    fontSizeBtn.innerText = 'A-';
+    
+    if(notice) notice.style.fontSize = '17.5px';
+    if(compName) compName.style.fontSize = '21.5px';
+    if(statusBadge) statusBadge.style.fontSize = '12.5px';
+    if(pageHeading) pageHeading.style.fontSize = '26.5px';
+    
+    labels.forEach(el => el.style.fontSize = '16px');
+    values.forEach(el => el.style.fontSize = '16px');
+    sectionTitles.forEach(el => el.style.fontSize = '20px');
+    footers.forEach(el => el.style.fontSize = '13px');
   } else {
-    container.style.fontSize = '100%';
+    // Jab wapas original karna ho toh button ka text "A+" ho jaye ga
     fontSizeBtn.innerText = 'A+';
+    
+    if(notice) notice.style.fontSize = '';
+    if(compName) compName.style.fontSize = '';
+    if(statusBadge) statusBadge.style.fontSize = '';
+    if(pageHeading) statusBadge.style.fontSize = '';
+    if(pageHeading) pageHeading.style.fontSize = '';
+    
+    labels.forEach(el => el.style.fontSize = '');
+    values.forEach(el => el.style.fontSize = '');
+    sectionTitles.forEach(el => el.style.fontSize = '');
+    footers.forEach(el => el.style.fontSize = '');
   }
-  toggleMenu();
 }
 </script>
 </body>
