@@ -27,23 +27,12 @@ body.ltr-mode { direction: ltr; text-align: left; }
 .loading-text { color: #4b5563; font-size: 14px; font-weight: 700; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/* Blank page overlay for link clicks */
-#blankScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 99999; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s ease; }
-#blankScreen.active { opacity: 1; visibility: visible; pointer-events: auto; }
-
-/* Slide down animation for content */
-@keyframes slideDownContent {
-  0% { transform: translateY(-15px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
 .main-wrapper { 
   min-height: 100vh; 
   background: #faf5ff;
   padding-bottom: 40px; 
   position: relative;
   overflow: hidden;
-  animation: slideDownContent 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .main-wrapper::before {
@@ -429,16 +418,13 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   <div class="spinner"></div>
   <div class="loading-text" id="loadingText">جاري التحميل...</div>
 </div>
-<!-- Blank screen for link click transition -->
-<div id="blankScreen"></div>
-
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
 <div class="sidebar" id="appSidebar">
   <div class="sidebar-top-bar">
     <button class="close-sidebar" onclick="toggleMenu()">✕</button>
   </div>
   <div class="sidebar-content">
-    <button class="sidebar-btn-primary" onclick="handleExternalLink(event, 'https://mc.gov.sa')">
+    <button class="sidebar-btn-primary" onclick="window.open('https://mc.gov.sa', '_blank')">
       <span id="sidebarPlatformBtn">منصة الأعمال</span>
     </button>
     <div class="sidebar-row">
@@ -447,6 +433,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
     <div class="sidebar-row">
       <span class="sidebar-row-label" id="fontRowLabel">حجم الخط</span>
+      <!-- Sirf aik single button A+ aur A- ke toggle ke liye -->
       <button class="sidebar-action-box" id="fontSizeBtn" onclick="toggleFontSize()">A+</button>
     </div>
   </div>
@@ -600,9 +587,9 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <div class="sdaia-logo-badge"></div>
       </div>
       <div class="footer-links">
-        <a href="#" onclick="handleExternalLink(event, '#')">سياسة الخصوصية</a>
-        <a href="#" onclick="handleExternalLink(event, '#')">الشروط والأحكام</a>
-        <a href="#" onclick="handleExternalLink(event, '#')">الأسئلة الشائعة</a>
+        <a href="#" id="footerLinkPrivacy">سياسة الخصوصية</a>
+        <a href="#" id="footerLinkTerms">الشروط والأحكام</a>
+        <a href="#" id="footerLinkFAQ">الأسئلة الشائعة</a>
       </div>
       <div class="footer-copy" id="footerCopy">جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026</div>
       <div class="footer-version" id="footerVersion">الإصدار 1.1.9</div>
@@ -626,21 +613,6 @@ setTimeout(() => {
     loadingScreen.classList.add('hidden');
   }
 }, 1000);
-
-// Link click blank screen transition (1.5 seconds)
-function handleExternalLink(event, url) {
-  event.preventDefault();
-  const blankScreen = document.getElementById('blankScreen');
-  if (blankScreen) {
-    blankScreen.classList.add('active');
-  }
-  setTimeout(() => {
-    if (url !== '#') {
-      window.open(url, '_blank');
-    }
-    blankScreen.classList.remove('active');
-  }, 1500);
-}
 
 function toggleMenu() {
   const sidebar = document.getElementById('appSidebar');
@@ -759,6 +731,7 @@ function toggleLanguage() {
   toggleMenu();
 }
 
+// Single Button Toggle Logic (A+ aur A- exchange hona)
 let isZoomed = false;
 function toggleFontSize() {
   isZoomed = !isZoomed;
@@ -774,21 +747,28 @@ function toggleFontSize() {
   const footers = document.querySelectorAll('.footer, .footer-brand, .footer-links a, .footer-copy, .footer-version');
 
   if (isZoomed) {
+    // Jab bara karna ho toh button ka text "A-" ho jaye ga taake wapas chhota karne ke liye use ho sake
     fontSizeBtn.innerText = 'A-';
+    
     if(notice) notice.style.fontSize = '17.5px';
     if(compName) compName.style.fontSize = '21.5px';
     if(statusBadge) statusBadge.style.fontSize = '12.5px';
     if(pageHeading) pageHeading.style.fontSize = '26.5px';
+    
     labels.forEach(el => el.style.fontSize = '16px');
     values.forEach(el => el.style.fontSize = '16px');
     sectionTitles.forEach(el => el.style.fontSize = '20px');
     footers.forEach(el => el.style.fontSize = '13px');
   } else {
+    // Jab wapas original karna ho toh button ka text "A+" ho jaye ga
     fontSizeBtn.innerText = 'A+';
+    
     if(notice) notice.style.fontSize = '';
     if(compName) compName.style.fontSize = '';
     if(statusBadge) statusBadge.style.fontSize = '';
+    if(pageHeading) statusBadge.style.fontSize = '';
     if(pageHeading) pageHeading.style.fontSize = '';
+    
     labels.forEach(el => el.style.fontSize = '');
     values.forEach(el => el.style.fontSize = '');
     sectionTitles.forEach(el => el.style.fontSize = '');
