@@ -286,8 +286,8 @@ body.ltr-mode .status-badge-inline {
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: none; font-size: 15px; } 
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; font-size: 14.5px; } 
 body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
-.info-val { font-weight: 700; color: #111827; text-align: right; padding-right: 6px; font-size: 15.5px; direction: ltr; unicode-bidi: embed; } 
-body.ltr-mode .info-val { text-align: left; padding-right: 0; padding-left: 6px; }
+.info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; font-size: 15.5px; } 
+body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
 
 .chip { background: #ffffff; color: #000000; padding: 2px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; border: 1px solid #e5e7eb; }
 
@@ -681,8 +681,11 @@ function toggleLanguage() {
     document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
     document.getElementById('valCapital').innerText = "ر.س 5,000.00";
     document.getElementById('lblPhone').innerText = "رقم الجوال";
+    document.getElementById('valPhone').innerText = "00966558531945";
     document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
+    document.getElementById('valEmail').innerText = "klhncfskfhbj@gmail.co";
     document.getElementById('lblWebsite').innerText = "عنوان الموقع الإلكتروني";
+    document.getElementById('valWebsite').innerText = "-";
     document.getElementById('secActivities').innerText = "قائمة أنشطة السجل التجاري";
     document.getElementById('activityText1').innerText = "الإنشاءات العامة للمباني السكنية";
     document.getElementById('activityCode1').innerText = "410010";
