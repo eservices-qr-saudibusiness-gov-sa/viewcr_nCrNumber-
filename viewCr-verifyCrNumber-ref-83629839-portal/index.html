@@ -238,6 +238,50 @@ body.ltr-mode .notice-banner p {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+/* ==========================================================
+   التعديلات الجديدة المطبقة حصرياً من أسفل صندوق التعجب إلى نهاية الصفحة:
+   استخدام خط Cairo فقط، وتحديد الـ font-weight بدقة (700 للعناوين البارزة، 400 للعادية)
+   ========================================================== */
+.card, .footer, .page-heading {
+  font-family: 'Cairo', sans-serif !important;
+}
+
+/* التسميات والعناوين الرمادية */
+.info-label, 
+.date-label-top, 
+#lblRegistryType, 
+#lblUnifiedNumber, 
+#lblAnnualConfirmationDate, 
+#lblCopyNumberLabel, 
+#lblCommercialNumber, 
+.footer-brand, 
+.footer-links a, 
+.footer-copy, 
+.footer-version {
+  font-family: 'Cairo', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/* العناوين الرمادية البارزة */
+.section-title {
+  font-family: 'Cairo', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* بقية النصوص والقيم والعناصر داخل الكروت */
+.comp-title, 
+.status-badge-inline, 
+.info-val, 
+.chip, 
+.chip-indigo, 
+.date-badge-box, 
+.activity-title, 
+.activity-code, 
+.manager-box {
+  font-family: 'Cairo', sans-serif !important;
+}
+/* ========================================================== */
+
 .card { 
   background: #ffffff; 
   border-radius: 16px; 
