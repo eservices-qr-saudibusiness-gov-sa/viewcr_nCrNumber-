@@ -19,12 +19,13 @@ body {
   direction: rtl; 
   text-align: right; 
   -webkit-font-smoothing: antialiased; 
+  font-size: 16px; /* تم زيادة حجم الخط الأساسي هنا */
 }
 body.ltr-mode { direction: ltr; text-align: left; }
 #loadingScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
 #loadingScreen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .spinner { width: 45px; height: 45px; border: 4px solid #f3f3f3; border-top: 4px solid #4f46e5; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 15px; }
-.loading-text { color: #4b5563; font-size: 14px; font-weight: 700; }
+.loading-text { color: #4b5563; font-size: 15px; font-weight: 700; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
 .main-wrapper { 
@@ -75,7 +76,7 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
 
 .header-title { 
   font-family: 'Cairo', 'GE SS Two', 'TheSans', sans-serif;
-  font-size: 11.8px; 
+  font-size: 13px; 
   font-weight: 800; 
   margin: 0; 
   color: #ffffff; 
@@ -87,7 +88,7 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
 
 .header-english-subtitle {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 8px;
+  font-size: 9px;
   color: #ffffff;
   margin: 0px 0;
   font-weight: 900;
@@ -98,7 +99,7 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
 
 .header-arabic-subtitle { 
   font-family: 'Cairo', sans-serif;
-  font-size: 9.5px; 
+  font-size: 10.5px; 
   color: #ffffff; 
   margin: -1px 0 0 0; 
   font-weight: 400; 
@@ -118,20 +119,20 @@ body.ltr-mode .sidebar { left: auto; right: -100%; }
 body.ltr-mode .sidebar.active { left: auto; right: 0; }
 .sidebar-top-bar { padding: 16px; display: flex; justify-content: flex-end; }
 body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
-.close-sidebar { background: none; border: none; font-size: 22px; cursor: pointer; }
+.close-sidebar { background: none; border: none; font-size: 24px; cursor: pointer; }
 .sidebar-content { padding: 0 20px; display: flex; flex-direction: column; gap: 15px; }
 
-.sidebar-btn-primary { background: #4f46e5; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 900; font-size: 14.5px; cursor: pointer; font-family: 'Cairo', sans-serif; letter-spacing: 0.3px; }
+.sidebar-btn-primary { background: #4f46e5; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 900; font-size: 15.5px; cursor: pointer; font-family: 'Cairo', sans-serif; letter-spacing: 0.3px; }
 
 .sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
-.sidebar-row-label { font-weight: 800; font-size: 13.5px; color: #1f2937; }
-.sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 800; font-size: 13px; cursor: pointer; color: #1f2937; }
+.sidebar-row-label { font-weight: 800; font-size: 14.5px; color: #1f2937; }
+.sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 800; font-size: 14px; cursor: pointer; color: #1f2937; }
 
 .container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
 
 .page-heading { 
   text-align: right; 
-  font-size: 22.5px; 
+  font-size: 24.5px; 
   font-weight: 800; 
   color: #f9fafb; 
   margin: 12px 10px 16px 0; 
@@ -140,9 +141,9 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
 
 .notice-banner { 
-  background: #ffffff; /* تم التعديل إلى أبيض نقي */
+  background: #ffffff; 
   border-radius: 12px; 
-  padding: 12px 14px; 
+  padding: 14px 16px; 
   margin: 0 8px 16px 8px; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04); 
   border: 1px solid #f3e8ff; 
@@ -152,15 +153,14 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
   position: relative;
 }
 
-/* Multiple Expanding Rings Effect */
 .notice-icon { 
-  font-size: 11px; 
+  font-size: 12px; 
   line-height: 1; 
   user-select: none; 
   background: #ffffff; 
   color: #1f2937; 
-  width: 20px; 
-  height: 20px; 
+  width: 22px; 
+  height: 22px; 
   display: flex; 
   align-items: center; 
   justify-content: center; 
@@ -191,22 +191,14 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
 }
 
 @keyframes rippleRings {
-  0% {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-  }
-  100% {
-    width: 200%;
-    height: 200%;
-    opacity: 0;
-  }
+  0% { width: 100%; height: 100%; opacity: 1; }
+  100% { width: 200%; height: 200%; opacity: 0; }
 }
 
 .notice-banner p { 
   margin: 0; 
-  font-size: 14.5px; 
-  line-height: 1.5; 
+  font-size: 15.5px; /* تكبير خط التنبيه */
+  line-height: 1.6; 
   color: #000000; 
   font-family: 'TheSansArabic', 'TheSans', 'Cairo', sans-serif;
   font-weight: 800; 
@@ -219,9 +211,9 @@ body.ltr-mode .notice-banner p {
 }
 
 .card { 
-  background: #ffffff; /* تم التعديل إلى أبيض نقي */
+  background: #ffffff; 
   border-radius: 16px; 
-  padding: 20px 16px; 
+  padding: 22px 18px; 
   margin-bottom: 16px; 
   box-shadow: 0 6px 20px rgba(0,0,0,0.04); 
   border: 1px solid #f3e8ff; 
@@ -229,7 +221,7 @@ body.ltr-mode .notice-banner p {
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
 .card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 6px; }
 body.ltr-mode .card-side-logo { justify-content: flex-start; }
-.gov-seal-side { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
+.gov-seal-side { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
 .gov-seal-side img { width: 100%; height: 100%; object-fit: contain; }
 
 .comp-title-row { 
@@ -242,7 +234,7 @@ body.ltr-mode .card-side-logo { justify-content: flex-start; }
 body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
 
 .comp-title { 
-  font-size: 18px; 
+  font-size: 20px; /* تكبير اسم الشركة */
   font-weight: 900; 
   color: #000000; 
   line-height: 1.4; 
@@ -255,9 +247,9 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
 .status-badge-inline { 
   background-color: #ecfdf5; 
   color: #059669; 
-  padding: 2.5px 8px; 
-  border-radius: 5px; 
-  font-size: 10.5px; 
+  padding: 3px 10px; 
+  border-radius: 6px; 
+  font-size: 12px; /* تكبير الشارة */
   font-weight: 700; 
   border: 1px solid #a7f3d0; 
   white-space: nowrap;
@@ -274,10 +266,10 @@ body.ltr-mode .status-badge-inline {
   justify-content: center; 
   align-items: center; 
   gap: 8px;
-  padding: 10px 0; 
+  padding: 12px 0; 
   border-top: 1px solid #f3e8ff; 
   border-bottom: none; 
-  font-size: 13.5px; 
+  font-size: 15px; 
   margin-top: 4px;
 }
 
@@ -286,25 +278,25 @@ body.ltr-mode .status-badge-inline {
   justify-content: center; 
   align-items: center; 
   gap: 8px;
-  padding: 10px 0; 
+  padding: 12px 0; 
   border-bottom: none; 
-  font-size: 13.5px; 
+  font-size: 15px; 
 }
 
-.info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
-.info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
+.info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: none; font-size: 15px; } /* تكبير خط صفوف البيانات */
+.info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; font-size: 14.5px; } /* تكبير العناوين الفرعية */
 body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
-.info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; }
+.info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; font-size: 15.5px; } /* تكبير القيم */
 body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
 
-.chip { background: #ffffff; color: #000000; padding: 1px 6px; border-radius: 5px; font-size: 11.5px; font-weight: 700; border: 1px solid #e5e7eb; }
+.chip { background: #ffffff; color: #000000; padding: 2px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; border: 1px solid #e5e7eb; }
 
 .chip-indigo { 
   background: #f3e8ff !important; 
   border: 1px solid #e9d5ff !important; 
   color: #7e22ce !important; 
-  font-size: 10px !important; 
-  padding: 2px 6px !important; 
+  font-size: 11.5px !important; 
+  padding: 3px 8px !important; 
 }
 
 .date-badge-box, .activity-card, .manager-box { 
@@ -312,84 +304,84 @@ body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px
   border: 1px solid #e9d5ff !important; 
 }
 
-.date-container { padding: 10px 0; border-bottom: none; }
-.date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
+.date-container { padding: 12px 0; border-bottom: none; }
+.date-label-top { color: #6b7280; font-size: 14.5px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
 body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; }
 .date-badges-grid { display: flex; flex-direction: column; gap: 10px; }
-.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: -85px; } 
+.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: -90px; } 
 body.ltr-mode .date-row-group-left { align-items: flex-start; }
 .date-row-group-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 body.ltr-mode .date-row-group-right { align-items: flex-end; }
 
 .date-badge-box { 
-  border-radius: 5px; 
-  padding: 2px 7px; 
+  border-radius: 6px; 
+  padding: 3px 9px; 
   display: inline-flex; 
   align-items: center; 
-  gap: 5px; 
-  font-size: 11px; 
+  gap: 6px; 
+  font-size: 13px; /* تكبير خط التاريخ */
   font-weight: 700; 
   color: #7e22ce; 
   width: fit-content;
 }
 .date-badge-box span:last-child { 
   color: #6b21a8; 
-  font-size: 9px; 
+  font-size: 10.5px; 
   background: #e5ccff; 
-  padding: 1px 3px; 
-  border-radius: 2px; 
+  padding: 1px 4px; 
+  border-radius: 3px; 
 }
 
 .section-title { 
-  font-size: 17px; 
+  font-size: 19px; /* تكبير عناوين الأقسام */
   font-weight: 900; 
   color: #000000; 
   margin: 20px 0 12px 0; 
 }
 
-.activity-card { border-radius: 10px; padding: 12px; margin-bottom: 8px; }
+.activity-card { border-radius: 10px; padding: 14px; margin-bottom: 10px; }
 
 .activity-title { 
-  font-size: 14.5px; 
+  font-size: 16px; /* تكبير اسم النشاط */
   font-weight: 800; 
   color: #000000; 
-  margin-bottom: 4px; 
+  margin-bottom: 6px; 
 }
 
 .activity-code { 
   font-family: 'TheSansArabic', 'TheSans', sans-serif;
-  font-size: 16px; 
+  font-size: 17.5px; /* تكبير كود النشاط */
   color: #000000; 
   font-weight: 900; 
 }
 
 .manager-box { 
   border-radius: 10px; 
-  padding: 12px; 
+  padding: 14px; 
   text-align: center; 
   font-weight: 800; 
   color: #000000; 
-  font-size: 14.5px; 
+  font-size: 16px; /* تكبير اسم المدير */
 }
 
 .footer { 
   text-align: center; 
-  padding: 20px 16px; 
-  font-size: 11px; 
+  padding: 22px 16px; 
+  font-size: 12.5px; 
   color: #4b5563; 
-  background: #ffffff; /* تم التعديل إلى أبيض نقي */
+  background: #ffffff; 
   border-radius: 16px; 
   box-shadow: 0 6px 20px rgba(0,0,0,0.04); 
   border: 1px solid #f3e8ff; 
 }
 .footer-brand-row { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; }
-.footer-brand { font-weight: 700; font-size: 12px; color: #4b5563; }
-.sdaia-logo-badge { width: 32px; height: 32px; }
+.footer-brand { font-weight: 700; font-size: 13.5px; color: #4b5563; }
+.sdaia-logo-badge { width: 34px; height: 34px; }
 .sdaia-logo-badge img { width: 100%; height: 100%; object-fit: contain; }
-.footer-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 10px; }
-.footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 12px; }
-.footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
-.footer-version { color: #6b7280; }
+.footer-links { display: flex; justify-content: center; gap: 14px; margin-bottom: 10px; }
+.footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 13.5px; }
+.footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; font-size: 13px; }
+.footer-version { color: #6b7280; font-size: 12px; }
 </style>
 </head>
 <body>
@@ -467,14 +459,14 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
-      <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
+      <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">نوع السجل</span>
+          <span class="info-label" id="lblRegistryType" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">نوع السجل</span>
           <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 8px;">
-          <span class="info-label" id="lblUnifiedNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px; text-align: left; line-height: 1.3;">الرقم الوطني الموحد<br>للمنشأة</span>
-          <span class="info-val" id="valUnifiedNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; margin-top: 4px;">7052072944</span>
+          <span class="info-label" id="lblUnifiedNumber" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px; text-align: left; line-height: 1.3;">الرقم الوطني الموحد<br>للمنشأة</span>
+          <span class="info-val" id="valUnifiedNumber" style="font-size: 15.5px; font-weight: 700; color: #000000; margin-top: 4px;">7052072944</span>
         </div>
       </div>
 
@@ -492,7 +484,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
             </div>
           </div>
           <div class="date-row-group-left">
-            <div class="date-label-top" id="lblAnnualConfirmationDate" style="font-size: 11.5px; margin-bottom: 2px; font-weight: 600; color: #6b7280; text-align: left; line-height: 1.3;">تاريخ التأكيد السنوي<br>للسجل التجاري</div>
+            <div class="date-label-top" id="lblAnnualConfirmationDate" style="font-size: 13px; margin-bottom: 2px; font-weight: 600; color: #6b7280; text-align: left; line-height: 1.3;">تاريخ التأكيد السنوي<br>للسجل التجاري</div>
             <div class="date-badge-box" style="margin-top: 4px;">
               <span id="valExpiryHijri">1448-05-02</span>
               <span>هـ</span>
@@ -509,14 +501,14 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <span class="info-val" id="valCity" style="color: #000000;">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
       </div>
       
-      <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
+      <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
-          <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">1</span>
+          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
+          <span class="info-val" id="valCopyNumber" style="font-size: 15.5px; font-weight: 700; color: #000000;">1</span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end;">
-          <span class="info-label" id="lblCommercialNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم السجل التجاري</span>
-          <span class="info-val" id="valCommercialNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">5950154235</span>
+          <span class="info-label" id="lblCommercialNumber" style="font-size: 13px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم السجل التجاري</span>
+          <span class="info-val" id="valCommercialNumber" style="font-size: 15.5px; font-weight: 700; color: #000000;">5950154235</span>
         </div>
       </div>
 
@@ -559,7 +551,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
     
     <div class="card">
-      <div class="section-title" id="secManagers" style="margin-top: 0; font-size: 17px; font-weight: 900; color: #000000;">قائمة المديرين</div>
+      <div class="section-title" id="secManagers" style="margin-top: 0; font-size: 19px; font-weight: 900; color: #000000;">قائمة المديرين</div>
       <div class="manager-box" id="managerName"> عبدالهادي محمد مبارك اليامي </div>
     </div>
     
