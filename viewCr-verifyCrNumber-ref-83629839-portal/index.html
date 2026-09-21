@@ -74,8 +74,8 @@ body.ltr-mode .header-right { flex-direction: row-reverse; }
   border: none; 
   cursor: pointer; 
   padding: 0; 
-  width: 22px; 
-  height: 16px; 
+  width: 24px; 
+  height: 18px; 
   display: flex; 
   flex-direction: column; 
   justify-content: space-between; 
@@ -86,11 +86,11 @@ body.ltr-mode .menu-btn { align-items: flex-start; }
   display: block; 
   height: 2.5px; 
   background-color: #FFFFFF; 
-  border-radius: 1px; 
+  border-radius: 2px; 
   box-shadow: none; 
 }
 .menu-bar:nth-child(1) { width: 100%; }
-.menu-bar:nth-child(2) { width: 75%; }
+.menu-bar:nth-child(2) { width: 65%; }
 .menu-bar:nth-child(3) { width: 100%; }
 
 .header-title-area { 
@@ -258,6 +258,8 @@ body.ltr-mode .card-side-logo { justify-content: flex-start; }
   align-items: center; 
   gap: 8px; 
   margin-top: 2px; 
+  position: relative;
+  padding-bottom: 14px;
 }
 body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
 
@@ -275,40 +277,45 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
 .status-badge-inline { 
   background-color: #ecfdf5; 
   color: #059669; 
-  padding: 2.5px 8px; 
-  border-radius: 5px; 
-  font-size: 10.5px; 
+  padding: 2.5px 12px; 
+  border-radius: 6px; 
+  font-size: 11px; 
   font-weight: 700; 
   border: 1px solid #a7f3d0; 
   white-space: nowrap;
   flex-shrink: 0;
-  margin-right: auto;
-  margin-left: 0;
+  position: absolute;
+  right: 0;
+  top: 45px;
 }
 body.ltr-mode .status-badge-inline {
-  margin-right: 0;
-  margin-left: auto;
+  right: auto;
+  left: 0;
 }
+
+/* افقی لائن کو مکمل ختم کر دیا گیا ہے */
 
 .info-row-first { 
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  padding: 10px 4px; 
-  border-top: 1px solid #E5E3F1; 
+  padding: 10px 0 10px 12px; 
+  border-top: none; 
   border-bottom: none; 
   font-size: 13.5px; 
-  margin-top: 4px;
+  margin-top: 15px;
 }
+body.ltr-mode .info-row-first { padding: 10px 12px 10px 0; }
 
 .info-row-second { 
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  padding: 10px 4px; 
+  padding: 10px 0 10px 12px; 
   border-bottom: none; 
   font-size: 13.5px; 
 }
+body.ltr-mode .info-row-second { padding: 10px 12px 10px 0; }
 
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
@@ -317,18 +324,6 @@ body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; paddi
 body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
 
 .chip { background: #ffffff; color: #000000; padding: 1px 6px; border-radius: 5px; font-size: 11.5px; font-weight: 700; border: 1px solid #e5e7eb; }
-
-/* نوع المنشأة کے ساتھ ہلکی ورٹیکل لائن اور دائیں جانب ایڈجسٹمنٹ */
-.facility-label-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.vertical-divider-thin {
-  width: 1px;
-  height: 12px;
-  background-color: #d1d5db;
-}
 
 .chip-indigo { 
   background: #E5E3F1 !important; 
@@ -485,22 +480,19 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         </div>
       </div>
       
-      <div class="info-row-first">
-        <div class="facility-label-wrapper">
-          <span class="vertical-divider-thin"></span>
-          <span class="info-label" id="lblFacilityType" style="padding-right: 0;">نوع المنشأة</span>
-        </div>
+      <div class="info-row-first" style="border-right: 2.5px solid #d1d5db;">
+        <span class="info-label" id="lblFacilityType" style="padding-right: 0;">نوع المنشأة</span>
         <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
       <div class="info-row-second">
-        <span class="info-label" id="lblCompanyType">نوع الشركة</span>
+        <span class="info-label" id="lblCompanyType" style="padding-right: 0;">نوع الشركة</span>
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">نوع السجل</span>
+          <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 4px; padding-right: 0;">نوع السجل</span>
           <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 8px;">
@@ -542,7 +534,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
+          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px; padding-right: 0;">رقم نسخة السجل التجاري</span>
           <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">1</span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end;">
