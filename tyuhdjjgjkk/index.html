@@ -21,6 +21,21 @@ body {
   -webkit-font-smoothing: antialiased; 
 }
 body.ltr-mode { direction: ltr; text-align: left; }
+#loadingScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+#loadingScreen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.spinner { width: 45px; height: 45px; border: 4px solid #f3f3f3; border-top: 4px solid #4f46e5; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 15px; }
+.loading-text { color: #4b5563; font-size: 14px; font-weight: 700; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Blank page overlay for link clicks */
+#blankScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 99999; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s ease; }
+#blankScreen.active { opacity: 1; visibility: visible; pointer-events: auto; }
+
+/* Slide down animation for content */
+@keyframes slideDownContent {
+  0% { transform: translateY(-15px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
 
 .main-wrapper { 
   min-height: 100vh; 
@@ -28,14 +43,7 @@ body.ltr-mode { direction: ltr; text-align: left; }
   padding-bottom: 40px; 
   position: relative;
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(-25px); /* शुरुआत में हल्का सा ऊपर रहेगा ताकि नीचे आते वक्त डिले इफेक्ट दिखे */
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.main-wrapper.loaded {
-  opacity: 1;
-  transform: translateY(0); /* अपनी सही जगह पर स्मूथली आ जाएगा */
+  animation: slideDownContent 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .main-wrapper::before {
@@ -417,13 +425,20 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </style>
 </head>
 <body>
+<div id="loadingScreen">
+  <div class="spinner"></div>
+  <div class="loading-text" id="loadingText">جاري التحميل...</div>
+</div>
+<!-- Blank screen for link click transition -->
+<div id="blankScreen"></div>
+
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
 <div class="sidebar" id="appSidebar">
   <div class="sidebar-top-bar">
     <button class="close-sidebar" onclick="toggleMenu()">✕</button>
   </div>
   <div class="sidebar-content">
-    <button class="sidebar-btn-primary" onclick="window.open('https://mc.gov.sa', '_blank')">
+    <button class="sidebar-btn-primary" onclick="handleExternalLink(event, 'https://mc.gov.sa')">
       <span id="sidebarPlatformBtn">منصة الأعمال</span>
     </button>
     <div class="sidebar-row">
@@ -436,7 +451,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
   </div>
 </div>
-<div class="main-wrapper" id="mainWrapper">
+<div class="main-wrapper">
   <header class="header">
     <div class="header-right">
       <div class="header-logo-icon"></div>
@@ -585,9 +600,9 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <div class="sdaia-logo-badge"></div>
       </div>
       <div class="footer-links">
-        <a href="#" id="footerLinkPrivacy">سياسة الخصوصية</a>
-        <a href="#" id="footerLinkTerms">الشروط والأحكام</a>
-        <a href="#" id="footerLinkFAQ">الأسئلة الشائعة</a>
+        <a href="#" onclick="handleExternalLink(event, '#')">سياسة الخصوصية</a>
+        <a href="#" onclick="handleExternalLink(event, '#')">الشروط والأحكام</a>
+        <a href="#" onclick="handleExternalLink(event, '#')">الأسئلة الشائعة</a>
       </div>
       <div class="footer-copy" id="footerCopy">جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026</div>
       <div class="footer-version" id="footerVersion">الإصدار 1.1.9</div>
@@ -596,15 +611,36 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </div>
 
 <script>
-// लिंक पर क्लिक करने के बाद ठीक 1 सेकंड (1000ms) का ब्लैंक व्हाइट पेज डिले और फिर ऊपर से नीचे स्मूथ स्लाइड इफ़ेक्ट
 window.addEventListener('load', () => {
   setTimeout(() => {
-    const mainWrapper = document.getElementById('mainWrapper');
-    if (mainWrapper) {
-      mainWrapper.classList.add('loaded');
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen) {
+      loadingScreen.classList.add('hidden');
     }
-  }, 1000); // 1000 मिलीसेकंड = ठीक 1 सेकंड का व्हाइट ब्लैंक डिले
+  }, 1000);
 });
+
+setTimeout(() => {
+  const loadingScreen = document.getElementById('loadingScreen');
+  if (loadingScreen) {
+    loadingScreen.classList.add('hidden');
+  }
+}, 1000);
+
+// Link click blank screen transition (1.5 seconds)
+function handleExternalLink(event, url) {
+  event.preventDefault();
+  const blankScreen = document.getElementById('blankScreen');
+  if (blankScreen) {
+    blankScreen.classList.add('active');
+  }
+  setTimeout(() => {
+    if (url !== '#') {
+      window.open(url, '_blank');
+    }
+    blankScreen.classList.remove('active');
+  }, 1500);
+}
 
 function toggleMenu() {
   const sidebar = document.getElementById('appSidebar');
@@ -622,6 +658,7 @@ function toggleLanguage() {
     body.classList.add('ltr-mode');
     langBtn.innerText = 'Ar';
     document.getElementById('pageTitle').innerText = "Commercial Registration Data - Saudi Business Center";
+    document.getElementById('loadingText').innerText = "Loading...";
     document.getElementById('sidebarPlatformBtn').innerText = "Business Platform";
     document.getElementById('langRowLabel').innerText = "Language";
     document.getElementById('fontRowLabel').innerText = "Font Size";
@@ -667,6 +704,7 @@ function toggleLanguage() {
     body.classList.remove('ltr-mode');
     langBtn.innerText = 'En';
     document.getElementById('pageTitle').innerText = "بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال";
+    document.getElementById('loadingText').innerText = "جاري التحميل...";
     document.getElementById('sidebarPlatformBtn').innerText = "منصة الأعمال";
     document.getElementById('langRowLabel').innerText = "اللغة";
     document.getElementById('fontRowLabel').innerText = "حجم الخط";
@@ -741,7 +779,6 @@ function toggleFontSize() {
     if(compName) compName.style.fontSize = '21.5px';
     if(statusBadge) statusBadge.style.fontSize = '12.5px';
     if(pageHeading) pageHeading.style.fontSize = '26.5px';
-    
     labels.forEach(el => el.style.fontSize = '16px');
     values.forEach(el => el.style.fontSize = '16px');
     sectionTitles.forEach(el => el.style.fontSize = '20px');
@@ -752,7 +789,6 @@ function toggleFontSize() {
     if(compName) compName.style.fontSize = '';
     if(statusBadge) statusBadge.style.fontSize = '';
     if(pageHeading) pageHeading.style.fontSize = '';
-    
     labels.forEach(el => el.style.fontSize = '');
     values.forEach(el => el.style.fontSize = '');
     sectionTitles.forEach(el => el.style.fontSize = '');
