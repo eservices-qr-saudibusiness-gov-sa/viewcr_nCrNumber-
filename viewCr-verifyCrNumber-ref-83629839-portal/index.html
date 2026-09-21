@@ -4,16 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="pageTitle">بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال</title>
-<!-- استيراد خطوط عربية -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<!-- استيراد خط TheSans Arabic من مكتبة خطوط لإتاحته -->
+<!-- استيراد خطوط عربية ملائمة -->
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/thesansarabic.css">
 <style>
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 body { 
   margin: 0; 
   padding: 0; 
-  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+  font-family: 'TheSansArabic', 'Tajawal', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
   background-color: #faf5ff; 
   color: #1f2937; 
   direction: rtl; 
@@ -104,9 +103,9 @@ body.ltr-mode .menu-btn { align-items: flex-start; }
 body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
 
 .header-title { 
-  font-family: 'Cairo', 'GE SS Two', 'TheSans', sans-serif;
+  font-family: 'TheSansArabic', 'Tajawal', sans-serif;
   font-size: 11.8px; 
-  font-weight: 800; 
+  font-weight: 700; 
   margin: 0; 
   color: #ffffff; 
   line-height: 1.2; 
@@ -120,14 +119,14 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
   font-size: 8px;
   color: #ffffff;
   margin: 0px 0;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.2px;
   text-shadow: 0 0 8px rgba(255,255,255,0.5);
   white-space: nowrap;
 }
 
 .header-arabic-subtitle { 
-  font-family: 'Cairo', sans-serif;
+  font-family: 'TheSansArabic', 'Tajawal', sans-serif;
   font-size: 9.5px; 
   color: #ffffff; 
   margin: -1px 0 0 0; 
@@ -150,18 +149,18 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .close-sidebar { background: none; border: none; font-size: 22px; cursor: pointer; }
 .sidebar-content { padding: 0 20px; display: flex; flex-direction: column; gap: 15px; }
 
-.sidebar-btn-primary { background: #4f46e5; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 900; font-size: 14.5px; cursor: pointer; font-family: 'Cairo', sans-serif; letter-spacing: 0.3px; }
+.sidebar-btn-primary { background: #4f46e5; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 700; font-size: 14.5px; cursor: pointer; font-family: 'TheSansArabic', 'Tajawal', sans-serif; letter-spacing: 0.3px; }
 
 .sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
-.sidebar-row-label { font-weight: 800; font-size: 13.5px; color: #1f2937; }
-.sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 800; font-size: 13px; cursor: pointer; color: #1f2937; }
+.sidebar-row-label { font-weight: 700; font-size: 13.5px; color: #1f2937; }
+.sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 700; font-size: 13px; cursor: pointer; color: #1f2937; }
 
 .container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
 
 .page-heading { 
   text-align: right; 
   font-size: 22.5px; 
-  font-weight: 800; 
+  font-weight: 700; 
   color: #f9fafb; 
   margin: 12px 10px 16px 0; 
   text-shadow: 0 2px 6px rgba(0,0,0,0.3); 
@@ -193,7 +192,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
   align-items: center; 
   justify-content: center; 
   border-radius: 50%; 
-  font-weight: 900; 
+  font-weight: 700; 
   flex-shrink: 0; 
   border: 1.5px solid #1f2937;
   position: relative;
@@ -228,8 +227,8 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
   font-size: 14.5px; 
   line-height: 1.5; 
   color: #000000; 
-  font-family: 'TheSansArabic', 'TheSans', 'Cairo', sans-serif;
-  font-weight: 800; 
+  font-family: 'TheSansArabic', sans-serif;
+  font-weight: 700; 
   letter-spacing: -0.1px;
 }
 
@@ -237,50 +236,6 @@ body.ltr-mode .notice-banner p {
   text-align: left;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
-
-/* ==========================================================
-   التعديلات الجديدة المطبقة حصرياً من أسفل صندوق التعجب إلى نهاية الصفحة:
-   استخدام خط Cairo فقط، وتحديد الـ font-weight بدقة (700 للعناوين البارزة، 400 للعادية)
-   ========================================================== */
-.card, .footer, .page-heading {
-  font-family: 'Cairo', sans-serif !important;
-}
-
-/* التسميات والعناوين الرمادية */
-.info-label, 
-.date-label-top, 
-#lblRegistryType, 
-#lblUnifiedNumber, 
-#lblAnnualConfirmationDate, 
-#lblCopyNumberLabel, 
-#lblCommercialNumber, 
-.footer-brand, 
-.footer-links a, 
-.footer-copy, 
-.footer-version {
-  font-family: 'Cairo', sans-serif !important;
-  font-weight: 400 !important;
-}
-
-/* العناوين الرمادية البارزة */
-.section-title {
-  font-family: 'Cairo', sans-serif !important;
-  font-weight: 700 !important;
-}
-
-/* بقية النصوص والقيم والعناصر داخل الكروت */
-.comp-title, 
-.status-badge-inline, 
-.info-val, 
-.chip, 
-.chip-indigo, 
-.date-badge-box, 
-.activity-title, 
-.activity-code, 
-.manager-box {
-  font-family: 'Cairo', sans-serif !important;
-}
-/* ========================================================== */
 
 .card { 
   background: #ffffff; 
@@ -307,7 +262,7 @@ body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: fl
 
 .comp-title { 
   font-size: 18px; 
-  font-weight: 900; 
+  font-weight: 700; 
   color: #000000; 
   line-height: 1.4; 
   text-align: right; 
@@ -356,7 +311,7 @@ body.ltr-mode .status-badge-inline {
 }
 
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
-.info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
+.info-label { color: #6b7280; font-weight: 500; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
 body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
 .info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; }
 body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
@@ -369,6 +324,7 @@ body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px
   color: #423B88 !important; 
   font-size: 10px !important; 
   padding: 2px 6px !important; 
+  font-weight: 700;
 }
 
 .date-badge-box, .activity-card, .manager-box { 
@@ -377,7 +333,7 @@ body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px
 }
 
 .date-container { padding: 10px 0; border-bottom: none; }
-.date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
+.date-label-top { color: #6b7280; font-size: 13px; font-weight: 500; margin-bottom: 8px; padding-right: 6px; }
 body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; }
 .date-badges-grid { display: flex; flex-direction: column; gap: 10px; }
 .date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: -85px; } 
@@ -406,7 +362,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 
 .section-title { 
   font-size: 17px; 
-  font-weight: 900; 
+  font-weight: 700; 
   color: #000000; 
   margin: 20px 0 12px 0; 
 }
@@ -415,23 +371,23 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 
 .activity-title { 
   font-size: 14.5px; 
-  font-weight: 800; 
+  font-weight: 700; 
   color: #000000; 
   margin-bottom: 4px; 
 }
 
 .activity-code { 
-  font-family: 'TheSansArabic', 'TheSans', sans-serif;
+  font-family: 'TheSansArabic', sans-serif;
   font-size: 16px; 
   color: #000000; 
-  font-weight: 900; 
+  font-weight: 700; 
 }
 
 .manager-box { 
   border-radius: 10px; 
   padding: 12px; 
   text-align: center; 
-  font-weight: 800; 
+  font-weight: 700; 
   color: #000000; 
   font-size: 14.5px; 
 }
@@ -447,373 +403,12 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   border: 1px solid #E5E3F1; 
 }
 .footer-brand-row { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; }
-.footer-brand { font-weight: 700; font-size: 12px; color: #4b5563; }
+.footer-brand { font-weight: 500; font-size: 12px; color: #4b5563; }
 
 .sdaia-logo-badge { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
 
 .footer-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 10px; }
-.footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 12px; }
-.footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
-.footer-version { color: #6b7280; }
+.footer-links a { color: #4b5563; text-decoration: none; font-weight: 500; font-size: 12px; }
+.footer-copy { margin-bottom: 4px; font-weight: 500; color: #4b5563; }
+.footer-version { color: #6b7280; font-weight: 400; }
 </style>
-</head>
-<body>
-<div id="loadingScreen">
-  <div class="spinner"></div>
-  <div class="loading-text" id="loadingText">جاري التحميل...</div>
-</div>
-<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
-<div class="sidebar" id="appSidebar">
-  <div class="sidebar-top-bar">
-    <button class="close-sidebar" onclick="toggleMenu()">✕</button>
-  </div>
-  <div class="sidebar-content">
-    <button class="sidebar-btn-primary" onclick="window.open('https://mc.gov.sa', '_blank')">
-      <span id="sidebarPlatformBtn">منصة الأعمال</span>
-    </button>
-    <div class="sidebar-row">
-      <span class="sidebar-row-label" id="langRowLabel">اللغة</span>
-      <button class="sidebar-action-box" id="langBtn" onclick="toggleLanguage()">En</button>
-    </div>
-    <div class="sidebar-row">
-      <span class="sidebar-row-label" id="fontRowLabel">حجم الخط</span>
-      <button class="sidebar-action-box" id="fontSizeBtn" onclick="toggleFontSize()">A+</button>
-    </div>
-  </div>
-</div>
-<div class="main-wrapper">
-  <header class="header">
-    <div class="header-right">
-      <div class="header-logo-icon"></div>
-      <div class="header-title-area">
-        <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
-        <div class="header-english-subtitle" id="headerEnglishSubtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER</div>
-        <div class="header-arabic-subtitle" id="headerArabicSubtitle">تيسير | TAYSEER</div>
-      </div>
-    </div>
-    <div class="header-logo-section">
-      <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-      </button>
-    </div>
-  </header>
-  <div class="container">
-    <h2 class="page-heading" id="mainHeading">بيانات السجل التجاري</h2>
-    
-    <div class="notice-banner">
-      <div class="notice-icon" role="img" aria-label="معلومات">i</div>
-      <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
-    </div>
-    
-    <div class="card">
-      <div class="card-top-section">
-        <div class="card-side-logo">
-          <div class="gov-seal-side"></div>
-        </div>
-        <div class="comp-title-row">
-          <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
-          <span class="status-badge-inline" id="statusBadge">نشط</span>
-        </div>
-      </div>
-      
-      <div class="info-row-first">
-        <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
-        <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
-      </div>
-      
-      <div class="info-row-second">
-        <span class="info-label" id="lblCompanyType">نوع الشركة</span>
-        <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
-      </div>
-
-      <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
-        <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">نوع السجل</span>
-          <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 8px;">
-          <span class="info-label" id="lblUnifiedNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px; text-align: left; line-height: 1.3;">الرقم الوطني الموحد<br>للمنشأة</span>
-          <span class="info-val" id="valUnifiedNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; margin-top: 4px;">7052072944</span>
-        </div>
-      </div>
-
-      <div class="date-container">
-        <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري</div>
-        <div class="date-badges-grid">
-          <div class="date-row-group-right">
-            <div class="date-badge-box">
-              <span id="valRegistryHijri">1447-04-22</span>
-              <span>هـ</span>
-            </div>
-            <div class="date-badge-box">
-              <span id="valRegistryGregorian">2025-10-14</span>
-              <span>م</span>
-            </div>
-          </div>
-          <div class="date-row-group-left">
-            <div class="date-label-top" id="lblAnnualConfirmationDate" style="font-size: 11.5px; margin-bottom: 2px; font-weight: 600; color: #6b7280; text-align: left; line-height: 1.3;">تاريخ التأكيد السنوي<br>للسجل التجاري</div>
-            <div class="date-badge-box" style="margin-top: 4px;">
-              <span id="valExpiryHijri">1448-05-02</span>
-              <span>هـ</span>
-            </div>
-            <div class="date-badge-box">
-              <span id="valExpiryGregorian">2026-10-13</span>
-              <span>م</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="info-row">
-        <span class="info-label" id="lblCity">&nbsp; مدينة عنوان الأعمال المعتمد للمنشأة</span>
-        <span class="info-val" id="valCity" style="color: #000000;">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
-      </div>
-      
-      <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
-        <div style="display: flex; flex-direction: column; align-items: flex-start;">
-          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
-          <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">1</span>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-end;">
-          <span class="info-label" id="lblCommercialNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم السجل التجاري</span>
-          <span class="info-val" id="valCommercialNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">5950154235</span>
-        </div>
-      </div>
-
-      <div class="info-row">
-        <span class="info-label" id="lblCapital">&nbsp; قيمة رأس المال الكلي</span>
-        <span class="info-val" id="valCapital" style="color: #000000;">ر.س 5,000.00</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label" id="lblPhone">&nbsp; رقم الجوال</span>
-        <span class="info-val" id="valPhone" style="color: #000000;">00966558531945</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label" id="lblEmail">&nbsp; البريد الإلكتروني</span>
-        <span class="info-val" id="valEmail" style="color: #000000;">klhncfskfhbj@gmail.co</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label" id="lblWebsite">&nbsp; عنوان الموقع الإلكتروني</span>
-        <span class="info-val" id="valWebsite" style="color: #000000;">-</span>
-      </div>
-    </div>
-    
-    <div class="card">
-      <div class="section-title" id="secActivities" style="margin-top: 0;">قائمة أنشطة السجل التجاري</div>
-      <div class="activity-card">
-        <div class="activity-title" id="activityText1">الإنشاءات العامة للمباني السكنية</div>
-        <div class="activity-code" id="activityCode1">410010</div>
-      </div>
-      <div class="activity-card">
-        <div class="activity-title" id="activityText2">الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)</div>
-        <div class="activity-code" id="activityCode2">410021</div>
-      </div>
-      <div class="activity-card">
-        <div class="activity-title" id="activityText3">إنشاء المطارات ومرافقها</div>
-        <div class="activity-code" id="activityCode3">410022</div>
-      </div>
-      <div class="activity-card">
-        <div class="activity-title" id="activityText4">الإنشاءات العامة للمباني الحكومية</div>
-        <div class="activity-code" id="activityCode4">410023</div>
-      </div>
-    </div>
-    
-    <div class="card">
-      <div class="section-title" id="secManagers" style="margin-top: 0; font-size: 17px; font-weight: 900; color: #000000;">قائمة المديرين</div>
-      <div class="manager-box" id="managerName"> عبدالهادي محمد مبارك اليامي </div>
-    </div>
-    
-    <footer class="footer">
-      <div class="footer-brand-row">
-        <span class="footer-brand" id="footerBrandTitle">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي</span>
-        <div class="sdaia-logo-badge"></div>
-      </div>
-      <div class="footer-links">
-        <a href="#" id="footerLinkPrivacy">سياسة الخصوصية</a>
-        <a href="#" id="footerLinkTerms">الشروط والأحكام</a>
-        <a href="#" id="footerLinkFAQ">الأسئلة الشائعة</a>
-      </div>
-      <div class="footer-copy" id="footerCopy">جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026</div>
-      <div class="footer-version" id="footerVersion">الإصدار 1.1.9</div>
-    </footer>
-  </div>
-</div>
-
-<script>
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen) {
-      loadingScreen.classList.add('hidden');
-    }
-  }, 1000);
-});
-
-setTimeout(() => {
-  const loadingScreen = document.getElementById('loadingScreen');
-  if (loadingScreen) {
-    loadingScreen.classList.add('hidden');
-  }
-}, 1000);
-
-function toggleMenu() {
-  const sidebar = document.getElementById('appSidebar');
-  const overlay = document.getElementById('sidebarOverlay');
-  sidebar.classList.toggle('active');
-  overlay.classList.toggle('active');
-}
-
-let isEnglish = false;
-function toggleLanguage() {
-  isEnglish = !isEnglish;
-  const body = document.body;
-  const langBtn = document.getElementById('langBtn');
-  if (isEnglish) {
-    body.classList.add('ltr-mode');
-    langBtn.innerText = 'Ar';
-    document.getElementById('pageTitle').innerText = "Commercial Registration Data - Saudi Business Center";
-    document.getElementById('loadingText').innerText = "Loading...";
-    document.getElementById('sidebarPlatformBtn').innerText = "Business Platform";
-    document.getElementById('langRowLabel').innerText = "Language";
-    document.getElementById('fontRowLabel').innerText = "Font Size";
-    document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
-    document.getElementById('headerEnglishSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER";
-    document.getElementById('headerArabicSubtitle').innerText = "تيسير | TAYSEER";
-    document.getElementById('mainHeading').innerText = "Commercial Registration Data";
-    document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible for any shortage or discrepancy in the data, as data is retrieved in integration with the relevant authorities.";
-    document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "Active");
-    document.getElementById('compName').innerText = "Abdulhadi Mohammed Al Yami Contracting Company";
-    document.getElementById('lblFacilityType').innerText = "Facility Type";
-    document.getElementById('valFacilityType').innerText = "Company";
-    document.getElementById('lblCompanyType').innerText = "Company Type";
-    document.getElementById('valCompanyType').innerText = "Limited Liability";
-    document.getElementById('lblRegistryType').innerText = "Registry Type";
-    document.getElementById('valRegistryType').innerText = "Main Registry";
-    document.getElementById('lblUnifiedNumber').innerHTML = "Unified National<br>Number";
-    document.getElementById('lblRegistryDate').innerText = "Registration Date";
-    document.getElementById('lblAnnualConfirmationDate').innerHTML = "Annual Confirmation<br>Date";
-    document.getElementById('lblCity').innerText = "Business City";
-    document.getElementById('valCity').innerText = "Al Jubail, Al Safa, Makramah St.";
-    document.getElementById('lblCopyNumberLabel').innerText = "Copy Number";
-    document.getElementById('lblCommercialNumber').innerText = "Commercial Registration No.";
-    document.getElementById('lblCapital').innerText = "Total Capital";
-    document.getElementById('valCapital').innerText = "SAR 5,000.00";
-    document.getElementById('lblPhone').innerText = "Mobile Number";
-    document.getElementById('lblEmail').innerText = "Email";
-    document.getElementById('lblWebsite').innerText = "Website";
-    document.getElementById('secActivities').innerText = "Commercial Activities List";
-    document.getElementById('activityText1').innerText = "General construction of residential buildings";
-    document.getElementById('activityText2').innerText = "General construction of non-residential buildings (schools, hospitals, hotels, etc.)";
-    document.getElementById('activityText3').innerText = "Construction of airports and facilities";
-    document.getElementById('activityText4').innerText = "General construction of government buildings";
-    document.getElementById('secManagers').innerText = "Managers List";
-    document.getElementById('managerName').innerText = "Abdulhadi Mohammed Mubarak Al Yami";
-    document.getElementById('footerBrandTitle').innerText = "Developed by Saudi Data and AI Authority";
-    document.getElementById('footerLinkPrivacy').innerText = "Privacy Policy";
-    document.getElementById('footerLinkTerms').innerText = "Terms & Conditions";
-    document.getElementById('footerLinkFAQ').innerText = "FAQ";
-    document.getElementById('footerCopy').innerText = "All rights reserved to Saudi Business Center 2026";
-    document.getElementById('footerVersion').innerText = "Version 1.1.9";
-  } else {
-    body.classList.remove('ltr-mode');
-    langBtn.innerText = 'En';
-    document.getElementById('pageTitle').innerText = "بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال";
-    document.getElementById('loadingText').innerText = "جاري التحميل...";
-    document.getElementById('sidebarPlatformBtn').innerText = "منصة الأعمال";
-    document.getElementById('langRowLabel').innerText = "اللغة";
-    document.getElementById('fontRowLabel').innerText = "حجم الخط";
-    document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
-    document.getElementById('headerEnglishSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER";
-    document.getElementById('headerArabicSubtitle').innerText = "تيسير | TAYSEER";
-    document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
-    document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
-    document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
-    document.getElementById('compName').innerText = "شركة عبدالهادي محمد اليامي للمقاولات";
-    document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
-    document.getElementById('valFacilityType').innerText = "شركة";
-    document.getElementById('lblCompanyType').innerText = "نوع الشركة";
-    document.getElementById('valCompanyType').innerText = "ذات مسؤولية محدودة";
-    document.getElementById('lblRegistryType').innerText = "نوع السجل";
-    document.getElementById('valRegistryType').innerText = "سجل رئيسي";
-    document.getElementById('lblUnifiedNumber').innerHTML = "الرقم الوطني الموحد<br>للمنشأة";
-    document.getElementById('lblRegistryDate').innerText = "تاريخ قيد السجل التجاري";
-    document.getElementById('lblAnnualConfirmationDate').innerHTML = "تاريخ التأكيد السنوي<br>للسجل التجاري";
-    document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
-    document.getElementById('valCity').innerText = "الجبيل حي الصفانا شارع مك1ة المكرمة";
-    document.getElementById('lblCopyNumberLabel').innerText = "رقم نسخة السجل التجاري";
-    document.getElementById('valCopyNumber').innerText = "1";
-    document.getElementById('lblCommercialNumber').innerText = "رقم السجل التجاري";
-    document.getElementById('valCommercialNumber').innerText = "5950154235";
-    document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
-    document.getElementById('valCapital').innerText = "ر.س 5,000.00";
-    document.getElementById('lblPhone').innerText = "رقم الجوال";
-    document.getElementById('valPhone').innerText = "00966558531945";
-    document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
-    document.getElementById('valEmail').innerText = "klhncfskfhbj@gmail.co";
-    document.getElementById('lblWebsite').innerText = "عنوان الموقع الإلكتروني";
-    document.getElementById('valWebsite').innerText = "-";
-    document.getElementById('secActivities').innerText = "قائمة أنشطة السجل التجاري";
-    document.getElementById('activityText1').innerText = "الإنشاءات العامة للمباني السكنية";
-    document.getElementById('activityCode1').innerText = "410010";
-    document.getElementById('activityText2').innerText = "الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)";
-    document.getElementById('activityCode2').innerText = "410021";
-    document.getElementById('activityText3').innerText = "إنشاء المطارات ومرافقها";
-    document.getElementById('activityCode3').innerText = "410022";
-    document.getElementById('activityText4').innerText = "الإنشاءات العامة للمباني الحكومية";
-    document.getElementById('activityCode4').innerText = "410023";
-    document.getElementById('secManagers').innerText = "قائمة المديرين";
-    document.getElementById('managerName').innerText = "عبدالهادي محمد مبارك اليامي";
-    document.getElementById('footerBrandTitle').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
-    document.getElementById('footerLinkPrivacy').innerText = "سياسة الخصوصية";
-    document.getElementById('footerLinkTerms').innerText = "الشروط والأحكام";
-    document.getElementById('footerLinkFAQ').innerText = "الأسئلة الشائعة";
-    document.getElementById('footerCopy').innerText = "جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026";
-    document.getElementById('footerVersion').innerText = "الإصدار 1.1.9";
-  }
-  toggleMenu();
-}
-
-let isZoomed = false;
-function toggleFontSize() {
-  isZoomed = !isZoomed;
-  const fontSizeBtn = document.getElementById('fontSizeBtn');
-  
-  const notice = document.querySelector('.notice-banner p');
-  const compName = document.getElementById('compName');
-  const statusBadge = document.getElementById('statusBadge');
-  const pageHeading = document.getElementById('mainHeading');
-  const labels = document.querySelectorAll('.info-label, .date-label-top, .sidebar-row-label');
-  const values = document.querySelectorAll('.info-val, .chip, .date-badge-box, .activity-title, .activity-code, .manager-box');
-  const sectionTitles = document.querySelectorAll('.section-title');
-  const footers = document.querySelectorAll('.footer, .footer-brand, .footer-links a, .footer-copy, .footer-version');
-
-  if (isZoomed) {
-    fontSizeBtn.innerText = 'A-';
-    
-    if(notice) notice.style.fontSize = '17.5px';
-    if(compName) compName.style.fontSize = '21.5px';
-    if(statusBadge) statusBadge.style.fontSize = '12.5px';
-    if(pageHeading) pageHeading.style.fontSize = '26.5px';
-    
-    labels.forEach(el => el.style.fontSize = '16px');
-    values.forEach(el => el.style.fontSize = '16px');
-    sectionTitles.forEach(el => el.style.fontSize = '20px');
-    footers.forEach(el => el.style.fontSize = '13px');
-  } else {
-    fontSizeBtn.innerText = 'A+';
-    
-    if(notice) notice.style.fontSize = '';
-    if(compName) compName.style.fontSize = '';
-    if(statusBadge) statusBadge.style.fontSize = '';
-    if(pageHeading) pageHeading.style.fontSize = '';
-    
-    labels.forEach(el => el.style.fontSize = '');
-    values.forEach(el => el.style.fontSize = '');
-    sectionTitles.forEach(el => el.style.fontSize = '');
-    footers.forEach(el => el.style.fontSize = '');
-  }
-}
-</script>
-</body>
-</html>
