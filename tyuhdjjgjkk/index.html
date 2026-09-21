@@ -53,7 +53,6 @@ body.ltr-mode { direction: ltr; text-align: left; }
     ),
     url("city.png");
 
-  /* Yahan background size aur position ko zoom out / adjust kiya gaya hai */
   background-size: 380% auto;
   background-position: 92% 16%;
   background-repeat: no-repeat;
@@ -155,6 +154,9 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 
 .sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
 .sidebar-row-label { font-weight: 800; font-size: 13.5px; color: #1f2937; }
+
+/* Font size buttons controls layout */
+.font-controls-group { display: flex; gap: 6px; }
 .sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 800; font-size: 13px; cursor: pointer; color: #1f2937; }
 
 .container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
@@ -434,7 +436,10 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
     <div class="sidebar-row">
       <span class="sidebar-row-label" id="fontRowLabel">حجم الخط</span>
-      <button class="sidebar-action-box" id="fontSizeBtn" onclick="toggleFontSize()">A+</button>
+      <div class="font-controls-group">
+        <button class="sidebar-action-box" onclick="changeFontSize('increase')">A+</button>
+        <button class="sidebar-action-box" onclick="changeFontSize('decrease')">A-</button>
+      </div>
     </div>
   </div>
 </div>
@@ -731,21 +736,42 @@ function toggleLanguage() {
   toggleMenu();
 }
 
-let currentFontState = 0;
-function toggleFontSize() {
-  currentFontState = (currentFontState + 1) % 3;
-  const container = document.querySelector('.container');
-  const fontSizeBtn = document.getElementById('fontSizeBtn');
-  if (currentFontState === 1) {
-    container.style.fontSize = '112%';
-    fontSizeBtn.innerText = 'A++';
-  } else if (currentFontState === 2) {
-    container.style.fontSize = '122%';
-    fontSizeBtn.innerText = 'A';
-  } else {
-    container.style.fontSize = '100%';
-    fontSizeBtn.innerText = 'A+';
+// نظام التحكم بحجم الخط عبر A+ و A- تماماً مثل الموقع الرسمي
+let currentScale = 1; 
+function changeFontSize(action) {
+  if (action === 'increase' && currentScale < 1.25) {
+    currentScale += 0.15; // تكبير الخط عند الضغط على A+
+  } else if (action === 'decrease' && currentScale > 0.9) {
+    currentScale -= 0.15; // تصغير الخط عند الضغط على A-
   }
+
+  // تطبيق التغيير على العناصر الأساسية بالكامل
+  const notice = document.querySelector('.notice-banner p');
+  const compName = document.getElementById('compName');
+  const statusBadge = document.getElementById('statusBadge');
+  const pageHeading = document.getElementById('mainHeading');
+  const labels = document.querySelectorAll('.info-label, .date-label-top, .sidebar-row-label');
+  const values = document.querySelectorAll('.info-val, .chip, .date-badge-box, .activity-title, .activity-code, .manager-box');
+  const sectionTitles = document.querySelectorAll('.section-title');
+  const footers = document.querySelectorAll('.footer, .footer-brand, .footer-links a, .footer-copy, .footer-version');
+
+  if(notice) notice.style.fontSize = (14.5 * currentScale) + 'px';
+  if(compName) compName.style.fontSize = (18 * currentScale) + 'px';
+  if(statusBadge) statusBadge.style.fontSize = (10.5 * currentScale) + 'px';
+  if(pageHeading) pageHeading.style.fontSize = (22.5 * currentScale) + 'px';
+  
+  labels.forEach(el => {
+    el.style.fontSize = (13.5 * currentScale) + 'px';
+  });
+  values.forEach(el => {
+    el.style.fontSize = (13.5 * currentScale) + 'px';
+  });
+  sectionTitles.forEach(el => {
+    el.style.fontSize = (17 * currentScale) + 'px';
+  });
+  footers.forEach(el => {
+    el.style.fontSize = (11 * currentScale) + 'px';
+  });
 }
 </script>
 </body>
