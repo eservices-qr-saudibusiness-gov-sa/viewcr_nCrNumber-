@@ -186,7 +186,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
   line-height: 1; 
   user-select: none; 
   background: #ffffff; 
-  color: #000000; 
+  color: #000000; /* डार्क ब्लैक रंग */
   width: 16px; 
   height: 16px; 
   display: flex; 
@@ -195,7 +195,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
   border-radius: 50%; 
   font-weight: 900; 
   flex-shrink: 0; 
-  border: 1.5px solid #000000; 
+  border: 1.5px solid #000000; /* बॉर्डर को भी डार्क ब्लैक किया */
   position: relative;
 }
 
@@ -207,7 +207,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1.5px solid rgba(0, 0, 0, 0.8); 
+  border: 1.5px solid rgba(0, 0, 0, 0.8); /* रिंग का रंग डार्क किया */
   width: 100%;
   height: 100%;
   animation: rippleRings 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -220,16 +220,16 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
 
 @keyframes rippleRings {
   0% { width: 100%; height: 100%; opacity: 1; }
-  100% { width: 250%; height: 250%; opacity: 0; } 
+  100% { width: 250%; height: 250%; opacity: 0; } /* रिंग के इफ़ेक्ट को थोड़ा बड़ा और चौड़ा किया */
 }
 
 .notice-banner p { 
   margin: 0; 
   font-size: 14.5px; 
   line-height: 1.5; 
-  color: #000000; 
+  color: #000000; /* लिखाई का रंग पूरी तरह डार्क ब्लैक कर दिया गया है */
   font-family: 'TheSansArabic', 'TheSans', 'Cairo', sans-serif;
-  font-weight: 900; 
+  font-weight: 900; /* फॉन्ट को और स्पष्ट व गाढ़ा किया */
   letter-spacing: -0.1px;
 }
 
@@ -282,11 +282,11 @@ body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5p
   border: 1px solid #a7f3d0; 
   white-space: nowrap;
   flex-shrink: 0;
-  margin-right: 32px; 
+  margin-right: 12px;
 }
 body.ltr-mode .status-badge-inline {
   margin-right: 0;
-  margin-left: 32px;
+  margin-left: 12px;
 }
 
 .info-row-first { 
@@ -295,46 +295,20 @@ body.ltr-mode .status-badge-inline {
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
-  border-top: none; 
+  border-top: 1px solid #E5E3F1; 
   border-bottom: none; 
   font-size: 13.5px; 
   margin-top: 4px;
 }
 
-/* 'نوع الشركة' کو دائیں جانب (right side) منتقل کر دیا گیا ہے */
 .info-row-second { 
   display: flex; 
-  justify-content: flex-start; 
+  justify-content: center; 
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
   border-bottom: none; 
   font-size: 13.5px; 
-  margin-right: 15px; 
-}
-body.ltr-mode .info-row-second {
-  justify-content: flex-start;
-  margin-right: 0;
-  margin-left: 15px;
-}
-
-/* 'نوع المنشأة' کے ساتھ ورٹیکل لائن (فاصل) شامل کی گئی ہے */
-#lblFacilityType {
-  position: relative;
-}
-#lblFacilityType::after {
-  content: '';
-  position: absolute;
-  left: -12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2px;
-  height: 14px;
-  background-color: #d1d5db;
-}
-body.ltr-mode #lblFacilityType::after {
-  left: auto;
-  right: -12px;
 }
 
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
@@ -397,7 +371,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 
 .activity-title { 
   font-size: 14.5px; 
-  font-weight: 600; 
+  font-weight: 800; 
   color: #000000; 
   margin-bottom: 4px; 
 }
