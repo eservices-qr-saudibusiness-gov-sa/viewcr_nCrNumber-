@@ -6,7 +6,6 @@
 <title id="pageTitle">بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال</title>
 <!-- استيراد خطوط عربية -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<!-- استيراد خط TheSans Arabic من مكتبة خطوط لإتاحته -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/thesansarabic.css">
 <style>
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -108,7 +107,7 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
   white-space: nowrap;
 }
 
-.header-logo-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 10px rgba(255,255,255,0.7)); }
+.header-logo-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #ffffff; border-radius: 8px; padding: 4px; box-shadow: 0 0 10px rgba(255,255,255,0.7); }
 .header-logo-icon img { width: 100%; height: 100%; object-fit: contain; }
 
 .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: 0.3s; }
@@ -221,7 +220,7 @@ body.ltr-mode .notice-banner p {
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
 .card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 6px; }
 body.ltr-mode .card-side-logo { justify-content: flex-start; }
-.gov-seal-side { width: 155px; height: 50px; display: flex; align-items: center; justify-content: center; }
+.gov-seal-side { width: 140px; height: 45px; display: flex; align-items: center; justify-content: center; }
 .gov-seal-side img { width: 100%; height: 100%; object-fit: contain; }
 
 .comp-title-row { 
@@ -267,8 +266,6 @@ body.ltr-mode .status-badge-inline {
   align-items: center; 
   gap: 8px;
   padding: 12px 0; 
-  border-top: none; 
-  border-bottom: none; 
   font-size: 15px; 
   margin-top: 4px;
 }
@@ -279,32 +276,20 @@ body.ltr-mode .status-badge-inline {
   align-items: center; 
   gap: 8px;
   padding: 12px 0; 
-  border-bottom: none; 
   font-size: 15px; 
 }
 
-.info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: none; font-size: 15px; } 
+.info-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; font-size: 15px; } 
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; font-size: 14.5px; } 
 body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
 .info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; font-size: 15.5px; } 
 body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
 
 .chip { background: #ffffff; color: #000000; padding: 2px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; border: 1px solid #e5e7eb; }
+.chip-indigo { background: #f3e8ff !important; border: 1px solid #e9d5ff !important; color: #7e22ce !important; font-size: 11.5px !important; padding: 3px 8px !important; }
+.date-badge-box, .activity-card, .manager-box { background: #f3e8ff !important; border: 1px solid #e9d5ff !important; }
 
-.chip-indigo { 
-  background: #f3e8ff !important; 
-  border: 1px solid #e9d5ff !important; 
-  color: #7e22ce !important; 
-  font-size: 11.5px !important; 
-  padding: 3px 8px !important; 
-}
-
-.date-badge-box, .activity-card, .manager-box { 
-  background: #f3e8ff !important; 
-  border: 1px solid #e9d5ff !important; 
-}
-
-.date-container { padding: 12px 0; border-bottom: none; }
+.date-container { padding: 12px 0; }
 .date-label-top { color: #6b7280; font-size: 14.5px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
 body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; }
 .date-badges-grid { display: flex; flex-direction: column; gap: 10px; position: relative; }
@@ -324,45 +309,13 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   color: #7e22ce; 
   width: fit-content;
 }
-.date-badge-box span:last-child { 
-  color: #6b21a8; 
-  font-size: 10.5px; 
-  background: #e5ccff; 
-  padding: 1px 4px; 
-  border-radius: 3px; 
-}
+.date-badge-box span:last-child { color: #6b21a8; font-size: 10.5px; background: #e5ccff; padding: 1px 4px; border-radius: 3px; }
 
-.section-title { 
-  font-size: 19px; 
-  font-weight: 900; 
-  color: #000000; 
-  margin: 20px 0 12px 0; 
-}
-
+.section-title { font-size: 19px; font-weight: 900; color: #000000; margin: 20px 0 12px 0; }
 .activity-card { border-radius: 10px; padding: 14px; margin-bottom: 10px; }
-
-.activity-title { 
-  font-size: 16px; 
-  font-weight: 800; 
-  color: #000000; 
-  margin-bottom: 6px; 
-}
-
-.activity-code { 
-  font-family: 'TheSansArabic', 'TheSans', sans-serif;
-  font-size: 17.5px; 
-  color: #000000; 
-  font-weight: 900; 
-}
-
-.manager-box { 
-  border-radius: 10px; 
-  padding: 14px; 
-  text-align: center; 
-  font-weight: 800; 
-  color: #000000; 
-  font-size: 16px; 
-}
+.activity-title { font-size: 16px; font-weight: 800; color: #000000; margin-bottom: 6px; }
+.activity-code { font-family: 'TheSansArabic', 'TheSans', sans-serif; font-size: 17.5px; color: #000000; font-weight: 900; }
+.manager-box { border-radius: 10px; padding: 14px; text-align: center; font-weight: 800; color: #000000; font-size: 16px; }
 
 .footer { 
   text-align: center; 
@@ -412,7 +365,8 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   <header class="header">
     <div class="header-right">
       <div class="header-logo-icon">
-        <img src="https://i.ibb.co/6ZzXf3v/1000285250.png" alt="Logo" onerror="this.style.display='none'">
+        <!-- لوگو کا نیا اور درست پبلک لنک -->
+        <img src="https://i.ibb.co/v3X8v55/1000285714-4.png" alt="Logo" onerror="this.src='https://i.ibb.co/6ZzXf3v/1000285250.png'">
       </div>
       <div class="header-title-area">
         <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
@@ -440,7 +394,8 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       <div class="card-top-section">
         <div class="card-side-logo">
           <div class="gov-seal-side">
-            <img src="https://i.ibb.co/6ZzXf3v/1000285250.png" alt="Ministry of Commerce" onerror="this.style.display='none'">
+            <!-- وزارت التجارة کا اصلی لوگو -->
+            <img src="https://i.ibb.co/v3X8v55/1000285714-4.png" alt="Ministry of Commerce" onerror="this.style.display='none'">
           </div>
         </div>
         <div class="comp-title-row">
