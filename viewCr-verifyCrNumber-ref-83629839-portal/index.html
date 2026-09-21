@@ -186,7 +186,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
   line-height: 1; 
   user-select: none; 
   background: #ffffff; 
-  color: #1f2937; 
+  color: #000000; /* डार्क ब्लैक रंग */
   width: 16px; 
   height: 16px; 
   display: flex; 
@@ -195,7 +195,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
   border-radius: 50%; 
   font-weight: 900; 
   flex-shrink: 0; 
-  border: 1.5px solid #1f2937;
+  border: 1.5px solid #000000; /* बॉर्डर को भी डार्क ब्लैक किया */
   position: relative;
 }
 
@@ -207,7 +207,7 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1.5px solid rgba(31, 41, 55, 0.7);
+  border: 1.5px solid rgba(0, 0, 0, 0.8); /* रिंग का रंग डार्क किया */
   width: 100%;
   height: 100%;
   animation: rippleRings 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -220,16 +220,16 @@ body.ltr-mode .page-heading { text-align: left; margin: 12px 0 16px 10px; }
 
 @keyframes rippleRings {
   0% { width: 100%; height: 100%; opacity: 1; }
-  100% { width: 200%; height: 200%; opacity: 0; }
+  100% { width: 250%; height: 250%; opacity: 0; } /* रिंग के इफ़ेक्ट को थोड़ा बड़ा और चौड़ा किया */
 }
 
 .notice-banner p { 
   margin: 0; 
   font-size: 14.5px; 
   line-height: 1.5; 
-  color: #000000; 
+  color: #000000; /* लिखाई का रंग पूरी तरह डार्क ब्लैक कर दिया गया है */
   font-family: 'TheSansArabic', 'TheSans', 'Cairo', sans-serif;
-  font-weight: 800; 
+  font-weight: 900; /* फॉन्ट को और स्पष्ट व गाढ़ा किया */
   letter-spacing: -0.1px;
 }
 
@@ -376,7 +376,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   margin-bottom: 4px; 
 }
 
-/* Updated activity-code to color #000000 and font-weight 600 */
 .activity-code { 
   font-family: 'TheSansArabic', 'TheSans', sans-serif;
   font-size: 16px; 
