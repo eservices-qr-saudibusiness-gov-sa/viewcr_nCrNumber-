@@ -121,7 +121,7 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .close-sidebar { background: none; border: none; font-size: 22px; cursor: pointer; }
 .sidebar-content { padding: 0 20px; display: flex; flex-direction: column; gap: 15px; }
 
-.sidebar-btn-primary { background: #4f46e5; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 900; font-size: 14.5px; cursor: pointer; font-family: 'Cairo', sans-serif; letter-spacing: 0.3px; width: 100%; text-align: center; }
+.sidebar-btn-primary { background: #4f46e5; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 900; font-size: 14.5px; cursor: pointer; font-family: 'Cairo', sans-serif; letter-spacing: 0.3px; }
 
 .sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
 .sidebar-row-label { font-weight: 800; font-size: 13.5px; color: #1f2937; }
@@ -387,7 +387,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     <button class="close-sidebar" onclick="toggleMenu()">✕</button>
   </div>
   <div class="sidebar-content">
-    <button class="sidebar-btn-primary" onclick="window.open('https://qr.saudibusiness.gov.sa', '_blank')">
+    <button class="sidebar-btn-primary" onclick="window.open('https://mc.gov.sa', '_blank')">
       <span id="sidebarPlatformBtn">منصة الأعمال</span>
     </button>
     <div class="sidebar-row">
@@ -493,17 +493,15 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <span class="info-val" id="valCity" style="color: #000000;">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
       </div>
       
-      <div class="info-row" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
-        <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%;">
-          <span class="info-label" id="lblCRNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم السجل التجاري</span>
-          <span class="info-val" id="valCRNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; text-align: right;">5950154235</span>
-        </div>
-      </div>
-
-      <div class="info-row" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
-        <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%;">
+      <!-- تم التعديل هنا: نقل رقم نسخة السجل التجاري ليكون بالأسفل، وإضافة رقم السجل التجاري في الجهة المقابلة -->
+      <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
-          <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; text-align: right;">1</span>
+          <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">1</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+          <span class="info-label" id="lblCommercialNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم السجل التجاري</span>
+          <span class="info-val" id="valCommercialNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">5950154235</span>
         </div>
       </div>
 
@@ -623,8 +621,8 @@ function toggleLanguage() {
     document.getElementById('lblAnnualConfirmationDate').innerHTML = "Annual Confirmation<br>Date";
     document.getElementById('lblCity').innerText = "Business City";
     document.getElementById('valCity').innerText = "Al Jubail, Al Safa, Makramah St.";
-    document.getElementById('lblCRNumber').innerText = "Commercial Registration Number";
     document.getElementById('lblCopyNumberLabel').innerText = "Copy Number";
+    document.getElementById('lblCommercialNumber').innerText = "Commercial Registration No.";
     document.getElementById('lblCapital').innerText = "Total Capital";
     document.getElementById('valCapital').innerText = "SAR 5,000.00";
     document.getElementById('lblPhone').innerText = "Mobile Number";
@@ -669,9 +667,10 @@ function toggleLanguage() {
     document.getElementById('lblAnnualConfirmationDate').innerHTML = "تاريخ التأكيد السنوي<br>للسجل التجاري";
     document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
     document.getElementById('valCity').innerText = "الجبيل حي الصفانا شارع مك1ة المكرمة";
-    document.getElementById('lblCRNumber').innerText = "رقم السجل التجاري";
     document.getElementById('lblCopyNumberLabel').innerText = "رقم نسخة السجل التجاري";
     document.getElementById('valCopyNumber').innerText = "1";
+    document.getElementById('lblCommercialNumber').innerText = "رقم السجل التجاري";
+    document.getElementById('valCommercialNumber').innerText = "5950154235";
     document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
     document.getElementById('valCapital').innerText = "ر.س 5,000.00";
     document.getElementById('lblPhone').innerText = "رقم الجوال";
