@@ -35,29 +35,69 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
+/* =========================================
+   CITY BACKGROUND - OFFICIAL STYLE
+   ========================================= */
 .main-wrapper::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 410px;
+  height: 480px;
 
   background:
     linear-gradient(
       to bottom,
-      rgba(25, 28, 55, 0.7) 0%,
-      rgba(25, 28, 55, 0.6) 70%,
-      rgba(40, 30, 65, 0.75) 92%,
-      rgba(49, 38, 78, 0.95) 100%
+      rgba(35, 32, 67, 0.76) 0%,
+      rgba(35, 32, 67, 0.65) 70%,
+      rgba(40, 30, 65, 0.85) 92%,
+      rgba(49, 38, 78, 0.98) 100%
     ),
     url("city.png");
 
-  background-size: 380% auto;
-  background-position: 92% 16%;
+  background-size: 125% auto;
+  background-position: 72% center;
   background-repeat: no-repeat;
+  background-color: #25213A;
 
   z-index: 0;
+}
+
+/* =========================================
+   CURVED LINES & PURPLE STRIP OVERLAY
+   ========================================= */
+.hero-curved-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.curved-line-1 {
+  position: absolute;
+  width: 150%;
+  height: 430px;
+  left: -20%;
+  bottom: 20px;
+  border-top: 2px solid rgba(255, 255, 255, 0.27);
+  border-radius: 50%;
+  transform: rotate(8deg);
+}
+
+.curved-line-2 {
+  position: absolute;
+  width: 145%;
+  height: 390px;
+  left: -18%;
+  bottom: -30px;
+  border-top: 2px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  transform: rotate(7deg);
 }
 
 .main-wrapper > * {
@@ -438,6 +478,12 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   </div>
 </div>
 <div class="main-wrapper">
+  <!-- Curved lines container over city.png -->
+  <div class="hero-curved-container">
+    <div class="curved-line-1"></div>
+    <div class="curved-line-2"></div>
+  </div>
+
   <header class="header">
     <div class="header-right">
       <div class="header-logo-icon"></div>
@@ -773,4 +819,3 @@ function toggleFontSize() {
 </script>
 </body>
 </html>
-
