@@ -100,10 +100,8 @@ body.ltr-mode .menu-btn { align-items: flex-start; }
   align-items: flex-start;
   justify-content: center;
   gap: 1px;
-  /* تم إزاحة النصوص قليلاً إلى اليمين بناءً على طلبك */
-  padding-right: 8px; 
 }
-body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; padding-right: 0; padding-left: 8px; }
+body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
 
 .header-title { 
   font-family: 'Cairo', 'GE SS Two', 'TheSans', sans-serif;
@@ -113,8 +111,7 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; pa
   color: #ffffff; 
   line-height: 1.2; 
   letter-spacing: 0.2px;
-  /* تم إزالة التأثيرات والبلر تماماً لتصبح واضحة ونقية */
-  text-shadow: none; 
+  text-shadow: 0 0 10px rgba(255,255,255,0.6); 
   white-space: nowrap;
 }
 
@@ -125,8 +122,7 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; pa
   margin: 0px 0;
   font-weight: 900;
   letter-spacing: 0.2px;
-  /* تم إزالة التأثيرات والبلر تماماً */
-  text-shadow: none;
+  text-shadow: 0 0 8px rgba(255,255,255,0.5);
   white-space: nowrap;
 }
 
@@ -137,8 +133,7 @@ body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; pa
   margin: -1px 0 0 0; 
   font-weight: 400; 
   letter-spacing: 0.2px; 
-  /* تم إزالة التأثيرات والبلر تماماً */
-  text-shadow: none; 
+  text-shadow: 0 0 8px rgba(255,255,255,0.5); 
   white-space: nowrap;
 }
 
@@ -778,3 +773,4 @@ function toggleFontSize() {
 </script>
 </body>
 </html>
+
