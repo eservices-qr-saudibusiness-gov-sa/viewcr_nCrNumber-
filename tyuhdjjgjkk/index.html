@@ -615,7 +615,7 @@ setTimeout(() => {
 
 function toggleMenu() {
   const sidebar = document.getElementById('appSidebar');
-  const overlay =, document.getElementById('sidebarOverlay');
+  const overlay = document.getElementById('sidebarOverlay');
   sidebar.classList.toggle('active');
   overlay.classList.toggle('active');
 }
@@ -723,7 +723,7 @@ function toggleLanguage() {
     document.getElementById('footerBrandTitle').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
     document.getElementById('footerLinkPrivacy').innerText = "سياسة الخصوصية";
     document.getElementById('footerLinkTerms').innerText = "الشروط والأحكام";
-    document.getElementById('footerLinkFAQ').innerText, "الأسئلة الشائعة";
+    document.getElementById('footerLinkFAQ').innerText = "الأسئلة الشائعة";
     document.getElementById('footerCopy').innerText = "جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026";
     document.getElementById('footerVersion').innerText = "الإصدار 1.1.9";
   }
