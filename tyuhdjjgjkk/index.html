@@ -21,13 +21,71 @@ body {
   -webkit-font-smoothing: antialiased; 
 }
 body.ltr-mode { direction: ltr; text-align: left; }
-#loadingScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
-#loadingScreen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-.spinner { width: 45px; height: 45px; border: 4px solid #f3f3f3; border-top: 4px solid #4f46e5; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 15px; }
-.loading-text { color: #4b5563; font-size: 14px; font-weight: 700; }
-@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/* Blank page overlay for link clicks */
+/* شاشة التحميل البديلة (Skeleton Loader) المأخوذة من الصورة */
+#loadingScreen { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background: #faf5ff; 
+  z-index: 9999; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  padding-top: 20px;
+  transition: opacity 0.3s ease, visibility 0.3s ease; 
+}
+#loadingScreen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.skeleton-container {
+  max-width: 480px;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.skeleton-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+}
+
+.skeleton-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  border: 1px solid #f3e8ff;
+  height: 380px;
+  position: relative;
+}
+
+.skeleton-box {
+  background: #e5e7eb;
+  border-radius: 8px;
+  animation: pulseLoading 1.2s infinite ease-in-out;
+}
+
+@keyframes pulseLoading {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.loading-title-center {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 900;
+  color: #1f2937;
+  margin: 25px 0;
+  font-family: 'Cairo', sans-serif;
+}
+
+/* Blank page overlay for link clicks (1 second) */
 #blankScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 99999; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s ease; }
 #blankScreen.active { opacity: 1; visibility: visible; pointer-events: auto; }
 
@@ -425,11 +483,28 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </style>
 </head>
 <body>
+<!-- شاشة التحميل (Skeleton Loader) لمدة نصف ثانية بناءً على الصورة المرفقة -->
 <div id="loadingScreen">
-  <div class="spinner"></div>
-  <div class="loading-text" id="loadingText">جاري التحميل...</div>
+  <div class="skeleton-container">
+    <div class="skeleton-top-bar">
+      <div class="skeleton-box" style="width: 30px; height: 20px;"></div>
+      <div class="skeleton-box" style="width: 140px; height: 15px;"></div>
+    </div>
+    <div class="skeleton-card">
+      <div class="skeleton-box" style="width: 100%; height: 25px; margin-bottom: 20px;"></div>
+      <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+        <div class="skeleton-box" style="width: 32%; height: 35px;"></div>
+        <div class="skeleton-box" style="width: 32%; height: 35px;"></div>
+        <div class="skeleton-box" style="width: 32%; height: 35px;"></div>
+      </div>
+      <div class="skeleton-box" style="width: 100%; height: 60px; margin-bottom: 15px;"></div>
+      <div class="skeleton-box" style="width: 100%; height: 40px;"></div>
+    </div>
+    <div class="loading-title-center">جاري التحميل...</div>
+  </div>
 </div>
-<!-- Blank screen for link click transition -->
+
+<!-- شاشة بيضاء للانتقال عند الضغط على الروابط (تم تعديلها لتصبح ثانية واحدة) -->
 <div id="blankScreen"></div>
 
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
@@ -611,13 +686,14 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </div>
 
 <script>
+// ظهور شاشة التحميل (Skeleton) لمدة نصف ثانية (500 مللي ثانية) عند فتح الصفحة
 window.addEventListener('load', () => {
   setTimeout(() => {
     const loadingScreen = document.getElementById('loadingScreen');
     if (loadingScreen) {
       loadingScreen.classList.add('hidden');
     }
-  }, 1000);
+  }, 500);
 });
 
 setTimeout(() => {
@@ -625,9 +701,9 @@ setTimeout(() => {
   if (loadingScreen) {
     loadingScreen.classList.add('hidden');
   }
-}, 1000);
+}, 500);
 
-// Link click blank screen transition (1.5 seconds)
+// الانتقال عبر الروابط بصفحة بيضاء لمدة ثانية واحدة (1000 مللي ثانية)
 function handleExternalLink(event, url) {
   event.preventDefault();
   const blankScreen = document.getElementById('blankScreen');
@@ -639,7 +715,7 @@ function handleExternalLink(event, url) {
       window.open(url, '_blank');
     }
     blankScreen.classList.remove('active');
-  }, 1500);
+  }, 1000);
 }
 
 function toggleMenu() {
@@ -658,7 +734,6 @@ function toggleLanguage() {
     body.classList.add('ltr-mode');
     langBtn.innerText = 'Ar';
     document.getElementById('pageTitle').innerText = "Commercial Registration Data - Saudi Business Center";
-    document.getElementById('loadingText').innerText = "Loading...";
     document.getElementById('sidebarPlatformBtn').innerText = "Business Platform";
     document.getElementById('langRowLabel').innerText = "Language";
     document.getElementById('fontRowLabel').innerText = "Font Size";
@@ -695,16 +770,12 @@ function toggleLanguage() {
     document.getElementById('secManagers').innerText = "Managers List";
     document.getElementById('managerName').innerText = "Abdulhadi Mohammed Mubarak Al Yami";
     document.getElementById('footerBrandTitle').innerText = "Developed by Saudi Data and AI Authority";
-    document.getElementById('footerLinkPrivacy').innerText = "Privacy Policy";
-    document.getElementById('footerLinkTerms').innerText = "Terms & Conditions";
-    document.getElementById('footerLinkFAQ').innerText = "FAQ";
     document.getElementById('footerCopy').innerText = "All rights reserved to Saudi Business Center 2026";
     document.getElementById('footerVersion').innerText = "Version 1.1.9";
   } else {
     body.classList.remove('ltr-mode');
     langBtn.innerText = 'En';
     document.getElementById('pageTitle').innerText = "بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال";
-    document.getElementById('loadingText').innerText = "جاري التحميل...";
     document.getElementById('sidebarPlatformBtn').innerText = "منصة الأعمال";
     document.getElementById('langRowLabel').innerText = "اللغة";
     document.getElementById('fontRowLabel').innerText = "حجم الخط";
@@ -750,9 +821,6 @@ function toggleLanguage() {
     document.getElementById('secManagers').innerText = "قائمة المديرين";
     document.getElementById('managerName').innerText = "عبدالهادي محمد مبارك اليامي";
     document.getElementById('footerBrandTitle').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
-    document.getElementById('footerLinkPrivacy').innerText = "سياسة الخصوصية";
-    document.getElementById('footerLinkTerms').innerText = "الشروط والأحكام";
-    document.getElementById('footerLinkFAQ').innerText = "الأسئلة الشائعة";
     document.getElementById('footerCopy').innerText = "جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026";
     document.getElementById('footerVersion').innerText = "الإصدار 1.1.9";
   }
