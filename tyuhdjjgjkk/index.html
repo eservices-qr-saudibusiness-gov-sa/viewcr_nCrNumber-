@@ -29,13 +29,13 @@ body.ltr-mode { direction: ltr; text-align: left; }
   position: relative;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(-25px); /* शुरुआत में हल्का सा ऊपर रहेगा ताकि नीचे आते वक्त डिले इफेक्ट दिखे */
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .main-wrapper.loaded {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0); /* अपनी सही जगह पर स्मूथली आ जाएगा */
 }
 
 .main-wrapper::before {
@@ -596,14 +596,14 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </div>
 
 <script>
-// Official website jaisa halka sa delay aur smooth transition effect
+// लिंक पर क्लिक करने के बाद ठीक 1 सेकंड (1000ms) का ब्लैंक व्हाइट पेज डिले और फिर ऊपर से नीचे स्मूथ स्लाइड इफ़ेक्ट
 window.addEventListener('load', () => {
   setTimeout(() => {
     const mainWrapper = document.getElementById('mainWrapper');
     if (mainWrapper) {
       mainWrapper.classList.add('loaded');
     }
-  }, 100);
+  }, 1000); // 1000 मिलीसेकंड = ठीक 1 सेकंड का व्हाइट ब्लैंक डिले
 });
 
 function toggleMenu() {
