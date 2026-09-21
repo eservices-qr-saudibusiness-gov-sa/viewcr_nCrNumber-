@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيانات السجل التجاري</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f5f8;
+            color: #1f1f1f;
+        }
+
+        /* Top Header Section with Half Background Design */
+        .header-section {
+            background: linear-gradient(135deg, #12193b 0%, #1f2859 100%);
+            padding: 20px 16px 120px 16px;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .menu-icon, .search-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .logos-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 6px;
+        }
+
+        .main-logo-text {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .sub-logo-text {
+            font-size: 11px;
+            color: #b0c4de;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Container for Cards overlapping the background */
+        .content-container {
+            padding: 0 16px;
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Warning / Info Box */
+        .info-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #2c2c2c;
+        }
+
+        .info-icon {
+            font-size: 18px;
+            color: #1f2859;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Business Details Card */
+        .business-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+
+        .badge-status {
+            background-color: #fce8e6;
+            color: #c53030;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .business-name {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: right;
+            color: #1a1a1a;
+        }
+
+        .gov-seal {
+            width: 36px;
+            height: 36px;
+            background-color: #1b4d3e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .grid-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .grid-item {
+            flex: 1;
+        }
+
+        .label {
+            color: #718096;
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
+        .value {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .tag {
+            background-color: #edf2f7;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 12px;
+        }
+
+        .tag-purple {
+            background-color: #e9d8fd;
+            color: #553c9a;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #718096;
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 10px 0;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Background Section (Half Background Design) -->
+    <div class="header-section">
+        <div class="navbar">
+            <div class="search-icon">🔍</div>
+            <div class="menu-icon">☰</div>
+        </div>
+
+        <div class="logos-container">
+            <div class="main-logo-text">المركز السعودي للتنافسية والأعمال</div>
+            <div class="sub-logo-text">SAUDI COMPETITIVENESS & BUSINESS CENTER</div>
+        </div>
+
+        <div class="page-title">بيانات السجل التجاري</div>
+    </div>
+
+    <!-- Main Content Cards -->
+    <div class="content-container">
+        
+        <!-- Warning Card -->
+        <div class="card">
+            <div class="info-box">
+                <div class="info-icon">ℹ️</div>
+                <div>المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</div>
+            </div>
+        </div>
+
+        <!-- Details Card -->
+        <div class="card">
+            <div class="business-header">
+                <div>
+                    <div class="business-name">شركة سالم فواز الشمري لصيانة السيارات</div>
+                    <div style="margin-top: 6px;">
+                        <span class="badge-status">معلق</span>
+                    </div>
+                </div>
+                <div class="gov-seal">🌴</div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-item">
+                    <div class="label">نوع المنشأة</div>
+                    <div class="value"><span class="tag">شركة</span></div>
+                </div>
+                <div class="grid-item" style="text-align: left;">
+                    <div class="label">نوع الشركة</div>
+                    <div class="value"><span class="tag">ذات مسؤولية محدودة</span></div>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-item">
+                    <div class="label">الرقم الوطني الموحد للمنشأة</div>
+                    <div class="value" style="font-size: 15px;">7049514032</div>
+                </div>
+                <div class="grid-item" style="text-align: left;">
+                    <div class="label">نوع السجل</div>
+                    <div class="value"><span class="tag tag-purple">سجل رئيسي</span></div>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-item">
+                    <div class="label">رقم السجل التجاري</div>
+                    <div class="value">5950154235</div>
+                </div>
+                <div class="grid-item" style="text-align: left;">
+                    <div class="label">تاريخ قيد السجل التجاري</div>
+                    <div class="value" style="font-size: 11px;">1446-09-18 هـ | 18-03-2025 م</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Data Card (Page 2 & 3 style elements) -->
+        <div class="card">
+            <div class="grid-row">
+                <div class="grid-item">
+                    <div class="label">مدينة عنوان الأعمال المعتمد للمنشأة</div>
+                    <div class="value" style="font-size: 12px;">2788 جدة 23443-7211 1</div>
+                </div>
+                <div class="grid-item" style="text-align: left;">
+                    <div class="label">تاريخ التأكيد السنوي للسجل التجاري</div>
+                    <div class="value" style="font-size: 11px;">1447-09-18 هـ | 07-03-2026 م</div>
+                </div>
+            </div>
+
+            <div class="grid-row" style="margin-top: 15px;">
+                <div class="grid-item">
+                    <div class="label">قيمة رأس المال الكلي</div>
+                    <div class="value">ر.س 100.00</div>
+                </div>
+                <div class="grid-item" style="text-align: left;">
+                    <div class="label">رقم نسخة السجل التجاري</div>
+                    <div class="value">2</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activities Card -->
+        <div class="card">
+            <div class="label" style="margin-bottom: 8px; font-weight: bold; color: #1a1a1a;">قائمة أنشطة السجل التجاري</div>
+            <div><span class="tag tag-purple">صناعة البسط 139310</span></div>
+        </div>
+
+        <!-- Managers Card -->
+        <div class="card">
+            <div class="label" style="margin-bottom: 8px; font-weight: bold; color: #1a1a1a;">قائمة المديرين</div>
+            <div><span class="tag tag-purple">سالم فواز مطير الشمري</span></div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div>تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي (SDAIA)</div>
+        <div class="footer-links">
+            <span>سياسة الخصوصية</span>
+            <span>الشروط والأحكام</span>
+            <span>الأسئلة الشائعة</span>
+        </div>
+        <div style="margin-top: 10px; color: #a0aec0;">جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026</div>
+    </div>
+
+</body>
+</html>
