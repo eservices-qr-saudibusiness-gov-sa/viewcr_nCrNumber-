@@ -254,13 +254,12 @@ body.ltr-mode .card-side-logo { justify-content: flex-start; }
 
 .comp-title-row { 
   display: flex; 
-  flex-direction: row-reverse; /* تم عكس الاتجاه لجعل الشارة في أقصى اليمين بجانب اسم الشركة مباشرة */
-  justify-content: flex-end; 
+  justify-content: flex-start; 
   align-items: center; 
   gap: 8px; 
   margin-top: 2px; 
 }
-body.ltr-mode .comp-title-row { flex-direction: row; justify-content: flex-start; }
+body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
 
 .comp-title { 
   font-size: 18px; 
@@ -269,19 +268,25 @@ body.ltr-mode .comp-title-row { flex-direction: row; justify-content: flex-start
   line-height: 1.4; 
   text-align: right; 
   flex-grow: 1;
+  padding-right: 5px;
 }
-body.ltr-mode .comp-title { text-align: left; }
+body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5px; }
 
 .status-badge-inline { 
   background-color: #ecfdf5; 
-  color: #047857; 
-  padding: 3px 10px; 
+  color: #059669; 
+  padding: 2.5px 8px; 
   border-radius: 5px; 
-  font-size: 11.5px; 
-  font-weight: 900; 
-  border: 1.5px solid #6ee7b7; 
+  font-size: 10.5px; 
+  font-weight: 700; 
+  border: 1px solid #a7f3d0; 
   white-space: nowrap;
   flex-shrink: 0;
+  margin-right: 12px;
+}
+body.ltr-mode .status-badge-inline {
+  margin-right: 0;
+  margin-left: 12px;
 }
 
 .info-row-first { 
@@ -428,6 +433,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
     <div class="sidebar-row">
       <span class="sidebar-row-label" id="fontRowLabel">حجم الخط</span>
+      <!-- Sirf aik single button A+ aur A- ke toggle ke liye -->
       <button class="sidebar-action-box" id="fontSizeBtn" onclick="toggleFontSize()">A+</button>
     </div>
   </div>
@@ -464,8 +470,8 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
           <div class="gov-seal-side"></div>
         </div>
         <div class="comp-title-row">
-          <span class="status-badge-inline" id="statusBadge">نشط</span>
           <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
+          <span class="status-badge-inline" id="statusBadge">نشط</span>
         </div>
       </div>
       
@@ -725,6 +731,7 @@ function toggleLanguage() {
   toggleMenu();
 }
 
+// Single Button Toggle Logic (A+ aur A- exchange hona)
 let isZoomed = false;
 function toggleFontSize() {
   isZoomed = !isZoomed;
@@ -740,6 +747,7 @@ function toggleFontSize() {
   const footers = document.querySelectorAll('.footer, .footer-brand, .footer-links a, .footer-copy, .footer-version');
 
   if (isZoomed) {
+    // Jab bara karna ho toh button ka text "A-" ho jaye ga taake wapas chhota karne ke liye use ho sake
     fontSizeBtn.innerText = 'A-';
     
     if(notice) notice.style.fontSize = '17.5px';
@@ -752,11 +760,13 @@ function toggleFontSize() {
     sectionTitles.forEach(el => el.style.fontSize = '20px');
     footers.forEach(el => el.style.fontSize = '13px');
   } else {
+    // Jab wapas original karna ho toh button ka text "A+" ho jaye ga
     fontSizeBtn.innerText = 'A+';
     
     if(notice) notice.style.fontSize = '';
     if(compName) compName.style.fontSize = '';
     if(statusBadge) statusBadge.style.fontSize = '';
+    if(pageHeading) statusBadge.style.fontSize = '';
     if(pageHeading) pageHeading.style.fontSize = '';
     
     labels.forEach(el => el.style.fontSize = '');
