@@ -35,29 +35,70 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
-/* ===== CITY BACKGROUND WITH SLIGHT BLUR ===== */
+/* ===== اصل ویب سائٹ جیسی ڈارک بیک گراؤنڈ، ترچھی لکیریں اور شیڈ کا کوڈ ===== */
+
+.main-wrapper { 
+  position: relative;
+  overflow: hidden;
+}
+
+/* 1. ڈارک بیک گراؤنڈ اور شہر کی تصویر (اورجنل ہائٹ کے ساتھ) */
 .main-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 410px;
+    height: 320px; 
+
     background-color: #292957;
     background-image:
         linear-gradient(
-            rgba(39, 39, 82, 0.65),
-            rgba(39, 39, 82, 0.65)
+            rgba(39, 39, 82, 0.55),
+            rgba(39, 39, 82, 0.55)
         ),
         url("city.png");
+
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center center;
-    /* ضبابية خفيفة جداً كما طلبت */
-    filter: blur(1.2px);
-    -webkit-filter: blur(1.2px);
-    transform: scale(1.02);
+    background-size: 130% auto;
+    background-position: top center;
+
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+
     z-index: 0;
+}
+
+/* 2. وائٹ مدہم ترچھی لکیریں (Diagonal Lines) اور مخصوص کلر شیڈ */
+.main-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 320px;
+
+    background:
+        /* اصل ویب سائٹ جیسی دو مدہم ترچھی لکیریں اور ان کا مخصوص زاویہ */
+        linear-gradient(
+            29deg,
+            transparent 0%,
+            transparent 35%,
+            rgba(255, 255, 255, 0.16) 35.1%,
+            transparent 35.4%,
+            transparent 62%,
+            rgba(255, 255, 255, 0.11) 62.1%,
+            transparent 62.4%
+        ),
+        /* لکیروں کے درمیان اور سائیڈ کا مخصوص کلر شیڈ */
+        radial-gradient(
+            circle at 65% 35%,
+            rgba(100, 70, 170, 0.22),
+            transparent 50%
+        );
+
+    z-index: 1;
+    pointer-events: none;
 }
 
 .main-wrapper > * {
