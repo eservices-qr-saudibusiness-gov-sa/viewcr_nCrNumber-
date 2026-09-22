@@ -35,14 +35,14 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
-/* ===== CITY BACKGROUND — فكسڈ اور شارپ کٹ (بغیر بلر کے نیچے سے ختم) ===== */
+/* ===== CITY BACKGROUND — ایکٹو تک اور ہلکا سا بلر ===== */
 .main-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 485px; /* بالکل اس لائن تک جہاں ڈार्क ব্যাকग्राउंड ختم ہونا چاہیے */
+    height: 380px; /* بالکل ایکٹو (نشط) کی سیध تک */
 
     background-color: #292957;
     background-image:
@@ -56,28 +56,31 @@ body.ltr-mode { direction: ltr; text-align: left; }
     background-size: 130% auto;
     background-position: top center;
 
-    /* نیچے سے بلر ختم کرنے کے لیے فلٹر ہٹا دیا گیا ہے تاکہ فिक्स کٹ آئے */
+    /* نیچے ہلका سا بلर اثر */
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+
     z-index: 0;
 }
 
-/* White diagonal lines and purple glow / ronaq */
+/* White diagonal lines and purple glow / ronaq — تھوڑا سا نیچے کیا گیا ہے */
 .main-wrapper::after {
     content: "";
     position: absolute;
-    top: 0;
+    top: 30px; /* ہلکا سا نیچے کیا گیا */
     left: 0;
     width: 100%;
-    height: 485px;
+    height: 380px;
 
     background:
         linear-gradient(
             28deg,
             transparent 0%,
             transparent 37%,
-            rgba(255,255,255,0.35) 37.1%,
+            rgba(255,255,255,0.3) 37.1%,
             transparent 37.3%,
             transparent 63%,
-            rgba(255,255,255,0.28) 63.1%,
+            rgba(255,255,255,0.22) 63.1%,
             transparent 63.3%
         ),
         radial-gradient(
