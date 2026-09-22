@@ -60,6 +60,17 @@ body.ltr-mode { direction: ltr; text-align: left; }
 .header-right { display: flex; align-items: flex-start; gap: 8px; margin-right: 4px; }
 body.ltr-mode .header-right { flex-direction: row-reverse; margin-right: 0; margin-left: 4px; }
 
+/* تعديل موقع زر القائمة ليقترب من الشعار ويزداد اتجاهاً نحو اليمين */
+.header-logo-section {
+  display: flex;
+  align-items: flex-start;
+  margin-right: 8px; /* تقريب الزر نحو اليمين بجانب الشعار */
+}
+body.ltr-mode .header-logo-section {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
 .menu-btn { 
   background: none; 
   border: none; 
