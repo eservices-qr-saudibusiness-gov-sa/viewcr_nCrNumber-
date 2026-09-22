@@ -6,6 +6,7 @@
 <title id="pageTitle">بيانات السجل التجاري</title>
 <!-- استيراد خطوط عربية -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- استيراد خط TheSans Arabic من مكتبة خطوط لإتاحته -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/thesansarabic.css">
 <style>
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -34,25 +35,25 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
-/* ===== تعديل حجم وموقع الخلفية (city.png) لترتفع وتغطي المكان بدقة) ===== */
+/* ===== CITY BACKGROUND ===== */
 .main-wrapper::before {
     content: "";
     position: absolute;
-    top: -20px; /* اوپر کرنے کے لیے */
+    top: 0;
     left: 0;
     width: 100%;
-    height: 480px; /* سائز بڑا کرنے کے لیے */
+    height: 410px;
     background-color: transparent;
     background-image: url("city.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-position: center top;
-    z-index: 1; 
+    background-position: center center;
+    z-index: 0;
 }
 
 .main-wrapper > * {
   position: relative;
-  z-index: 2; 
+  z-index: 2;
 }
 
 .header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
@@ -90,6 +91,7 @@ body.ltr-mode .menu-btn { align-items: flex-start; }
   height: 2.5px; 
   background-color: #ffffff; 
   border-radius: 2px; 
+  box-shadow: none; 
 }
 .menu-bar:nth-child(1) { width: 100%; }
 .menu-bar:nth-child(2) { width: 65%; }
@@ -155,6 +157,30 @@ body.ltr-mode .page-heading { text-align: left; }
   position: relative;
 }
 
+.notice-icon::before,
+.notice-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.8); 
+  width: 100%;
+  height: 100%;
+  animation: rippleRings 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.notice-icon::after {
+  animation-delay: 1s;
+}
+
+@keyframes rippleRings {
+  0% { width: 100%; height: 100%; opacity: 1; }
+  100% { width: 250%; height: 250%; opacity: 0; } 
+}
+
 .notice-banner p { 
   margin: 0; 
   font-size: 14.5px; 
@@ -162,6 +188,7 @@ body.ltr-mode .page-heading { text-align: left; }
   color: #000000; 
   font-family: 'TheSansArabic', 'TheSans', 'Cairo', sans-serif;
   font-weight: 900; 
+  letter-spacing: -0.1px;
 }
 
 body.ltr-mode .notice-banner p {
@@ -180,6 +207,8 @@ body.ltr-mode .notice-banner p {
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
 .card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 6px; }
 body.ltr-mode .card-side-logo { justify-content: flex-start; }
+
+.gov-seal-side { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
 
 .comp-title-row { 
   display: flex; 
@@ -225,6 +254,7 @@ body.ltr-mode .status-badge-inline {
   gap: 8px;
   padding: 10px 0; 
   border-top: 1px solid #E5E3F1; 
+  border-bottom: none; 
   font-size: 13.5px; 
   margin-top: 4px;
 }
@@ -235,16 +265,18 @@ body.ltr-mode .status-badge-inline {
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
+  border-bottom: none; 
   font-size: 13.5px; 
 }
 
-.info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; font-size: 13.5px; }
+.info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
 body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
 .info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; }
 body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
 
 .chip { background: #ffffff; color: #000000; padding: 1px 6px; border-radius: 5px; font-size: 11.5px; font-weight: 700; border: 1px solid #e5e7eb; }
+
 .chip-indigo { 
   background: #E5E3F1 !important; 
   border: 1px solid #E5E3F1 !important; 
@@ -258,7 +290,7 @@ body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px
   border: 1px solid #E5E3F1 !important; 
 }
 
-.date-container { padding: 10px 0; }
+.date-container { padding: 10px 0; border-bottom: none; }
 .date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
 body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; }
 .date-badges-grid { display: flex; flex-direction: column; gap: 10px; }
@@ -294,9 +326,29 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 }
 
 .activity-card { border-radius: 10px; padding: 12px; margin-bottom: 8px; }
-.activity-title { font-size: 14.5px; font-weight: 800; color: #000000; margin-bottom: 4px; }
-.activity-code { font-family: 'TheSansArabic', 'TheSans', sans-serif; font-size: 16px; color: #000000; font-weight: 600; }
-.manager-box { border-radius: 10px; padding: 12px; text-align: center; font-weight: 800; color: #000000; font-size: 14.5px; }
+
+.activity-title { 
+  font-size: 14.5px; 
+  font-weight: 800; 
+  color: #000000; 
+  margin-bottom: 4px; 
+}
+
+.activity-code { 
+  font-family: 'TheSansArabic', 'TheSans', sans-serif;
+  font-size: 16px; 
+  color: #000000; 
+  font-weight: 600; 
+}
+
+.manager-box { 
+  border-radius: 10px; 
+  padding: 12px; 
+  text-align: center; 
+  font-weight: 800; 
+  color: #000000; 
+  font-size: 14.5px; 
+}
 
 .footer { 
   text-align: center; 
@@ -310,6 +362,9 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 }
 .footer-brand-row { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; }
 .footer-brand { font-weight: 700; font-size: 12px; color: #4b5563; }
+
+.sdaia-logo-badge { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+
 .footer-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 10px; }
 .footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 12px; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
@@ -483,6 +538,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     <footer class="footer">
       <div class="footer-brand-row">
         <span class="footer-brand" id="footerBrandTitle">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي</span>
+        <div class="sdaia-logo-badge"></div>
       </div>
       <div class="footer-links">
         <a href="#" id="footerLinkPrivacy">سياسة الخصوصية</a>
@@ -499,9 +555,18 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 window.addEventListener('load', () => {
   setTimeout(() => {
     const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen) loadingScreen.classList.add('hidden');
+    if (loadingScreen) {
+      loadingScreen.classList.add('hidden');
+    }
   }, 1000);
 });
+
+setTimeout(() => {
+  const loadingScreen = document.getElementById('loadingScreen');
+  if (loadingScreen) {
+    loadingScreen.classList.add('hidden');
+  }
+}, 1000);
 
 function toggleMenu() {
   const sidebar = document.getElementById('appSidebar');
@@ -618,6 +683,7 @@ let isZoomed = false;
 function toggleFontSize() {
   isZoomed = !isZoomed;
   const fontSizeBtn = document.getElementById('fontSizeBtn');
+  
   const notice = document.querySelector('.notice-banner p');
   const compName = document.getElementById('compName');
   const statusBadge = document.getElementById('statusBadge');
@@ -629,20 +695,24 @@ function toggleFontSize() {
 
   if (isZoomed) {
     fontSizeBtn.innerText = 'A-';
+    
     if(notice) notice.style.fontSize = '17.5px';
     if(compName) compName.style.fontSize = '21.5px';
     if(statusBadge) statusBadge.style.fontSize = '12.5px';
     if(pageHeading) pageHeading.style.fontSize = '26.5px';
+    
     labels.forEach(el => el.style.fontSize = '16px');
     values.forEach(el => el.style.fontSize = '16px');
     sectionTitles.forEach(el => el.style.fontSize = '20px');
     footers.forEach(el => el.style.fontSize = '13px');
   } else {
     fontSizeBtn.innerText = 'A+';
+    
     if(notice) notice.style.fontSize = '';
     if(compName) compName.style.fontSize = '';
     if(statusBadge) statusBadge.style.fontSize = '';
     if(pageHeading) pageHeading.style.fontSize = '';
+    
     labels.forEach(el => el.style.fontSize = '');
     values.forEach(el => el.style.fontSize = '');
     sectionTitles.forEach(el => el.style.fontSize = '');
