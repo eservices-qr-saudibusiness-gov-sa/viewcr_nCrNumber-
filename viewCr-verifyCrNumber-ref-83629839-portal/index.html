@@ -11,7 +11,6 @@
 <style>
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-/* ===== BACKGROUND ONLY ===== */
 body {
     margin: 0; 
     padding: 0; 
@@ -21,85 +20,40 @@ body {
     text-align: right; 
     -webkit-font-smoothing: antialiased;
     position: relative;
-    background: #292553;
+    /* نوٹس بینر سے نیچے والا حصہ ہلکا پرپل رہے گا */
+    background-color: #E5E3F1; 
     overflow-x: hidden;
-    border-bottom: 20px solid transparent;
-    border-image: linear-gradient(
-        90deg,
-        #5145a5,
-        #6d4bc2,
-        #a56ad8
-    ) 1;
 }
 
-/* Blurred background */
-body::before {
+/* صرف اوپر والے حصے (ہیڈر سے نوٹس بینر تک) کے لیے گہرا بیک گراؤنڈ اور بلر */
+.top-hero-section {
+    position: relative;
+    background-color: #262352;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.top-hero-section::before {
     content: "";
-    position: fixed;
-    inset: -25px;
-    z-index: -3;
-    background-image:
-        linear-gradient(
-            rgba(35, 32, 83, 0.48),
-            rgba(35, 32, 83, 0.48)
-        ),
-        url("city.png");
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-image: url("city.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(4px);
-    -webkit-filter: blur(4px);
-    transform: scale(1.04);
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    opacity: 0.85;
 }
 
-/* Soft purple atmosphere */
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-    background:
-        radial-gradient(
-            circle at 70% 30%,
-            rgba(116, 83, 190, 0.18),
-            transparent 45%
-        ),
-        linear-gradient(
-            180deg,
-            rgba(38, 35, 86, 0.10),
-            rgba(46, 35, 96, 0.28)
-        );
-}
-
-/* Halki white diagonal lines */
-body > .background-lines {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-body > .background-lines::before,
-body > .background-lines::after {
-    content: "";
-    position: absolute;
-    width: 150%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.38);
-    box-shadow: 0 0 6px rgba(255,255,255,0.12);
-    transform: rotate(28deg);
-}
-
-body > .background-lines::before {
-    top: 38%;
-    left: -25%;
-}
-
-body > .background-lines::after {
-    top: 65%;
-    left: -25%;
+/* ہیروsection کے اندر موجود تمام مواد کو اوپر رکھنے کے لیے */
+.header, .container > .page-heading, .container > .notice-banner {
+    position: relative;
+    z-index: 1;
 }
 
 body.ltr-mode { direction: ltr; text-align: left; }
@@ -109,20 +63,9 @@ body.ltr-mode { direction: ltr; text-align: left; }
 .loading-text { color: #4b5563; font-size: 14px; font-weight: 700; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-.main-wrapper { 
-  min-height: 100vh; 
-  background: transparent;
-  padding-bottom: 40px; 
-  position: relative;
-  overflow: hidden;
-}
+.main-wrapper { min-height: 100vh; background: transparent; padding-bottom: 40px; }
 
-.main-wrapper > * {
-  position: relative;
-  z-index: 2;
-}
-
-.header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+.header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; }
 .header-right { display: flex; align-items: center; gap: 12px; }
 body.ltr-mode .header-right { flex-direction: row-reverse; }
 
@@ -213,7 +156,7 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .sidebar-row-label { font-weight: 800; font-size: 13.5px; color: #1f2937; }
 .sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 800; font-size: 13px; cursor: pointer; color: #1f2937; }
 
-.container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
+.container { max-width: 480px; margin: 0 auto; padding: 0 16px; }
 
 .page-heading { 
   text-align: right; 
@@ -472,8 +415,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </head>
 <body>
 
-<div class="background-lines"></div>
-
 <div id="loadingScreen">
   <div class="spinner"></div>
   <div class="loading-text" id="loadingText">جاري التحميل...</div>
@@ -497,32 +438,40 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
   </div>
 </div>
+
 <div class="main-wrapper">
-  <header class="header">
-    <div class="header-right">
-      <div class="header-logo-icon"></div>
-      <div class="header-title-area">
-        <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
-        <div class="header-english-subtitle" id="headerEnglishSubtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER</div>
-        <div class="header-arabic-subtitle" id="headerArabicSubtitle">تيسير | TAYSEER</div>
+  <!-- اوپر والا حصہ جس پر گہرا بیک گراؤنڈ اور بلر ہے (نوٹس بینر تک) -->
+  <div class="top-hero-section">
+    <header class="header">
+      <div class="header-right">
+        <div class="header-logo-icon"></div>
+        <div class="header-title-area">
+          <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
+          <div class="header-english-subtitle" id="headerEnglishSubtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER</div>
+          <div class="header-arabic-subtitle" id="headerArabicSubtitle">تيسير | TAYSEER</div>
+        </div>
+      </div>
+      <div class="header-logo-section">
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </header>
+    
+    <div class="container">
+      <h2 class="page-heading" id="mainHeading">بيانات السجل التجاري</h2>
+      
+      <div class="notice-banner">
+        <div class="notice-icon" role="img" aria-label="معلومات">i</div>
+        <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
       </div>
     </div>
-    <div class="header-logo-section">
-      <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-      </button>
-    </div>
-  </header>
-  <div class="container">
-    <h2 class="page-heading" id="mainHeading">بيانات السجل التجاري</h2>
-    
-    <div class="notice-banner">
-      <div class="notice-icon" role="img" aria-label="معلومات">i</div>
-      <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
-    </div>
-    
+  </div>
+
+  <!-- اس سے نیچے والا حصہ جس کا رنگ ہلکا پرپل (#E5E3F1) ہے -->
+  <div class="container" style="margin-top: 16px;">
     <div class="card">
       <div class="card-top-section">
         <div class="card-side-logo">
