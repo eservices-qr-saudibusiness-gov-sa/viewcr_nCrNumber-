@@ -10,16 +10,98 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/thesansarabic.css">
 <style>
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-body { 
-  margin: 0; 
-  padding: 0; 
-  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-  background-color: #faf5ff; 
-  color: #1f2937; 
-  direction: rtl; 
-  text-align: right; 
-  -webkit-font-smoothing: antialiased; 
+
+/* ===== BACKGROUND ONLY ===== */
+body {
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+    color: #1f2937; 
+    direction: rtl; 
+    text-align: right; 
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    background: #292553;
+    overflow-x: hidden;
+    border-bottom: 20px solid transparent;
+    border-image: linear-gradient(
+        90deg,
+        #5145a5,
+        #6d4bc2,
+        #a56ad8
+    ) 1;
 }
+
+/* Blurred background */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -25px;
+    z-index: -3;
+    background-image:
+        linear-gradient(
+            rgba(35, 32, 83, 0.48),
+            rgba(35, 32, 83, 0.48)
+        ),
+        url("city.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    transform: scale(1.04);
+}
+
+/* Soft purple atmosphere */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(116, 83, 190, 0.18),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(38, 35, 86, 0.10),
+            rgba(46, 35, 96, 0.28)
+        );
+}
+
+/* Halki white diagonal lines */
+body > .background-lines {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+body > .background-lines::before,
+body > .background-lines::after {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.38);
+    box-shadow: 0 0 6px rgba(255,255,255,0.12);
+    transform: rotate(28deg);
+}
+
+body > .background-lines::before {
+    top: 38%;
+    left: -25%;
+}
+
+body > .background-lines::after {
+    top: 65%;
+    left: -25%;
+}
+
 body.ltr-mode { direction: ltr; text-align: left; }
 #loadingScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
 #loadingScreen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
@@ -29,35 +111,10 @@ body.ltr-mode { direction: ltr; text-align: left; }
 
 .main-wrapper { 
   min-height: 100vh; 
-  background: #faf5ff;
+  background: transparent;
   padding-bottom: 40px; 
   position: relative;
   overflow: hidden;
-}
-
-/* ===== CITY BACKGROUND WITH SLIGHT BLUR ===== */
-.main-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 410px;
-    background-color: #292957;
-    background-image:
-        linear-gradient(
-            rgba(39, 39, 82, 0.65),
-            rgba(39, 39, 82, 0.65)
-        ),
-        url("city.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center center;
-    /* ضبابية خفيفة جداً كما طلبت */
-    filter: blur(1.2px);
-    -webkit-filter: blur(1.2px);
-    transform: scale(1.02);
-    z-index: 0;
 }
 
 .main-wrapper > * {
@@ -414,6 +471,9 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </style>
 </head>
 <body>
+
+<div class="background-lines"></div>
+
 <div id="loadingScreen">
   <div class="spinner"></div>
   <div class="loading-text" id="loadingText">جاري التحميل...</div>
