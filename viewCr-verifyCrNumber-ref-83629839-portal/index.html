@@ -35,63 +35,68 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
-/* ===== CITY BACKGROUND WITH SLIGHT BLUR ===== */
+/* ===== CITY BACKGROUND — ایکٹو تک اور ہلکا سا بلر ===== */
 .main-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 410px;
+    height: 380px; /* بالکل ایکٹو (نشط) کی سیध تک */
+
     background-color: #292957;
     background-image:
         linear-gradient(
-            rgba(39, 39, 82, 0.65),
-            rgba(39, 39, 82, 0.65)
+            rgba(39, 39, 82, 0.48),
+            rgba(39, 39, 82, 0.48)
         ),
         url("city.png");
+
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center center;
-    filter: blur(1.2px);
-    -webkit-filter: blur(1.2px);
-    transform: scale(1.02);
+    background-size: 130% auto;
+    background-position: top center;
+
+    /* نیچے ہلका سا بلर اثر */
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+
     z-index: 0;
 }
 
-.main-wrapper > * {
-  position: relative;
-  z-index: 2;
-}
-
-/* ===== DARK BACKGROUND & LINES STYLES ===== */
-.dark-background {
-    position: relative;
-    overflow: hidden;
-}
-
-.dark-background::before,
-.dark-background::after {
+/* White diagonal lines and purple glow / ronaq — تھوڑا سا نیچے کیا گیا ہے */
+.main-wrapper::after {
     content: "";
     position: absolute;
-    width: 130%;
-    height: 2px;
-    left: -18%;
-    transform: rotate(27deg);
+    top: 30px; /* ہلکا سا نیچے کیا گیا */
+    left: 0;
+    width: 100%;
+    height: 380px;
+
+    background:
+        linear-gradient(
+            28deg,
+            transparent 0%,
+            transparent 37%,
+            rgba(255,255,255,0.3) 37.1%,
+            transparent 37.3%,
+            transparent 63%,
+            rgba(255,255,255,0.22) 63.1%,
+            transparent 63.3%
+        ),
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(120, 85, 190, 0.18),
+            transparent 45%
+        );
+
+    z-index: 1;
     pointer-events: none;
+}
+
+/* Content upar rahe */
+.main-wrapper > * {
+    position: relative;
     z-index: 2;
-}
-
-/* اوپر والی ہلکی لائن */
-.dark-background::before {
-    top: 23%;
-    background: rgba(255, 255, 255, 0.16);
-}
-
-/* نیچے والی ہلکی لائن */
-.dark-background::after {
-    top: 34%;
-    background: rgba(210, 205, 240, 0.12);
 }
 
 .header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
@@ -466,7 +471,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
   </div>
 </div>
-<div class="main-wrapper dark-background">
+<div class="main-wrapper">
   <header class="header">
     <div class="header-right">
       <div class="header-logo-icon"></div>
