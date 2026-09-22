@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="pageTitle">بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال</title>
+<title id="pageTitle">بيانات السجل التجاري</title>
 <!-- استيراد خطوط عربية -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <!-- استيراد خط TheSans Arabic من مكتبة خطوط لإتاحته -->
@@ -43,8 +43,13 @@ body.ltr-mode { direction: ltr; text-align: left; }
     left: 0;
     width: 100%;
     height: 410px;
-    background-color: transparent;
-    background-image: url("city.png");
+    background-color: #292957;
+    background-image:
+        linear-gradient(
+            rgba(39, 39, 82, 0.55),
+            rgba(39, 39, 82, 0.55)
+        ),
+        url("city.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center center;
@@ -56,9 +61,9 @@ body.ltr-mode { direction: ltr; text-align: left; }
   z-index: 2;
 }
 
-.header { background: transparent; padding: 4px 16px 16px 16px; display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 2; }
-.header-right { display: flex; align-items: flex-start; gap: 8px; margin-right: 4px; }
-body.ltr-mode .header-right { flex-direction: row-reverse; margin-right: 0; margin-left: 4px; }
+.header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+body.ltr-mode .header-right { flex-direction: row-reverse; }
 
 .menu-btn { 
   background: none; 
@@ -71,7 +76,6 @@ body.ltr-mode .header-right { flex-direction: row-reverse; margin-right: 0; marg
   flex-direction: column; 
   justify-content: space-between; 
   align-items: flex-end;
-  margin-top: 6px;
 }
 body.ltr-mode .menu-btn { align-items: flex-start; }
 .menu-bar { 
@@ -85,52 +89,7 @@ body.ltr-mode .menu-btn { align-items: flex-start; }
 .menu-bar:nth-child(2) { width: 65%; }
 .menu-bar:nth-child(3) { width: 100%; }
 
-.header-title-area { 
-  text-align: right; 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 1px;
-  margin-top: 2px;
-}
-body.ltr-mode .header-title-area { text-align: left; align-items: flex-start; }
-
-.header-title { 
-  font-family: 'Cairo', 'GE SS Two', 'TheSans', sans-serif;
-  font-size: 11.8px; 
-  font-weight: 800; 
-  margin: 0; 
-  color: #ffffff; 
-  line-height: 1.2; 
-  letter-spacing: 0.2px;
-  text-shadow: 0 0 10px rgba(255,255,255,0.6); 
-  white-space: nowrap;
-}
-
-.header-english-subtitle {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 8px;
-  color: #ffffff;
-  margin: 0px 0;
-  font-weight: 900;
-  letter-spacing: 0.2px;
-  text-shadow: 0 0 8px rgba(255,255,255,0.5);
-  white-space: nowrap;
-}
-
-.header-arabic-subtitle { 
-  font-family: 'Cairo', sans-serif;
-  font-size: 9.5px; 
-  color: #ffffff; 
-  margin: -1px 0 0 0; 
-  font-weight: 400; 
-  letter-spacing: 0.2px; 
-  text-shadow: 0 0 8px rgba(255,255,255,0.5); 
-  white-space: nowrap;
-}
-
-.header-logo-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+.header-logo-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; }
 
 .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: 0.3s; }
 .sidebar-overlay.active { opacity: 1; visibility: visible; }
@@ -434,11 +393,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   <header class="header">
     <div class="header-right">
       <div class="header-logo-icon"></div>
-      <div class="header-title-area">
-        <h1 class="header-title" id="headerTitle">المركز السعودي للتنافسية والأعمال</h1>
-        <div class="header-english-subtitle" id="headerEnglishSubtitle">SAUDI COMPETITIVENESS & BUSINESS CENTER</div>
-        <div class="header-arabic-subtitle" id="headerArabicSubtitle">تيسير | TAYSEER</div>
-      </div>
     </div>
     <div class="header-logo-section">
       <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
@@ -621,14 +575,11 @@ function toggleLanguage() {
   if (isEnglish) {
     body.classList.add('ltr-mode');
     langBtn.innerText = 'Ar';
-    document.getElementById('pageTitle').innerText = "Commercial Registration Data - Saudi Business Center";
+    document.getElementById('pageTitle').innerText = "Commercial Registration Data";
     document.getElementById('loadingText').innerText = "Loading...";
     document.getElementById('sidebarPlatformBtn').innerText = "Business Platform";
     document.getElementById('langRowLabel').innerText = "Language";
     document.getElementById('fontRowLabel').innerText = "Font Size";
-    document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
-    document.getElementById('headerEnglishSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER";
-    document.getElementById('headerArabicSubtitle').innerText = "تيسير | TAYSEER";
     document.getElementById('mainHeading').innerText = "Commercial Registration Data";
     document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible for any shortage or discrepancy in the data, as data is retrieved in integration with the relevant authorities.";
     document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "Active");
@@ -667,14 +618,11 @@ function toggleLanguage() {
   } else {
     body.classList.remove('ltr-mode');
     langBtn.innerText = 'En';
-    document.getElementById('pageTitle').innerText = "بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال";
+    document.getElementById('pageTitle').innerText = "بيانات السجل التجاري";
     document.getElementById('loadingText').innerText = "جاري التحميل...";
     document.getElementById('sidebarPlatformBtn').innerText = "منصة الأعمال";
     document.getElementById('langRowLabel').innerText = "اللغة";
     document.getElementById('fontRowLabel').innerText = "حجم الخط";
-    document.getElementById('headerTitle').innerText = "المركز السعودي للتنافسية والأعمال";
-    document.getElementById('headerEnglishSubtitle').innerText = "SAUDI COMPETITIVENESS & BUSINESS CENTER";
-    document.getElementById('headerArabicSubtitle').innerText = "تيسير | TAYSEER";
     document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
     document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
     document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
