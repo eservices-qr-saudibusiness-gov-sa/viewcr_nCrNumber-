@@ -35,14 +35,14 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
-/* ===== CITY BACKGROUND — UPAR SE LEKAR NOTICES SE NICHE TAK ===== */
+/* ===== CITY BACKGROUND — زوم آؤٹ اور فکسڈ ہائٹ ===== */
 .main-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 530px; /* نوٹس بینر سے نیچے تک بڑھا دیا گیا ہے */
+    height: 505px;
 
     background-color: #292957;
     background-image:
@@ -53,24 +53,23 @@ body.ltr-mode { direction: ltr; text-align: left; }
         url("city.png");
 
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: 130% auto; /* مزید ہلکا سا زوم آؤٹ تاکہ دائیں طرف بھی بیک گراؤنڈ نظر آئے */
+    background-position: top center;
 
     filter: blur(4px);
     -webkit-filter: blur(4px);
-    transform: scale(1.02);
 
     z-index: 0;
 }
 
-/* White diagonal lines and purple glow / ronaq (نوٹس بینر سے نیچے تک) */
+/* White diagonal lines and purple glow / ronaq */
 .main-wrapper::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 530px; /* نوٹس بینر سے نیچے تک بڑھا دیا گیا ہے */
+    height: 505px;
 
     background:
         linear-gradient(
