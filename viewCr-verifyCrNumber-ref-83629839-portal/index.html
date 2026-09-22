@@ -56,9 +56,20 @@ body.ltr-mode { direction: ltr; text-align: left; }
   z-index: 2;
 }
 
-.header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+/* تعديل الهيدر ليتموضع الشعار بشكل أفضل في الأعلى مع انعكاس الاتجاه باللغة الإنجليزية */
+.header { 
+  background: transparent; 
+  padding: 8px 20px 12px 20px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  position: relative; 
+  z-index: 2; 
+}
 .header-right { display: flex; align-items: center; gap: 12px; }
-body.ltr-mode .header-right { flex-direction: row-reverse; }
+body.ltr-mode .header { 
+  flex-direction: row-reverse; 
+}
 
 .header-brand-link {
   display: flex;
@@ -67,8 +78,9 @@ body.ltr-mode .header-right { flex-direction: row-reverse; }
   cursor: pointer;
 }
 
+/* تكبير حجم الشعار ورفع مكانه للأعلى */
 .header-brand-img {
-  max-height: 45px;
+  max-height: 60px;
   width: auto;
   display: block;
 }
