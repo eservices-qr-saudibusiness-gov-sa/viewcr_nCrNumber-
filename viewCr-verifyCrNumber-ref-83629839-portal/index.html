@@ -60,6 +60,19 @@ body.ltr-mode { direction: ltr; text-align: left; }
 .header-right { display: flex; align-items: center; gap: 12px; }
 body.ltr-mode .header-right { flex-direction: row-reverse; }
 
+.header-brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-brand-img {
+  max-height: 45px;
+  width: auto;
+  display: block;
+}
+
 .menu-btn { 
   background: none; 
   border: none; 
@@ -83,8 +96,6 @@ body.ltr-mode .menu-btn { align-items: flex-start; }
 .menu-bar:nth-child(1) { width: 100%; }
 .menu-bar:nth-child(2) { width: 65%; }
 .menu-bar:nth-child(3) { width: 100%; }
-
-.header-logo-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; }
 
 .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: 0.3s; }
 .sidebar-overlay.active { opacity: 1; visibility: visible; }
@@ -371,7 +382,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     <button class="close-sidebar" onclick="toggleMenu()">✕</button>
   </div>
   <div class="sidebar-content">
-    <button class="sidebar-btn-primary" onclick="window.open('https://mc.gov.sa', '_blank')">
+    <button class="sidebar-btn-primary" onclick="window.open('https://scbc.gov.sa/?culture=en', '_blank')">
       <span id="sidebarPlatformBtn">منصة الأعمال</span>
     </button>
     <div class="sidebar-row">
@@ -387,7 +398,10 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 <div class="main-wrapper">
   <header class="header">
     <div class="header-right">
-      <div class="header-logo-icon"></div>
+      <!-- یہاں آپ کے دیے گئے آفیشل لنک کو سیٹ کر دیا گیا ہے -->
+      <a href="https://scbc.gov.sa/?culture=en" target="_blank" class="header-brand-link" aria-label="المركز السعودي للتنافسية والأعمال">
+        <img src="header-logo.png" alt="المركز السعودي للتنافسية والأعمال" class="header-brand-img" id="headerBrandImg">
+      </a>
     </div>
     <div class="header-logo-section">
       <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
