@@ -11,6 +11,7 @@
 <style>
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
+/* ===== BACKGROUND ONLY ===== */
 body {
     margin: 0; 
     padding: 0; 
@@ -20,26 +21,85 @@ body {
     text-align: right; 
     -webkit-font-smoothing: antialiased;
     position: relative;
-    background-color: #262352; /* صوفیانہ گہرا نیلا/جامنی بیک گراؤنڈ */
+    background: #292553;
     overflow-x: hidden;
+    border-bottom: 20px solid transparent;
+    border-image: linear-gradient(
+        90deg,
+        #5145a5,
+        #6d4bc2,
+        #a56ad8
+    ) 1;
 }
 
-/* بیک گراؤنڈ امیج کو ہلکا سا بلر کرنے کے لیے */
+/* Blurred background */
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: url("city.png");
+    inset: -25px;
+    z-index: -3;
+    background-image:
+        linear-gradient(
+            rgba(35, 32, 83, 0.48),
+            rgba(35, 32, 83, 0.48)
+        ),
+        url("city.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(3px); /* ہلکا سا بلر اثر */
-    -webkit-filter: blur(3px);
-    opacity: 0.85;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    transform: scale(1.04);
+}
+
+/* Soft purple atmosphere */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(116, 83, 190, 0.18),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(38, 35, 86, 0.10),
+            rgba(46, 35, 96, 0.28)
+        );
+}
+
+/* Halki white diagonal lines */
+body > .background-lines {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+body > .background-lines::before,
+body > .background-lines::after {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.38);
+    box-shadow: 0 0 6px rgba(255,255,255,0.12);
+    transform: rotate(28deg);
+}
+
+body > .background-lines::before {
+    top: 38%;
+    left: -25%;
+}
+
+body > .background-lines::after {
+    top: 65%;
+    left: -25%;
 }
 
 body.ltr-mode { direction: ltr; text-align: left; }
@@ -49,9 +109,20 @@ body.ltr-mode { direction: ltr; text-align: left; }
 .loading-text { color: #4b5563; font-size: 14px; font-weight: 700; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-.main-wrapper { min-height: 100vh; background: transparent; padding-bottom: 40px; }
+.main-wrapper { 
+  min-height: 100vh; 
+  background: transparent;
+  padding-bottom: 40px; 
+  position: relative;
+  overflow: hidden;
+}
 
-.header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+.main-wrapper > * {
+  position: relative;
+  z-index: 2;
+}
+
+.header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
 .header-right { display: flex; align-items: center; gap: 12px; }
 body.ltr-mode .header-right { flex-direction: row-reverse; }
 
@@ -142,7 +213,7 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .sidebar-row-label { font-weight: 800; font-size: 13.5px; color: #1f2937; }
 .sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 800; font-size: 13px; cursor: pointer; color: #1f2937; }
 
-.container { max-width: 480px; margin: 0 auto; padding: 0 16px; }
+.container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
 
 .page-heading { 
   text-align: right; 
@@ -400,6 +471,8 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </style>
 </head>
 <body>
+
+<div class="background-lines"></div>
 
 <div id="loadingScreen">
   <div class="spinner"></div>
