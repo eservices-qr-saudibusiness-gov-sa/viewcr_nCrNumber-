@@ -27,78 +27,71 @@ body.ltr-mode { direction: ltr; text-align: left; }
 .loading-text { color: #4b5563; font-size: 14px; font-weight: 700; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/* ===== اصل ویب سائٹ جیسی ڈارک بیک گراؤنڈ، ترچھی لکیریں اور شیڈ کا کوڈ ===== */
-
 .main-wrapper { 
-  position: relative;
-  overflow: hidden;
   min-height: 100vh; 
   background: #faf5ff;
   padding-bottom: 40px; 
+  position: relative;
+  overflow: hidden;
 }
 
-/* 1. ڈارک بیک گراؤنڈ اور شہر کی تصویر (اورجنل ہائٹ کے ساتھ) */
+/* ===== CITY BACKGROUND WITH SLIGHT BLUR ===== */
 .main-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 320px; 
-
+    height: 410px;
     background-color: #292957;
     background-image:
         linear-gradient(
-            rgba(39, 39, 82, 0.55),
-            rgba(39, 39, 82, 0.55)
+            rgba(39, 39, 82, 0.65),
+            rgba(39, 39, 82, 0.65)
         ),
         url("city.png");
-
     background-repeat: no-repeat;
-    background-size: 130% auto;
-    background-position: top center;
-
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
-
+    background-size: 100% 100%;
+    background-position: center center;
+    filter: blur(1.2px);
+    -webkit-filter: blur(1.2px);
+    transform: scale(1.02);
     z-index: 0;
-}
-
-/* 2. وائٹ مدہم ترچھی لکیریں (Diagonal Lines) اور مخصوص کلر شیڈ */
-.main-wrapper::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 320px;
-
-    background:
-        /* اصل ویب سائٹ جیسی دو مدہم ترچھی لکیریں اور ان کا مخصوص زاویہ */
-        linear-gradient(
-            29deg,
-            transparent 0%,
-            transparent 35%,
-            rgba(255, 255, 255, 0.16) 35.1%,
-            transparent 35.4%,
-            transparent 62%,
-            rgba(255, 255, 255, 0.11) 62.1%,
-            transparent 62.4%
-        ),
-        /* لکیروں کے درمیان اور سائیڈ کا مخصوص کلر شیڈ */
-        radial-gradient(
-            circle at 65% 35%,
-            rgba(100, 70, 170, 0.22),
-            transparent 50%
-        );
-
-    z-index: 1;
-    pointer-events: none;
 }
 
 .main-wrapper > * {
   position: relative;
   z-index: 2;
+}
+
+/* ===== DARK BACKGROUND & LINES STYLES ===== */
+.dark-background {
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-background::before,
+.dark-background::after {
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 2px;
+    left: -18%;
+    transform: rotate(27deg);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* اوپر والی ہلکی لائن */
+.dark-background::before {
+    top: 23%;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+/* نیچے والی ہلکی لائن */
+.dark-background::after {
+    top: 34%;
+    background: rgba(210, 205, 240, 0.12);
 }
 
 .header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
@@ -473,7 +466,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     </div>
   </div>
 </div>
-<div class="main-wrapper">
+<div class="main-wrapper dark-background">
   <header class="header">
     <div class="header-right">
       <div class="header-logo-icon"></div>
