@@ -35,20 +35,20 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
-/* ===== CITY BACKGROUND — ایکٹو تک اور ہلکا سا بلر ===== */
+/* ===== CITY BACKGROUND — फिक्स हाइट और बिना ज्यादा ब्लर के ===== */
 .main-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 380px; /* بالکل ایکٹو (نشط) کی سیध تک */
+    height: 310px; /* 'نشط' (Active) वाली लाइन के ठीक ऊपर फिक्स किया गया */
 
     background-color: #292957;
     background-image:
         linear-gradient(
-            rgba(39, 39, 82, 0.48),
-            rgba(39, 39, 82, 0.48)
+            rgba(39, 39, 82, 0.55),
+            rgba(39, 39, 82, 0.55)
         ),
         url("city.png");
 
@@ -56,21 +56,21 @@ body.ltr-mode { direction: ltr; text-align: left; }
     background-size: 130% auto;
     background-position: top center;
 
-    /* نیچے ہلका سا بلर اثر */
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+    /* नीचे से अचानक खत्म होने वाला इफ़ेक्ट (बिنا فالتو بلر کے) */
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
 
     z-index: 0;
 }
 
-/* White diagonal lines and purple glow / ronaq — تھوڑا سا نیچے کیا گیا ہے */
+/* White diagonal lines and purple glow */
 .main-wrapper::after {
     content: "";
     position: absolute;
-    top: 30px; /* ہلکا سا نیچے کیا گیا */
+    top: 20px;
     left: 0;
     width: 100%;
-    height: 380px;
+    height: 310px;
 
     background:
         linear-gradient(
