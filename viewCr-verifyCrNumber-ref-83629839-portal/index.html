@@ -10,16 +10,38 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/thesansarabic.css">
 <style>
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-body { 
-  margin: 0; 
-  padding: 0; 
-  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-  background-color: #faf5ff; 
-  color: #1f2937; 
-  direction: rtl; 
-  text-align: right; 
-  -webkit-font-smoothing: antialiased; 
+
+body {
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+    color: #1f2937; 
+    direction: rtl; 
+    text-align: right; 
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    background-color: #262352; /* صوفیانہ گہرا نیلا/جامنی بیک گراؤنڈ */
+    overflow-x: hidden;
 }
+
+/* بیک گراؤنڈ امیج کو ہلکا سا بلر کرنے کے لیے */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("city.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(3px); /* ہلکا سا بلر اثر */
+    -webkit-filter: blur(3px);
+    opacity: 0.85;
+}
+
 body.ltr-mode { direction: ltr; text-align: left; }
 #loadingScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
 #loadingScreen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
@@ -27,79 +49,9 @@ body.ltr-mode { direction: ltr; text-align: left; }
 .loading-text { color: #4b5563; font-size: 14px; font-weight: 700; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-.main-wrapper { 
-  min-height: 100vh; 
-  background: #faf5ff;
-  padding-bottom: 40px; 
-  position: relative;
-  overflow: hidden;
-}
+.main-wrapper { min-height: 100vh; background: transparent; padding-bottom: 40px; }
 
-/* ===== CITY BACKGROUND — نشط والی لائن کے بالکل نیچے تک فکس کیا گیا ہے ===== */
-.main-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 360px; /* نشط کے نیچے والی لائن تک پرفेक्ट ہائٹ */
-
-    background-color: #292957;
-    background-image:
-        linear-gradient(
-            rgba(39, 39, 82, 0.55),
-            rgba(39, 39, 82, 0.55)
-        ),
-        url("city.png");
-
-    background-repeat: no-repeat;
-    background-size: 130% auto;
-    background-position: top center;
-
-    /* بغیر کسی فالتو بلر کے صاف کٹ آؤٹ */
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
-
-    z-index: 0;
-}
-
-/* White diagonal lines and purple glow */
-.main-wrapper::after {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    height: 360px;
-
-    background:
-        linear-gradient(
-            28deg,
-            transparent 0%,
-            transparent 37%,
-            rgba(255,255,255,0.3) 37.1%,
-            transparent 37.3%,
-            transparent 63%,
-            rgba(255,255,255,0.22) 63.1%,
-            transparent 63.3%
-        ),
-        radial-gradient(
-            circle at 70% 30%,
-            rgba(120, 85, 190, 0.18),
-            transparent 45%
-        );
-
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Content upar rahe */
-.main-wrapper > * {
-    position: relative;
-    z-index: 2;
-}
-
-.header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+.header { background: transparent; padding: 12px 20px 16px 20px; display: flex; justify-content: space-between; align-items: center; }
 .header-right { display: flex; align-items: center; gap: 12px; }
 body.ltr-mode .header-right { flex-direction: row-reverse; }
 
@@ -190,7 +142,7 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .sidebar-row-label { font-weight: 800; font-size: 13.5px; color: #1f2937; }
 .sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 800; font-size: 13px; cursor: pointer; color: #1f2937; }
 
-.container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
+.container { max-width: 480px; margin: 0 auto; padding: 0 16px; }
 
 .page-heading { 
   text-align: right; 
@@ -448,6 +400,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 </style>
 </head>
 <body>
+
 <div id="loadingScreen">
   <div class="spinner"></div>
   <div class="loading-text" id="loadingText">جاري التحميل...</div>
