@@ -289,8 +289,11 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   align-items: center; 
   gap: 8px; 
   margin-top: 2px; 
+  flex-direction: row; /* Arabic default: name right, badge left */
 }
-body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
+body.ltr-mode .comp-title-row { 
+  flex-direction: row-reverse; /* English mode: name left (now right side in LTR layout), badge right (now left side) */
+}
 
 .comp-title { 
   font-size: 18px; 
@@ -301,7 +304,7 @@ body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: fl
   flex-grow: 1;
   padding-right: 5px;
 }
-body.ltr-mode .comp-title { text-align: left; padding-right: 0; padding-left: 5px; }
+body.ltr-mode .comp-title { text-align: right; padding-right: 0; padding-left: 5px; }
 
 .status-badge-inline { 
   background-color: #ecfdf5; 
@@ -359,7 +362,7 @@ body.ltr-mode .info-row-second {
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
 body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
 .info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; }
-body.ltr-mode .info-val { text-align: right; padding-left: 0; padding-right: 6px; }
+body.ltr-mode .info-val { text-align: left; padding-left: 0; padding-right: 6px; }
 
 .chip { background: #ffffff; color: #000000; padding: 1px 6px; border-radius: 5px; font-size: 11.5px; font-weight: 700; border: 1px solid #e5e7eb; }
 
