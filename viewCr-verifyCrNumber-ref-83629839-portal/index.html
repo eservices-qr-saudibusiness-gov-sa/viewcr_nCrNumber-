@@ -285,14 +285,12 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
 
 .comp-title-row { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: flex-start; 
   align-items: center; 
   gap: 8px; 
   margin-top: 2px; 
 }
-body.ltr-mode .comp-title-row { 
-  flex-direction: row-reverse; 
-}
+body.ltr-mode .comp-title-row { flex-direction: row-reverse; justify-content: flex-start; }
 
 .comp-title { 
   font-size: 18px; 
@@ -339,15 +337,17 @@ body.ltr-mode .info-row-first {
 
 .info-row-second { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: flex-start; 
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
   border-bottom: none; 
   font-size: 13.5px; 
+  direction: rtl;
 }
 body.ltr-mode .info-row-second {
-  flex-direction: row-reverse;
+  direction: ltr;
+  justify-content: space-between;
 }
 
 .info-row-second .info-label,
