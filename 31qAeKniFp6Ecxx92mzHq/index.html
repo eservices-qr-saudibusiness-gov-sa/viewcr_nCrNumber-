@@ -285,13 +285,27 @@ body.ltr-mode .notice-banner p {
   border: 1px solid #E5E3F1; 
 }
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
-
-/* Arabic Mode: Logo on Right */
-.card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; }
-
-/* English (LTR) Mode: Logo on Left (Mirror Effect) بدون أي خطوط إضافية */
+.card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; position: relative; width: fit-content; }
+.card-side-logo::after {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5px;
+  height: 24px;
+  background: #d1d5db;
+  border-radius: 1px;
+  pointer-events: none;
+}
 body.ltr-mode .card-side-logo { 
   justify-content: flex-end; 
+  margin-left: auto;
+  margin-right: 0;
+}
+body.ltr-mode .card-side-logo::after {
+  left: auto;
+  right: -14px;
 }
 
 .gov-seal-side { 
@@ -341,9 +355,28 @@ body.ltr-mode .card-side-logo {
   border-bottom: none; 
   font-size: 13.5px; 
   margin-top: 4px;
+  position: relative;
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
+}
+
+.info-row-first::after {
+  content: "";
+  position: absolute;
+  right: 25px; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5px;   
+  height: 32px; 
+  background: #d1d5db; 
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+body.ltr-mode .info-row-first::after {
+  right: auto;
+  left: 25px; 
 }
 
 .info-row-second { 
@@ -355,6 +388,7 @@ body.ltr-mode .info-row-first {
   border-bottom: none; 
   font-size: 13.5px; 
   direction: rtl;
+  position: relative;
 }
 body.ltr-mode .info-row-second {
   direction: ltr;
@@ -552,19 +586,19 @@ body.ltr-mode .footer-brand {
           <img src="company-logo.png" alt="" class="gov-seal-side">
         </div>
         <div class="comp-title-row" id="companyTitleRow">
-          <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
+          <div class="comp-title" id="compName">نايف سالم حمدان الظفيري</div>
           <span class="status-badge-inline" id="statusBadge">نشط</span>
         </div>
       </div>
       
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
-        <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
+        <span class="info-val"><span class="chip" id="valFacilityType">مؤسسة</span></span>
       </div>
       
       <div class="info-row-second">
-        <span class="info-label" id="lblCompanyType">نوع الشركة</span>
-        <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
+        <span class="info-label" id="lblCompanyType">نوع المؤسسة</span>
+        <span class="info-val"><span class="chip" id="valCompanyType">فردية</span></span>
       </div>
 
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
@@ -574,7 +608,7 @@ body.ltr-mode .footer-brand {
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 8px;">
           <span class="info-label" id="lblUnifiedNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px; text-align: left; line-height: 1.3;">الرقم الوطني الموحد<br>للمنشأة</span>
-          <span class="info-val" id="valUnifiedNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; margin-top: 4px;">7052072944</span>
+          <span class="info-val" id="valUnifiedNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; margin-top: 4px;">7020238437</span>
         </div>
       </div>
 
@@ -583,22 +617,22 @@ body.ltr-mode .footer-brand {
         <div class="date-badges-grid">
           <div class="date-row-group-right">
             <div class="date-badge-box">
-              <span id="valRegistryHijri">1447-04-22</span>
+              <span id="valRegistryHijri">1442-04-29</span>
               <span>هـ</span>
             </div>
             <div class="date-badge-box">
-              <span id="valRegistryGregorian">2025-10-14</span>
+              <span id="valRegistryGregorian">2020-12-14</span>
               <span>م</span>
             </div>
           </div>
           <div class="date-row-group-left">
             <div class="date-label-top" id="lblAnnualConfirmationDate" style="font-size: 11.5px; margin-bottom: 2px; font-weight: 600; color: #6b7280; text-align: left; line-height: 1.3;">تاريخ التأكيد السنوي<br>للسجل التجاري</div>
             <div class="date-badge-box" style="margin-top: 4px;">
-              <span id="valExpiryHijri">1448-05-02</span>
+              <span id="valExpiryHijri">1448-03-25</span>
               <span>هـ</span>
             </div>
             <div class="date-badge-box">
-              <span id="valExpiryGregorian">2026-10-13</span>
+              <span id="valExpiryGregorian">2026-09-07</span>
               <span>م</span>
             </div>
           </div>
@@ -606,7 +640,7 @@ body.ltr-mode .footer-brand {
       </div>
       <div class="info-row">
         <span class="info-label" id="lblCity">&nbsp; مدينة عنوان الأعمال المعتمد للمنشأة</span>
-        <span class="info-val" id="valCity" style="color: #000000;">الجبيل حي الصفانا شارع مك1ة المكرمة</span>
+        <span class="info-val" id="valCity" style="color: #000000;">حفر الباطن، حي البلدية، طريق الملك فيصل</span>
       </div>
       
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
@@ -616,7 +650,7 @@ body.ltr-mode .footer-brand {
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end;">
           <span class="info-label" id="lblCommercialNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم السجل التجاري</span>
-          <span class="info-val" id="valCommercialNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">5950154235</span>
+          <span class="info-val" id="valCommercialNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">5950812036</span>
         </div>
       </div>
 
@@ -626,11 +660,11 @@ body.ltr-mode .footer-brand {
       </div>
       <div class="info-row">
         <span class="info-label" id="lblPhone">&nbsp; رقم الجوال</span>
-        <span class="info-val" id="valPhone" style="color: #000000;">00966558531945</span>
+        <span class="info-val" id="valPhone" style="color: #000000;">غير محدد</span>
       </div>
       <div class="info-row">
         <span class="info-label" id="lblEmail">&nbsp; البريد الإلكتروني</span>
-        <span class="info-val" id="valEmail" style="color: #000000;">klhncfskfhbj@gmail.co</span>
+        <span class="info-val" id="valEmail" style="color: #000000;">غير محدد</span>
       </div>
       <div class="info-row">
         <span class="info-label" id="lblWebsite">&nbsp; عنوان الموقع الإلكتروني</span>
@@ -642,25 +676,25 @@ body.ltr-mode .footer-brand {
       <div class="section-title" id="secActivities" style="margin-top: 0;">قائمة أنشطة السجل التجاري</div>
       <div class="activity-card">
         <div class="activity-title" id="activityText1">الإنشاءات العامة للمباني السكنية</div>
-        <div class="activity-code" id="activityCode1">410010</div>
+        <div class="activity-code" id="activityCode1">410006</div>
       </div>
       <div class="activity-card">
         <div class="activity-title" id="activityText2">الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)</div>
-        <div class="activity-code" id="activityCode2">410021</div>
+        <div class="activity-code" id="activityCode2">410017</div>
       </div>
       <div class="activity-card">
         <div class="activity-title" id="activityText3">إنشاء المطارات ومرافقها</div>
-        <div class="activity-code" id="activityCode3">410022</div>
+        <div class="activity-code" id="activityCode3">410018</div>
       </div>
       <div class="activity-card">
         <div class="activity-title" id="activityText4">الإنشاءات العامة للمباني الحكومية</div>
-        <div class="activity-code" id="activityCode4">410023</div>
+        <div class="activity-code" id="activityCode4">410019</div>
       </div>
     </div>
     
     <div class="card">
       <div class="section-title" id="secManagers" style="margin-top: 0; font-size: 17px; font-weight: 900; color: #000000;">قائمة المديرين</div>
-      <div class="manager-box" id="managerName"> عبدالهادي محمد مبارك اليامي </div>
+      <div class="manager-box" id="managerName"> نايف سالم حمدان الظفيري </div>
     </div>
     
     <footer class="footer">
@@ -710,7 +744,7 @@ function updateCompanyLanguage(lang) {
   const status = document.getElementById("statusBadge");
 
   if (lang === "en") {
-    name.textContent = "Abdulhadi Mohammed Al Yami Contracting Company";
+    name.textContent = "Nayef Salem Hamdan Al-Dhafiri";
     status.textContent = "Active";
 
     row.style.direction = "ltr";
@@ -719,7 +753,7 @@ function updateCompanyLanguage(lang) {
     status.style.order = "2";
     name.style.textAlign = "left";
   } else {
-    name.textContent = "شركة عبدالهادي محمد اليامي للمقاولات";
+    name.textContent = "نايف سالم حمدان الظفيري";
     status.textContent = "نشط";
 
     row.style.direction = "rtl";
@@ -755,22 +789,24 @@ function setLanguageToEnglish() {
   updateCompanyLanguage("en");
 
   document.getElementById('lblFacilityType').innerText = "Facility Type";
-  document.getElementById('valFacilityType').innerText = "Company";
-  document.getElementById('lblCompanyType').innerText = "Company Type";
-  document.getElementById('valCompanyType').innerText = "Limited Liability";
+  document.getElementById('valFacilityType').innerText = "Establishment";
+  document.getElementById('lblCompanyType').innerText = "Establishment Type";
+  document.getElementById('valCompanyType').innerText = "Individual";
   document.getElementById('lblRegistryType').innerText = "Registry Type";
   document.getElementById('valRegistryType').innerText = "Main Registry";
   document.getElementById('lblUnifiedNumber').innerHTML = "Unified National<br>Number";
   document.getElementById('lblRegistryDate').innerText = "Registration Date";
   document.getElementById('lblAnnualConfirmationDate').innerHTML = "Annual Confirmation<br>Date";
   document.getElementById('lblCity').innerText = "Business City";
-  document.getElementById('valCity').innerText = "Al Jubail, Al Safa, Makramah St.";
+  document.getElementById('valCity').innerText = "Hafar Al-Batin, Al-Baladiya Dist., King Faisal Rd.";
   document.getElementById('lblCopyNumberLabel').innerText = "Copy Number";
   document.getElementById('lblCommercialNumber').innerText = "Commercial Registration No.";
   document.getElementById('lblCapital').innerText = "Total Capital";
   document.getElementById('valCapital').innerText = "SAR 5,000.00";
   document.getElementById('lblPhone').innerText = "Mobile Number";
+  document.getElementById('valPhone').innerText = "Not specified";
   document.getElementById('lblEmail').innerText = "Email";
+  document.getElementById('valEmail').innerText = "Not specified";
   document.getElementById('lblWebsite').innerText = "Website";
   document.getElementById('secActivities').innerText = "Commercial Activities List";
   document.getElementById('activityText1').innerText = "General construction of residential buildings";
@@ -778,7 +814,7 @@ function setLanguageToEnglish() {
   document.getElementById('activityText3').innerText = "Construction of airports and facilities";
   document.getElementById('activityText4').innerText = "General construction of government buildings";
   document.getElementById('secManagers').innerText = "Managers List";
-  document.getElementById('managerName').innerText = "Abdulhadi Mohammed Mubarak Al Yami";
+  document.getElementById('managerName').innerText = "Nayef Salem Hamdan Al-Dhafiri";
   document.getElementById('footerBrandTitle').innerText = "Developed by Saudi Data and AI Authority";
   document.getElementById('footerLinkPrivacy').innerText = "Privacy Policy";
   document.getElementById('footerLinkTerms').innerText = "Terms & Conditions";
@@ -810,39 +846,39 @@ function setLanguageToArabic() {
   updateCompanyLanguage("ar");
 
   document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
-  document.getElementById('valFacilityType').innerText = "شركة";
-  document.getElementById('lblCompanyType').innerText = "نوع الشركة";
-  document.getElementById('valCompanyType').innerText = "ذات مسؤولية محدودة";
+  document.getElementById('valFacilityType').innerText = "مؤسسة";
+  document.getElementById('lblCompanyType').innerText = "نوع المؤسسة";
+  document.getElementById('valCompanyType').innerText = "فردية";
   document.getElementById('lblRegistryType').innerText = "نوع السجل";
   document.getElementById('valRegistryType').innerText = "سجل رئيسي";
   document.getElementById('lblUnifiedNumber').innerHTML = "الرقم الوطني الموحد<br>للمنشأة";
   document.getElementById('lblRegistryDate').innerText = "تاريخ قيد السجل التجاري";
   document.getElementById('lblAnnualConfirmationDate').innerHTML = "تاريخ التأكيد السنوي<br>للسجل التجاري";
   document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
-  document.getElementById('valCity').innerText = "الجبيل حي الصفانا شارع مك1ة المكرمة";
+  document.getElementById('valCity').innerText = "حفر الباطن، حي البلدية، طريق الملك فيصل";
   document.getElementById('lblCopyNumberLabel').innerText = "رقم نسخة السجل التجاري";
   document.getElementById('valCopyNumber').innerText = "1";
   document.getElementById('lblCommercialNumber').innerText = "رقم السجل التجاري";
-  document.getElementById('valCommercialNumber').innerText = "5950154235";
+  document.getElementById('valCommercialNumber').innerText = "5950812036";
   document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
   document.getElementById('valCapital').innerText = "﷼ 5,000.00";
   document.getElementById('lblPhone').innerText = "رقم الجوال";
-  document.getElementById('valPhone').innerText = "00966558531945";
+  document.getElementById('valPhone').innerText = "غير محدد";
   document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
-  document.getElementById('valEmail').innerText = "klhncfskfhbj@gmail.co";
+  document.getElementById('valEmail').innerText = "غير محدد";
   document.getElementById('lblWebsite').innerText = "عنوان الموقع الإلكتروني";
   document.getElementById('valWebsite').innerText = "-";
   document.getElementById('secActivities').innerText = "قائمة أنشطة السجل التجاري";
   document.getElementById('activityText1').innerText = "الإنشاءات العامة للمباني السكنية";
-  document.getElementById('activityCode1').innerText = "410010";
+  document.getElementById('activityCode1').innerText = "410006";
   document.getElementById('activityText2').innerText = "الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)";
-  document.getElementById('activityCode2').innerText = "410021";
+  document.getElementById('activityCode2').innerText = "410017";
   document.getElementById('activityText3').innerText = "إنشاء المطارات ومرافقها";
-  document.getElementById('activityCode3').innerText = "410022";
+  document.getElementById('activityCode3').innerText = "410018";
   document.getElementById('activityText4').innerText = "الإنشاءات العامة للمباني الحكومية";
-  document.getElementById('activityCode4').innerText = "410023";
+  document.getElementById('activityCode4').innerText = "410019";
   document.getElementById('secManagers').innerText = "قائمة المديرين";
-  document.getElementById('managerName').innerText = "عبدالهادي محمد مبارك اليامي";
+  document.getElementById('managerName').innerText = "نايف سالم حمدان الظفيري";
   document.getElementById('footerBrandTitle').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
   document.getElementById('footerLinkPrivacy').innerText = "سياسة الخصوصية";
   document.getElementById('footerLinkTerms').innerText = "الشروط والأحكام";
