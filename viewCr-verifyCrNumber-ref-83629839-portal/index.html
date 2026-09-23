@@ -218,7 +218,7 @@ body.ltr-mode .page-heading { text-align: left; }
   line-height: 1; 
   user-select: none; 
   background: #ffffff; 
-  color: #191828; /* تم تحديث لون الأيقونة أيضاً ليتطابق مع النص الجديد */
+  color: #191828; 
   width: 16px; 
   height: 16px; 
   display: flex; 
@@ -227,7 +227,7 @@ body.ltr-mode .page-heading { text-align: left; }
   border-radius: 50%; 
   font-weight: 900; 
   flex-shrink: 0; 
-  border: 1.5px solid #191828; /* تم تحديث حدود الأيقونة ليتطابق مع اللون الجديد */
+  border: 1.5px solid #191828; 
   position: relative;
 }
 
@@ -239,7 +239,7 @@ body.ltr-mode .page-heading { text-align: left; }
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1.5px solid rgba(25, 24, 40, 0.8); /* تم تحديث لون الحواف المتحركة للأيقونة */
+  border: 1.5px solid rgba(25, 24, 40, 0.8); 
   width: 100%;
   height: 100%;
   animation: rippleRings 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -259,7 +259,7 @@ body.ltr-mode .page-heading { text-align: left; }
   margin: 0; 
   font-size: 14.5px; 
   line-height: 1.5; 
-  color: #191828; /* تم التعديل إلى اللون الجديد المطلوب HEX: #191828 */
+  color: #191828; 
   font-family: 'TheSansArabic', 'TheSans', 'Cairo', sans-serif;
   font-weight: 900; 
   letter-spacing: -0.1px;
@@ -283,8 +283,8 @@ body.ltr-mode .notice-banner p {
 body.ltr-mode .card-side-logo { justify-content: flex-end; }
 
 .gov-seal-side { 
-  width: 75px; /* تم التعديل إلى 75px بناءً على طلبك الجديد */
-  height: 75px; /* تم التعديل إلى 75px بناءً على طلبك الجديد */
+  width: 85px; 
+  height: 85px; 
   object-fit: contain; 
   display: block; 
 }
@@ -332,7 +332,7 @@ body.ltr-mode .status-badge-inline {
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
-  border-top: 1px solid #E5E3F1; 
+  border-top: none; 
   border-bottom: none; 
   font-size: 13.5px; 
   margin-top: 4px;
@@ -348,6 +348,7 @@ body.ltr-mode .status-badge-inline {
   font-size: 13.5px; 
 }
 
+/* تم إزالة اللوائح أو الخطوط الممتدة بالكامل من هنا */
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
 body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
