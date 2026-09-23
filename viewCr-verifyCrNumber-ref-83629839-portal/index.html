@@ -295,7 +295,7 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   display: block; 
 }
 
-/* تنسيق صف اسم الشركة والحالة المتحكم فيه باللغات */
+/* تنسيق صف اسم الشركة والحالة المتحكم فيه بدقة */
 .comp-title-row { 
   display: flex; 
   justify-content: space-between; 
@@ -312,7 +312,6 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   line-height: 1.4; 
   text-align: right; 
   flex-grow: 1;
-  padding-right: 5px;
 }
 
 .status-badge-inline { 
@@ -521,7 +520,7 @@ body.ltr-mode .info-row-first::after {
 </head>
 <body>
 
-<!-- شاشة التحميل المعلقة -->
+<!-- شاشة التحميل البيضاء -->
 <div id="loader-screen"></div>
 
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
@@ -733,14 +732,16 @@ function updateCompanyLanguage(lang) {
     row.style.justifyContent = "space-between";
     name.style.order = "1";
     status.style.order = "2";
+    name.style.textAlign = "left";
   } else {
     name.textContent = "شركة عبدالهادي محمد اليامي للمقاولات";
     status.textContent = "نشط";
 
     row.style.direction = "rtl";
     row.style.justifyContent = "space-between";
-    status.style.order = "1";
-    name.style.order = "2";
+    name.style.order = "1";
+    status.style.order = "2";
+    name.style.textAlign = "right";
   }
 }
 
