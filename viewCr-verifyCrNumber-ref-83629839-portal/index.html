@@ -337,6 +337,7 @@ body.ltr-mode .info-row-first {
   flex-direction: row;
 }
 
+/* صُممت لتظل طبيعية في الوضع العربي وتنعكس فقط في وضع LTR */
 .info-row-second { 
   display: flex; 
   justify-content: space-between; 
@@ -576,7 +577,8 @@ body.ltr-mode .info-row-first::after {
         <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
-      <div class="info-row-second">
+      <!-- تم تعديل هذه السطر ليعود لوضعه الطبيعي في العربي وينعكس في الإنجليزي فقط -->
+      <div class="info-row-second" style="flex-direction: row-reverse;">
         <span class="info-label" id="lblCompanyType">نوع الشركة</span>
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
