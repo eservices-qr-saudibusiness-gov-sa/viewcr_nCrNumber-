@@ -218,7 +218,7 @@ body.ltr-mode .page-heading { text-align: left; }
   line-height: 1; 
   user-select: none; 
   background: #ffffff; 
-  color: #000000; 
+  color: #191828; /* تم تحديث لون الأيقونة أيضاً ليتطابق مع النص الجديد */
   width: 16px; 
   height: 16px; 
   display: flex; 
@@ -227,7 +227,7 @@ body.ltr-mode .page-heading { text-align: left; }
   border-radius: 50%; 
   font-weight: 900; 
   flex-shrink: 0; 
-  border: 1.5px solid #000000; 
+  border: 1.5px solid #191828; /* تم تحديث حدود الأيقونة ليتطابق مع اللون الجديد */
   position: relative;
 }
 
@@ -239,7 +239,7 @@ body.ltr-mode .page-heading { text-align: left; }
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1.5px solid rgba(0, 0, 0, 0.8); 
+  border: 1.5px solid rgba(25, 24, 40, 0.8); /* تم تحديث لون الحواف المتحركة للأيقونة */
   width: 100%;
   height: 100%;
   animation: rippleRings 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -259,7 +259,7 @@ body.ltr-mode .page-heading { text-align: left; }
   margin: 0; 
   font-size: 14.5px; 
   line-height: 1.5; 
-  color: #000000; 
+  color: #191828; /* تم التعديل إلى اللون الجديد المطلوب HEX: #191828 */
   font-family: 'TheSansArabic', 'TheSans', 'Cairo', sans-serif;
   font-weight: 900; 
   letter-spacing: -0.1px;
@@ -282,31 +282,11 @@ body.ltr-mode .notice-banner p {
 .card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; }
 body.ltr-mode .card-side-logo { justify-content: flex-end; }
 
-.logo-line-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  direction: rtl;
-}
-
-.logo-line {
-  width: 3px;
-  height: 55px;
-  background: #e5e5e5;
-  border-radius: 2px;
-}
-
 .gov-seal-side { 
-  width: 55px;
-  height: 55px;
+  width: 75px; /* تم التعديل إلى 75px بناءً على طلبك الجديد */
+  height: 75px; /* تم التعديل إلى 75px بناءً على طلبك الجديد */
   object-fit: contain; 
   display: block; 
-}
-
-/* English mode: logo left, line right */
-body.ltr-mode .logo-line-wrap {
-  direction: ltr;
 }
 
 .comp-title-row { 
@@ -521,10 +501,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     <div class="card">
       <div class="card-top-section">
         <div class="card-side-logo">
-          <div class="logo-line-wrap">
-            <div class="logo-line"></div>
-            <img src="company-logo.png" alt="" class="gov-seal-side">
-          </div>
+          <img src="company-logo.png" alt="" class="gov-seal-side">
         </div>
         <div class="comp-title-row">
           <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
