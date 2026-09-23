@@ -335,13 +335,13 @@ body.ltr-mode .status-badge-inline {
   margin-left: 12px;
 }
 
-/* تم ضبط محاذاة سطر نوع المنشأة ليقترب نحو الخط العمودي بدقة */
+/* تم إرجاع سطر "نوع المنشأة" قليلاً لجهة اليمين (باتجاه خط line.png) ليطابق التصميم الأصلي */
 .info-row-first { 
   display: flex; 
   justify-content: flex-start; 
   align-items: center; 
   gap: 8px;
-  padding: 10px 0 10px 35px; 
+  padding: 10px 0 10px 18px; 
   border-top: none; 
   border-bottom: none; 
   font-size: 13.5px; 
@@ -350,7 +350,7 @@ body.ltr-mode .status-badge-inline {
 body.ltr-mode .info-row-first {
   flex-direction: row;
   justify-content: flex-end;
-  padding: 10px 35px 10px 0;
+  padding: 10px 18px 10px 0;
 }
 
 .info-row-second { 
@@ -511,7 +511,7 @@ body.ltr-mode .footer-brand {
 .info-row-first::after {
   content: "";
   position: absolute;
-  right: 52px; 
+  right: 30px; 
   top: 50%;
   transform: translateY(-50%);
   width: 1.5px;   
@@ -523,7 +523,7 @@ body.ltr-mode .footer-brand {
 
 body.ltr-mode .info-row-first::after {
   right: auto;
-  left: 52px; 
+  left: 30px; 
 }
 
 .info-row-second {
