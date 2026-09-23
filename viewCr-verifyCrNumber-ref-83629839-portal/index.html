@@ -450,14 +450,14 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse;
+  flex-direction: row-reverse; /* Arabic default: Text right, Logo left */
   width: 100%;
   gap: 8px;
   margin-bottom: 12px;
   padding: 0;
 }
 body.ltr-mode .footer-brand-row {
-  flex-direction: row;
+  flex-direction: row; /* English mode: Text left, Logo right */
 }
 
 .footer-brand {
@@ -474,7 +474,7 @@ body.ltr-mode .footer-brand {
 }
 
 .sdaia-logo-img {
-  max-height: 46px; /* Size हल्का सा बड़ा किया गया है */
+  max-height: 46px;
   width: auto;
   display: block;
   object-fit: contain;
