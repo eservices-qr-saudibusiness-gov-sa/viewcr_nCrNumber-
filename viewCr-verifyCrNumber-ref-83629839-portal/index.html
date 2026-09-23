@@ -481,7 +481,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
 
-/* ===== خط barik (line.png) کے سائز کی درستگی ===== */
+/* ===== صرف نوع المنشأة / نوع الشركة کے دائیں طرف باریک لائن ===== */
 .info-row-first,
 .info-row-second {
   position: relative;
@@ -491,26 +491,20 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   content: "";
   position: absolute;
   right: 46px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 5px;  /* عرض (Width) 5px */
-  height: 40px; /* اونچائی (Height) 40px */
-  background-image: url("line.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  top: 0;
+  height: 100%;
+  width: 1.5px;
+  background: #e5e7eb;
 }
 
 .info-row-second::after {
   content: "";
   position: absolute;
   right: 46px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 5px;  /* عرض (Width) 5px */
-  height: 40px; /* اونچائی (Height) 40px */
-  background-image: url("line.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  top: 0;
+  height: 100%;
+  width: 1.5px;
+  background: #e5e7eb;
 }
 </style>
 </head>
