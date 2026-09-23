@@ -277,7 +277,7 @@ body.ltr-mode .notice-banner p {
 body.ltr-mode .card-side-logo { justify-content: flex-end; }
 
 .gov-seal-side { 
-  max-height: 49px; /* Max height set to 49px as requested */
+  max-height: 49px; 
   width: auto; 
   object-fit: contain; 
   display: block; 
@@ -329,7 +329,7 @@ body.ltr-mode .status-badge-inline {
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
-  border-top: none; /* Long horizontal line removed */
+  border-top: none; 
   border-bottom: none; 
   font-size: 13.5px; 
   margin-top: 4px;
@@ -487,6 +487,29 @@ body.ltr-mode .footer-brand {
 .footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 12px; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
+
+/* ===== SMALL VERTICAL LINE RESTORED BEFORE "نوع المنشأة" ===== */
+.info-row-first {
+  position: relative;
+}
+
+.info-row-first::after {
+  content: "";
+  position: absolute;
+  right: 25px; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5px;   
+  height: 32px; 
+  background: #d1d5db; 
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+body.ltr-mode .info-row-first::after {
+  right: auto;
+  left: 25px; 
+}
 
 .info-row-second {
   position: relative;
