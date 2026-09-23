@@ -325,9 +325,10 @@ body.ltr-mode .status-badge-inline {
   margin-left: 12px;
 }
 
+/* Original positioning restored for Facility & Company type rows */
 .info-row-first { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: center; 
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
@@ -337,12 +338,12 @@ body.ltr-mode .status-badge-inline {
   margin-top: 4px;
 }
 body.ltr-mode .info-row-first {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .info-row-second { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: flex-start; 
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
@@ -352,6 +353,7 @@ body.ltr-mode .info-row-first {
 }
 body.ltr-mode .info-row-second {
   direction: ltr;
+  justify-content: flex-end;
 }
 
 .info-row-second .info-label,
@@ -590,11 +592,11 @@ body.ltr-mode .info-row-first::after {
       </div>
 
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
-        <div style="display: flex; flex-direction: column; align-items: flex-start;" class="reg-type-container">
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">نوع السجل</span>
           <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
         </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 8px;" class="unified-num-container">
+        <div style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 8px;">
           <span class="info-label" id="lblUnifiedNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px; text-align: left; line-height: 1.3;">الرقم الوطني الموحد<br>للمنشأة</span>
           <span class="info-val" id="valUnifiedNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; margin-top: 4px;">7052072944</span>
         </div>
@@ -632,11 +634,11 @@ body.ltr-mode .info-row-first::after {
       </div>
       
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
-        <div style="display: flex; flex-direction: column; align-items: flex-start;" class="copy-num-container">
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
           <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; margin-top: 4px;">1</span>
         </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-end;" class="comm-num-container">
+        <div style="display: flex; flex-direction: column; align-items: flex-end;">
           <span class="info-label" id="lblCommercialNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم السجل التجاري</span>
           <span class="info-val" id="valCommercialNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">5950154235</span>
         </div>
