@@ -85,7 +85,6 @@ body.ltr-mode .header-right {
   cursor: pointer;
 }
 
-/* تم ضبط الارتفاع إلى 52px بناءً على طلبك */
 .header-brand-img {
   max-height: 52px;
   width: auto;
@@ -144,9 +143,10 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 
 .container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
 
+/* تم زيادة حجم الخط بمقدار 2px ليصبح 24.5px بناءً على طلبك */
 .page-heading { 
   text-align: right; 
-  font-size: 22.5px; 
+  font-size: 24.5px; 
   font-weight: 800; 
   color: #f9fafb; 
   margin: 12px 0 16px 0; 
@@ -512,7 +512,8 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
-          <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">1</span>
+          <!-- تم ضبط محاذاة الرقم 1 ليصبح متناسقاً على نفس الخط تماماً -->
+          <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; margin-top: 4px;">1</span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end;">
           <span class="info-label" id="lblCommercialNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم السجل التجاري</span>
@@ -727,7 +728,7 @@ function toggleFontSize() {
     if(notice) notice.style.fontSize = '17.5px';
     if(compName) compName.style.fontSize = '21.5px';
     if(statusBadge) statusBadge.style.fontSize = '12.5px';
-    if(pageHeading) pageHeading.style.fontSize = '26.5px';
+    if(pageHeading) pageHeading.style.fontSize = '28.5px';
     
     labels.forEach(el => el.style.fontSize = '16px');
     values.forEach(el => el.style.fontSize = '16px');
