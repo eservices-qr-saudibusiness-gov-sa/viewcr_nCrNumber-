@@ -480,25 +480,28 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
 
-/* ===== GREEN LOGO Jaisi Short & Clean Line Styling ===== */
-.info-row-first,
-.info-row-second {
+/* ===== SINGLE PERFECT LINE STYLING ===== */
+.info-row-first {
   position: relative;
 }
 
-.info-row-first::after,
-.info-row-second::after {
+.info-row-first::after {
   content: "";
   position: absolute;
-  right: 52%; /* Bilkul center alignment ke liye */
+  right: 52%; 
   top: 50%;
   transform: translateY(-50%);
-  width: 1.5px;   /* Green logo jaisi patli line */
-  height: 25px;  /* Green logo jaisi choti height */
-  background: #d1d5db; /* Soft gray color jo bilkul natural lage */
+  width: 1.5px;   
+  height: 32px; /* Halka sa lamba kiya gaya hai */
+  background: #d1d5db; 
   border-radius: 1px;
   pointer-events: none;
 }
+
+.info-row-second {
+  position: relative;
+}
+/* Doosri line yahan se puri tarah hata di gayi hai */
 </style>
 </head>
 <body>
