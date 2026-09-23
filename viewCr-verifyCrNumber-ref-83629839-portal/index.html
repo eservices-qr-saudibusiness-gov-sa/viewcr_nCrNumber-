@@ -325,7 +325,7 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   flex-shrink: 0;
 }
 
-/* تصميم صف نوع المنشأة مع خط عمودي ثابت بجانب اللابل تماماً */
+/* ضبط خط الفاصل العمودي ليظهر بجانب الكلمة مباشرة وبشكل دقيق */
 .info-row-first { 
   display: flex; 
   justify-content: space-between; 
@@ -343,12 +343,13 @@ body.ltr-mode .info-row-first {
 
 .info-row-first .info-label {
   position: relative;
+  margin-right: 4px;
 }
 
 .info-row-first .info-label::after {
   content: "";
   position: absolute;
-  left: -14px; 
+  left: -12px; 
   top: 50%;
   transform: translateY(-50%);
   width: 1.5px;   
@@ -360,7 +361,7 @@ body.ltr-mode .info-row-first {
 
 body.ltr-mode .info-row-first .info-label::after {
   left: auto;
-  right: -14px; 
+  right: -12px; 
 }
 
 .info-row-second { 
