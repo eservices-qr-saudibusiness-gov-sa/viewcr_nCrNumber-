@@ -481,28 +481,19 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
 
-/* ===== صرف نوع المنشأة / نوع الشركة کے دائیں طرف باریک لائن ===== */
+/* ===== خط barik (line.png) کے سائز کی درستگی ===== */
 .info-row-first,
 .info-row-second {
   position: relative;
 }
 
-.info-row-first::after {
-  content: "";
-  position: absolute;
-  right: 46px;
-  top: 0;
-  height: 100%;
-  width: 1.5px;
-  background: #e5e7eb;
-}
-
+.info-row-first::after,
 .info-row-second::after {
   content: "";
   position: absolute;
   right: 46px;
-  top: 0;
-  height: 100%;
+  top: 10px;
+  height: 80px;
   width: 1.5px;
   background: #e5e7eb;
 }
