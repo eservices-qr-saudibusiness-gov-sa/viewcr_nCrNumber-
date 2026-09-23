@@ -325,7 +325,7 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   flex-shrink: 0;
 }
 
-/* تم ضبط المسافة لتكون قريبة جداً ومضبوطة بجانب الخط تماماً */
+/* Yahan line aur text ki positioning ko theek kiya hai taake overlap na ho */
 .info-row-first { 
   display: flex; 
   justify-content: flex-start; 
@@ -336,6 +336,7 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   border-bottom: none; 
   font-size: 13.5px; 
   margin-top: 4px;
+  position: relative;
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
@@ -352,6 +353,7 @@ body.ltr-mode .info-row-first {
   border-bottom: none; 
   font-size: 13.5px; 
   direction: rtl;
+  position: relative;
 }
 body.ltr-mode .info-row-second {
   direction: ltr;
@@ -494,18 +496,15 @@ body.ltr-mode .footer-brand {
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
 
-.info-row-first {
-  position: relative;
-}
-
+/* Line ki exact positioning yahan set ki hai taake text se thodi door aur clean dikhe */
 .info-row-first::after {
   content: "";
   position: absolute;
-  right: 65px; 
+  right: 110px; 
   top: 50%;
   transform: translateY(-50%);
   width: 1.5px;   
-  height: 32px; 
+  height: 24px; 
   background: #d1d5db; 
   border-radius: 1px;
   pointer-events: none;
@@ -513,11 +512,7 @@ body.ltr-mode .footer-brand {
 
 body.ltr-mode .info-row-first::after {
   right: auto;
-  left: 75px; 
-}
-
-.info-row-second {
-  position: relative;
+  left: 110px; 
 }
 </style>
 </head>
