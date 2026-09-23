@@ -86,12 +86,11 @@ body.ltr-mode .header-right {
 }
 
 .header-brand-img {
-  max-height: 50px; /* تم التعديل إلى 50px بناءً على طلبك */
+  max-height: 50px; 
   width: auto;
   display: block;
 }
 
-/* تحريك زر القائمة قليلاً إلى اليمين ليتوافق مع محاذاة الصفحة */
 .header-logo-section {
   padding-left: 6px;
 }
@@ -338,6 +337,24 @@ body.ltr-mode .status-badge-inline {
   margin-top: 4px;
 }
 
+/* Official line CSS */
+.official-line {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.official-line img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+}
+
 .info-row-second { 
   display: flex; 
   justify-content: flex-start; 
@@ -546,6 +563,11 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
         <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
+      <!-- Official vertical line - above نوع الشركة -->
+      <div class="official-line">
+        <img src="line.png" alt="" width="80" height="80">
+      </div>
+
       <div class="info-row-second">
         <span class="info-label" id="lblCompanyType">نوع الشركة</span>
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
