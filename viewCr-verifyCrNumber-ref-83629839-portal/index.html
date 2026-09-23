@@ -473,38 +473,17 @@ body.ltr-mode .footer-brand {
   text-align: right;
 }
 
-.sdaia-logo-badge {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 0;
+.sdaia-logo-img {
+  max-height: 38px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .footer-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 10px; }
 .footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 12px; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
-
-/* ===== SDAIA LOGO BOTTOM STYLING ===== */
-.sdaia-logo-bottom {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 25px;
-  padding-bottom: 25px;
-}
-
-.sdaia-logo-bottom img {
-  width: 90%;
-  max-width: 520px;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
 
 /* ===== LINE STYLING WITH RTL/LTR SUPPORT ===== */
 .info-row-first {
@@ -698,7 +677,8 @@ body.ltr-mode .info-row-first::after {
     <footer class="footer">
       <div class="footer-brand-row">
         <span class="footer-brand" id="footerBrandTitle">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي</span>
-        <div class="sdaia-logo-badge"></div>
+        <!-- Yahan Sdaia ka chhota logo image file ka naam likhein, jaise SDAIA-logo.png -->
+        <img src="SDAIA-logo.png" alt="SDAIA Logo" class="sdaia-logo-img">
       </div>
       <div class="footer-links">
         <a href="#" id="footerLinkPrivacy">سياسة الخصوصية</a>
@@ -707,11 +687,6 @@ body.ltr-mode .info-row-first::after {
       </div>
       <div class="footer-copy" id="footerCopy">جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026</div>
       <div class="footer-version" id="footerVersion">الإصدار 1.1.9</div>
-      
-      <!-- Added SDAIA Logo Bottom -->
-      <div class="sdaia-logo-bottom">
-        <img src="SDAIA-logo.png" alt="SDAIA Logo">
-      </div>
     </footer>
   </div>
 </div>
