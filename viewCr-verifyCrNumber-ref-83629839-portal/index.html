@@ -348,7 +348,6 @@ body.ltr-mode .status-badge-inline {
   font-size: 13.5px; 
 }
 
-/* تم إزالة اللوائح أو الخطوط الممتدة بالكامل من هنا */
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
 .info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
 body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
@@ -440,8 +439,20 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   box-shadow: 0 6px 20px rgba(0,0,0,0.04); 
   border: 1px solid #E5E3F1; 
 }
-.footer-brand-row { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; }
-.footer-brand { font-weight: 700; font-size: 12px; color: #4b5563; }
+.footer-brand-row { 
+  display: flex; 
+  justify-content: flex-start; 
+  align-items: center; 
+  gap: 8px; 
+  margin-bottom: 12px; 
+}
+
+.footer-brand { 
+  font-weight: 700; 
+  font-size: 12px; 
+  color: #4b5563; 
+  text-align: left;
+}
 
 .sdaia-logo-badge { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
 
