@@ -282,11 +282,31 @@ body.ltr-mode .notice-banner p {
 .card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; }
 body.ltr-mode .card-side-logo { justify-content: flex-end; }
 
+.logo-line-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  direction: rtl;
+}
+
+.logo-line {
+  width: 3px;
+  height: 55px;
+  background: #e5e5e5;
+  border-radius: 2px;
+}
+
 .gov-seal-side { 
-  width: 70px; /* تم التعديل إلى 70px بناءً على طلبك */
-  height: 70px; /* تم التعديل إلى 70px بناءً على طلبك */
+  width: 55px;
+  height: 55px;
   object-fit: contain; 
   display: block; 
+}
+
+/* English mode: logo left, line right */
+body.ltr-mode .logo-line-wrap {
+  direction: ltr;
 }
 
 .comp-title-row { 
@@ -501,7 +521,10 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     <div class="card">
       <div class="card-top-section">
         <div class="card-side-logo">
-          <img src="company-logo.png" alt="" class="gov-seal-side">
+          <div class="logo-line-wrap">
+            <div class="logo-line"></div>
+            <img src="company-logo.png" alt="" class="gov-seal-side">
+          </div>
         </div>
         <div class="comp-title-row">
           <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
