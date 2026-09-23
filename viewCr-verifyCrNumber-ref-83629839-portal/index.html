@@ -335,13 +335,13 @@ body.ltr-mode .status-badge-inline {
   margin-left: 12px;
 }
 
-/* تم تعديل محاذاة سطر نوع المنشأة بحيث يتم دفع القيمة نحو اليسار (مركز الشاشة) */
+/* تم إزاحة سطر "نوع المنشأة" أكثر باتجاه الشعار (اليسار) بناءً على طلبك */
 .info-row-first { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: flex-start; 
   align-items: center; 
   gap: 8px;
-  padding: 10px 0; 
+  padding: 10px 0 10px 48px; 
   border-top: none; 
   border-bottom: none; 
   font-size: 13.5px; 
@@ -349,7 +349,8 @@ body.ltr-mode .status-badge-inline {
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
+  padding: 10px 48px 10px 0;
 }
 
 .info-row-second { 
@@ -502,8 +503,27 @@ body.ltr-mode .footer-brand {
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
 
+/* ===== خط العمود الصغير قبل "نوع المنشأة" تم ضبط مكانه بدقة ===== */
 .info-row-first {
   position: relative;
+}
+
+.info-row-first::after {
+  content: "";
+  position: absolute;
+  right: 68px; /* تم نقله أكثر لجهة اليسار (قريباً من الشعار) */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5px;   
+  height: 32px; 
+  background: #d1d5db; 
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+body.ltr-mode .info-row-first::after {
+  right: auto;
+  left: 68px; 
 }
 
 .info-row-second {
@@ -693,6 +713,7 @@ body.ltr-mode .footer-brand {
 </div>
 
 <script>
+/* اسکرپٹ: ایک سیکنڈ (1000ms) کا وائٹ بلینک ڈیلے */
 window.addEventListener('load', function() {
   setTimeout(function() {
     const loader = document.getElementById('loader-screen');
