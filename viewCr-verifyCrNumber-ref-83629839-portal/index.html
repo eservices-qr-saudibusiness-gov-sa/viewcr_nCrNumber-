@@ -480,7 +480,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
 
-/* ===== RIGHT SIDE (نوع الشركة SIDE) LINE STYLING ===== */
+/* ===== LINE STYLING WITH RTL/LTR SUPPORT ===== */
 .info-row-first {
   position: relative;
 }
@@ -488,14 +488,20 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 .info-row-first::after {
   content: "";
   position: absolute;
-  right: 25px; /* Bilkul right side (نوع الشركة) ki taraf shift kiya gaya hai */
+  right: 25px; /* Arabic (RTL) mode position */
   top: 50%;
   transform: translateY(-50%);
   width: 1.5px;   
-  height: 36px; /* Halka sa lamba */
+  height: 32px; /* Dheerinni isaa xiqoo qofa hir'ifame */
   background: #d1d5db; 
   border-radius: 1px;
   pointer-events: none;
+}
+
+/* Yeroo afaan Ingiliffaa (LTR) ta'u sararichi gara gama kaaniitti (opposite side) akka deemu */
+body.ltr-mode .info-row-first::after {
+  right: auto;
+  left: 25px; 
 }
 
 .info-row-second {
