@@ -448,7 +448,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
 }
 .footer-brand-row {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row-reverse;
   width: 100%;
@@ -464,17 +464,17 @@ body.ltr-mode .footer-brand-row {
   font-weight: 700;
   font-size: 12px;
   color: #4b5563;
-  text-align: left;
+  text-align: right;
   line-height: 1.5;
   flex: 1;
   margin-top: 0;
 }
 body.ltr-mode .footer-brand {
-  text-align: right;
+  text-align: left;
 }
 
 .sdaia-logo-img {
-  max-height: 38px;
+  max-height: 46px; /* Size हल्का सा बड़ा किया गया है */
   width: auto;
   display: block;
   object-fit: contain;
@@ -677,7 +677,6 @@ body.ltr-mode .info-row-first::after {
     <footer class="footer">
       <div class="footer-brand-row">
         <span class="footer-brand" id="footerBrandTitle">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي</span>
-        <!-- Yahan Sdaia ka chhota logo image file ka naam likhein, jaise SDAIA-logo.png -->
         <img src="SDAIA-logo.png" alt="SDAIA Logo" class="sdaia-logo-img">
       </div>
       <div class="footer-links">
