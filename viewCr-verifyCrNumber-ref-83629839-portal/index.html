@@ -135,15 +135,45 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .close-sidebar { background: none; border: none; font-size: 22px; cursor: pointer; }
 .sidebar-content { padding: 0 20px; display: flex; flex-direction: column; gap: 15px; }
 
-.sidebar-btn-primary { background: #4f46e5; color: white; border: none; border-radius: 8px; padding: 12px; font-weight: 900; font-size: 14.5px; cursor: pointer; font-family: 'Cairo', sans-serif; letter-spacing: 0.3px; }
+/* تحديث زر منصة الأعمال لتطابق الصورة المرفقة تماماً[span_2](start_span)[span_2](end_span) */
+.sidebar-btn-primary { 
+  background: #6b6496; 
+  color: white; 
+  border: none; 
+  border-radius: 12px; 
+  padding: 12px 16px; 
+  font-weight: 800; 
+  font-size: 15.5px; 
+  cursor: pointer; 
+  font-family: 'Cairo', sans-serif; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(107, 100, 150, 0.2);
+}
+body.ltr-mode .sidebar-btn-primary {
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
 
-.sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
-.sidebar-row-label { font-weight: 800; font-size: 13.5px; color: #1f2937; }
-.sidebar-action-box { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 12px; font-weight: 800; font-size: 13px; cursor: pointer; color: #1f2937; }
+.sidebar-btn-icon {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #ffffff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f3f4f6; }
+.sidebar-row-label { font-weight: 800; font-size: 15px; color: #1f2937; }
+.sidebar-action-box { background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 8px 16px; font-weight: 800; font-size: 14.5px; cursor: pointer; color: #1f2937; }
 
 .container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
 
-/* تم زيادة حجم الخط بمقدار 2px ليصبح 24.5px بناءً على طلبك */
 .page-heading { 
   text-align: right; 
   font-size: 24.5px; 
@@ -412,6 +442,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   <div class="sidebar-content">
     <button class="sidebar-btn-primary" onclick="window.open('https://scbc.gov.sa/?culture=en', '_blank')">
       <span id="sidebarPlatformBtn">منصة الأعمال</span>
+      <div class="sidebar-btn-icon">➜</div>
     </button>
     <div class="sidebar-row">
       <span class="sidebar-row-label" id="langRowLabel">اللغة</span>
@@ -512,7 +543,6 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
-          <!-- تم ضبط محاذاة الرقم 1 ليصبح متناسقاً على نفس الخط تماماً -->
           <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; margin-top: 4px;">1</span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end;">
