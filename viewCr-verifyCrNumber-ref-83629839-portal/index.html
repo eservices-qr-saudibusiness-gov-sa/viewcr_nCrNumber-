@@ -450,14 +450,14 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse; /* Arabic default: Text right, Logo left */
+  flex-direction: row-reverse;
   width: 100%;
   gap: 8px;
   margin-bottom: 12px;
   padding: 0;
 }
 body.ltr-mode .footer-brand-row {
-  flex-direction: row; /* English mode: Text left, Logo right */
+  flex-direction: row;
 }
 
 .footer-brand {
@@ -633,7 +633,7 @@ body.ltr-mode .info-row-first::after {
 
       <div class="info-row">
         <span class="info-label" id="lblCapital">&nbsp; قيمة رأس المال الكلي</span>
-        <span class="info-val" id="valCapital" style="color: #000000;">ر.س 5,000.00</span>
+        <span class="info-val" id="valCapital" style="color: #000000;">﷼ 5,000.00</span>
       </div>
       <div class="info-row">
         <span class="info-label" id="lblPhone">&nbsp; رقم الجوال</span>
@@ -778,7 +778,7 @@ function toggleLanguage() {
     document.getElementById('lblCommercialNumber').innerText = "رقم السجل التجاري";
     document.getElementById('valCommercialNumber').innerText = "5950154235";
     document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
-    document.getElementById('valCapital').innerText = "ر.س 5,000.00";
+    document.getElementById('valCapital').innerText = "﷼ 5,000.00";
     document.getElementById('lblPhone').innerText = "رقم الجوال";
     document.getElementById('valPhone').innerText = "00966558531945";
     document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
