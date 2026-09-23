@@ -86,7 +86,7 @@ body.ltr-mode .header-right {
 }
 
 .header-brand-img {
-  max-height: 51px; /* تم تعديل القيمة بناءً على طلبك الأخير */
+  max-height: 51px;
   width: auto;
   display: block;
 }
@@ -175,7 +175,6 @@ body.ltr-mode .sidebar-btn-primary {
 .sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f3f4f6; width: 100%; }
 .sidebar-row-label { font-weight: 900; font-size: 16px; color: #1f2937; }
 
-/* تعديل أبعاد مربعات En و A+: صغيرة من الجوانب وعالية من فوق وتحت بناءً على طلبك */
 .sidebar-action-box { 
   background: transparent; 
   border: 1.5px solid #6b6496; 
@@ -283,7 +282,12 @@ body.ltr-mode .notice-banner p {
 .card-side-logo { display: flex; justify-content: flex-end; margin-bottom: 6px; }
 body.ltr-mode .card-side-logo { justify-content: flex-start; }
 
-.gov-seal-side { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+.gov-seal-side { 
+  width: 55px; 
+  height: 55px; 
+  object-fit: contain; 
+  display: block; 
+}
 
 .comp-title-row { 
   display: flex; 
@@ -497,7 +501,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     <div class="card">
       <div class="card-top-section">
         <div class="card-side-logo">
-          <div class="gov-seal-side"></div>
+          <img src="company-logo.png" alt="" class="gov-seal-side">
         </div>
         <div class="comp-title-row">
           <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
