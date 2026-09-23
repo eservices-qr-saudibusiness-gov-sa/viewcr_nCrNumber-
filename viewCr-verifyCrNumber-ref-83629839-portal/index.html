@@ -340,6 +340,7 @@ body.ltr-mode .info-row-first {
   flex-direction: row;
 }
 
+/* تعديل محاذاة وخصائص صف نوع الشركة ليكون قريباً بوضوح في الوضع الإنجليزي وبدقة في العربي */
 .info-row-second { 
   display: flex; 
   justify-content: flex-start; 
@@ -352,7 +353,8 @@ body.ltr-mode .info-row-first {
 }
 body.ltr-mode .info-row-second {
   direction: ltr;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 25px;
 }
 
 .info-row-second .info-label,
@@ -762,7 +764,7 @@ function setLanguageToEnglish() {
   if(langBtn) langBtn.innerText = 'Ar';
   if(rowSecond) {
     rowSecond.style.direction = 'ltr';
-    rowSecond.style.justifyContent = 'space-between';
+    rowSecond.style.justifyContent = 'flex-start';
   }
   document.getElementById('pageTitle').innerText = "Commercial Registration Data";
   document.getElementById('sidebarPlatformBtn').innerText = "Business Platform";
