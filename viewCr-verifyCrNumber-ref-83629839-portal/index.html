@@ -700,10 +700,8 @@ body.ltr-mode .info-row-first::after {
 
 <script>
 window.addEventListener('load', function() {
-  // التحقق من اللغة المخزنة عند التحميل وتطبيقها فوراً
   const savedLang = localStorage.getItem('app_lang');
   if (savedLang === 'en') {
-    isEnglish = false; // ستتغير إلى true مباشرة عبر دالة toggleLanguage أو تعيينها مباشرة
     setLanguageToEnglish();
   }
 
