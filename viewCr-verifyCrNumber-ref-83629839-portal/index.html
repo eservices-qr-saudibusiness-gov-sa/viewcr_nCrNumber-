@@ -335,6 +335,7 @@ body.ltr-mode .info-row-first {
   flex-direction: row;
 }
 
+/* الصف الثاني ثابت تماماً كما طلبته في الوضع العربي، وينعكس في الإنجليزي لترتيب العناصر */
 .info-row-second { 
   display: flex; 
   justify-content: flex-start; 
@@ -706,9 +707,13 @@ function toggleLanguage() {
   isEnglish = !isEnglish;
   const body = document.body;
   const langBtn = document.getElementById('langBtn');
+  const rowSecond = document.querySelector('.info-row-second');
+  
   if (isEnglish) {
     body.classList.add('ltr-mode');
     langBtn.innerText = 'Ar';
+    rowSecond.style.direction = 'ltr';
+    rowSecond.style.justifyContent = 'space-between';
     document.getElementById('pageTitle').innerText = "Commercial Registration Data";
     document.getElementById('sidebarPlatformBtn').innerText = "Business Platform";
     document.getElementById('langRowLabel').innerText = "Language";
@@ -751,6 +756,8 @@ function toggleLanguage() {
   } else {
     body.classList.remove('ltr-mode');
     langBtn.innerText = 'En';
+    rowSecond.style.direction = 'rtl';
+    rowSecond.style.justifyContent = 'flex-start';
     document.getElementById('pageTitle').innerText = "بيانات السجل التجاري";
     document.getElementById('sidebarPlatformBtn').innerText = "منصة الأعمال";
     document.getElementById('langRowLabel').innerText = "اللغة";
