@@ -335,12 +335,13 @@ body.ltr-mode .status-badge-inline {
   margin-left: 12px;
 }
 
+/* تم ضبط محاذاة سطر نوع المنشأة ليقترب نحو الخط العمودي بدقة */
 .info-row-first { 
   display: flex; 
-  justify-content: center; 
+  justify-content: flex-start; 
   align-items: center; 
   gap: 8px;
-  padding: 10px 0; 
+  padding: 10px 0 10px 35px; 
   border-top: none; 
   border-bottom: none; 
   font-size: 13.5px; 
@@ -348,6 +349,8 @@ body.ltr-mode .status-badge-inline {
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
+  justify-content: flex-end;
+  padding: 10px 35px 10px 0;
 }
 
 .info-row-second { 
@@ -500,7 +503,7 @@ body.ltr-mode .footer-brand {
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
 
-/* ===== SMALL VERTICAL LINE RESTORED BEFORE "نوع المنشأة" ===== */
+/* ===== خط العمود الصغير وموقعه المتناسق بدقة ===== */
 .info-row-first {
   position: relative;
 }
@@ -508,7 +511,7 @@ body.ltr-mode .footer-brand {
 .info-row-first::after {
   content: "";
   position: absolute;
-  right: 25px; 
+  right: 52px; 
   top: 50%;
   transform: translateY(-50%);
   width: 1.5px;   
@@ -520,7 +523,7 @@ body.ltr-mode .footer-brand {
 
 body.ltr-mode .info-row-first::after {
   right: auto;
-  left: 25px; 
+  left: 52px; 
 }
 
 .info-row-second {
