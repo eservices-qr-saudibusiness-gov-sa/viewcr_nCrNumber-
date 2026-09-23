@@ -305,12 +305,12 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
 }
 
 .comp-title { 
-  text-align: right; 
-  flex-grow: 1;
   font-size: 18px; 
   font-weight: 900; 
   color: #000000; 
   line-height: 1.4; 
+  text-align: right; 
+  flex-grow: 1;
 }
 
 .status-badge-inline { 
@@ -325,11 +325,11 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   flex-shrink: 0;
 }
 
-/* ضبط خط الفاصل العمودي ليظهر بجانب الكلمة مباشرة وبشكل دقيق */
 .info-row-first { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: center; 
   align-items: center; 
+  gap: 8px;
   padding: 10px 0; 
   border-top: none; 
   border-bottom: none; 
@@ -338,36 +338,14 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
-  justify-content: space-between;
 }
 
-.info-row-first .info-label {
-  position: relative;
-  margin-right: 4px;
-}
-
-.info-row-first .info-label::after {
-  content: "";
-  position: absolute;
-  left: -12px; 
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.5px;   
-  height: 22px; 
-  background: #d1d5db; 
-  border-radius: 1px;
-  pointer-events: none;
-}
-
-body.ltr-mode .info-row-first .info-label::after {
-  left: auto;
-  right: -12px; 
-}
-
+/* تعديل محاذاة وخصائص صف نوع الشركة ليكون قريباً بوضوح في الوضع الإنجليزي وبدقة في العربي */
 .info-row-second { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: flex-start; 
   align-items: center; 
+  gap: 8px;
   padding: 10px 0; 
   border-bottom: none; 
   font-size: 13.5px; 
@@ -375,7 +353,8 @@ body.ltr-mode .info-row-first .info-label::after {
 }
 body.ltr-mode .info-row-second {
   direction: ltr;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 25px;
 }
 
 .info-row-second .info-label,
@@ -512,6 +491,32 @@ body.ltr-mode .footer-brand {
 .footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 12px; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
+
+.info-row-first {
+  position: relative;
+}
+
+.info-row-first::after {
+  content: "";
+  position: absolute;
+  right: 25px; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5px;   
+  height: 32px; 
+  background: #d1d5db; 
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+body.ltr-mode .info-row-first::after {
+  right: auto;
+  left: 25px; 
+}
+
+.info-row-second {
+  position: relative;
+}
 </style>
 </head>
 <body>
@@ -759,7 +764,7 @@ function setLanguageToEnglish() {
   if(langBtn) langBtn.innerText = 'Ar';
   if(rowSecond) {
     rowSecond.style.direction = 'ltr';
-    rowSecond.style.justifyContent = 'space-between';
+    rowSecond.style.justifyContent = 'flex-start';
   }
   document.getElementById('pageTitle').innerText = "Commercial Registration Data";
   document.getElementById('sidebarPlatformBtn').innerText = "Business Platform";
@@ -814,7 +819,7 @@ function setLanguageToArabic() {
   if(langBtn) langBtn.innerText = 'En';
   if(rowSecond) {
     rowSecond.style.direction = 'rtl';
-    rowSecond.style.justifyContent = 'space-between';
+    rowSecond.style.justifyContent = 'flex-start';
   }
   document.getElementById('pageTitle').innerText = "بيانات السجل التجاري";
   document.getElementById('sidebarPlatformBtn').innerText = "منصة الأعمال";
