@@ -305,12 +305,12 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
 }
 
 .comp-title { 
+  text-align: right; 
+  flex-grow: 1;
   font-size: 18px; 
   font-weight: 900; 
   color: #000000; 
   line-height: 1.4; 
-  text-align: right; 
-  flex-grow: 1;
 }
 
 .status-badge-inline { 
@@ -325,11 +325,12 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   flex-shrink: 0;
 }
 
+/* تقريب النص والوسم من خط التحديد العمودي في كلا الوضعين العربي والإنجليزي */
 .info-row-first { 
   display: flex; 
-  justify-content: center; 
+  justify-content: flex-start; 
   align-items: center; 
-  gap: 8px;
+  gap: 6px;
   padding: 10px 0; 
   border-top: none; 
   border-bottom: none; 
@@ -338,14 +339,15 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
+  justify-content: flex-start;
+  gap: 6px;
 }
 
-/* تعديل محاذاة وخصائص صف نوع الشركة ليكون قريباً بوضوح في الوضع الإنجليزي وبدقة في العربي */
 .info-row-second { 
   display: flex; 
   justify-content: flex-start; 
   align-items: center; 
-  gap: 8px;
+  gap: 6px;
   padding: 10px 0; 
   border-bottom: none; 
   font-size: 13.5px; 
@@ -354,7 +356,7 @@ body.ltr-mode .info-row-first {
 body.ltr-mode .info-row-second {
   direction: ltr;
   justify-content: flex-start;
-  gap: 25px;
+  gap: 6px;
 }
 
 .info-row-second .info-label,
@@ -511,7 +513,7 @@ body.ltr-mode .footer-brand {
 
 body.ltr-mode .info-row-first::after {
   right: auto;
-  left: 25px; 
+  left: 20px; 
 }
 
 .info-row-second {
