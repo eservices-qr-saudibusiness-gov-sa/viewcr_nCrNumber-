@@ -86,11 +86,12 @@ body.ltr-mode .header-right {
 }
 
 .header-brand-img {
-  max-height: 50px; 
+  max-height: 50px; /* تم التعديل إلى 50px بناءً على طلبك */
   width: auto;
   display: block;
 }
 
+/* تحريك زر القائمة قليلاً إلى اليمين ليتوافق مع محاذاة الصفحة */
 .header-logo-section {
   padding-left: 6px;
 }
@@ -325,39 +326,21 @@ body.ltr-mode .status-badge-inline {
   margin-left: 12px;
 }
 
-/* ===== نوع المنشأة / نوع الشركة — ORIGINAL POSITION ===== */
-
-.info-row-first {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.info-row-first { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
   gap: 8px;
-  padding: 10px 0;
-  border-top: 1px solid #E5E3F1;
-  border-bottom: none;
-  font-size: 13.5px;
+  padding: 10px 0; 
+  border-top: 1px solid #E5E3F1; 
+  border-bottom: none; 
+  font-size: 13.5px; 
   margin-top: 4px;
-}
-
-/* صرف لائن — لکھائی کو بالکل touch نہیں کرے گی */
-.info-row-first::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 60px;
-  height: 60px;
-  background-image: url("line.png");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 60px 60px;
-  pointer-events: none;
 }
 
 .info-row-second { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: flex-start; 
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
@@ -560,16 +543,12 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
       
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
-        <span class="info-val">
-          <span class="chip" id="valFacilityType">شركة</span>
-        </span>
+        <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
       <div class="info-row-second">
         <span class="info-label" id="lblCompanyType">نوع الشركة</span>
-        <span class="info-val">
-          <span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span>
-        </span>
+        <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
 
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
