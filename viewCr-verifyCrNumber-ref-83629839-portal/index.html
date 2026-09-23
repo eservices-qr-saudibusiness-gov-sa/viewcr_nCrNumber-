@@ -136,15 +136,15 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .sidebar-content { padding: 0 20px; display: flex; flex-direction: column; gap: 15px; align-items: flex-end; }
 body.ltr-mode .sidebar-content { align-items: flex-start; }
 
-/* تم تصغير الحجم وإرساله لليسار/اليمين وتغيير اتجاه السهم بناءً على طلبك */
+/* منصة الأعمال: تم ضبطه ليكون أقصى اليمين وبنفس الأسلوب المطلوب[span_4](start_span)[span_4](end_span) */
 .sidebar-btn-primary { 
   background: #6b6496; 
   color: white; 
   border: none; 
   border-radius: 8px; 
-  padding: 8px 12px; 
-  font-weight: 800; 
-  font-size: 14.5px; 
+  padding: 8px 14px; 
+  font-weight: 900; 
+  font-size: 15.5px; 
   cursor: pointer; 
   font-family: 'Cairo', sans-serif; 
   display: flex;
@@ -153,37 +153,40 @@ body.ltr-mode .sidebar-content { align-items: flex-start; }
   gap: 8px;
   width: fit-content;
   box-shadow: 0 2px 8px rgba(107, 100, 150, 0.2);
+  align-self: flex-end;
 }
 body.ltr-mode .sidebar-btn-primary {
   justify-content: flex-start;
   flex-direction: row-reverse;
+  align-self: flex-start;
 }
 
 .sidebar-btn-icon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border: 1.5px solid #ffffff;
   border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 11px;
+  font-weight: bold;
 }
 
-.sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f3f4f6; width: 100%; }
-.sidebar-row-label { font-weight: 800; font-size: 15px; color: #1f2937; }
+.sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f3f4f6; width: 100%; }
+.sidebar-row-label { font-weight: 900; font-size: 16px; color: #1f2937; }
 
-/* تم تصغير حجم الصناديق الخاصة بـ En و A+ مع الحفاظ على خط و حجم الكتابة بداخلهما */
+/* En और A+ के बॉक्सेस: अंदर कोई रंग नहीं, सिर्फ बॉर्डर का रंग #6b6496 और साइज़ छोटा[span_5](start_span)[span_5](end_span) */
 .sidebar-action-box { 
-  background: #f9fafb; 
-  border: 1px solid #d1d5db; 
+  background: transparent; 
+  border: 1.5px solid #6b6496; 
   border-radius: 6px; 
-  padding: 4px 10px; 
-  font-weight: 800; 
+  padding: 3px 10px; 
+  font-weight: 900; 
   font-size: 14.5px; 
   cursor: pointer; 
   color: #1f2937; 
-  min-width: 45px;
+  min-width: 42px;
   text-align: center;
 }
 
@@ -456,7 +459,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   </div>
   <div class="sidebar-content">
     <button class="sidebar-btn-primary" onclick="window.open('https://scbc.gov.sa/?culture=en', '_blank')">
-      <div class="sidebar-btn-icon">⬅</div>
+      <div class="sidebar-btn-icon">➔</div>
       <span id="sidebarPlatformBtn">منصة الأعمال</span>
     </button>
     <div class="sidebar-row">
