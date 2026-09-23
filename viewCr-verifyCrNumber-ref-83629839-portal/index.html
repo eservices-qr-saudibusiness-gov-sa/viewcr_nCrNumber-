@@ -136,15 +136,17 @@ body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
 .sidebar-content { padding: 0 20px; display: flex; flex-direction: column; gap: 15px; align-items: flex-end; }
 body.ltr-mode .sidebar-content { align-items: flex-start; }
 
-/* منصة الأعمال: تم ضبطه ليكون أقصى اليمين وبنفس الأسلوب المطلوب[span_4](start_span)[span_4](end_span) */
+/* منصة الأعمال: تم نقل الصندوق ليصبح في نفس سطر خيارات القائمة */
+.sidebar-row-platform { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f3f4f6; width: 100%; }
+
 .sidebar-btn-primary { 
   background: #6b6496; 
   color: white; 
   border: none; 
   border-radius: 8px; 
-  padding: 8px 14px; 
+  padding: 6px 12px; 
   font-weight: 900; 
-  font-size: 15.5px; 
+  font-size: 15px; 
   cursor: pointer; 
   font-family: 'Cairo', sans-serif; 
   display: flex;
@@ -152,31 +154,29 @@ body.ltr-mode .sidebar-content { align-items: flex-start; }
   justify-content: flex-end;
   gap: 8px;
   width: fit-content;
-  box-shadow: 0 2px 8px rgba(107, 100, 150, 0.2);
-  align-self: flex-end;
+  box-shadow: 0 2px 6px rgba(107, 100, 150, 0.2);
 }
 body.ltr-mode .sidebar-btn-primary {
   justify-content: flex-start;
   flex-direction: row-reverse;
-  align-self: flex-start;
 }
 
 .sidebar-btn-icon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border: 1.5px solid #ffffff;
   border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: bold;
 }
 
 .sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f3f4f6; width: 100%; }
 .sidebar-row-label { font-weight: 900; font-size: 16px; color: #1f2937; }
 
-/* En और A+ के बॉक्सेस: अंदर कोई रंग नहीं, सिर्फ बॉर्डर का रंग #6b6496 और साइज़ छोटा[span_5](start_span)[span_5](end_span) */
+/* En और A+ के बॉक्सेस */
 .sidebar-action-box { 
   background: transparent; 
   border: 1.5px solid #6b6496; 
@@ -458,10 +458,13 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
     <button class="close-sidebar" onclick="toggleMenu()">✕</button>
   </div>
   <div class="sidebar-content">
-    <button class="sidebar-btn-primary" onclick="window.open('https://scbc.gov.sa/?culture=en', '_blank')">
-      <div class="sidebar-btn-icon">➔</div>
-      <span id="sidebarPlatformBtn">منصة الأعمال</span>
-    </button>
+    <div class="sidebar-row-platform">
+      <span class="sidebar-row-label"></span>
+      <button class="sidebar-btn-primary" onclick="window.open('https://scbc.gov.sa/?culture=en', '_blank')">
+        <div class="sidebar-btn-icon">🡰</div>
+        <span id="sidebarPlatformBtn">منصة الأعمال</span>
+      </button>
+    </div>
     <div class="sidebar-row">
       <span class="sidebar-row-label" id="langRowLabel">اللغة</span>
       <button class="sidebar-action-box" id="langBtn" onclick="toggleLanguage()">En</button>
