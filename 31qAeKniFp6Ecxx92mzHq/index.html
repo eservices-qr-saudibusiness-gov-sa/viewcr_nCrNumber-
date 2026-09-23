@@ -286,30 +286,12 @@ body.ltr-mode .notice-banner p {
 }
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
 
-/* Arabic Mode: Logo on Right, Line on Left */
-.card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; position: relative; width: fit-content; }
-.card-side-logo::after {
-  content: "";
-  position: absolute;
-  left: -14px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.5px;
-  height: 24px;
-  background: #d1d5db;
-  border-radius: 1px;
-  pointer-events: none;
-}
+/* Arabic Mode: Logo on Right */
+.card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; }
 
-/* English (LTR) Mode: Logo on Left, Line on Right (Mirror Effect) */
+/* English (LTR) Mode: Logo on Left (Mirror Effect) بدون أي خطوط إضافية */
 body.ltr-mode .card-side-logo { 
   justify-content: flex-end; 
-  margin-left: auto;
-  margin-right: 0;
-}
-body.ltr-mode .card-side-logo::after {
-  left: auto;
-  right: -14px;
 }
 
 .gov-seal-side { 
@@ -359,28 +341,9 @@ body.ltr-mode .card-side-logo::after {
   border-bottom: none; 
   font-size: 13.5px; 
   margin-top: 4px;
-  position: relative;
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
-}
-
-.info-row-first::after {
-  content: "";
-  position: absolute;
-  right: 25px; 
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.5px;   
-  height: 32px; 
-  background: #d1d5db; 
-  border-radius: 1px;
-  pointer-events: none;
-}
-
-body.ltr-mode .info-row-first::after {
-  right: auto;
-  left: 25px; 
 }
 
 .info-row-second { 
@@ -392,7 +355,6 @@ body.ltr-mode .info-row-first::after {
   border-bottom: none; 
   font-size: 13.5px; 
   direction: rtl;
-  position: relative;
 }
 body.ltr-mode .info-row-second {
   direction: ltr;
