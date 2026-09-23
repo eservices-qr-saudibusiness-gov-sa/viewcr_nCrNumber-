@@ -340,12 +340,18 @@ body.ltr-mode .status-badge-inline {
 
 .info-row-second { 
   display: flex; 
-  justify-content: center; 
+  justify-content: flex-start; 
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
   border-bottom: none; 
   font-size: 13.5px; 
+  direction: rtl;
+}
+
+.info-row-second .info-label,
+.info-row-second .info-val {
+  margin: 0;
 }
 
 .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
