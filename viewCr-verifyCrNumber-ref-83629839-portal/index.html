@@ -324,7 +324,7 @@ body.ltr-mode .status-badge-inline {
 
 .info-row-first { 
   display: flex; 
-  justify-content: center; 
+  justify-content: space-between; 
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
@@ -334,10 +334,9 @@ body.ltr-mode .status-badge-inline {
   margin-top: 4px;
 }
 body.ltr-mode .info-row-first {
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
-/* صُممت لتظل طبيعية في الوضع العربي وتنعكس فقط في وضع LTR */
 .info-row-second { 
   display: flex; 
   justify-content: space-between; 
@@ -577,8 +576,7 @@ body.ltr-mode .info-row-first::after {
         <span class="info-val"><span class="chip" id="valFacilityType">شركة</span></span>
       </div>
       
-      <!-- تم تعديل هذه السطر ليعود لوضعه الطبيعي في العربي وينعكس في الإنجليزي فقط -->
-      <div class="info-row-second" style="flex-direction: row-reverse;">
+      <div class="info-row-second">
         <span class="info-label" id="lblCompanyType">نوع الشركة</span>
         <span class="info-val"><span class="chip" id="valCompanyType">ذات مسؤولية محدودة</span></span>
       </div>
