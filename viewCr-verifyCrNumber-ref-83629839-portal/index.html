@@ -9,7 +9,7 @@
 <!-- استيراد خط TheSans Arabic من مكتبة خطوط لإتاحته -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/thesansarabic.css">
 <style>
-/* تأثير الشاشة البيضاء عند التحميل مع كلمة جاري التحميل */
+/* تأثير الشاشة البيضاء عند التحميل */
 #loader-screen {
   position: fixed;
   top: 0;
@@ -18,19 +18,7 @@
   height: 100%;
   background-color: #ffffff;
   z-index: 99999;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: opacity 0.4s ease;
-}
-
-.loader-text {
-  font-size: 26px;
-  font-weight: 900;
-  color: #1f2937;
-  font-family: 'Cairo', sans-serif;
-  letter-spacing: -0.5px;
+  transition: opacity 0.3s ease;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -307,16 +295,14 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   display: block; 
 }
 
+/* تنسيق صف اسم الشركة والحالة المتحكم فيه باللغات */
 .comp-title-row { 
   display: flex; 
-  justify-content: flex-start; 
+  justify-content: space-between; 
   align-items: center; 
   gap: 8px; 
   margin-top: 2px; 
-  flex-direction: row; 
-}
-body.ltr-mode .comp-title-row { 
-  flex-direction: row-reverse; 
+  direction: rtl;
 }
 
 .comp-title { 
@@ -328,7 +314,6 @@ body.ltr-mode .comp-title-row {
   flex-grow: 1;
   padding-right: 5px;
 }
-body.ltr-mode .comp-title { text-align: right; padding-right: 0; padding-left: 5px; }
 
 .status-badge-inline { 
   background-color: #ecfdf5; 
@@ -340,11 +325,6 @@ body.ltr-mode .comp-title { text-align: right; padding-right: 0; padding-left: 5
   border: 1px solid #a7f3d0; 
   white-space: nowrap;
   flex-shrink: 0;
-  margin-right: 12px;
-}
-body.ltr-mode .status-badge-inline {
-  margin-right: 0;
-  margin-left: 12px;
 }
 
 .info-row-first { 
@@ -541,10 +521,8 @@ body.ltr-mode .info-row-first::after {
 </head>
 <body>
 
-<!-- شاشة التحميل المعلقة "جاري التحميل..." -->
-<div id="loader-screen">
-  <div class="loader-text" id="loaderText">جاري التحميل...</div>
-</div>
+<!-- شاشة التحميل المعلقة -->
+<div id="loader-screen"></div>
 
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
 <div class="sidebar" id="appSidebar">
@@ -594,7 +572,7 @@ body.ltr-mode .info-row-first::after {
         <div class="card-side-logo">
           <img src="company-logo.png" alt="" class="gov-seal-side">
         </div>
-        <div class="comp-title-row">
+        <div class="comp-title-row" id="companyTitleRow">
           <div class="comp-title" id="compName">شركة عبدالهادي محمد اليامي للمقاولات</div>
           <span class="status-badge-inline" id="statusBadge">نشط</span>
         </div>
@@ -723,7 +701,6 @@ body.ltr-mode .info-row-first::after {
 </div>
 
 <script>
-/* تأخير زمني لمدة ثانية واحدة ليظهر نص "جاري التحميل..." بشكل مشابه للصورة ثم تختفي شاشة التحميل */
 window.addEventListener('load', function() {
   setTimeout(function() {
     const loader = document.getElementById('loader-screen');
@@ -731,9 +708,9 @@ window.addEventListener('load', function() {
       loader.style.opacity = '0';
       setTimeout(function() {
         loader.style.display = 'none';
-      }, 400);
+      }, 300);
     }
-  }, 1200);
+  }, 1000);
 });
 
 function toggleMenu() {
@@ -741,6 +718,30 @@ function toggleMenu() {
   const overlay = document.getElementById('sidebarOverlay');
   sidebar.classList.toggle('active');
   overlay.classList.toggle('active');
+}
+
+function updateCompanyLanguage(lang) {
+  const row = document.getElementById("companyTitleRow");
+  const name = document.getElementById("compName");
+  const status = document.getElementById("statusBadge");
+
+  if (lang === "en") {
+    name.textContent = "Abdulhadi Mohammed Al Yami Contracting Company";
+    status.textContent = "Active";
+
+    row.style.direction = "ltr";
+    row.style.justifyContent = "space-between";
+    name.style.order = "1";
+    status.style.order = "2";
+  } else {
+    name.textContent = "شركة عبدالهادي محمد اليامي للمقاولات";
+    status.textContent = "نشط";
+
+    row.style.direction = "rtl";
+    row.style.justifyContent = "space-between";
+    status.style.order = "1";
+    name.style.order = "2";
+  }
 }
 
 let isEnglish = false;
@@ -756,14 +757,14 @@ function toggleLanguage() {
     rowSecond.style.direction = 'ltr';
     rowSecond.style.justifyContent = 'space-between';
     document.getElementById('pageTitle').innerText = "Commercial Registration Data";
-    document.getElementById('loaderText').innerText = "Loading...";
     document.getElementById('sidebarPlatformBtn').innerText = "Business Platform";
     document.getElementById('langRowLabel').innerText = "Language";
     document.getElementById('fontRowLabel').innerText = "Font Size";
     document.getElementById('mainHeading').innerText = "Commercial Registration Data";
     document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible for any shortage or discrepancy in the data, as data is retrieved in integration with the relevant authorities.";
-    document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "Active");
-    document.getElementById('compName').innerText = "Abdulhadi Mohammed Al Yami Contracting Company";
+    
+    updateCompanyLanguage("en");
+
     document.getElementById('lblFacilityType').innerText = "Facility Type";
     document.getElementById('valFacilityType').innerText = "Company";
     document.getElementById('lblCompanyType').innerText = "Company Type";
@@ -801,14 +802,14 @@ function toggleLanguage() {
     rowSecond.style.direction = 'rtl';
     rowSecond.style.justifyContent = 'flex-start';
     document.getElementById('pageTitle').innerText = "بيانات السجل التجاري";
-    document.getElementById('loaderText').innerText = "جاري التحميل...";
     document.getElementById('sidebarPlatformBtn').innerText = "منصة الأعمال";
     document.getElementById('langRowLabel').innerText = "اللغة";
     document.getElementById('fontRowLabel').innerText = "حجم الخط";
     document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
     document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
-    document.querySelectorAll('#statusBadge').forEach(el => el.innerText = "نشط");
-    document.getElementById('compName').innerText = "شركة عبدالهادي محمد اليامي للمقاولات";
+    
+    updateCompanyLanguage("ar");
+
     document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
     document.getElementById('valFacilityType').innerText = "شركة";
     document.getElementById('lblCompanyType').innerText = "نوع الشركة";
