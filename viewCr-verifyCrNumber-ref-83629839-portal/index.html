@@ -325,12 +325,12 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   flex-shrink: 0;
 }
 
-/* درست ألاينمنت و التوسعة المناسبة لتكون قرب اللاعبة تماماً بلا تداخل */
+/* تم ضبط المسافة لتكون قريبة جداً ومضبوطة بجانب الخط تماماً */
 .info-row-first { 
   display: flex; 
-  justify-content: flex-end; 
+  justify-content: flex-start; 
   align-items: center; 
-  gap: 8px;
+  gap: 12px;
   padding: 10px 0; 
   border-top: none; 
   border-bottom: none; 
@@ -340,14 +340,14 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
 body.ltr-mode .info-row-first {
   flex-direction: row;
   justify-content: flex-start;
-  gap: 8px;
+  gap: 12px;
 }
 
 .info-row-second { 
   display: flex; 
   justify-content: flex-start; 
   align-items: center; 
-  gap: 8px;
+  gap: 12px;
   padding: 10px 0; 
   border-bottom: none; 
   font-size: 13.5px; 
@@ -356,7 +356,7 @@ body.ltr-mode .info-row-first {
 body.ltr-mode .info-row-second {
   direction: ltr;
   justify-content: flex-start;
-  gap: 25px;
+  gap: 12px;
 }
 
 .info-row-second .info-label,
@@ -501,7 +501,7 @@ body.ltr-mode .footer-brand {
 .info-row-first::after {
   content: "";
   position: absolute;
-  right: 25px; 
+  right: 65px; 
   top: 50%;
   transform: translateY(-50%);
   width: 1.5px;   
@@ -513,7 +513,7 @@ body.ltr-mode .footer-brand {
 
 body.ltr-mode .info-row-first::after {
   right: auto;
-  left: 20px; 
+  left: 75px; 
 }
 
 .info-row-second {
