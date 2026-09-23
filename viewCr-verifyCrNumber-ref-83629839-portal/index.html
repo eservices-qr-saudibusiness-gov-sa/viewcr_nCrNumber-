@@ -71,7 +71,7 @@ body.ltr-mode { direction: ltr; text-align: left; }
   display: flex; 
   align-items: center; 
   gap: 12px; 
-  margin-right: 0px; /* Logo ko mazeed right side (bayanat wali taraf) shift kar diya hai */
+  margin-right: 0px; 
 }
 body.ltr-mode .header-right {
   margin-right: 0;
@@ -85,11 +85,20 @@ body.ltr-mode .header-right {
   cursor: pointer;
 }
 
-/* تعيين الارتفاع الجديد 54px وإبقائه ملامساً للأعلى */
+/* تم ضبط الارتفاع إلى 52px بناءً على طلبك */
 .header-brand-img {
-  max-height: 54px;
+  max-height: 52px;
   width: auto;
   display: block;
+}
+
+/* تحريك زر القائمة قليلاً إلى اليمين ليتوافق مع محاذاة الصفحة */
+.header-logo-section {
+  padding-left: 6px;
+}
+body.ltr-mode .header-logo-section {
+  padding-left: 0;
+  padding-right: 6px;
 }
 
 .menu-btn { 
