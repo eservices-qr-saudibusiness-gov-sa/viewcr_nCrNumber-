@@ -277,8 +277,8 @@ body.ltr-mode .notice-banner p {
 body.ltr-mode .card-side-logo { justify-content: flex-end; }
 
 .gov-seal-side { 
-  width: 75px; 
-  height: 75px; 
+  max-height: 49px; /* Max height set to 49px as requested */
+  width: auto; 
   object-fit: contain; 
   display: block; 
 }
@@ -289,10 +289,10 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   align-items: center; 
   gap: 8px; 
   margin-top: 2px; 
-  flex-direction: row; /* Arabic default: name right, badge left */
+  flex-direction: row; 
 }
 body.ltr-mode .comp-title-row { 
-  flex-direction: row-reverse; /* English mode: name left (now right side in LTR layout), badge right (now left side) */
+  flex-direction: row-reverse; 
 }
 
 .comp-title { 
@@ -329,7 +329,7 @@ body.ltr-mode .status-badge-inline {
   align-items: center; 
   gap: 8px;
   padding: 10px 0; 
-  border-top: 1px solid #E5E3F1; 
+  border-top: none; /* Long horizontal line removed */
   border-bottom: none; 
   font-size: 13.5px; 
   margin-top: 4px;
@@ -487,29 +487,6 @@ body.ltr-mode .footer-brand {
 .footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 12px; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
-
-/* ===== LINE STYLING WITH RTL/LTR SUPPORT ===== */
-.info-row-first {
-  position: relative;
-}
-
-.info-row-first::after {
-  content: "";
-  position: absolute;
-  right: 25px; 
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.5px;   
-  height: 32px; 
-  background: #d1d5db; 
-  border-radius: 1px;
-  pointer-events: none;
-}
-
-body.ltr-mode .info-row-first::after {
-  right: auto;
-  left: 25px; 
-}
 
 .info-row-second {
   position: relative;
