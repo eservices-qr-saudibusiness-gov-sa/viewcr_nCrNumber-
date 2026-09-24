@@ -6,10 +6,8 @@
 <title id="pageTitle">بيانات السجل التجاري</title>
 <!-- استيراد خطوط عربية -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<!-- استيراد خط TheSans Arabic من مكتبة خطوط لإتاحته -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/thesansarabic.css">
 <style>
-/* تأثير الشاشة البيضاء عند التحميل */
 #loader-screen {
   position: fixed;
   top: 0;
@@ -42,7 +40,6 @@ body.ltr-mode { direction: ltr; text-align: left; }
   overflow: hidden;
 }
 
-/* ===== CITY BACKGROUND ===== */
 .main-wrapper::before {
     content: "";
     position: absolute;
@@ -63,7 +60,6 @@ body.ltr-mode { direction: ltr; text-align: left; }
   z-index: 2;
 }
 
-/* الهيدر مع ضبط الارتفاع العلوي تماماً */
 .header { 
   background: transparent; 
   padding: 2px 10px 12px 10px; 
@@ -78,11 +74,6 @@ body.ltr-mode { direction: ltr; text-align: left; }
   display: flex; 
   align-items: center; 
   gap: 12px; 
-  margin-right: 0px; 
-}
-body.ltr-mode .header-right {
-  margin-right: 0;
-  margin-left: 0px;
 }
 
 .header-brand-link {
@@ -124,7 +115,6 @@ body.ltr-mode .menu-btn { align-items: flex-start; }
   height: 2.5px; 
   background-color: #ffffff; 
   border-radius: 2px; 
-  box-shadow: none; 
 }
 .menu-bar:nth-child(1) { width: 100%; }
 .menu-bar:nth-child(2) { width: 65%; }
@@ -286,7 +276,6 @@ body.ltr-mode .notice-banner p {
 }
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
 
-/* ===== شركة logo في الأعلى ===== */
 .card-side-logo { 
   display: flex; 
   justify-content: flex-start; 
@@ -477,32 +466,32 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   border: 1px solid #E5E3F1; 
 }
 
-/* ===== تم تصحيح وترتيب سدايا لوگو والنص تماماً حسب رغبتك ===== */
+/* ===== تم تصحيح وترتيب سدايا لوگو والنص بدقة تامة للعربي والانجليزي ===== */
 .footer-brand-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse; /* في العربي: النص يمين والشعار يسار أو حسب الترتيب الافتراضي */
+  flex-direction: row; /* في العربي: الشعار يمين والنص يسار */
   width: 100%;
   gap: 8px;
   margin-bottom: 12px;
   padding: 0;
 }
 body.ltr-mode .footer-brand-row {
-  flex-direction: row; /* في الإنجليزي: الشعار أولاً على اليسار ثم النص على اليمين */
+  flex-direction: row-reverse; /* في الإنجليزي: الشعار يسار والنص يمين */
 }
 
 .footer-brand {
   font-weight: 700;
   font-size: 12px;
   color: #4b5563;
-  text-align: right; 
+  text-align: left; 
   line-height: 1.5;
   flex: 1;
   margin-top: 0;
 }
 body.ltr-mode .footer-brand {
-  text-align: left; /* النص الإنجليزي جهة اليمين مقابل الشعار */
+  text-align: right; 
 }
 
 .sdaia-logo-img {
@@ -517,10 +506,11 @@ body.ltr-mode .footer-brand {
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280;  }
 
+/* ===== ضبط مكان اللوحة أو الLine حسب اللغة ===== */
 .info-row-first::before {
   content: "";
   position: absolute;
-  right: 20px;
+  right: 20px; /* الافتراضي للعربي: يمين */
   top: calc(50% - 24px);
   width: 48px;
   height: 48px;
@@ -529,13 +519,12 @@ body.ltr-mode .footer-brand {
 }
 body.ltr-mode .info-row-first::before {
   right: auto;
-  left: 20px;
+  left: 20px; /* للإنجليزي: يسار */
 }
 </style>
 </head>
 <body>
 
-<!-- شاشة التحميل البيضاء -->
 <div id="loader-screen"></div>
 
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
@@ -702,7 +691,6 @@ body.ltr-mode .info-row-first::before {
     </div>
     
     <footer class="footer">
-      <!-- تم تعديل الترتيب هنا بدقة: الشعار أولاً ثم النص -->
       <div class="footer-brand-row">
         <img src="SDAIA-logo.png" alt="SDAIA Logo" class="sdaia-logo-img">
         <span class="footer-brand" id="footerBrandTitle">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي</span>
@@ -894,7 +882,7 @@ function setLanguageToArabic() {
   document.getElementById('secManagers').innerText = "قائمة المديرين";
   document.getElementById('managerName').innerText = "نايف سالم حمدان الظفيري";
   document.getElementById('footerBrandTitle').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
-  document.getElementById('footerBrandTitle').style.textAlign = "right";
+  document.getElementById('footerBrandTitle').style.textAlign = "left";
   document.getElementById('footerLinkPrivacy').innerText = "سياسة الخصوصية";
   document.getElementById('footerLinkTerms').innerText = "الشروط والأحكام";
   document.getElementById('footerLinkFAQ').innerText = "الأسئلة الشائعة";
