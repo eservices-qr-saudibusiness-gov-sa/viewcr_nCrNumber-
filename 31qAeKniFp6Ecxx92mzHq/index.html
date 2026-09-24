@@ -477,7 +477,7 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   border: 1px solid #E5E3F1; 
 }
 
-/* ===== تحكم تام وكامل بسدايا لوگو والتحويل التلقائي بين العربي والإنجليزي مثل الهيدر تماماً ===== */
+/* ===== التنسيق الدقيق لـ سدايا لوگو في الفوتر (عربي: الشعار يمين والنص يسار / إنجليزي: الشعار يسار والنص يمين تماماً مثل الأعلى) ===== */
 .footer-brand-row {
   display: flex;
   justify-content: space-between;
@@ -489,20 +489,20 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   padding: 0;
 }
 body.ltr-mode .footer-brand-row {
-  flex-direction: row; /* في الإنجليزي: الشعار بفضل الله أصبح على اليسار والنص على اليمين تماماً مثل الأعلى */
+  flex-direction: row; /* في الإنجليزي: الشعار بفضل الله أصبح على اليسار والنص على اليمين تماماً مثل company-logo */
 }
 
 .footer-brand {
   font-weight: 700;
   font-size: 12px;
   color: #4b5563;
-  text-align: right; /* في العربي: النص يمين */
+  text-align: left; /* في العربي: النص على اليسار والشعار على اليمين */
   line-height: 1.5;
   flex: 1;
   margin-top: 0;
 }
 body.ltr-mode .footer-brand {
-  text-align: left; /* في الإنجليزي: النص صار على اليسار مقابل الشعار الذي على اليسار */
+  text-align: right; /* في الإنجليزي: النص صار على اليمين والشعار على اليسار */
 }
 
 .sdaia-logo-img {
@@ -823,8 +823,11 @@ function setLanguageToEnglish() {
   document.getElementById('activityText4').innerText = "General construction of government buildings";
   document.getElementById('secManagers').innerText = "Managers List";
   document.getElementById('managerName').innerText = "Naif Salem Hamdan Al-Dhafiri";
-  document.getElementById('footerBrandTitle').innerText = "Developed by Saudi Data and AI Authority";
-  document.getElementById('footerBrandTitle').style.textAlign = "left";
+  
+  const footerBrand = document.getElementById('footerBrandTitle');
+  footerBrand.innerText = "Developed by Saudi Data and AI Authority";
+  footerBrand.style.textAlign = "right";
+
   document.getElementById('footerLinkPrivacy').innerText = "Privacy Policy";
   document.getElementById('footerLinkTerms').innerText = "Terms & Conditions";
   document.getElementById('footerLinkFAQ').innerText = "FAQ";
@@ -892,8 +895,11 @@ function setLanguageToArabic() {
   document.getElementById('activityCode4').innerText = "410019";
   document.getElementById('secManagers').innerText = "قائمة المديرين";
   document.getElementById('managerName').innerText = "نايف سالم حمدان الظفيري";
-  document.getElementById('footerBrandTitle').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
-  document.getElementById('footerBrandTitle').style.textAlign = "right";
+  
+  const footerBrand = document.getElementById('footerBrandTitle');
+  footerBrand.innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
+  footerBrand.style.textAlign = "left";
+
   document.getElementById('footerLinkPrivacy').innerText = "سياسة الخصوصية";
   document.getElementById('footerLinkTerms').innerText = "الشروط والأحكام";
   document.getElementById('footerLinkFAQ').innerText = "الأسئلة الشائعة";
