@@ -342,7 +342,7 @@ body.ltr-mode .comp-title {
   flex-shrink: 0;
 }
 
-/* ضبط التطابق التام لكل من وضع العربية والإنجليزية لـ نوع المنشأة */
+/* تم ضبط إزاحة المحتوى (نوع المنشأة / Facility Type) لليمين في العربي، وتلقائياً لليسار في الإنجليزي كمرآة منعكسة تماماً */
 .info-row-first { 
   display: flex; 
   justify-content: center; 
@@ -354,12 +354,12 @@ body.ltr-mode .comp-title {
   font-size: 13.5px; 
   margin-top: 4px;
   position: relative;
-  right: 8px;
+  right: 14px;
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
   right: auto;
-  left: 8px;
+  left: 14px;
 }
 
 .info-row-second { 
@@ -514,11 +514,11 @@ body.ltr-mode .footer-brand {
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280;  }
 
-/* ضبط مكان line.png تماماً في كلتا اللغتين لتكون متطابقة ومنسقة تماماً */
+/* صورة line.png تتحرك لليمين في العربي، وتنعكس تماماً لتتحرك لليسار في الإنجليزي (Mirror Effect) */
 .info-row-first::before {
   content: "";
   position: absolute;
-  right: 8px;
+  right: 32px;
   top: calc(50% - 24px);
   width: 48px;
   height: 48px;
@@ -527,7 +527,7 @@ body.ltr-mode .footer-brand {
 }
 body.ltr-mode .info-row-first::before {
   right: auto;
-  left: 8px;
+  left: 32px;
 }
 </style>
 </head>
