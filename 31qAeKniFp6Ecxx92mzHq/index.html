@@ -286,15 +286,15 @@ body.ltr-mode .notice-banner p {
 }
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
 
-/* ===== ربط الشعار مباشرة بمكان اسم الشركة (يمين في العربي، يسار في الإنجليزي فوق الاسم) ===== */
+/* ===== ضبط مكان الشعار: في العربي يظهر على اليمين فوق اسم الشركة مباشرة، وفي الإنجليزي على اليسار تماماً كما طلبت ===== */
 .card-side-logo { 
   display: flex; 
-  justify-content: flex-end; /* في العربي: الشعار يظهر فوق اسم الشركة من اليمين */
+  justify-content: flex-start; /* في العربي: الشعار يظهر على جهة اليمين (نظراً لكون الاتجاه RTL، فالـ flex-start يضعه يميناً) */
   margin-bottom: 4px; 
 }
 
 body.ltr-mode .card-side-logo { 
-  justify-content: flex-start; /* في الإنجليزي: الشعار يتحرك ليصبح فوق اسم الشركة من اليسار تماماً */
+  justify-content: flex-start; /* في الإنجليزي: الشعار يبقى في جهة اليسار فوق اسم الشركة كما طلبت تماماً */
 }
 
 .gov-seal-side { 
@@ -585,7 +585,7 @@ body.ltr-mode .info-row-first::before {
     
     <div class="card">
       <div class="card-top-section">
-        <!-- الشعار والصورة الآن مرتبطان تماماً مع مكان اسم الشركة (يمين في العربي، ويسار فوق الاسم تماماً في الإنجليزي) -->
+        <!-- الشعار الآن في الجهة اليمنى تماماً في العربي، ويبقى على اليسار في الإنجليزي -->
         <div class="card-side-logo">
           <img src="company-logo.png" alt="" class="gov-seal-side">
         </div>
