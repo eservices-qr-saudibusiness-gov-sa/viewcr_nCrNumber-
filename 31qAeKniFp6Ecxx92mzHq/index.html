@@ -342,7 +342,6 @@ body.ltr-mode .comp-title {
   flex-shrink: 0;
 }
 
-/* تم ضبط إزاحة المحتوى (نوع المنشأة / Facility Type) لليمين في العربي، وتلقائياً لليسار في الإنجليزي كمرآة منعكسة تماماً */
 .info-row-first { 
   display: flex; 
   justify-content: center; 
@@ -354,12 +353,9 @@ body.ltr-mode .comp-title {
   font-size: 13.5px; 
   margin-top: 4px;
   position: relative;
-  right: 14px;
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
-  right: auto;
-  left: 14px;
 }
 
 .info-row-second { 
@@ -514,11 +510,11 @@ body.ltr-mode .footer-brand {
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280;  }
 
-/* صورة line.png تتحرك لليمين في العربي، وتنعكس تماماً لتتحرك لليسار في الإنجليزي (Mirror Effect) */
+/* زيادة حجم line.png قليلاً (48px) مع الحفاظ على تمركزها ومكانها الأصلي تماماً دون أي خطوط إضافية */
 .info-row-first::before {
   content: "";
   position: absolute;
-  right: 32px;
+  right: 20px;
   top: calc(50% - 24px);
   width: 48px;
   height: 48px;
@@ -527,7 +523,7 @@ body.ltr-mode .footer-brand {
 }
 body.ltr-mode .info-row-first::before {
   right: auto;
-  left: 32px;
+  left: 20px;
 }
 </style>
 </head>
@@ -658,6 +654,7 @@ body.ltr-mode .info-row-first::before {
         <span class="info-val" id="valCapital" style="color: #000000;">﷼ 5,000.00</span>
       </div>
 
+      <!-- العنوان "بيانات الاتصال" بمحاذاة أفقية إلى اليمين تماماً -->
       <div style="text-align: right; font-size: 17px; font-weight: 900; color: #000000; margin: 20px 0 12px 0; padding-right: 6px;" id="secContactInfo">بيانات الاتصال</div>
 
       <div class="info-row">
@@ -949,3 +946,5 @@ function toggleFontSize() {
 </script>
 </body>
 </html>
+
+ 
