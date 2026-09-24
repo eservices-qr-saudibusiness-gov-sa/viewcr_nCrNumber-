@@ -285,27 +285,11 @@ body.ltr-mode .notice-banner p {
   border: 1px solid #E5E3F1; 
 }
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
-.card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; position: relative; width: fit-content; }
-.card-side-logo::after {
-  content: "";
-  position: absolute;
-  left: -14px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.5px;
-  height: 24px;
-  background: #d1d5db;
-  border-radius: 1px;
-  pointer-events: none;
-}
+.card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; width: fit-content; }
 body.ltr-mode .card-side-logo { 
   justify-content: flex-end; 
   margin-left: auto;
   margin-right: 0;
-}
-body.ltr-mode .card-side-logo::after {
-  left: auto;
-  right: -14px;
 }
 
 .gov-seal-side { 
@@ -359,24 +343,6 @@ body.ltr-mode .card-side-logo::after {
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
-}
-
-.info-row-first::after {
-  content: "";
-  position: absolute;
-  right: 25px; 
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.5px;   
-  height: 32px; 
-  background: #d1d5db; 
-  border-radius: 1px;
-  pointer-events: none;
-}
-
-body.ltr-mode .info-row-first::after {
-  right: auto;
-  left: 25px; 
 }
 
 .info-row-second { 
@@ -586,7 +552,7 @@ body.ltr-mode .footer-brand {
           <img src="company-logo.png" alt="" class="gov-seal-side">
         </div>
         <div class="comp-title-row" id="companyTitleRow">
-          <div class="comp-title" id="compName">نايف سالم حمدان الظفيري</div>
+          <div class="comp-title" id="compName">نقل نايف سالم حمدان الظفيري</div>
           <span class="status-badge-inline" id="statusBadge">نشط</span>
         </div>
       </div>
@@ -744,7 +710,7 @@ function updateCompanyLanguage(lang) {
   const status = document.getElementById("statusBadge");
 
   if (lang === "en") {
-    name.textContent = "Nayef Salem Hamdan Al-Dhafiri";
+    name.textContent = "Naif Salem Hamdan Al-Dhafiri Transport";
     status.textContent = "Active";
 
     row.style.direction = "ltr";
@@ -753,7 +719,7 @@ function updateCompanyLanguage(lang) {
     status.style.order = "2";
     name.style.textAlign = "left";
   } else {
-    name.textContent = "نايف سالم حمدان الظفيري";
+    name.textContent = "نقل نايف سالم حمدان الظفيري";
     status.textContent = "نشط";
 
     row.style.direction = "rtl";
