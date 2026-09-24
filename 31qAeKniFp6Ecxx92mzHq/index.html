@@ -477,32 +477,32 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   border: 1px solid #E5E3F1; 
 }
 
-/* ===== تحكم تام وكامل بسدايا لوگو والتحويل التلقائي بين العربي والإنجليزي مثل الهيدر تماماً ===== */
+/* ===== تم تصحيح وترتيب سدايا لوگو والنص تماماً حسب رغبتك ===== */
 .footer-brand-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse; /* في العربي: الشعار يمين والنص يسار */
+  flex-direction: row-reverse; /* في العربي: النص يمين والشعار يسار أو حسب الترتيب الافتراضي */
   width: 100%;
   gap: 8px;
   margin-bottom: 12px;
   padding: 0;
 }
 body.ltr-mode .footer-brand-row {
-  flex-direction: row; /* في الإنجليزي: الشعار أصبح على اليسار والنص على اليمين تماماً */
+  flex-direction: row; /* في الإنجليزي: الشعار أولاً على اليسار ثم النص على اليمين */
 }
 
 .footer-brand {
   font-weight: 700;
   font-size: 12px;
   color: #4b5563;
-  text-align: right; /* في العربي: النص يمين */
+  text-align: right; 
   line-height: 1.5;
   flex: 1;
   margin-top: 0;
 }
 body.ltr-mode .footer-brand {
-  text-align: left; /* في الإنجليزي: النص صار على اليسار مقابل الشعار الذي على اليسار */
+  text-align: left; /* النص الإنجليزي جهة اليمين مقابل الشعار */
 }
 
 .sdaia-logo-img {
@@ -702,9 +702,10 @@ body.ltr-mode .info-row-first::before {
     </div>
     
     <footer class="footer">
+      <!-- تم تعديل الترتيب هنا بدقة: الشعار أولاً ثم النص -->
       <div class="footer-brand-row">
-        <span class="footer-brand" id="footerBrandTitle">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي</span>
         <img src="SDAIA-logo.png" alt="SDAIA Logo" class="sdaia-logo-img">
+        <span class="footer-brand" id="footerBrandTitle">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي</span>
       </div>
       <div class="footer-links">
         <a href="#" id="footerLinkPrivacy">سياسة الخصوصية</a>
@@ -824,7 +825,7 @@ function setLanguageToEnglish() {
   document.getElementById('secManagers').innerText = "Managers List";
   document.getElementById('managerName').innerText = "Naif Salem Hamdan Al-Dhafiri";
   document.getElementById('footerBrandTitle').innerText = "Developed by Saudi Data and AI Authority";
-  document.getElementById('footerBrandTitle').style.textAlign = "left";
+  document.getElementById('footerBrandTitle').style.textAlign = "right";
   document.getElementById('footerLinkPrivacy').innerText = "Privacy Policy";
   document.getElementById('footerLinkTerms').innerText = "Terms & Conditions";
   document.getElementById('footerLinkFAQ').innerText = "FAQ";
