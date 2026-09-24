@@ -477,19 +477,19 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   border: 1px solid #E5E3F1; 
 }
 
-/* ===== تحكم بـ footer-brand-row ليعكس مكان السدايا والتحويل حسب اللغة ===== */
+/* ===== ضبط فوتر السدايا: في العربي (RTL) الشعار يمين والنص يسار، وفي الإنجليزي (LTR) الشعار يسار والنص يمين ===== */
 .footer-brand-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse; /* في العربي: الشعار يمين والكتابة يسار */
+  flex-direction: row-reverse; /* في العربي: الشعار على اليمين والنص على اليسار */
   width: 100%;
   gap: 8px;
   margin-bottom: 12px;
   padding: 0;
 }
 body.ltr-mode .footer-brand-row {
-  flex-direction: row; /* في الإنجليزي: الشعار يسار والكتابة يمين */
+  flex-direction: row; /* في الإنجليزي: الشعار على اليسار والنص على اليمين تماماً كما طلبتم */
 }
 
 .footer-brand {
@@ -502,7 +502,7 @@ body.ltr-mode .footer-brand-row {
   margin-top: 0;
 }
 body.ltr-mode .footer-brand {
-  text-align: right; /* في الإنجليزي: النص على اليمين */
+  text-align: right; /* في الإنجليزي: النص على اليمين مقابل الشعار الذي أصبح على اليسار */
 }
 
 .sdaia-logo-img {
