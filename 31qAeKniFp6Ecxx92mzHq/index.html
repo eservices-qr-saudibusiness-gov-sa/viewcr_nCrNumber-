@@ -491,16 +491,16 @@ body.ltr-mode .footer-brand {
 .footer-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 10px; }
 .footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 12px; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
-.footer-version { color: #6b7280; }
+.footer-version { color: #6b7280;  }
 
-/* line.png को नीचे लाकर "نوع المنشأة" की लाइन में सेट करना और साइज़ थोड़ा बढ़ाना */
+/* تعديل حجم line.png ورفعها قليلاً لتتوسط تماماً مع نوع المنشأة */
 .info-row-first::before {
   content: "";
   position: absolute;
   right: 20px;
-  top: calc(50% - 15px);
-  width: 40px;
-  height: 40px;
+  top: calc(50% - 22px);
+  width: 44px;
+  height: 44px;
   background: url("line.png") center/contain no-repeat;
   z-index: 3;
 }
