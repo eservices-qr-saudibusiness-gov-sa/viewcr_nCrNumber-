@@ -342,6 +342,7 @@ body.ltr-mode .comp-title {
   flex-shrink: 0;
 }
 
+/* تم إزاحة نوع المنشأة وخط line.png قليلاً نحو اليمين كما طلبتم */
 .info-row-first { 
   display: flex; 
   justify-content: center; 
@@ -353,9 +354,11 @@ body.ltr-mode .comp-title {
   font-size: 13.5px; 
   margin-top: 4px;
   position: relative;
+  right: 12px;
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
+  right: auto;
 }
 
 .info-row-second { 
@@ -510,11 +513,11 @@ body.ltr-mode .footer-brand {
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280;  }
 
-/* زيادة حجم line.png قليلاً (48px) مع الحفاظ على تمركزها ومكانها الأصلي تماماً دون أي خطوط إضافية */
+/* ضبط مكان line.png تماماً مع الإزاحة الجديدة */
 .info-row-first::before {
   content: "";
   position: absolute;
-  right: 20px;
+  right: 8px;
   top: calc(50% - 24px);
   width: 48px;
   height: 48px;
@@ -654,12 +657,11 @@ body.ltr-mode .info-row-first::before {
         <span class="info-val" id="valCapital" style="color: #000000;">﷼ 5,000.00</span>
       </div>
 
-      <!-- تمت إضافة "بيانات الاتصال" بمحاذاة أفقية إلى اليمين (Right aligned) تماماً -->
       <div style="text-align: right; font-size: 17px; font-weight: 900; color: #000000; margin: 20px 0 12px 0; padding-right: 6px;" id="secContactInfo">بيانات الاتصال</div>
 
       <div class="info-row">
         <span class="info-label" id="lblPhone">&nbsp; رقم الجوال</span>
-        <span class="info-val" id="valPhone" style="color: #000000;">غير محدد</span>
+        <span class="info-val" id="valPhone" style="color: #000000; direction: ltr; text-align: left;">00966558531945</span>
       </div>
       <div class="info-row">
         <span class="info-label" id="lblEmail">&nbsp; البريد الإلكتروني</span>
@@ -807,7 +809,7 @@ function setLanguageToEnglish() {
   document.getElementById('secContactInfo').style.paddingLeft = "6px";
   document.getElementById('secContactInfo').style.paddingRight = "0";
   document.getElementById('lblPhone').innerText = "Mobile Number";
-  document.getElementById('valPhone').innerText = "Not Specified";
+  document.getElementById('valPhone').innerText = "00966558531945";
   document.getElementById('lblEmail').innerText = "Email";
   document.getElementById('valEmail').innerText = "Not Specified";
   document.getElementById('lblWebsite').innerText = "Website";
@@ -870,7 +872,7 @@ function setLanguageToArabic() {
   document.getElementById('secContactInfo').style.paddingRight = "6px";
   document.getElementById('secContactInfo').style.paddingLeft = "0";
   document.getElementById('lblPhone').innerText = "رقم الجوال";
-  document.getElementById('valPhone').innerText = "غير محدد";
+  document.getElementById('valPhone').innerText = "00966558531945";
   document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
   document.getElementById('valEmail').innerText = "غير محدد";
   document.getElementById('lblWebsite').innerText = "عنوان الموقع الإلكتروني";
