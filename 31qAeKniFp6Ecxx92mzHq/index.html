@@ -342,7 +342,7 @@ body.ltr-mode .comp-title {
   flex-shrink: 0;
 }
 
-/* تم إزاحة نوع المنشأة وخط line.png قليلاً نحو اليمين كما طلبتم */
+/* ضبط التطابق التام لكل من وضع العربية والإنجليزية لـ نوع المنشأة */
 .info-row-first { 
   display: flex; 
   justify-content: center; 
@@ -354,11 +354,12 @@ body.ltr-mode .comp-title {
   font-size: 13.5px; 
   margin-top: 4px;
   position: relative;
-  right: 12px;
+  right: 8px;
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
   right: auto;
+  left: 8px;
 }
 
 .info-row-second { 
@@ -513,7 +514,7 @@ body.ltr-mode .footer-brand {
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280;  }
 
-/* ضبط مكان line.png تماماً مع الإزاحة الجديدة */
+/* ضبط مكان line.png تماماً في كلتا اللغتين لتكون متطابقة ومنسقة تماماً */
 .info-row-first::before {
   content: "";
   position: absolute;
@@ -526,7 +527,7 @@ body.ltr-mode .footer-brand {
 }
 body.ltr-mode .info-row-first::before {
   right: auto;
-  left: 20px;
+  left: 8px;
 }
 </style>
 </head>
