@@ -285,8 +285,12 @@ body.ltr-mode .notice-banner p {
   border: 1px solid #E5E3F1; 
 }
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
-.card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; }
-body.ltr-mode .card-side-logo { justify-content: flex-end; }
+.card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; width: fit-content; }
+body.ltr-mode .card-side-logo { 
+  justify-content: flex-end; 
+  margin-left: auto;
+  margin-right: 0;
+}
 
 .gov-seal-side { 
   max-height: 49px; 
@@ -327,14 +331,14 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
 
 .info-row-first { 
   display: flex; 
-  justify-content: center; 
+  justify-content: space-between; 
   align-items: center; 
-  gap: 8px;
   padding: 10px 0; 
   border-top: none; 
   border-bottom: none; 
   font-size: 13.5px; 
   margin-top: 4px;
+  position: relative;
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
@@ -342,13 +346,13 @@ body.ltr-mode .info-row-first {
 
 .info-row-second { 
   display: flex; 
-  justify-content: flex-start; 
+  justify-content: space-between; 
   align-items: center; 
-  gap: 8px;
   padding: 10px 0; 
   border-bottom: none; 
   font-size: 13.5px; 
   direction: rtl;
+  position: relative;
 }
 body.ltr-mode .info-row-second {
   direction: ltr;
@@ -490,14 +494,6 @@ body.ltr-mode .footer-brand {
 .footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 12px; }
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
-
-.info-row-first {
-  position: relative;
-}
-
-.info-row-second {
-  position: relative;
-}
 </style>
 </head>
 <body>
@@ -561,8 +557,7 @@ body.ltr-mode .footer-brand {
       
       <div class="info-row-first">
         <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
-        <span class="info-val"><span class="chip" id="valFacilityType">مؤسسة</span></span>
-        <img src="line.png" alt="" style="height: 18px; width: auto; display: inline-block; vertical-align: middle; margin-right: 6px;">
+        <span class="info-val"><span class="chip" id="valFacilityType">مؤسسة</span><img src="line.png" alt="" style="height: 18px; width: auto; display: inline-block; vertical-align: middle; margin-right: 6px;"></span>
       </div>
       
       <div class="info-row-second">
