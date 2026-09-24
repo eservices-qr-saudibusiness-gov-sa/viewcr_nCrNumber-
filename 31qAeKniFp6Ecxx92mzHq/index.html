@@ -493,38 +493,20 @@ body.ltr-mode .footer-brand {
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280; }
 
-.info-row-first::after {
-  content: "";
-  position: absolute;
-  right: 25px; 
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.5px;   
-  height: 32px; 
-  background: #d1d5db; 
-  border-radius: 1px;
-  pointer-events: none;
-}
-
-body.ltr-mode .info-row-first::after {
-  right: auto;
-  left: 25px; 
-}
-
-/* إضافة line.png فوق الخط العمودي مباشرة */
+/* line.png को नीचे लाकर "نوع المنشأة" की लाइन में सेट करना और साइज़ थोड़ा बढ़ाना */
 .info-row-first::before {
   content: "";
   position: absolute;
-  right: 25px;
-  top: calc(50% - 40px);
-  width: 30px;
-  height: 30px;
+  right: 20px;
+  top: calc(50% - 15px);
+  width: 40px;
+  height: 40px;
   background: url("line.png") center/contain no-repeat;
   z-index: 3;
 }
 body.ltr-mode .info-row-first::before {
   right: auto;
-  left: 25px;
+  left: 20px;
 }
 </style>
 </head>
