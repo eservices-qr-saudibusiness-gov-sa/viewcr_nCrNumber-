@@ -635,7 +635,7 @@ body.ltr-mode .info-row-first::before {
       </div>
       <div class="info-row">
         <span class="info-label" id="lblCity">&nbsp; مدينة عنوان الأعمال المعتمد للمنشأة</span>
-        <span class="info-val" id="valCity" style="color: #000000;">الجبيل حي الصفاة شارع مكدامة المكرمة</span>
+        <span class="info-val" id="valCity" style="color: #000000;">حفر الباطن، حي البلدية، طريق الملك فيصل</span>
       </div>
       
       <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
@@ -654,12 +654,12 @@ body.ltr-mode .info-row-first::before {
         <span class="info-val" id="valCapital" style="color: #000000;">﷼ 5,000.00</span>
       </div>
 
-      <!-- تمت إضافة سطر بيانات الاتصال هنا كما طلبتم بالضبط دون تغيير أي شيء آخر -->
-      <div style="text-align: center; font-size: 18px; font-weight: 900; color: #1f2937; margin: 22px 0 12px 0;" id="secContactInfo">بيانات الاتصال</div>
+      <!-- تمت إضافة "بيانات الاتصال" بمحاذاة أفقية إلى اليمين (Right aligned) تماماً -->
+      <div style="text-align: right; font-size: 17px; font-weight: 900; color: #000000; margin: 20px 0 12px 0; padding-right: 6px;" id="secContactInfo">بيانات الاتصال</div>
 
       <div class="info-row">
         <span class="info-label" id="lblPhone">&nbsp; رقم الجوال</span>
-        <span class="info-val" id="valPhone" style="color: #000000; direction: ltr; text-align: left;">00966558531945</span>
+        <span class="info-val" id="valPhone" style="color: #000000;">غير محدد</span>
       </div>
       <div class="info-row">
         <span class="info-label" id="lblEmail">&nbsp; البريد الإلكتروني</span>
@@ -797,14 +797,19 @@ function setLanguageToEnglish() {
   document.getElementById('lblRegistryDate').innerText = "Registration Date";
   document.getElementById('lblAnnualConfirmationDate').innerHTML = "Annual Confirmation<br>Date";
   document.getElementById('lblCity').innerText = "Business City";
-  document.getElementById('valCity').innerText = "Al Jubail, Al-Safat Dist., Makadama Al-Mukarrama St.";
+  document.getElementById('valCity').innerText = "Hafar Al-Batin, Al-Baladiya Dist., King Faisal Rd.";
   document.getElementById('lblCopyNumberLabel').innerText = "Copy Number";
   document.getElementById('lblCommercialNumber').innerText = "Commercial Registration No.";
   document.getElementById('lblCapital').innerText = "Total Capital";
   document.getElementById('valCapital').innerText = "SAR 5,000.00";
   document.getElementById('secContactInfo').innerText = "Contact Information";
+  document.getElementById('secContactInfo').style.textAlign = "left";
+  document.getElementById('secContactInfo').style.paddingLeft = "6px";
+  document.getElementById('secContactInfo').style.paddingRight = "0";
   document.getElementById('lblPhone').innerText = "Mobile Number";
+  document.getElementById('valPhone').innerText = "Not Specified";
   document.getElementById('lblEmail').innerText = "Email";
+  document.getElementById('valEmail').innerText = "Not Specified";
   document.getElementById('lblWebsite').innerText = "Website";
   document.getElementById('secActivities').innerText = "Commercial Activities List";
   document.getElementById('activityText1').innerText = "General construction of residential buildings";
@@ -853,7 +858,7 @@ function setLanguageToArabic() {
   document.getElementById('lblRegistryDate').innerText = "تاريخ قيد السجل التجاري";
   document.getElementById('lblAnnualConfirmationDate').innerHTML = "تاريخ التأكيد السنوي<br>للسجل التجاري";
   document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
-  document.getElementById('valCity').innerText = "الجبيل حي الصفاة شارع مكدامة المكرمة";
+  document.getElementById('valCity').innerText = "حفر الباطن، حي البلدية، طريق الملك فيصل";
   document.getElementById('lblCopyNumberLabel').innerText = "رقم نسخة السجل التجاري";
   document.getElementById('valCopyNumber').innerText = "1";
   document.getElementById('lblCommercialNumber').innerText = "رقم السجل التجاري";
@@ -861,8 +866,13 @@ function setLanguageToArabic() {
   document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
   document.getElementById('valCapital').innerText = "﷼ 5,000.00";
   document.getElementById('secContactInfo').innerText = "بيانات الاتصال";
+  document.getElementById('secContactInfo').style.textAlign = "right";
+  document.getElementById('secContactInfo').style.paddingRight = "6px";
+  document.getElementById('secContactInfo').style.paddingLeft = "0";
   document.getElementById('lblPhone').innerText = "رقم الجوال";
+  document.getElementById('valPhone').innerText = "غير محدد";
   document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
+  document.getElementById('valEmail').innerText = "غير محدد";
   document.getElementById('lblWebsite').innerText = "عنوان الموقع الإلكتروني";
   document.getElementById('valWebsite').innerText = "-";
   document.getElementById('secActivities').innerText = "قائمة أنشطة السجل التجاري";
