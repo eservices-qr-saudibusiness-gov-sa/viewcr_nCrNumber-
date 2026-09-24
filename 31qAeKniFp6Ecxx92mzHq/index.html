@@ -286,15 +286,15 @@ body.ltr-mode .notice-banner p {
 }
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
 
-/* ===== company-logo.png کے لیے درست پوزیشننگ (عربی میں دائیں، انگلش میں بائیں) ===== */
+/* ===== ربط الشعار مباشرة بمكان اسم الشركة (يمين في العربي، يسار في الإنجليزي فوق الاسم) ===== */
 .card-side-logo { 
   display: flex; 
-  justify-content: flex-end; /* عربی موڈ میں دائیں طرف */
-  margin-bottom: 6px; 
+  justify-content: flex-end; /* في العربي: الشعار يظهر فوق اسم الشركة من اليمين */
+  margin-bottom: 4px; 
 }
 
 body.ltr-mode .card-side-logo { 
-  justify-content: flex-start; /* انگلش موڈ میں بائیں طرف */
+  justify-content: flex-start; /* في الإنجليزي: الشعار يتحرك ليصبح فوق اسم الشركة من اليسار تماماً */
 }
 
 .gov-seal-side { 
@@ -304,7 +304,7 @@ body.ltr-mode .card-side-logo {
   display: block; 
 }
 
-/* انگلش موڈ میں تصویر کو آئینے کی طرح پلٹنا تاکہ لوگو اور لکیر کی ترتیب درست رہے */
+/* انعكاس الصورة في الإنجليزي لتظل اللائحة والشعار بالترتيب الصحيح */
 body.ltr-mode .gov-seal-side {
   transform: scaleX(-1);
 }
@@ -585,6 +585,7 @@ body.ltr-mode .info-row-first::before {
     
     <div class="card">
       <div class="card-top-section">
+        <!-- الشعار والصورة الآن مرتبطان تماماً مع مكان اسم الشركة (يمين في العربي، ويسار فوق الاسم تماماً في الإنجليزي) -->
         <div class="card-side-logo">
           <img src="company-logo.png" alt="" class="gov-seal-side">
         </div>
