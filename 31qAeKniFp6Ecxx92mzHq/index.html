@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="pageTitle">بيانات السجل التجاري</title>
+<title id="pageTitle">المركز السعودي للتنافسية والأعمال</title>
+<link rel="icon" type="image/png" href="favicon.png">
 <!-- استيراد خطوط عربية -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/thesansarabic.css">
@@ -466,19 +467,18 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   border: 1px solid #E5E3F1; 
 }
 
-/* ===== صرف عربی کے لیے لوگو دائیں اور انگریزی کے لیے لوگو بائیں اور تحریر دائیں ===== */
 .footer-brand-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row; /* عربی موڈ: لوگو دائیں، تحریر بائیں */
+  flex-direction: row;
   width: 100%;
   gap: 8px;
   margin-bottom: 12px;
   padding: 0;
 }
 body.ltr-mode .footer-brand-row {
-  flex-direction: row-reverse; /* انگریزی موڈ: لوگو بائیں، تحریر دائیں */
+  flex-direction: row-reverse;
 }
 
 .footer-brand {
@@ -833,7 +833,7 @@ function setLanguageToArabic() {
     rowSecond.style.direction = 'rtl';
     rowSecond.style.justifyContent = 'flex-start';
   }
-  document.getElementById('pageTitle').innerText = "بيانات السجل التجاري";
+  document.getElementById('pageTitle').innerText = "المركز السعودي للتنافسية والأعمال";
   document.getElementById('sidebarPlatformBtn').innerText = "منصة الأعمال";
   document.getElementById('langRowLabel').innerText = "اللغة";
   document.getElementById('fontRowLabel').innerText = "حجم الخط";
