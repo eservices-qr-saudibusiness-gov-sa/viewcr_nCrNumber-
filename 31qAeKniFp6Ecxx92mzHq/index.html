@@ -466,19 +466,19 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   border: 1px solid #E5E3F1; 
 }
 
-/* ===== تم تصحيح وترتيب سدايا لوگو والنص بدقة تامة للعربي والانجليزي ===== */
+/* ===== صرف عربی کے لیے لوگو دائیں اور انگریزی کے لیے لوگو بائیں اور تحریر دائیں ===== */
 .footer-brand-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row; /* في العربي: الشعار يمين والنص يسار */
+  flex-direction: row; /* عربی موڈ: لوگو دائیں، تحریر بائیں */
   width: 100%;
   gap: 8px;
   margin-bottom: 12px;
   padding: 0;
 }
 body.ltr-mode .footer-brand-row {
-  flex-direction: row-reverse; /* في الإنجليزي: الشعار يسار والنص يمين */
+  flex-direction: row-reverse; /* انگریزی موڈ: لوگو بائیں، تحریر دائیں */
 }
 
 .footer-brand {
@@ -506,11 +506,10 @@ body.ltr-mode .footer-brand {
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280;  }
 
-/* ===== ضبط مكان اللوحة أو الLine حسب اللغة ===== */
 .info-row-first::before {
   content: "";
   position: absolute;
-  right: 20px; /* الافتراضي للعربي: يمين */
+  right: 20px;
   top: calc(50% - 24px);
   width: 48px;
   height: 48px;
@@ -519,7 +518,7 @@ body.ltr-mode .footer-brand {
 }
 body.ltr-mode .info-row-first::before {
   right: auto;
-  left: 20px; /* للإنجليزي: يسار */
+  left: 20px;
 }
 </style>
 </head>
@@ -813,7 +812,7 @@ function setLanguageToEnglish() {
   document.getElementById('secManagers').innerText = "Managers List";
   document.getElementById('managerName').innerText = "Naif Salem Hamdan Al-Dhafiri";
   document.getElementById('footerBrandTitle').innerText = "Developed by Saudi Data and AI Authority";
-  document.getElementById('footerBrandTitle').style.textAlign = "right";
+  document.getElementById('footerBrandTitle').style.textAlign = "left";
   document.getElementById('footerLinkPrivacy').innerText = "Privacy Policy";
   document.getElementById('footerLinkTerms').innerText = "Terms & Conditions";
   document.getElementById('footerLinkFAQ').innerText = "FAQ";
@@ -882,7 +881,7 @@ function setLanguageToArabic() {
   document.getElementById('secManagers').innerText = "قائمة المديرين";
   document.getElementById('managerName').innerText = "نايف سالم حمدان الظفيري";
   document.getElementById('footerBrandTitle').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
-  document.getElementById('footerBrandTitle').style.textAlign = "left";
+  document.getElementById('footerBrandTitle').style.textAlign = "right";
   document.getElementById('footerLinkPrivacy').innerText = "سياسة الخصوصية";
   document.getElementById('footerLinkTerms').innerText = "الشروط والأحكام";
   document.getElementById('footerLinkFAQ').innerText = "الأسئلة الشائعة";
