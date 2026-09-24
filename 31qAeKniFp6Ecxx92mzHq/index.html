@@ -297,11 +297,15 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
 
 .comp-title-row { 
   display: flex; 
-  justify-content: space-between; 
+  justify-content: flex-start; 
   align-items: center; 
-  gap: 8px; 
+  gap: 10px; 
   margin-top: 2px; 
   direction: rtl;
+}
+body.ltr-mode .comp-title-row {
+  justify-content: flex-start;
+  direction: ltr;
 }
 
 .comp-title { 
@@ -310,14 +314,16 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   color: #000000; 
   line-height: 1.4; 
   text-align: right; 
-  flex-grow: 1;
+  flex-grow: 0;
+  width: auto;
 }
 
-/* تخصيص عرض اسم الشركة الإنجليزي ليكون على ثلاثة أسطر بوضعية مناسبة */
+/* ضبط حجم وتنسيق الاسم الإنجليزي ليكون على ثلاثة أسطر وقريباً جداً من كلمة Active */
 body.ltr-mode .comp-title {
   max-width: 220px;
   line-height: 1.35;
   font-size: 16.5px;
+  text-align: left;
 }
 
 .status-badge-inline { 
@@ -733,7 +739,7 @@ function updateCompanyLanguage(lang) {
     status.textContent = "Active";
 
     row.style.direction = "ltr";
-    row.style.justifyContent = "space-between";
+    row.style.justifyContent = "flex-start";
     name.style.order = "1";
     status.style.order = "2";
     name.style.textAlign = "left";
@@ -742,7 +748,7 @@ function updateCompanyLanguage(lang) {
     status.textContent = "نشط";
 
     row.style.direction = "rtl";
-    row.style.justifyContent = "space-between";
+    row.style.justifyContent = "flex-start";
     name.style.order = "1";
     status.style.order = "2";
     name.style.textAlign = "right";
