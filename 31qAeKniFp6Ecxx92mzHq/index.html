@@ -286,15 +286,14 @@ body.ltr-mode .notice-banner p {
 }
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
 
-/* ===== ضبط مكان الشعار: في العربي يظهر على اليمين فوق اسم الشركة مباشرة، وفي الإنجليزي على اليسار تماماً كما طلبت ===== */
+/* ===== شركة logo في الأعلى ===== */
 .card-side-logo { 
   display: flex; 
-  justify-content: flex-start; /* في العربي: الشعار يظهر على جهة اليمين (نظراً لكون الاتجاه RTL، فالـ flex-start يضعه يميناً) */
+  justify-content: flex-start; 
   margin-bottom: 4px; 
 }
-
 body.ltr-mode .card-side-logo { 
-  justify-content: flex-start; /* في الإنجليزي: الشعار يبقى في جهة اليسار فوق اسم الشركة كما طلبت تماماً */
+  justify-content: flex-start; 
 }
 
 .gov-seal-side { 
@@ -303,8 +302,6 @@ body.ltr-mode .card-side-logo {
   object-fit: contain; 
   display: block; 
 }
-
-/* انعكاس الصورة في الإنجليزي لتظل اللائحة والشعار بالترتيب الصحيح */
 body.ltr-mode .gov-seal-side {
   transform: scaleX(-1);
 }
@@ -330,7 +327,6 @@ body.ltr-mode .comp-title-row {
   text-align: right; 
   flex-grow: 1;
 }
-
 body.ltr-mode .comp-title {
   max-width: 220px;
   line-height: 1.35;
@@ -480,31 +476,33 @@ body.ltr-mode .date-row-group-right { align-items: flex-end; }
   box-shadow: 0 6px 20px rgba(0,0,0,0.04); 
   border: 1px solid #E5E3F1; 
 }
+
+/* ===== تحكم بـ footer-brand-row ليعكس مكان السدايا والتحويل حسب اللغة ===== */
 .footer-brand-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse;
+  flex-direction: row-reverse; /* في العربي: الشعار يمين والكتابة يسار */
   width: 100%;
   gap: 8px;
   margin-bottom: 12px;
   padding: 0;
 }
 body.ltr-mode .footer-brand-row {
-  flex-direction: row;
+  flex-direction: row; /* في الإنجليزي: الشعار يسار والكتابة يمين */
 }
 
 .footer-brand {
   font-weight: 700;
   font-size: 12px;
   color: #4b5563;
-  text-align: right;
+  text-align: left; /* في العربي: النص على اليسار */
   line-height: 1.5;
   flex: 1;
   margin-top: 0;
 }
 body.ltr-mode .footer-brand {
-  text-align: left;
+  text-align: right; /* في الإنجليزي: النص على اليمين */
 }
 
 .sdaia-logo-img {
@@ -585,7 +583,6 @@ body.ltr-mode .info-row-first::before {
     
     <div class="card">
       <div class="card-top-section">
-        <!-- الشعار الآن في الجهة اليمنى تماماً في العربي، ويبقى على اليسار في الإنجليزي -->
         <div class="card-side-logo">
           <img src="company-logo.png" alt="" class="gov-seal-side">
         </div>
