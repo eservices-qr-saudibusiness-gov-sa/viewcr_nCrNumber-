@@ -285,11 +285,16 @@ body.ltr-mode .notice-banner p {
   border: 1px solid #E5E3F1; 
 }
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
-.card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; }
 
-/* ضبط مكان الشعار الأخضر في وضع اللغة الإنجليزية ليذهب لأقصى اليسار تماماً */
+/* ===== company-logo.png کے لیے درست پوزیشننگ (عربی میں دائیں، انگلش میں بائیں) ===== */
+.card-side-logo { 
+  display: flex; 
+  justify-content: flex-end; /* عربی موڈ میں دائیں طرف */
+  margin-bottom: 6px; 
+}
+
 body.ltr-mode .card-side-logo { 
-  justify-content: flex-end; 
+  justify-content: flex-start; /* انگلش موڈ میں بائیں طرف */
 }
 
 .gov-seal-side { 
@@ -297,6 +302,11 @@ body.ltr-mode .card-side-logo {
   width: auto; 
   object-fit: contain; 
   display: block; 
+}
+
+/* انگلش موڈ میں تصویر کو آئینے کی طرح پلٹنا تاکہ لوگو اور لکیر کی ترتیب درست رہے */
+body.ltr-mode .gov-seal-side {
+  transform: scaleX(-1);
 }
 
 .comp-title-row { 
@@ -321,7 +331,6 @@ body.ltr-mode .comp-title-row {
   flex-grow: 1;
 }
 
-/* ضبط حجم وتنسيق الاسم الإنجليزي ليكون على ثلاثة أسطر مع ترك مسافة تماماً مثل اللغة العربية */
 body.ltr-mode .comp-title {
   max-width: 220px;
   line-height: 1.35;
@@ -510,7 +519,6 @@ body.ltr-mode .footer-brand {
 .footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
 .footer-version { color: #6b7280;  }
 
-/* زيادة حجم line.png قليلاً (48px) مع الحفاظ على تمركزها ومكانها الأصلي تماماً دون أي خطوط إضافية */
 .info-row-first::before {
   content: "";
   position: absolute;
@@ -654,7 +662,6 @@ body.ltr-mode .info-row-first::before {
         <span class="info-val" id="valCapital" style="color: #000000;">﷼ 5,000.00</span>
       </div>
 
-      <!-- العنوان "بيانات الاتصال" بمحاذاة أفقية إلى اليمين تماماً -->
       <div style="text-align: right; font-size: 17px; font-weight: 900; color: #000000; margin: 20px 0 12px 0; padding-right: 6px;" id="secContactInfo">بيانات الاتصال</div>
 
       <div class="info-row">
@@ -946,5 +953,3 @@ function toggleFontSize() {
 </script>
 </body>
 </html>
-
- 
