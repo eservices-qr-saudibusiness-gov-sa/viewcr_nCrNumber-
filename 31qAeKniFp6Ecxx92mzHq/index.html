@@ -15,9 +15,46 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #faf5ff;
   z-index: 99999;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.loader-card-mock {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  border: 1px solid #E5E3F1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.loader-line-mock {
+  height: 24px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.loader-row-mock {
+  display: flex;
+  gap: 10px;
+}
+
+.loader-text-loading {
+  margin-top: 25px;
+  font-size: 22px;
+  font-weight: 900;
+  color: #1f2937;
+  font-family: 'Cairo', sans-serif;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -524,7 +561,20 @@ body.ltr-mode .info-row-first::before {
 </head>
 <body>
 
-<div id="loader-screen"></div>
+<div id="loader-screen">
+  <div class="loader-card-mock">
+    <div class="loader-line-mock" style="width: 40%; margin: 0 auto;"></div>
+    <div class="loader-line-mock" style="height: 35px;"></div>
+    <div class="loader-row-mock">
+      <div class="loader-line-mock" style="height: 20px;"></div>
+      <div class="loader-line-mock" style="height: 20px;"></div>
+      <div class="loader-line-mock" style="height: 20px;"></div>
+    </div>
+    <div class="loader-line-mock" style="height: 60px;"></div>
+    <div class="loader-line-mock" style="height: 60px;"></div>
+  </div>
+  <div class="loader-text-loading">جاري التحميل...</div>
+</div>
 
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
 <div class="sidebar" id="appSidebar">
@@ -718,9 +768,9 @@ window.addEventListener('load', function() {
       loader.style.opacity = '0';
       setTimeout(function() {
         loader.style.display = 'none';
-      }, 300);
+      }, 400);
     }
-  }, 1000);
+  }, 1200);
 });
 
 function toggleMenu() {
