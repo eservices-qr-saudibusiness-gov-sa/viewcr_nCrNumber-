@@ -313,6 +313,13 @@ body.ltr-mode .card-side-logo { justify-content: flex-end; }
   flex-grow: 1;
 }
 
+/* تخصيص عرض اسم الشركة الإنجليزي ليكون على ثلاثة أسطر بوضعية مناسبة */
+body.ltr-mode .comp-title {
+  max-width: 220px;
+  line-height: 1.35;
+  font-size: 16.5px;
+}
+
 .status-badge-inline { 
   background-color: #ecfdf5; 
   color: #059669; 
@@ -722,7 +729,7 @@ function updateCompanyLanguage(lang) {
   const status = document.getElementById("statusBadge");
 
   if (lang === "en") {
-    name.textContent = "Naif Salem Hamdan Al-Dhafiri Transport";
+    name.innerHTML = "Naif Salem Hamdan<br>Al-Dhafiri<br>Transport";
     status.textContent = "Active";
 
     row.style.direction = "ltr";
@@ -827,7 +834,6 @@ function setLanguageToArabic() {
   document.getElementById('valFacilityType').innerText = "مؤسسة";
   document.getElementById('lblCompanyType').innerText = "نوع المؤسسة";
   document.getElementById('valCompanyType').innerText = "مؤسسة فردية";
-  document.getElementById('lblRegistryType').innerText, document.getElementById('valRegistryType').innerText = "سجل رئيسي"; // سليم
   document.getElementById('lblRegistryType').innerText = "نوع السجل";
   document.getElementById('valRegistryType').innerText = "سجل رئيسي";
   document.getElementById('lblUnifiedNumber').innerHTML = "الرقم الوطني الموحد<br>للمنشأة";
