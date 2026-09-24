@@ -285,7 +285,7 @@ body.ltr-mode .notice-banner p {
   border: 1px solid #E5E3F1; 
 }
 .card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
-.card-side-logo { display: flex; justify-content: flex-start; margin-bottom: 6px; width: fit-content; }
+.card-side-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; width: fit-content; }
 body.ltr-mode .card-side-logo { 
   justify-content: flex-end; 
   margin-left: auto;
@@ -297,6 +297,12 @@ body.ltr-mode .card-side-logo {
   width: auto; 
   object-fit: contain; 
   display: block; 
+}
+
+.line-img {
+  height: 24px;
+  width: auto;
+  display: block;
 }
 
 .comp-title-row { 
@@ -343,6 +349,24 @@ body.ltr-mode .card-side-logo {
 }
 body.ltr-mode .info-row-first {
   flex-direction: row;
+}
+
+.info-row-first::after {
+  content: "";
+  position: absolute;
+  right: 25px; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5px;   
+  height: 32px; 
+  background: #d1d5db; 
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+body.ltr-mode .info-row-first::after {
+  right: auto;
+  left: 25px; 
 }
 
 .info-row-second { 
@@ -550,6 +574,7 @@ body.ltr-mode .footer-brand {
       <div class="card-top-section">
         <div class="card-side-logo">
           <img src="company-logo.png" alt="" class="gov-seal-side">
+          <img src="line.png" alt="" class="line-img">
         </div>
         <div class="comp-title-row" id="companyTitleRow">
           <div class="comp-title" id="compName">نقل نايف سالم حمدان الظفيري</div>
