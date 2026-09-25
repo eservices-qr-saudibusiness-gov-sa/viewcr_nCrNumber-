@@ -9,6 +9,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/thesansarabic.css">
 <style>
+/* تأثير الظهور والهزة المشابهة للموقع الرسمي */
+@keyframes pageBounceOpen {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-wrapper.loaded {
+  animation: pageBounceOpen 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
 #loader-screen {
   position: fixed;
   top: 0;
@@ -17,7 +37,7 @@
   height: 100%;
   background-color: #faf5ff;
   z-index: 99999;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.15s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,6 +96,7 @@ body.ltr-mode { direction: ltr; text-align: left; }
   padding-bottom: 40px; 
   position: relative;
   overflow: hidden;
+  opacity: 0; /* يبدأ مخفياً لحين انتهاء الشاشة البيضاء واللوودر */
 }
 
 .main-wrapper::before {
@@ -596,7 +617,8 @@ body.ltr-mode .info-row-first::before {
     </div>
   </div>
 </div>
-<div class="main-wrapper">
+
+<div class="main-wrapper" id="mainWrapper">
   <header class="header">
     <div class="header-right">
       <a href="https://scbc.gov.sa/?culture=en" target="_blank" class="header-brand-link" aria-label="المركز السعودي للتنافسية والأعمال">
@@ -762,16 +784,20 @@ window.addEventListener('load', function() {
     setLanguageToEnglish();
   }
 
-  // وقت لوڈنگ کو مزید کم کر دیا گیا ہے تاکہ جھلک دکھا کر فوراً پیج کھل جائے
+  // ایک سیکنڈ کا وائٹ بلینک فیز اور پھر ہلے ہوئے انداز میں پیج کا کھلنا
   setTimeout(function() {
     const loader = document.getElementById('loader-screen');
+    const wrapper = document.getElementById('mainWrapper');
     if(loader) {
       loader.style.opacity = '0';
       setTimeout(function() {
         loader.style.display = 'none';
-      }, 200);
+        if(wrapper) {
+          wrapper.classList.add('loaded'); // یہاں جھٹکے والا باؤنس ایفیشینٹ اینیمیشن شروع ہوگا
+        }
+      }, 150);
     }
-  }, 500);
+  }, 1000); // یہاں 1000ms (ایک سیکنڈ) کا پکا بلینک/لوڈنگ ٹائم سیٹ کر دیا گیا ہے
 });
 
 function toggleMenu() {
