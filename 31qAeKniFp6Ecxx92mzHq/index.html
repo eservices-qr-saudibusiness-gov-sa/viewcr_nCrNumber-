@@ -42,6 +42,8 @@
   flex-direction: column;
   align-items: center;
   padding-top: 60px;
+  opacity: 0; /* يبدأ مخفياً ليعطي فرصة لثانية البياض الكامل */
+  visibility: hidden;
 }
 
 .loader-card-mock {
@@ -82,7 +84,7 @@ body {
   margin: 0; 
   padding: 0; 
   font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-  background-color: #faf5ff; 
+  background-color: #ffffff; /* يبدأ بصفحة بيضاء صافية تماماً */
   color: #1f2937; 
   direction: rtl; 
   text-align: right; 
@@ -96,7 +98,7 @@ body.ltr-mode { direction: ltr; text-align: left; }
   padding-bottom: 40px; 
   position: relative;
   overflow: hidden;
-  opacity: 0; /* يبدأ مخفياً لحين انتهاء الشاشة البيضاء واللوودر */
+  opacity: 0; 
 }
 
 .main-wrapper::before {
@@ -784,20 +786,30 @@ window.addEventListener('load', function() {
     setLanguageToEnglish();
   }
 
-  // ایک سیکنڈ کا وائٹ بلینک فیز اور پھر ہلے ہوئے انداز میں پیج کا کھلنا
+  // مرحلة 1: پورا 1 سیکنڈ (1000ms) بالکل صاف سفید (blank) سکرین رہے گی
   setTimeout(function() {
     const loader = document.getElementById('loader-screen');
     const wrapper = document.getElementById('mainWrapper');
+    
     if(loader) {
-      loader.style.opacity = '0';
-      setTimeout(function() {
-        loader.style.display = 'none';
-        if(wrapper) {
-          wrapper.classList.add('loaded'); // یہاں جھٹکے والا باؤنس ایفیشینٹ اینیمیشن شروع ہوگا
-        }
-      }, 150);
+      loader.style.visibility = 'visible';
+      loader.style.opacity = '1';
     }
-  }, 1000); // یہاں 1000ms (ایک سیکنڈ) کا پکا بلینک/لوڈنگ ٹائم سیٹ کر دیا گیا ہے
+
+    // مرحلة 2: اسکیلیٹن لوڈر اب پچھلے سے آدھی ٹائمنگ (یعنی صرف 250ms) کے لیے ظاہر ہوگا
+    setTimeout(function() {
+      if(loader) {
+        loader.style.opacity = '0';
+        setTimeout(function() {
+          loader.style.display = 'none';
+          if(wrapper) {
+            wrapper.classList.add('loaded'); // یہاں جھٹکے والا (bounce) ایفیکٹ شروع ہوگا
+          }
+        }, 150);
+      }
+    }, 250); // اسکیلیٹن لوڈنگ کا وقت آدھا کر دیا گیا ہے
+
+  }, 1000); // 1 سیکنڈ کا پرفेक्ट وائٹ بلینک فیز
 });
 
 function toggleMenu() {
