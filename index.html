@@ -1,382 +1,1032 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بيانات السجل التجاري - المركز السعودي للتنافسية والأعمال</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Tahoma, Arial, sans-serif;
-            background-color: #f4f5f8;
-            color: #1f2937;
-            direction: rtl;
-            text-align: right;
-        }
-        /* Header */
-        .header {
-            background-color: #2e2652;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .header .logo-text {
-            font-size: 14px;
-            font-weight: bold;
-            line-height: 1.4;
-            text-align: center;
-        }
-        .menu-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        /* Side Menu */
-        .side-menu {
-            position: fixed;
-            top: 0;
-            right: -280px;
-            width: 280px;
-            height: 100%;
-            background-color: #2e2652;
-            color: white;
-            transition: 0.3s ease;
-            z-index: 1100;
-            padding-top: 60px;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
-        }
-        .side-menu.active {
-            right: 0;
-        }
-        .side-menu a {
-            display: block;
-            padding: 15px 25px;
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            font-size: 16px;
-        }
-        .side-menu a:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-        .close-menu {
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-        }
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            display: none;
-            z-index: 1050;
-        }
-        .overlay.active {
-            display: block;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">المركز السعودي للتنافسية والأعمال</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<!-- استيراد خطوط عربية -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/thesansarabic.css">
+<style>
+/* تأثير الظهور والهزة المشابهة للموقع الرسمي */
+@keyframes pageBounceOpen {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-        /* Container */
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 15px;
-        }
+.main-wrapper.loaded {
+  animation: pageBounceOpen 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
 
-        /* Notice Box */
-        .notice-box {
-            background: white;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-        .notice-box svg {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-            fill: #4b5563;
-        }
-        .notice-box p {
-            margin: 0;
-            font-size: 13px;
-            line-height: 1.6;
-            color: #374151;
-        }
+#loader-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #faf5ff;
+  z-index: 99999;
+  transition: opacity 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  opacity: 0; /* يبدأ مخفياً ليعطي فرصة لثانية البياض الكامل */
+  visibility: hidden;
+}
 
-        /* Main Card */
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-        }
-        .title-main {
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            color: #2e2652;
-            margin: 20px 0;
-        }
-        .company-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        .badge-active {
-            background-color: #e6f8ed;
-            color: #0d9448;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: bold;
-        }
-        .company-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: #111827;
-            text-align: right;
-            line-height: 1.5;
-        }
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #f3f4f6;
-            font-size: 14px;
-        }
-        .info-label {
-            color: #6b7280;
-        }
-        .info-value {
-            font-weight: bold;
-            color: #1f2937;
-        }
-        .tag-box {
-            background: #f3f4f6;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 13px;
-            display: inline-block;
-        }
+.loader-card-mock {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  border: 1px solid #E5E3F1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-        /* Section Titles inside card */
-        .section-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #111827;
-            margin: 25px 0 15px 0;
-            text-align: right;
-        }
+.loader-line-mock {
+  height: 24px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  width: 100%;
+}
 
-        /* Activity Items */
-        .activity-item {
-            background: #f3f4f6;
-            border-radius: 10px;
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            text-align: right;
-        }
-        .activity-name {
-            font-size: 14px;
-            font-weight: bold;
-            color: #1f2937;
-            margin-bottom: 4px;
-        }
-        .activity-code {
-            font-size: 13px;
-            color: #4b5563;
-        }
+.loader-row-mock {
+  display: flex;
+  gap: 10px;
+}
 
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            color: #6b7280;
-            background-color: #f4f5f8;
-        }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 10px 0;
-            font-size: 13px;
-        }
-        .footer-links a {
-            color: #374151;
-            text-decoration: none;
-        }
-    </style>
+.loader-text-loading {
+  margin-top: 25px;
+  font-size: 22px;
+  font-weight: 900;
+  color: #1f2937;
+  font-family: 'Cairo', sans-serif;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { 
+  margin: 0; 
+  padding: 0; 
+  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+  background-color: #ffffff; /* يبدأ بصفحة بيضاء صافية تماماً */
+  color: #1f2937; 
+  direction: rtl; 
+  text-align: right; 
+  -webkit-font-smoothing: antialiased; 
+}
+body.ltr-mode { direction: ltr; text-align: left; }
+
+.main-wrapper { 
+  min-height: 100vh; 
+  background: #faf5ff;
+  padding-bottom: 40px; 
+  position: relative;
+  overflow: hidden;
+  opacity: 0; 
+}
+
+.main-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 410px;
+    background-color: transparent;
+    background-image: url("city.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    z-index: 0;
+}
+
+.main-wrapper > * {
+  position: relative;
+  z-index: 2;
+}
+
+.header { 
+  background: transparent; 
+  padding: 2px 10px 12px 10px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  position: relative; 
+  z-index: 2; 
+}
+
+.header-right { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+}
+
+.header-brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-brand-img {
+  max-height: 50px;
+  width: auto;
+  display: block;
+}
+
+.header-logo-section {
+  padding-left: 6px;
+}
+body.ltr-mode .header-logo-section {
+  padding-left: 0;
+  padding-right: 6px;
+}
+
+.menu-btn { 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  padding: 0; 
+  width: 20px; 
+  height: 15px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  align-items: flex-end;
+}
+body.ltr-mode .menu-btn { align-items: flex-start; }
+.menu-bar { 
+  display: block; 
+  height: 2.5px; 
+  background-color: #ffffff; 
+  border-radius: 2px; 
+}
+.menu-bar:nth-child(1) { width: 100%; }
+.menu-bar:nth-child(2) { width: 65%; }
+.menu-bar:nth-child(3) { width: 100%; }
+
+.sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: 0.3s; }
+.sidebar-overlay.active { opacity: 1; visibility: visible; }
+.sidebar { position: fixed; top: 0; left: -100%; width: 80%; max-width: 300px; height: 100%; background: #ffffff; z-index: 1000; transition: 0.35s ease; display: flex; flex-direction: column; }
+body.ltr-mode .sidebar { left: auto; right: -100%; }
+.sidebar.active { left: 0; }
+body.ltr-mode .sidebar.active { left: auto; right: 0; }
+.sidebar-top-bar { padding: 16px; display: flex; justify-content: flex-end; }
+body.ltr-mode .sidebar-top-bar { justify-content: flex-start; }
+.close-sidebar { background: none; border: none; font-size: 22px; cursor: pointer; }
+.sidebar-content { padding: 0 20px; display: flex; flex-direction: column; gap: 15px; align-items: flex-end; }
+body.ltr-mode .sidebar-content { align-items: flex-start; }
+
+.sidebar-btn-primary { 
+  background: #6b6496; 
+  color: white; 
+  border: none; 
+  border-radius: 8px; 
+  padding: 8px 14px; 
+  font-weight: 900; 
+  font-size: 15.5px; 
+  cursor: pointer; 
+  font-family: 'Cairo', sans-serif; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(107, 100, 150, 0.2);
+  align-self: flex-end;
+}
+body.ltr-mode .sidebar-btn-primary {
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  align-self: flex-start;
+}
+
+.sidebar-btn-icon {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #ffffff;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f3f4f6; width: 100%; }
+.sidebar-row-label { font-weight: 900; font-size: 16px; color: #1f2937; }
+
+.sidebar-action-box { 
+  background: transparent; 
+  border: 1.5px solid #6b6496; 
+  border-radius: 6px; 
+  padding: 6px 6px; 
+  font-weight: 900; 
+  font-size: 14.5px; 
+  cursor: pointer; 
+  color: #1f2937; 
+  min-width: 32px;
+  text-align: center;
+}
+
+.container { max-width: 480px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
+
+.page-heading { 
+  text-align: right; 
+  font-size: 24.5px; 
+  font-weight: 800; 
+  color: #f9fafb; 
+  margin: 12px 0 16px 0; 
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3); 
+}
+body.ltr-mode .page-heading { text-align: left; }
+
+.notice-banner { 
+  background: #ffffff; 
+  border-radius: 16px; 
+  padding: 20px 16px; 
+  margin-bottom: 16px; 
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04); 
+  border: 1px solid #E5E3F1; 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  position: relative;
+}
+
+.notice-icon { 
+  font-size: 10px; 
+  line-height: 1; 
+  user-select: none; 
+  background: #ffffff; 
+  color: #191828; 
+  width: 16px; 
+  height: 16px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  border-radius: 50%; 
+  font-weight: 900; 
+  flex-shrink: 0; 
+  border: 1.5px solid #191828; 
+  position: relative;
+}
+
+.notice-icon::before,
+.notice-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(25, 24, 40, 0.8); 
+  width: 100%;
+  height: 100%;
+  animation: rippleRings 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.notice-icon::after {
+  animation-delay: 1s;
+}
+
+@keyframes rippleRings {
+  0% { width: 100%; height: 100%; opacity: 1; }
+  100% { width: 250%; height: 250%; opacity: 0; } 
+}
+
+.notice-banner p { 
+  margin: 0; 
+  font-size: 14.5px; 
+  line-height: 1.5; 
+  color: #191828; 
+  font-family: 'TheSansArabic', 'TheSans', 'Cairo', sans-serif;
+  font-weight: 900; 
+  letter-spacing: -0.1px;
+}
+
+body.ltr-mode .notice-banner p {
+  text-align: left;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.card { 
+  background: #ffffff; 
+  border-radius: 16px; 
+  padding: 20px 16px; 
+  margin-bottom: 16px; 
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04); 
+  border: 1px solid #E5E3F1; 
+}
+.card-top-section { text-align: center; margin-bottom: 6px; border-bottom: none; padding-bottom: 2px; position: relative; }
+
+.card-side-logo { 
+  display: flex; 
+  justify-content: flex-start; 
+  margin-bottom: 4px; 
+}
+body.ltr-mode .card-side-logo { 
+  justify-content: flex-start; 
+}
+
+.gov-seal-side { 
+  max-height: 49px; 
+  width: auto; 
+  object-fit: contain; 
+  display: block; 
+}
+body.ltr-mode .gov-seal-side {
+  transform: scaleX(-1);
+}
+
+.comp-title-row { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  gap: 10px; 
+  margin-top: 2px; 
+  direction: rtl;
+}
+body.ltr-mode .comp-title-row {
+  justify-content: space-between;
+  direction: ltr;
+}
+
+.comp-title { 
+  font-size: 18px; 
+  font-weight: 900; 
+  color: #000000; 
+  line-height: 1.4; 
+  text-align: right; 
+  flex-grow: 1;
+}
+body.ltr-mode .comp-title {
+  max-width: 220px;
+  line-height: 1.35;
+  font-size: 16.5px;
+  text-align: left;
+  flex-grow: 0;
+}
+
+.status-badge-inline { 
+  background-color: #ecfdf5; 
+  color: #059669; 
+  padding: 2.5px 8px; 
+  border-radius: 5px; 
+  font-size: 10.5px; 
+  font-weight: 700; 
+  border: 1px solid #a7f3d0; 
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.info-row-first { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 8px;
+  padding: 10px 0; 
+  border-top: none; 
+  border-bottom: none; 
+  font-size: 13.5px; 
+  margin-top: 4px;
+  position: relative;
+}
+body.ltr-mode .info-row-first {
+  flex-direction: row;
+}
+
+.info-row-second { 
+  display: flex; 
+  justify-content: flex-start; 
+  align-items: center; 
+  gap: 8px;
+  padding: 10px 0; 
+  border-bottom: none; 
+  font-size: 13.5px; 
+  direction: rtl;
+  position: relative;
+}
+body.ltr-mode .info-row-second {
+  direction: ltr;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.info-row-second .info-label,
+.info-row-second .info-val {
+  margin: 0;
+}
+
+.info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: none; font-size: 13.5px; }
+.info-label { color: #6b7280; font-weight: 600; display: flex; align-items: center; gap: 10px; padding-right: 6px; }
+body.ltr-mode .info-label { flex-direction: row-reverse; padding-right: 0; padding-left: 6px; }
+.info-val { font-weight: 700; color: #111827; text-align: left; padding-left: 6px; }
+body.ltr-mode .info-val { text-align: left; padding-left: 0; padding-right: 6px; }
+
+.chip { background: #ffffff; color: #000000; padding: 1px 6px; border-radius: 5px; font-size: 11.5px; font-weight: 700; border: 1px solid #e5e7eb; }
+
+.chip-indigo { 
+  background: #E5E3F1 !important; 
+  border: 1px solid #E5E3F1 !important; 
+  color: #423B88 !important; 
+  font-size: 10px !important; 
+  padding: 2px 6px !important; 
+}
+
+.date-badge-box, .activity-card, .manager-box { 
+  background: #E5E3F1 !important; 
+  border: 1px solid #E5E3F1 !important; 
+}
+
+.date-container { padding: 10px 0; border-bottom: none; }
+.date-label-top { color: #6b7280; font-size: 13px; font-weight: 600; margin-bottom: 8px; padding-right: 6px; }
+body.ltr-mode .date-label-top { padding-right: 0; padding-left: 6px; text-align: right; }
+.date-badges-grid { display: flex; flex-direction: column; gap: 10px; }
+.date-row-group-left { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; margin-top: -85px; } 
+body.ltr-mode .date-row-group-left { align-items: flex-start; }
+.date-row-group-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+body.ltr-mode .date-row-group-right { align-items: flex-end; }
+
+.date-badge-box { 
+  border-radius: 5px; 
+  padding: 2px 7px; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 5px; 
+  font-size: 11px; 
+  font-weight: 700; 
+  color: #423B88 !important; 
+  width: fit-content;
+}
+.date-badge-box span:last-child { 
+  color: #423B88 !important; 
+  font-size: 9px; 
+  background: #d4cde8 !important; 
+  padding: 1px 4px; 
+  border-radius: 2px; 
+}
+
+.section-title { 
+  font-size: 17px; 
+  font-weight: 900; 
+  color: #000000; 
+  margin: 20px 0 12px 0; 
+}
+
+.activity-card { border-radius: 10px; padding: 12px; margin-bottom: 8px; }
+
+.activity-title { 
+  font-size: 14.5px; 
+  font-weight: 800; 
+  color: #000000; 
+  margin-bottom: 4px; 
+}
+
+.activity-code { 
+  font-family: 'TheSansArabic', 'TheSans', sans-serif;
+  font-size: 16px; 
+  color: #000000; 
+  font-weight: 600; 
+}
+
+.manager-box { 
+  border-radius: 10px; 
+  padding: 12px; 
+  text-align: center; 
+  font-weight: 800; 
+  color: #000000; 
+  font-size: 14.5px; 
+}
+
+.footer { 
+  text-align: center; 
+  padding: 20px 16px; 
+  font-size: 11px; 
+  color: #4b5563; 
+  background: #ffffff; 
+  border-radius: 16px; 
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04); 
+  border: 1px solid #E5E3F1; 
+}
+
+.footer-brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 0;
+}
+body.ltr-mode .footer-brand-row {
+  flex-direction: row-reverse;
+}
+
+.footer-brand {
+  font-weight: 700;
+  font-size: 12px;
+  color: #4b5563;
+  text-align: left; 
+  line-height: 1.5;
+  flex: 1;
+  margin-top: 0;
+}
+body.ltr-mode .footer-brand {
+  text-align: right; 
+}
+
+.sdaia-logo-img {
+  max-height: 46px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.footer-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 10px; }
+.footer-links a { color: #4b5563; text-decoration: none; font-weight: 600; font-size: 12px; }
+.footer-copy { margin-bottom: 4px; font-weight: 600; color: #4b5563; }
+.footer-version { color: #6b7280;  }
+
+.info-row-first::before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 24px);
+  width: 48px;
+  height: 48px;
+  background: url("line.png") center/contain no-repeat;
+  z-index: 3;
+}
+body.ltr-mode .info-row-first::before {
+  right: auto;
+  left: 20px;
+}
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <div class="header">
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-        <div class="logo-text">
-            المركز السعودي للتنافسية والأعمال<br>
-            <span style="font-size: 10px; font-weight: normal;">SAUDI COMPETITIVENESS & BUSINESS CENTER</span>
-        </div>
-        <div style="font-size: 20px;">🌴</div>
+<div id="loader-screen">
+  <div class="loader-card-mock">
+    <div class="loader-line-mock" style="width: 40%; margin: 0 auto;"></div>
+    <div class="loader-line-mock" style="height: 35px;"></div>
+    <div class="loader-row-mock">
+      <div class="loader-line-mock" style="height: 20px;"></div>
+      <div class="loader-line-mock" style="height: 20px;"></div>
+      <div class="loader-line-mock" style="height: 20px;"></div>
     </div>
+    <div class="loader-line-mock" style="height: 60px;"></div>
+    <div class="loader-line-mock" style="height: 60px;"></div>
+  </div>
+  <div class="loader-text-loading">جاري التحميل...</div>
+</div>
 
-    <!-- Side Menu -->
-    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-    <div class="side-menu" id="sideMenu">
-        <button class="close-menu" onclick="toggleMenu()">✕</button>
-        <a href="#" onclick="menuClick('الرئيسية')">الرئيسية</a>
-        <a href="#" onclick="menuClick('التحقق من السجل')">التحقق من السجل التجاري</a>
-        <a href="#" onclick="menuClick('الخدمات الإلكترونية')">الخدمات الإلكترونية</a>
-        <a href="#" onclick="menuClick('الشروط والأحكام')">الشروط والأحكام</a>
-        <a href="#" onclick="menuClick('الأسئلة الشائعة')">الأسئلة الشائعة</a>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
+<div class="sidebar" id="appSidebar">
+  <div class="sidebar-top-bar">
+    <button class="close-sidebar" onclick="toggleMenu()">✕</button>
+  </div>
+  <div class="sidebar-content">
+    <button class="sidebar-btn-primary" onclick="window.open('https://scbc.gov.sa/?culture=en', '_blank')">
+      <div class="sidebar-btn-icon">➔</div>
+      <span id="sidebarPlatformBtn">منصة الأعمال</span>
+    </button>
+    <div class="sidebar-row">
+      <span class="sidebar-row-label" id="langRowLabel">اللغة</span>
+      <button class="sidebar-action-box" id="langBtn" onclick="toggleLanguage()">En</button>
     </div>
-
-    <div class="container">
-        <h1 class="title-main">بيانات السجل التجاري</h1>
-
-        <!-- Notice Box -->
-        <div class="notice-box">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            <p>المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
-        </div>
-
-        <!-- Main Company Card -->
-        <div class="card">
-            <div class="company-header">
-                <span class="badge-active">نشط</span>
-                <div class="company-name">شركة عبدالهادي محمد اليامي للمقاولات</div>
-            </div>
-
-            <div class="info-row">
-                <span class="tag-box">شركة</span>
-                <span class="info-label">نوع المنشأة</span>
-            </div>
-            <div class="info-row">
-                <span class="tag-box">ذات مسؤولية محدودة</span>
-                <span class="info-label">نوع الشركة</span>
-            </div>
-            <div class="info-row">
-                <span class="info-value">7052072944</span>
-                <span class="info-label">الرقم الوطني الموحد للمنشأة</span>
-            </div>
-            <div class="info-row">
-                <span class="tag-box" style="background:#e0e7ff; color:#3730a3;">سجل رئيسي</span>
-                <span class="info-label">نوع السجل</span>
-            </div>
-
-            <div class="info-row">
-                <span class="info-value">1447-04-22 هـ / 14-10-2025 م</span>
-                <span class="info-label">تاريخ قيد السجل التجاري</span>
-            </div>
-            <div class="info-row">
-                <span class="info-value">13-10-2026 م</span>
-                <span class="info-label">تاريخ التأكيد السنوي للسجل التجاري</span>
-            </div>
-
-            <div class="info-row">
-                <span class="info-value">الجبيـل حي الصفـاة شارع مكـة المكرمة</span>
-                <span class="info-label">مدينة عنوان الأعمال المعتمـد للمنشأة</span>
-            </div>
-            <div class="info-row">
-                <span class="info-value">-</span>
-                <span class="info-label">رقم نسخة السجل التجاري</span>
-            </div>
-            <div class="info-row">
-                <span class="info-value">ر 5,000.00</span>
-                <span class="info-label">قيمة رأس المال الكلي</span>
-            </div>
-
-            <h3 class="section-title" style="border-top: 1px solid #f3f4f6; padding-top: 15px;">بيانات الاتصال</h3>
-            <div class="info-row">
-                <span class="info-value">00966558531945</span>
-                <span class="info-label">رقم الجوال</span>
-            </div>
-            <div class="info-row">
-                <span class="info-value" style="font-size: 13px;">klhnfskfhbj@gmail.com</span>
-                <span class="info-label">البريد الإلكتروني</span>
-            </div>
-            <div class="info-row">
-                <span class="info-value">-</span>
-                <span class="info-label">عنوان الموقع الإلكتروني</span>
-            </div>
-        </div>
-
-        <!-- Activities Card -->
-        <div class="card">
-            <h3 class="section-title" style="margin-top: 0;">قائمة أنشطة السجل التجاري</h3>
-            
-            <div class="activity-item">
-                <div class="activity-name">الإنشاءات العامة للمباني السكنية</div>
-                <div class="activity-code">410010</div>
-            </div>
-            <div class="activity-item">
-                <div class="activity-name">الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق ....الخ)</div>
-                <div class="activity-code">410021</div>
-            </div>
-            <div class="activity-item">
-                <div class="activity-name">إنشاء المطارات ومرافقها</div>
-                <div class="activity-code">410022</div>
-            </div>
-            <div class="activity-item">
-                <div class="activity-name">الإنشاءات العامة للمباني الحكومية</div>
-                <div class="activity-code">410023</div>
-            </div>
-        </div>
-
-        <!-- Managers Card -->
-        <div class="card">
-            <h3 class="section-title" style="margin-top: 0;">قائمة المديرِينَ</h3>
-            <div class="activity-item" style="background: #f8fafc;">
-                <div class="activity-name" style="text-align: center;">عبدالهادي محمد مبارك اليامي</div>
-            </div>
-        </div>
+    <div class="sidebar-row">
+      <span class="sidebar-row-label" id="fontRowLabel">حجم الخط</span>
+      <button class="sidebar-action-box" id="fontSizeBtn" onclick="toggleFontSize()">A+</button>
     </div>
+  </div>
+</div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <div>تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي (SDAIA)</div>
-        <div class="footer-links">
-            <a href="#">سياسة الخصوصية</a>
-            <a href="#">الشروط والأحكام</a>
-            <a href="#">الأسئلة الشائعة</a>
-        </div>
-        <div>جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026</div>
-        <div style="margin-top: 5px; color: #9ca3af;">الإصدار 1.1.9</div>
+<div class="main-wrapper" id="mainWrapper">
+  <header class="header">
+    <div class="header-right">
+      <a href="https://scbc.gov.sa/?culture=en" target="_blank" class="header-brand-link" aria-label="المركز السعودي للتنافسية والأعمال">
+        <img src="header-logo.png" alt="المركز السعودي للتنافسية والأعمال" class="header-brand-img" id="headerBrandImg">
+      </a>
     </div>
+    <div class="header-logo-section">
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </div>
+  </header>
+  <div class="container">
+    <h2 class="page-heading" id="mainHeading">بيانات السجل التجاري</h2>
+    
+    <div class="notice-banner">
+      <div class="notice-icon" role="img" aria-label="معلومات">i</div>
+      <p id="noticeText">المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.</p>
+    </div>
+    
+    <div class="card">
+      <div class="card-top-section">
+        <div class="card-side-logo">
+          <img src="company-logo.png" alt="" class="gov-seal-side">
+        </div>
+        <div class="comp-title-row" id="companyTitleRow">
+          <div class="comp-title" id="compName">نقليات ماجد سعيد الشهراني</div>
+          <span class="status-badge-inline" id="statusBadge">نشط</span>
+        </div>
+      </div>
+      
+      <div class="info-row-first">
+        <span class="info-label" id="lblFacilityType">نوع المنشأة</span>
+        <span class="info-val"><span class="chip" id="valFacilityType">مؤسسة</span></span>
+      </div>
+      
+      <div class="info-row-second">
+        <span class="info-label" id="lblCompanyType">نوع المؤسسة</span>
+        <span class="info-val"><span class="chip" id="valCompanyType">مؤسسة فردية</span></span>
+      </div>
 
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById('sideMenu');
-            var overlay = document.getElementById('overlay');
-            menu.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
+      <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+          <span class="info-label" id="lblRegistryType" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">نوع السجل</span>
+          <span class="info-val"><span class="chip-indigo" id="valRegistryType">سجل رئيسي</span></span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 8px;">
+          <span class="info-label" id="lblUnifiedNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px; text-align: left; line-height: 1.3;">الرقم الوطني الموحد<br>للمنشأة</span>
+          <span class="info-val" id="valUnifiedNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; margin-top: 4px;">7036578065</span>
+        </div>
+      </div>
 
-        function menuClick(name) {
-            alert('تم النقر على: ' + name);
-            toggleMenu();
-        }
-    </script>
+      <div class="date-container">
+        <div class="date-label-top" id="lblRegistryDate">تاريخ قيد السجل التجاري</div>
+        <div class="date-badges-grid">
+          <div class="date-row-group-right">
+            <div class="date-badge-box">
+              <span id="valRegistryHijri">1445-03-19</span>
+              <span>هـ</span>
+            </div>
+            <div class="date-badge-box">
+              <span id="valRegistryGregorian" style="direction: ltr; unicode-bidi: embed;">04-10-2023</span>
+              <span>م</span>
+            </div>
+          </div>
+          <div class="date-row-group-left">
+            <div class="date-label-top" id="lblAnnualConfirmationDate" style="font-size: 11.5px; margin-bottom: 2px; font-weight: 600; color: #6b7280; text-align: left; line-height: 1.3;">تاريخ التأكيد السنوي<br>للسجل التجاري</div>
+            <div class="date-badge-box" style="margin-top: 4px;">
+              <span id="valExpiryHijri">1448-02-29</span>
+              <span>هـ</span>
+            </div>
+            <div class="date-badge-box">
+              <span id="valExpiryGregorian" style="direction: ltr; unicode-bidi: embed;">12-08-2026</span>
+              <span>م</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-label" id="lblCity">&nbsp; مدينة عنوان الأعمال المعتمد للمنشأة</span>
+        <span class="info-val" id="valCity" style="color: #000000;">الرياض، العقيق، طريق الملك عبدالله المالي</span>
+      </div>
+      
+      <div class="info-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0;">
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+          <span class="info-label" id="lblCopyNumberLabel" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم نسخة السجل التجاري</span>
+          <span class="info-val" id="valCopyNumber" style="font-size: 13.5px; font-weight: 700; color: #000000; margin-top: 4px;">1</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+          <span class="info-label" id="lblCommercialNumber" style="font-size: 11.5px; color: #6b7280; font-weight: 600; margin-bottom: 2px;">رقم السجل التجاري</span>
+          <span class="info-val" id="valCommercialNumber" style="font-size: 13.5px; font-weight: 700; color: #000000;">5950913520</span>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <span class="info-label" id="lblCapital">&nbsp; قيمة رأس المال الكلي</span>
+        <span class="info-val" id="valCapital" style="color: #000000;">﷼ 5,000.00</span>
+      </div>
+
+      <div style="text-align: right; font-size: 17px; font-weight: 900; color: #000000; margin: 20px 0 12px 0; padding-right: 6px;" id="secContactInfo">بيانات الاتصال</div>
+
+      <div class="info-row">
+        <span class="info-label" id="lblPhone">&nbsp; رقم الجوال</span>
+        <span class="info-val" id="valPhone" style="color: #000000;">غير محدد</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label" id="lblEmail">&nbsp; البريد الإلكتروني</span>
+        <span class="info-val" id="valEmail" style="color: #000000;">غير محدد</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label" id="lblWebsite">&nbsp; عنوان الموقع الإلكتروني</span>
+        <span class="info-val" id="valWebsite" style="color: #000000;">-</span>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="section-title" id="secActivities" style="margin-top: 0;">قائمة أنشطة السجل التجاري</div>
+      <div class="activity-card">
+        <div class="activity-title" id="activityText1">الإنشاءات العامة للمباني السكنية</div>
+        <div class="activity-code" id="activityCode1">410001</div>
+      </div>
+      <div class="activity-card">
+        <div class="activity-title" id="activityText2">الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)</div>
+        <div class="activity-code" id="activityCode2">410009</div>
+      </div>
+      <div class="activity-card">
+        <div class="activity-title" id="activityText3">إنشاء المطارات ومرافقها</div>
+        <div class="activity-code" id="activityCode3">410010</div>
+      </div>
+      <div class="activity-card">
+        <div class="activity-title" id="activityText4">الإنشاءات العامة للمباني الحكومية</div>
+        <div class="activity-code" id="activityCode4">410011</div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="section-title" id="secManagers" style="margin-top: 0; font-size: 17px; font-weight: 900; color: #000000;">قائمة المديرين</div>
+      <div class="manager-box" id="managerName">ماجد سعيد الشهراني</div>
+    </div>
+    
+    <footer class="footer">
+      <div class="footer-brand-row">
+        <img src="SDAIA-logo.png" alt="SDAIA Logo" class="sdaia-logo-img">
+        <span class="footer-brand" id="footerBrandTitle">تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي</span>
+      </div>
+      <div class="footer-links">
+        <a href="#" id="footerLinkPrivacy">سياسة الخصوصية</a>
+        <a href="#" id="footerLinkTerms">الشروط والأحكام</a>
+        <a href="#" id="footerLinkFAQ">الأسئلة الشائعة</a>
+      </div>
+      <div class="footer-copy" id="footerCopy">جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026</div>
+      <div class="footer-version" id="footerVersion">الإصدار 1.1.9</div>
+    </footer>
+  </div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  const savedLang = localStorage.getItem('app_lang');
+  if (savedLang === 'en') {
+    setLanguageToEnglish();
+  }
+
+  // مرحلة 1: پورا 1 سیکنڈ (1000ms) بالکل صاف سفید (blank) سکرین رہے گی
+  setTimeout(function() {
+    const loader = document.getElementById('loader-screen');
+    const wrapper = document.getElementById('mainWrapper');
+    
+    if(loader) {
+      loader.style.visibility = 'visible';
+      loader.style.opacity = '1';
+    }
+
+    // مرحلة 2: اسکیلیٹن لوڈر اب پچھلے سے آدھی ٹائمنگ (یعنی صرف 250ms) کے لیے ظاہر ہوگا
+    setTimeout(function() {
+      if(loader) {
+        loader.style.opacity = '0';
+        setTimeout(function() {
+          loader.style.display = 'none';
+          if(wrapper) {
+            wrapper.classList.add('loaded'); // یہاں جھٹکے والا (bounce) ایفیکٹ شروع ہوگا
+          }
+        }, 150);
+      }
+    }, 250); // اسکیلیٹن لوڈنگ کا وقت آدھا کر دیا گیا ہے
+
+  }, 1000); // 1 سیکنڈ کا پرفेक्ट وائٹ بلینک فیز
+});
+
+function toggleMenu() {
+  const sidebar = document.getElementById('appSidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  sidebar.classList.toggle('active');
+  overlay.classList.toggle('active');
+}
+
+function updateCompanyLanguage(lang) {
+  const row = document.getElementById("companyTitleRow");
+  const name = document.getElementById("compName");
+  const status = document.getElementById("statusBadge");
+
+  if (lang === "en") {
+    name.innerHTML = "Majed Saeed Al-Shahrani<br>Transport";
+    status.textContent = "Active";
+
+    row.style.direction = "ltr";
+    row.style.justifyContent = "space-between";
+    name.style.order = "1";
+    status.style.order = "2";
+    name.style.textAlign = "left";
+  } else {
+    name.textContent = "نقليات ماجد سعيد الشهراني";
+    status.textContent = "نشط";
+
+    row.style.direction = "rtl";
+    row.style.justifyContent = "space-between";
+    name.style.order = "1";
+    status.style.order = "2";
+    name.style.textAlign = "right";
+  }
+}
+
+let isEnglish = false;
+
+function setLanguageToEnglish() {
+  isEnglish = true;
+  localStorage.setItem('app_lang', 'en');
+  const body = document.body;
+  const langBtn = document.getElementById('langBtn');
+  const rowSecond = document.querySelector('.info-row-second');
+  
+  body.classList.add('ltr-mode');
+  if(langBtn) langBtn.innerText = 'Ar';
+  if(rowSecond) {
+    rowSecond.style.direction = 'ltr';
+    rowSecond.style.justifyContent = 'flex-start';
+  }
+  document.getElementById('pageTitle').innerText = "Commercial Registration Data";
+  document.getElementById('sidebarPlatformBtn').innerText = "Business Platform";
+  document.getElementById('langRowLabel').innerText = "Language";
+  document.getElementById('fontRowLabel').innerText = "Font Size";
+  document.getElementById('mainHeading').innerText = "Commercial Registration Data";
+  document.getElementById('noticeText').innerText = "The Saudi Business Center is not responsible for any shortage or discrepancy in the data, as data is retrieved in integration with the relevant authorities.";
+  
+  updateCompanyLanguage("en");
+
+  document.getElementById('lblFacilityType').innerText = "Facility Type";
+  document.getElementById('valFacilityType').innerText = "Establishment";
+  document.getElementById('lblCompanyType').innerText = "Establishment Type";
+  document.getElementById('valCompanyType').innerText = "Sole Proprietorship";
+  document.getElementById('lblRegistryType').innerText = "Registry Type";
+  document.getElementById('valRegistryType').innerText = "Main Registry";
+  document.getElementById('lblUnifiedNumber').innerHTML = "Unified National<br>Number";
+  document.getElementById('lblRegistryDate').innerText = "Registration Date";
+  document.getElementById('lblAnnualConfirmationDate').innerHTML = "Annual Confirmation<br>Date";
+  document.getElementById('lblCity').innerText = "Business City";
+  document.getElementById('valCity').innerText = "Riyadh, Al-Aqeeq, King Abdullah Financial District";
+  document.getElementById('lblCopyNumberLabel').innerText = "Copy Number";
+  document.getElementById('lblCommercialNumber').innerText = "Commercial Registration No.";
+  document.getElementById('lblCapital').innerText = "Total Capital";
+  document.getElementById('valCapital').innerText = "SAR 5,000.00";
+  document.getElementById('secContactInfo').innerText = "Contact Information";
+  document.getElementById('secContactInfo').style.textAlign = "left";
+  document.getElementById('secContactInfo').style.paddingLeft = "6px";
+  document.getElementById('secContactInfo').style.paddingRight = "0";
+  document.getElementById('lblPhone').innerText = "Mobile Number";
+  document.getElementById('valPhone').innerText = "Not Specified";
+  document.getElementById('lblEmail').innerText = "Email";
+  document.getElementById('valEmail').innerText = "Not Specified";
+  document.getElementById('lblWebsite').innerText = "Website";
+  document.getElementById('secActivities').innerText = "Commercial Activities List";
+  document.getElementById('activityText1').innerText = "General construction of residential buildings";
+  document.getElementById('activityText2').innerText = "General construction of non-residential buildings (schools, hospitals, hotels, etc.)";
+  document.getElementById('activityText3').innerText = "Construction of airports and facilities";
+  document.getElementById('activityText4').innerText = "General construction of government buildings";
+  document.getElementById('secManagers').innerText = "Managers List";
+  document.getElementById('managerName').innerText = "Majed Saeed Al-Shahrani";
+  document.getElementById('footerBrandTitle').innerText = "Developed by Saudi Data and AI Authority";
+  document.getElementById('footerBrandTitle').style.textAlign = "left";
+  document.getElementById('footerLinkPrivacy').innerText = "Privacy Policy";
+  document.getElementById('footerLinkTerms').innerText = "Terms & Conditions";
+  document.getElementById('footerLinkFAQ').innerText = "FAQ";
+  document.getElementById('footerCopy').innerText = "All rights reserved to Saudi Business Center 2026";
+  document.getElementById('footerVersion').innerText = "Version 1.1.9";
+}
+
+function setLanguageToArabic() {
+  isEnglish = false;
+  localStorage.setItem('app_lang', 'ar');
+  const body = document.body;
+  const langBtn = document.getElementById('langBtn');
+  const rowSecond = document.querySelector('.info-row-second');
+  
+  body.classList.remove('ltr-mode');
+  if(langBtn) langBtn.innerText = 'En';
+  if(rowSecond) {
+    rowSecond.style.direction = 'rtl';
+    rowSecond.style.justifyContent = 'flex-start';
+  }
+  document.getElementById('pageTitle').innerText = "المركز السعودي للتنافسية والأعمال";
+  document.getElementById('sidebarPlatformBtn').innerText = "منصة الأعمال";
+  document.getElementById('langRowLabel').innerText = "اللغة";
+  document.getElementById('fontRowLabel').innerText = "حجم الخط";
+  document.getElementById('mainHeading').innerText = "بيانات السجل التجاري";
+  document.getElementById('noticeText').innerText = "المركز السعودي للتنافسية والأعمال غير مسؤول عن أي نقص أو اختلاف في البيانات، حيث يتم استرجاع البيانات بالتكامل مع الجهات المعنية.";
+  
+  updateCompanyLanguage("ar");
+
+  document.getElementById('lblFacilityType').innerText = "نوع المنشأة";
+  document.getElementById('valFacilityType').innerText = "مؤسسة";
+  document.getElementById('lblCompanyType').innerText = "نوع المؤسسة";
+  document.getElementById('valCompanyType').innerText = "مؤسسة فردية";
+  document.getElementById('lblRegistryType').innerText = "نوع السجل";
+  document.getElementById('valRegistryType').innerText = "سجل رئيسي";
+  document.getElementById('lblUnifiedNumber').innerHTML = "الرقم الوطني الموحد<br>للمنشأة";
+  document.getElementById('lblRegistryDate').innerText = "تاريخ قيد السجل التجاري";
+  document.getElementById('lblAnnualConfirmationDate').innerHTML = "تاريخ التأكيد السنوي<br>للسجل التجاري";
+  document.getElementById('lblCity').innerText = "مدينة عنوان الأعمال المعتمد للمنشأة";
+  document.getElementById('valCity').innerText = "الرياض، العقيق، طريق الملك عبدالله المالي";
+  document.getElementById('lblCopyNumberLabel').innerText = "رقم نسخة السجل التجاري";
+  document.getElementById('valCopyNumber').innerText = "1";
+  document.getElementById('lblCommercialNumber').innerText = "رقم السجل التجاري";
+  document.getElementById('valCommercialNumber').innerText = "5950913520";
+  document.getElementById('lblCapital').innerText = "قيمة رأس المال الكلي";
+  document.getElementById('valCapital').innerText = "﷼ 5,000.00";
+  document.getElementById('secContactInfo').innerText = "بيانات الاتصال";
+  document.getElementById('secContactInfo').style.textAlign = "right";
+  document.getElementById('secContactInfo').style.paddingRight = "6px";
+  document.getElementById('secContactInfo').style.paddingLeft = "0";
+  document.getElementById('lblPhone').innerText = "رقم الجوال";
+  document.getElementById('valPhone').innerText = "غير محدد";
+  document.getElementById('lblEmail').innerText = "البريد الإلكتروني";
+  document.getElementById('valEmail').innerText = "غير محدد";
+  document.getElementById('lblWebsite').innerText = "عنوان الموقع الإلكتروني";
+  document.getElementById('valWebsite').innerText = "-";
+  document.getElementById('secActivities').innerText = "قائمة أنشطة السجل التجاري";
+  document.getElementById('activityText1').innerText = "الإنشاءات العامة للمباني السكنية";
+  document.getElementById('activityCode1').innerText = "410001";
+  document.getElementById('activityText2').innerText = "الإنشاءات العامة للمباني غير السكنية (مثل المدارس والمستشفيات والفنادق....الخ)";
+  document.getElementById('activityCode2').innerText = "410009";
+  document.getElementById('activityText3').innerText = "إنشاء المطارات ومرافقها";
+  document.getElementById('activityCode3').innerText = "410010";
+  document.getElementById('activityText4').innerText = "الإنشاءات العامة للمباني الحكومية";
+  document.getElementById('activityCode4').innerText = "410011";
+  document.getElementById('secManagers').innerText = "قائمة المديرين";
+  document.getElementById('managerName').innerText = "ماجد سعيد الشهراني";
+  document.getElementById('footerBrandTitle').innerText = "تطوير الهيئة السعودية للبيانات والذكاء الاصطناعي";
+  document.getElementById('footerBrandTitle').style.textAlign = "right";
+  document.getElementById('footerLinkPrivacy').innerText = "سياسة الخصوصية";
+  document.getElementById('footerLinkTerms').innerText = "الشروط والأحكام";
+  document.getElementById('footerLinkFAQ').innerText = "الأسئلة الشائعة";
+  document.getElementById('footerCopy').innerText = "جميع الحقوق محفوظة للمركز السعودي للتنافسية والأعمال 2026";
+  document.getElementById('footerVersion').innerText = "الإصدار 1.1.9";
+}
+
+function toggleLanguage() {
+  if (!isEnglish) {
+    setLanguageToEnglish();
+  } else {
+    setLanguageToArabic();
+  }
+  toggleMenu();
+}
+
+let isZoomed = false;
+function toggleFontSize() {
+  isZoomed = !isZoomed;
+  const fontSizeBtn = document.getElementById('fontSizeBtn');
+  
+  const notice = document.querySelector('.notice-banner p');
+  const compName = document.getElementById('compName');
+  const statusBadge = document.getElementById('statusBadge');
+  const pageHeading = document.getElementById('mainHeading');
+  const labels = document.querySelectorAll('.info-label, .date-label-top, .sidebar-row-label');
+  const values = document.querySelectorAll('.info-val, .chip, .date-badge-box, .activity-title, .activity-code, .manager-box');
+  const sectionTitles = document.querySelectorAll('.section-title');
+  const footers = document.querySelectorAll('.footer, .footer-brand, .footer-links a, .footer-copy, .footer-version');
+
+  if (isZoomed) {
+    fontSizeBtn.innerText = 'A-';
+    
+    if(notice) notice.style.fontSize = '17.5px';
+    if(compName) compName.style.fontSize = '21.5px';
+    if(statusBadge) statusBadge.style.fontSize = '12.5px';
+    if(pageHeading) pageHeading.style.fontSize = '28.5px';
+    
+    labels.forEach(el => el.style.fontSize = '16px');
+    values.forEach(el => el.style.fontSize = '16px');
+    sectionTitles.forEach(el => el.style.fontSize = '20px');
+    footers.forEach(el => el.style.fontSize = '13px');
+  } else {
+    fontSizeBtn.innerText = 'A+';
+    
+    if(notice) notice.style.fontSize = '';
+    if(compName) compName.style.fontSize = '';
+    if(statusBadge) statusBadge.style.fontSize = '';
+    if(pageHeading) pageHeading.style.fontSize = '';
+    
+    labels.forEach(el => el.style.fontSize = '');
+    values.forEach(el => el.style.fontSize = '');
+    sectionTitles.forEach(el => el.style.fontSize = '');
+    footers.forEach(el => el.style.fontSize = '');
+  }
+}
+</script>
 </body>
 </html>
