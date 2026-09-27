@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WINPRO 360 - Official Real Money Gaming Platform</title>
+    <title>WinPro 360 | #1 Real Money Gaming Platform</title>
     <style>
         * {
             margin: 0;
@@ -12,279 +12,232 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #0b131e;
+            background-color: #0b0f19;
             color: #ffffff;
+            overflow-x: hidden;
         }
         header {
-            background: #121c29;
-            padding: 15px 30px;
+            background: #0b0f19;
+            padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #ffaa00;
-            box-shadow: 0 4px 20px rgba(255, 170, 0, 0.2);
+            border-bottom: 1px solid #1e2538;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         .logo {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 900;
             color: #ffffff;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px #ffaa00, 0 0 20px #ffaa00;
+            letter-spacing: 1px;
         }
         .logo span {
-            color: #ffaa00;
+            color: #ff4757;
+            text-shadow: 0 0 10px rgba(255, 71, 87, 0.6);
         }
-        .user-panel {
+        .nav-btns {
             display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .balance {
-            background: #1b2838;
-            padding: 8px 15px;
-            border-radius: 6px;
-            font-weight: bold;
-            color: #00ffcc;
-            border: 1px solid #00ffcc55;
+            gap: 10px;
         }
         .btn {
-            padding: 8px 18px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn-deposit {
-            background: linear-gradient(135deg, #00ffcc, #00b386);
-            color: #0b131e;
-        }
-        .btn-withdraw {
-            background: linear-gradient(135deg, #ff4757, #cc2e3d);
-            color: #fff;
-        }
-        .btn:hover {
-            opacity: 0.9;
-            transform: scale(1.02);
-        }
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        .banner {
-            background: linear-gradient(135deg, #1f2f45, #111a25);
-            border: 1px solid #ffaa0055;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .banner h1 {
-            font-size: 34px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        .banner h1 span {
-            color: #ffaa00;
-        }
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .game-card {
-            background: #162231;
-            border-radius: 12px;
-            overflow: hidden;
-            text-align: center;
-            border: 1px solid #24354a;
-            transition: 0.3s;
-        }
-        .game-card:hover {
-            transform: translateY(-5px);
-            border-color: #ffaa00;
-            box-shadow: 0 5px 20px rgba(255, 170, 0, 0.2);
-        }
-        .game-img {
-            height: 140px;
-            background: #111a25;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            color: #ffaa00;
-            font-weight: bold;
-            border-bottom: 1px solid #24354a;
-        }
-        .game-info {
-            padding: 15px;
-        }
-        .game-title {
-            font-size: 18px;
-            margin-bottom: 12px;
-            color: #e1e1e1;
-        }
-        .btn-play {
-            background: #ffaa00;
-            color: #0b131e;
-            width: 100%;
-            padding: 10px;
-            border: none;
+            padding: 8px 20px;
             border-radius: 6px;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
+            border: none;
+            font-size: 14px;
         }
-        .btn-play:hover {
-            background: #ffbb33;
+        .btn-login {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #2a344d;
         }
-        /* Modal Styles for Deposit/Withdraw */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
+        .btn-register {
+            background: #ff4757;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 71, 87, 0.4);
         }
-        .modal-content {
-            background: #162231;
-            padding: 30px;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 400px;
-            border: 1px solid #ffaa00;
+        .hero {
             text-align: center;
+            padding: 50px 20px 30px;
         }
-        .modal-content h2 {
-            margin-bottom: 20px;
-            color: #ffaa00;
-        }
-        .modal-content input {
-            width: 100%;
-            padding: 12px;
+        .hero h2 {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #ff4757;
+            text-transform: uppercase;
             margin-bottom: 15px;
-            background: #0b131e;
-            border: 1px solid #24354a;
-            border-radius: 6px;
-            color: #fff;
-            font-size: 16px;
         }
-        .modal-content button {
-            width: 100%;
-            padding: 12px;
-            background: #ffaa00;
-            border: none;
-            border-radius: 6px;
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero h1 span {
+            color: #ff4757;
+            text-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
+        }
+        .hero p {
+            font-size: 14px;
+            color: #a0aec0;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .cta-btn {
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            color: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
             font-weight: bold;
+            border: none;
+            box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
             cursor: pointer;
-            color: #0b131e;
-            font-size: 16px;
+            margin-bottom: 15px;
         }
-        .close-btn {
-            margin-top: 10px;
-            background: transparent !important;
-            color: #ff4757 !important;
+        .login-link-btn {
+            background: #131b2e;
+            color: #ffffff;
+            width: 90%;
+            max-width: 400px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            border: 1px solid #1e2a47;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        .stats-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 30px 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .stat-box {
+            background: #131b2e;
+            border: 1px solid #1e2a47;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-box h3 {
+            font-size: 28px;
+            color: #ffffff;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        .stat-box h3 span {
+            color: #ff4757;
+        }
+        .stat-box p {
+            font-size: 13px;
+            color: #8c9bae;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .features-section {
+            padding: 30px 20px;
+            background: #0e1422;
+            border-top: 1px solid #192238;
+        }
+        .features-section h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        .features-section p {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .bullet-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+        .bullet-list li::before {
+            content: "•";
+            color: #ff4757;
+            font-size: 22px;
+            position: absolute;
+            left: 0;
+            top: -2px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">WIN<span>PRO</span> 360</div>
-        <div class="user-panel">
-            <div class="balance" id="userBalance">₨ 5,000.00</div>
-            <button class="btn btn-deposit" onclick="openModal('depositModal')">Deposit</button>
-            <button class="btn btn-withdraw" onclick="openModal('withdrawModal')">Withdraw</button>
+        <div class="logo">WinPro <span>360</span></div>
+        <div class="nav-btns">
+            <button class="btn btn-login" onclick="alert('Redirecting to Login Page...')">Login</button>
+            <button class="btn btn-register" onclick="alert('Redirecting to Registration Page...')">Register</button>
         </div>
     </header>
 
-    <div class="container">
-        <div class="banner">
-            <h1>Welcome to <span>WINPRO 360</span> Official</h1>
-            <p>Real Money Gaming Platform. Play Aviator, Color Prediction & Win Instantly!</p>
-        </div>
-
-        <h2 style="margin-bottom: 20px; border-left: 4px solid #ffaa00; padding-left: 10px;">Official Games</h2>
+    <div class="hero">
+        <h2>Gaming Platform</h2>
+        <h1>WinPro 360<br><span>Pakistan's #1 Real Money Gaming Platform</span></h1>
+        <p>Register now on WinPro 360 and get Rs 5,000 welcome bonus — no investment required! Join 50,000+ users already earning daily with Win Go, Aviator & more. Withdraw to JazzCash or EasyPaisa within 24 hours.</p>
         
-        <div class="games-grid">
-            <div class="game-card">
-                <div class="game-img">🚀 AVIATOR</div>
-                <div class="game-info">
-                    <div class="game-title">Crash Jet Multiplier</div>
-                    <button class="btn-play" onclick="alert('Launching Real Money Aviator Game...')">Play Now</button>
-                </div>
-            </div>
-            <div class="game-card">
-                <div class="game-img">🎨 COLOR PREDICTION</div>
-                <div class="game-info">
-                    <div class="game-title">Win Go 1Min</div>
-                    <button class="btn-play" onclick="alert('Launching Color Prediction Game...')">Play Now</button>
-                </div>
-            </div>
-            <div class="game-card">
-                <div class="game-img">🎲 LUCKY DICE</div>
-                <div class="game-info">
-                    <div class="game-title">Roll & Win</div>
-                    <button class="btn-play" onclick="alert('Launching Lucky Dice Game...')">Play Now</button>
-                </div>
-            </div>
-            <div class="game-card">
-                <div class="game-img">🎰 SLOT MACHINE</div>
-                <div class="game-info">
-                    <div class="game-title">Royal Spins</div>
-                    <button class="btn-play" onclick="alert('Launching Slot Machine...')">Play Now</button>
-                </div>
-            </div>
+        <button class="cta-btn" onclick="alert('Opening Registration Form...')">Register & Get Rs 5,000 Bonus</button>
+        <button class="login-link-btn" onclick="alert('Opening Login Page...')">WinPro 360 Login</button>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-box">
+            <h3>39,900<span>+</span></h3>
+            <p>Active Players</p>
+        </div>
+        <div class="stat-box">
+            <h3>15<span>+</span></h3>
+            <p>Real Money Games</p>
+        </div>
+        <div class="stat-box">
+            <h3>5,037<span>+</span></h3>
+            <p>Rs Paid Out Daily</p>
+        </div>
+        <div class="stat-box">
+            <h3>24 hrs<span>+</span></h3>
+            <p>JazzCash & EasyPaisa Withdrawal</p>
+        </div>
+        <div class="stat-box">
+            <h3>100%<span>+</span></h3>
+            <p>Safe & Secure Platform</p>
         </div>
     </div>
 
-    <!-- Deposit Modal -->
-    <div class="modal" id="depositModal">
-        <div class="modal-content">
-            <h2>Deposit Real Money</h2>
-            <input type="number" id="depositAmount" placeholder="Enter Amount (PKR/INR)">
-            <input type="text" placeholder="Transaction ID / Receipt No">
-            <button onclick="processDeposit()">Submit Deposit</button>
-            <button class="close-btn" onclick="closeModal('depositModal')">Cancel</button>
-        </div>
+    <div class="features-section">
+        <h2>About WinPro 360</h2>
+        <p>WinPro 360 is Pakistan's #1 real money online gaming platform, trusted by over 50,000 active players[span_0](start_span)[span_0](end_span). The official WinPro 360 website is your ultimate source for secure login, app download, and live earning games.</p>
+        
+        <ul class="bullet-list">
+            <li>WinPro 360 login works 24/7 on mobile browser, desktop, or APK.</li>
+            <li>Free APK download — no Play Store, no hidden fees.</li>
+            <li>New players get Rs 5,000 welcome bonus with invite code.</li>
+            <li>Earn 30% referral commission on every friend you invite.</li>
+            <li>Minimum withdrawal Rs 200 — paid within 24 hours, 7 days a week.</li>
+        </ul>
     </div>
-
-    <!-- Withdraw Modal -->
-    <div class="modal" id="withdrawModal">
-        <div class="modal-content">
-            <h2>Withdraw Funds</h2>
-            <input type="number" placeholder="Enter Withdrawal Amount">
-            <input type="text" placeholder="EasyPaisa / JazzCash / Bank Account">
-            <button onclick="alert('Withdrawal Request Sent to Admin Panel for Approval!')">Request Withdrawal</button>
-            <button class="close-btn" onclick="closeModal('withdrawModal')">Cancel</button>
-        </div>
-    </div>
-
-    <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
-        }
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-        function processDeposit() {
-            let amt = document.getElementById('depositAmount').value;
-            if(amt) {
-                alert('Deposit of ₨ ' + amt + ' submitted successfully! Awaiting Admin Approval.');
-                closeModal('depositModal');
-            } else {
-                alert('Please enter a valid amount');
-            }
-        }
-    </script>
 
 </body>
 </html>
