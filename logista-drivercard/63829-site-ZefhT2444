@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل بطاقة السائق | منصة لوجستي - Logisti</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        logisti: {
+                            green: '#006C4C',
+                            darkGreen: '#00422F',
+                            lightGreen: '#0A8F67',
+                            navy: '#1D2338',
+                            bg: '#FAFCFB',
+                            cardBg: '#FFFFFF',
+                            text: '#1F2937',
+                            muted: '#6B7280',
+                            border: '#E5E7EB',
+                            badge: '#E11D48'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #FAFCFB;
+            color: #1F2937;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .drawer-transition {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dir-ltr {
+            direction: ltr !important;
+            display: inline-block;
+        }
+
+        .star-rating {
+            color: #00A86B;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-logisti-green selection:text-white" id="body-root">
+
+    <!-- 1. TOP OFFICIAL SAUDI GOVERNMENT BANNER -->
+    <div class="bg-[#00422F] text-white text-[11px] py-1.5 px-4 z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-5 h-3.5 bg-logisti-green border border-white/40 rounded-sm flex items-center justify-center font-bold text-[9px] text-white">
+                    🇸🇦
+                </div>
+                <span id="gov-banner-text">موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية</span>
+            </div>
+            <button onclick="toggleGovDropdown()" class="text-white/90 hover:text-white flex items-center gap-1 text-[11px] transition-colors focus:outline-none">
+                <span id="gov-verify-btn">كيف تتحقق</span>
+                <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200" id="gov-chevron"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- GOV VERIFICATION DROPDOWN CONTENT -->
+    <div id="gov-dropdown" class="hidden bg-[#002D20] text-white text-xs py-3 px-6 border-b border-white/20 shadow-inner font-cairo">
+        <div class="max-w-7xl mx-auto space-y-2">
+            <p id="gov-desc">المواقع الرسمية في المملكة العربية السعودية ينتهي نطاقها بـ <strong>.sa</strong> أو <strong>.gov.sa</strong></p>
+            <p id="gov-desc-2">تأكد دائماً من وجود رمز القفل في شريط العنوان للتأكد من أمان الاتصال.</p>
+        </div>
+    </div>
+
+    <!-- 2. HEADER BAR -->
+    <header class="bg-white sticky top-0 z-40 shadow-sm border-b border-logisti-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            
+            <!-- Left Controls: Profile, Language, Search, Notification -->
+            <div class="flex items-center space-x-3 sm:space-x-4 space-x-reverse">
+                <button onclick="showToast('صفحة تسجيل الدخول غير متاحة')" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors" title="الحساب">
+                    <i class="fa-regular fa-user text-lg"></i>
+                </button>
+                
+                <button onclick="toggleLanguage()" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors flex items-center gap-1" title="تغيير اللغة">
+                    <i class="fa-solid fa-language text-xl"></i>
+                    <span id="lang-indicator" class="text-xs font-bold text-logisti-green font-cairo">EN</span>
+                </button>
+
+                <button onclick="toggleSearchModal()" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors" title="البحث">
+                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                </button>
+
+                <button onclick="showToast('لا توجد تنبيهات جديدة')" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors" title="التنبيهات">
+                    <i class="fa-solid fa-bullhorn text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Right Branding & Hamburger Toggle -->
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="flex flex-col text-right">
+                        <span class="text-xl font-extrabold tracking-tight text-logisti-green font-cairo leading-none">لوجستي</span>
+                        <span class="text-[9px] font-bold tracking-widest text-gray-500 uppercase leading-none">LOGISTI</span>
+                    </div>
+                    <div class="w-10 h-10 bg-logisti-green rounded-xl flex items-center justify-center shadow-md group-hover:bg-logisti-darkGreen transition-all duration-300">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <button onclick="toggleDrawer()" class="p-2 text-gray-700 hover:text-logisti-green rounded-lg focus:outline-none" id="hamburger-btn">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- 3. INTERACTIVE SIDE DRAWER / MENU -->
+    <div id="drawer-backdrop" onclick="toggleDrawer()" class="fixed inset-0 bg-black/50 z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    
+    <aside id="main-drawer" class="fixed top-0 right-0 w-80 sm:w-96 h-full bg-white z-50 shadow-2xl transform translate-x-full drawer-transition overflow-y-auto flex flex-col justify-between">
+        <div class="p-5 font-cairo">
+            <div class="flex justify-between items-center pb-4 border-b border-gray-200 mb-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-logisti-green rounded-lg flex items-center justify-center text-white font-bold">
+                        <i class="fa-solid fa-truck-fast text-sm"></i>
+                    </div>
+                    <span class="font-bold text-lg text-logisti-green">قائمة لوجستي</span>
+                </div>
+                <button onclick="toggleDrawer()" class="text-gray-400 hover:text-gray-700 p-2 rounded-full hover:bg-gray-100">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <nav class="space-y-1 font-semibold text-gray-800 text-right">
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                    <span id="m-home">الرئيسية</span>
+                    <i class="fa-solid fa-chevron-left text-xs text-gray-400"></i>
+                </a>
+
+                <div>
+                    <button onclick="toggleSubmenu('sub-logisti')" class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <span id="m-logisti">لوجستي</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gray-400"></i>
+                    </button>
+                    <div id="sub-logisti" class="hidden pr-4 space-y-1 text-sm text-gray-600 bg-gray-50 py-2 rounded-lg my-1">
+                        <a href="#" class="block p-2 hover:text-logisti-green">عن منصة لوجستي</a>
+                        <a href="#" class="block p-2 hover:text-logisti-green">الأهداف والاستراتيجية</a>
+                    </div>
+                </div>
+
+                <div>
+                    <button onclick="toggleSubmenu('sub-services')" class="w-full flex items-center justify-between p-3 rounded-lg bg-logisti-green/10 text-logisti-green font-bold transition-colors">
+                        <span id="m-services">الخدمات</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-logisti-green"></i>
+                    </button>
+                    <div id="sub-services" class="pr-4 space-y-1 text-sm text-gray-600 bg-gray-50/80 py-2 rounded-lg my-1">
+                        <a href="#" class="block p-2 text-logisti-green font-bold border-r-2 border-logisti-green pr-3">تفاصيل بطاقة السائق</a>
+                        <a href="#" class="block p-2 hover:text-logisti-green">خدمات القطاع البري</a>
+                        <a href="#" class="block p-2 hover:text-logisti-green">خدمات القطاع البحري</a>
+                        <a href="#" class="block p-2 hover:text-logisti-green">خدمات القطاع السككي</a>
+                    </div>
+                </div>
+
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                    <span id="m-map">الخريطة الملاحية</span>
+                </a>
+
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                    <span id="m-centers">المراكز اللوجستية</span>
+                </a>
+
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                    <span id="m-council">مجلس الشراكة اللوجستي</span>
+                </a>
+
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center gap-2">
+                        <span id="m-directory">دليل الناقلين المرخصين</span>
+                        <span class="bg-logisti-badge text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full animate-pulse">جديد</span>
+                    </div>
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-4 border-t border-gray-100 bg-gray-50 text-xs text-gray-500 text-center font-cairo">
+            منصة لوجستي © 2026 - المملكة العربية السعودية
+        </div>
+    </aside>
+
+    <!-- MAIN PAGE CONTENT -->
+    <main class="max-w-4xl mx-auto w-full px-4 sm:px-6 pt-8 pb-16 flex-grow font-cairo">
+        
+        <!-- BREADCRUMB PAGE TITLE -->
+        <div class="text-center mb-8">
+            <h1 id="page-title" class="text-2xl sm:text-3xl font-extrabold text-logisti-green tracking-tight">
+                تفاصيل بطاقة السائق
+            </h1>
+        </div>
+
+        <!-- 4. DRIVER CARD DETAILS CONTAINER -->
+        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 sm:p-10 max-w-lg mx-auto relative overflow-hidden">
+            
+            <div class="text-center mb-8 pb-4 border-b border-gray-100">
+                <h2 id="card-inner-heading" class="text-2xl font-black text-gray-900">
+                    بطاقة السائق
+                </h2>
+            </div>
+
+            <!-- CARD DETAILS FORM DATA LIST (UPDATED DATA) -->
+            <div class="space-y-6 text-center">
+                
+                <!-- Card Number -->
+                <div class="space-y-1">
+                    <div id="lbl-card-num" class="text-sm font-semibold text-gray-500">رقم البطاقة</div>
+                    <div class="text-xl font-black text-gray-900 tracking-wider dir-ltr">33.00702910</div>
+                </div>
+
+                <!-- Driver ID -->
+                <div class="space-y-1">
+                    <div id="lbl-driver-id" class="text-sm font-semibold text-gray-500">هوية السائق</div>
+                    <div class="text-xl font-black text-gray-900 tracking-wider dir-ltr">2590692444</div>
+                </div>
+
+                <!-- First Name -->
+                <div class="space-y-1">
+                    <div id="lbl-first-name" class="text-sm font-semibold text-gray-500">الاسم الأول</div>
+                    <div id="val-first-name" class="text-lg font-bold text-gray-900">واجد</div>
+                </div>
+
+                <!-- Family Name -->
+                <div class="space-y-1">
+                    <div id="lbl-family-name" class="text-sm font-semibold text-gray-500">اسم العائلة</div>
+                    <div id="val-family-name" class="text-lg font-bold text-gray-900">خان</div>
+                </div>
+
+                <!-- Issue Date -->
+                <div class="space-y-1">
+                    <div id="lbl-issue-date" class="text-sm font-semibold text-gray-500">تاريخ إصدار البطاقة</div>
+                    <div class="text-lg font-bold text-gray-900 tracking-wider dir-ltr">2026-10-15</div>
+                </div>
+
+                <!-- Expiry Date -->
+                <div class="space-y-1">
+                    <div id="lbl-expiry-date" class="text-sm font-semibold text-gray-500">تاريخ إنتهاء البطاقة</div>
+                    <div class="text-lg font-bold text-gray-900 tracking-wider dir-ltr">2027-10-07</div>
+                </div>
+
+                <!-- Card Type -->
+                <div class="space-y-1 pt-2">
+                    <div id="lbl-card-type" class="text-sm font-semibold text-gray-500">نوع البطاقة</div>
+                    <div id="val-card-type" class="text-base font-bold text-logisti-green bg-logisti-green/5 py-3 px-4 rounded-2xl inline-block border border-logisti-green/20 max-w-full">
+                        نقل البضائع على الحساب الخاص
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 5. FEEDBACK & RATING SECTION -->
+        <div class="mt-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100 text-center max-w-lg mx-auto">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="text-2xl font-black text-gray-800">4.28</span>
+                <span id="lbl-avg-rating" class="text-sm text-gray-500 font-medium">بلغ متوسط تقييم هذه الخدمة</span>
+            </div>
+            
+            <div class="flex justify-center items-center gap-1 text-xl text-yellow-400 mb-2 star-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+
+            <p class="text-xs text-gray-400 mb-5" id="lbl-eval-count">111 تقييمات</p>
+
+            <button onclick="showRatingModal()" class="w-full bg-logisti-green hover:bg-logisti-darkGreen text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md active:scale-98 text-sm">
+                تقيّيم الخدمة
+            </button>
+
+            <div class="mt-8 pt-6 border-t border-gray-100">
+                <p id="lbl-helpful-q" class="text-sm font-bold text-gray-700 mb-4">هل كانت هذه الصفحة مفيدة؟</p>
+                <div class="flex items-center justify-center gap-3">
+                    <button onclick="voteHelpful(true)" class="bg-logisti-green/10 hover:bg-logisti-green hover:text-white text-logisti-green font-bold py-2 px-6 rounded-lg transition-colors text-sm">
+                        نعم
+                    </button>
+                    <button onclick="voteHelpful(false)" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded-lg transition-colors text-sm">
+                        لا
+                    </button>
+                </div>
+                <p class="text-xs text-gray-400 mt-3" id="lbl-helpful-stats">81% من المستخدمين قالوا نعم من أصل 27 تقييمات</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-white border-t border-gray-200 py-10 font-cairo">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
+            <p class="text-sm text-gray-600 font-bold">جميع الحقوق محفوظة 2022 - 2026 © لمنصة لوجستي</p>
+            <p class="text-xs text-gray-400">من تطوير وصيانة شركة علم</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function toggleGovDropdown() {
+            const dropdown = document.getElementById('gov-dropdown');
+            const chevron = document.getElementById('gov-chevron');
+            dropdown.classList.toggle('hidden');
+            chevron.classList.toggle('rotate-180');
+        }
+
+        function toggleDrawer() {
+            const drawer = document.getElementById('main-drawer');
+            const backdrop = document.getElementById('drawer-backdrop');
+            
+            if (drawer.classList.contains('translate-x-full')) {
+                drawer.classList.remove('translate-x-full');
+                backdrop.classList.remove('hidden');
+                setTimeout(() => backdrop.classList.add('opacity-100'), 10);
+            } else {
+                drawer.classList.add('translate-x-full');
+                backdrop.classList.remove('opacity-100');
+                setTimeout(() => backdrop.classList.add('hidden'), 300);
+            }
+        }
+
+        function toggleSubmenu(id) {
+            const sub = document.getElementById(id);
+            sub.classList.toggle('hidden');
+        }
+
+        let isArabic = true;
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const html = document.documentElement;
+            const langBtn = document.getElementById('lang-indicator');
+            
+            if (!isArabic) {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                langBtn.innerText = 'AR';
+                
+                // English Translations
+                document.getElementById('page-title').innerText = 'Driver Card Details';
+                document.getElementById('card-inner-heading').innerText = 'Driver Card';
+                document.getElementById('lbl-card-num').innerText = 'Card Number';
+                document.getElementById('lbl-driver-id').innerText = 'Driver ID';
+                document.getElementById('lbl-first-name').innerText = 'First Name';
+                document.getElementById('val-first-name').innerText = 'Wajid';
+                document.getElementById('lbl-family-name').innerText = 'Family Name';
+                document.getElementById('val-family-name').innerText = 'Khan';
+                document.getElementById('lbl-issue-date').innerText = 'Card Issue Date';
+                document.getElementById('lbl-expiry-date').innerText = 'Card Expiry Date';
+                document.getElementById('lbl-card-type').innerText = 'Card Type';
+                document.getElementById('val-card-type').innerText = 'Private Freight Transport';
+                document.getElementById('gov-banner-text').innerText = 'An official government portal of the Kingdom of Saudi Arabia';
+                document.getElementById('gov-verify-btn').innerText = 'How to verify';
+            } else {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+                langBtn.innerText = 'EN';
+                
+                // Arabic Translations
+                document.getElementById('page-title').innerText = 'تفاصيل بطاقة السائق';
+                document.getElementById('card-inner-heading').innerText = 'بطاقة السائق';
+                document.getElementById('lbl-card-num').innerText = 'رقم البطاقة';
+                document.getElementById('lbl-driver-id').innerText = 'هوية السائق';
+                document.getElementById('lbl-first-name').innerText = 'الاسم الأول';
+                document.getElementById('val-first-name').innerText = 'واجد';
+                document.getElementById('lbl-family-name').innerText = 'اسم العائلة';
+                document.getElementById('val-family-name').innerText = 'خان';
+                document.getElementById('lbl-issue-date').innerText = 'تاريخ إصدار البطاقة';
+                document.getElementById('lbl-expiry-date').innerText = 'تاريخ إنتهاء البطاقة';
+                document.getElementById('lbl-card-type').innerText = 'نوع البطاقة';
+                document.getElementById('val-card-type').innerText = 'نقل البضائع على الحساب الخاص';
+                document.getElementById('gov-banner-text').innerText = 'موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية';
+                document.getElementById('gov-verify-btn').innerText = 'كيف تتحقق';
+            }
+        }
+
+        function showToast(msg) {
+            alert(msg);
+        }
+
+        function voteHelpful(status) {
+            alert(status ? "شكراً لمشاركتك برأيك!" : "شكراً لملاحظتك، سنعمل على تحسين الخدمة.");
+        }
+
+        function showRatingModal() {
+            alert("تم فتح نافذة التقييم.");
+        }
+
+        function toggleSearchModal() {
+            alert("خاصية البحث مفعّلة.");
+        }
+    </script>
+</body>
+</html>
