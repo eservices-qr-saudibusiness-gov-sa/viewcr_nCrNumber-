@@ -207,66 +207,66 @@
     </aside>
 
     <!-- MAIN PAGE CONTENT -->
-    <main class="max-w-md mx-auto w-full px-4 pt-6 pb-16 flex-grow font-cairo">
+    <main class="max-w-md mx-auto w-full px-4 pt-6 pb-16 flex-grow font-cairo flex flex-col items-center">
         
         <!-- PAGE TITLE -->
-        <div class="text-center mb-6">
+        <div class="text-center mb-6 w-full">
             <h1 id="page-title" class="text-base sm:text-lg font-semibold text-logisti-green">
                 تفاصيل بطاقة السائق
             </h1>
         </div>
 
-        <!-- 4. DRIVER CARD DETAILS CONTAINER (NARROW CENTERED BOX WITH SLIGHTLY LARGER RIGHT-ALIGNED TEXT) -->
-        <div class="bg-white rounded-2xl p-4 max-w-[250px] mx-auto space-y-3.5 shadow-sm border border-gray-100">
+        <!-- 4. DRIVER CARD DETAILS CONTAINER (NARROWER BOX, CENTERED, LARGER TEXT) -->
+        <div class="bg-white rounded-2xl p-5 w-[240px] space-y-4 shadow-sm border border-gray-100 mb-6">
             
             <div class="text-right pb-1">
-                <h2 id="card-inner-heading" class="text-base font-bold text-gray-900">
+                <h2 id="card-inner-heading" class="text-lg font-bold text-gray-900">
                     بطاقة السائق
                 </h2>
             </div>
 
-            <div class="space-y-3 text-right">
+            <div class="space-y-3.5 text-right">
                 
                 <!-- Card Number -->
                 <div class="space-y-0.5">
-                    <div id="lbl-card-num" class="text-[11px] font-normal text-gray-500">رقم البطاقة</div>
-                    <div class="text-xs font-bold text-gray-800 dir-ltr">33.00708466</div>
+                    <div id="lbl-card-num" class="text-xs font-normal text-gray-500">رقم البطاقة</div>
+                    <div class="text-sm font-bold text-gray-800 dir-ltr">33.00708466</div>
                 </div>
 
                 <!-- Driver ID -->
                 <div class="space-y-0.5">
-                    <div id="lbl-driver-id" class="text-[11px] font-normal text-gray-500">هوية السائق</div>
-                    <div class="text-xs font-bold text-gray-800 dir-ltr">2606497747</div>
+                    <div id="lbl-driver-id" class="text-xs font-normal text-gray-500">هوية السائق</div>
+                    <div class="text-sm font-bold text-gray-800 dir-ltr">2606497747</div>
                 </div>
 
                 <!-- First Name -->
                 <div class="space-y-0.5">
-                    <div id="lbl-first-name" class="text-[11px] font-normal text-gray-500">الاسم الأول</div>
-                    <div id="val-first-name" class="text-xs font-bold text-gray-800">محمد</div>
+                    <div id="lbl-first-name" class="text-xs font-normal text-gray-500">الاسم الأول</div>
+                    <div id="val-first-name" class="text-sm font-bold text-gray-800">محمد</div>
                 </div>
 
                 <!-- Family Name -->
                 <div class="space-y-0.5">
-                    <div id="lbl-family-name" class="text-[11px] font-normal text-gray-500">اسم العائلة</div>
-                    <div id="val-family-name" class="text-xs font-bold text-gray-800">خان</div>
+                    <div id="lbl-family-name" class="text-xs font-normal text-gray-500">اسم العائلة</div>
+                    <div id="val-family-name" class="text-sm font-bold text-gray-800">خان</div>
                 </div>
 
                 <!-- Issue Date -->
                 <div class="space-y-0.5">
-                    <div id="lbl-issue-date" class="text-[11px] font-normal text-gray-500">تاريخ إصدار البطاقة</div>
-                    <div class="text-xs font-bold text-gray-800 dir-ltr">2025-07-24</div>
+                    <div id="lbl-issue-date" class="text-xs font-normal text-gray-500">تاريخ إصدار البطاقة</div>
+                    <div class="text-sm font-bold text-gray-800 dir-ltr">2025-07-24</div>
                 </div>
 
                 <!-- Expiry Date -->
                 <div class="space-y-0.5">
-                    <div id="lbl-expiry-date" class="text-[11px] font-normal text-gray-500">تاريخ إنتهاء البطاقة</div>
-                    <div class="text-xs font-bold text-gray-800 dir-ltr">2027-07-18</div>
+                    <div id="lbl-expiry-date" class="text-xs font-normal text-gray-500">تاريخ إنتهاء البطاقة</div>
+                    <div class="text-sm font-bold text-gray-800 dir-ltr">2027-07-18</div>
                 </div>
 
                 <!-- Card Type -->
                 <div class="space-y-0.5 pt-1">
-                    <div id="lbl-card-type" class="text-[11px] font-normal text-gray-500">نوع البطاقة</div>
-                    <div id="val-card-type" class="text-xs font-semibold text-gray-800 leading-relaxed">
+                    <div id="lbl-card-type" class="text-xs font-normal text-gray-500">نوع البطاقة</div>
+                    <div id="val-card-type" class="text-sm font-semibold text-gray-800 leading-relaxed">
                         نقل البضائع على الحساب الخاص
                     </div>
                 </div>
@@ -275,7 +275,7 @@
         </div>
 
         <!-- 5. FEEDBACK & RATING SECTION -->
-        <div class="mt-8 bg-white rounded-xl p-5 border-t border-logisti-green text-center max-w-[250px] mx-auto shadow-sm">
+        <div class="bg-white rounded-xl p-5 border-t border-logisti-green text-center w-[280px] shadow-sm mb-8">
             
             <div class="flex items-center justify-center gap-2 mb-2">
                 <span class="text-base font-bold text-gray-800">4.26</span>
@@ -311,7 +311,7 @@
         </div>
 
         <!-- 6. EXTENDED FOOTER MENU & DIRECTORIES -->
-        <div class="mt-8 max-w-[250px] mx-auto space-y-5 text-right font-cairo">
+        <div class="w-[280px] space-y-5 text-right font-cairo">
             
             <!-- About Logisti Section -->
             <div class="space-y-1.5">
@@ -397,7 +397,7 @@
 
     <!-- FOOTER SECTION -->
     <footer class="bg-white border-t border-gray-200 py-4 font-cairo">
-        <div class="max-w-[250px] mx-auto px-4 text-center space-y-1">
+        <div class="max-w-[280px] mx-auto px-4 text-center space-y-1">
             <p class="text-[11px] text-gray-700 font-bold">جميع الحقوق محفوظة 2022 - 2026 © لمنصة لوجستي</p>
             <p class="text-[9px] text-gray-400">من تطوير وصيانة شركة علم</p>
         </div>
