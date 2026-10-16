@@ -62,16 +62,16 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased selection:bg-logisti-green selection:text-white" id="body-root">
 
-    <!-- 1. TOP OFFICIAL SAUDI GOVERNMENT BANNER -->
-    <div class="bg-[#00422F] text-white text-[11px] py-1.5 px-4 z-50 border-b border-white/10">
+    <!-- 1. TOP GOV VERIFICATION BAR (MATCHING SCREENSHOT) -->
+    <div class="bg-gray-50 text-gray-600 text-[11px] py-1.5 px-4 border-b border-gray-100">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="w-5 h-3.5 bg-logisti-green border border-white/40 rounded-sm flex items-center justify-center font-bold text-[9px] text-white">
+                <div class="w-4 h-3 bg-logisti-green border border-gray-300 rounded-sm flex items-center justify-center font-bold text-[8px] text-white">
                     🇸🇦
                 </div>
-                <span id="gov-banner-text">موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية</span>
+                <span id="gov-banner-text" class="text-gray-500">موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية</span>
             </div>
-            <button onclick="toggleGovDropdown()" class="text-white/90 hover:text-white flex items-center gap-1 text-[11px] transition-colors focus:outline-none">
+            <button onclick="toggleGovDropdown()" class="text-logisti-green hover:underline flex items-center gap-1 text-[11px] font-semibold focus:outline-none">
                 <span id="gov-verify-btn">كيف تتحقق</span>
                 <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200" id="gov-chevron"></i>
             </button>
@@ -79,59 +79,55 @@
     </div>
 
     <!-- GOV VERIFICATION DROPDOWN CONTENT -->
-    <div id="gov-dropdown" class="hidden bg-[#002D20] text-white text-xs py-3 px-6 border-b border-white/20 shadow-inner font-cairo">
+    <div id="gov-dropdown" class="hidden bg-gray-100 text-gray-700 text-xs py-3 px-6 border-b border-gray-200 font-cairo">
         <div class="max-w-7xl mx-auto space-y-2">
             <p id="gov-desc">المواقع الرسمية في المملكة العربية السعودية ينتهي نطاقها بـ <strong>.sa</strong> أو <strong>.gov.sa</strong></p>
             <p id="gov-desc-2">تأكد دائماً من وجود رمز القفل في شريط العنوان للتأكد من أمان الاتصال.</p>
         </div>
     </div>
 
-    <!-- 2. HEADER BAR (EXACT SCREENSHOT ALIGNMENT: ICONS & LOGO ON THE RIGHT) -->
+    <!-- 2. HEADER BAR (EXACT MATCH TO SCREENSHOT) -->
     <header class="bg-white sticky top-0 z-40 shadow-sm border-b border-logisti-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             
-            <!-- Left Side: Hamburger Menu Button -->
-            <div class="flex items-center">
-                <button onclick="toggleDrawer()" class="p-2 text-gray-700 hover:text-logisti-green rounded-lg focus:outline-none" id="hamburger-btn" title="القائمة">
-                    <i class="fa-solid fa-bars text-2xl"></i>
+            <!-- Left Side: Small Action Icons -->
+            <div class="flex items-center space-x-2 sm:space-x-3 space-x-reverse">
+                <button onclick="openOfficialLink('https://logisti.sa/login')" class="p-1.5 text-gray-600 hover:text-logisti-green rounded-full transition-colors" title="الحساب">
+                    <i class="fa-regular fa-user text-base"></i>
+                </button>
+                
+                <button onclick="toggleLanguage()" class="p-1.5 text-gray-600 hover:text-logisti-green rounded-full transition-colors flex items-center gap-0.5" title="تغيير اللغة">
+                    <i class="fa-solid fa-language text-lg"></i>
+                </button>
+
+                <button onclick="openOfficialLink('https://logisti.sa/search')" class="p-1.5 text-gray-600 hover:text-logisti-green rounded-full transition-colors" title="البحث">
+                    <i class="fa-solid fa-magnifying-glass text-base"></i>
+                </button>
+
+                <button onclick="openOfficialLink('https://logisti.sa/notifications')" class="p-1.5 text-gray-600 hover:text-logisti-green rounded-full transition-colors" title="التنبيهات">
+                    <i class="fa-solid fa-bullhorn text-base"></i>
                 </button>
             </div>
 
-            <!-- Right Side: Small Icons & Logisti Logo (Exact Screenshot Order) -->
-            <div class="flex items-center space-x-3 sm:space-x-4 space-x-reverse">
-                <!-- User Profile -->
-                <button onclick="openOfficialLink('https://logisti.sa/login')" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors" title="الحساب">
-                    <i class="fa-regular fa-user text-lg"></i>
-                </button>
-                
-                <!-- Language Translator Toggle -->
-                <button onclick="toggleLanguage()" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors flex items-center gap-1" title="تغيير اللغة">
-                    <i class="fa-solid fa-language text-xl"></i>
-                    <span id="lang-indicator" class="text-xs font-bold text-logisti-green font-cairo">EN</span>
-                </button>
-
-                <!-- Search Icon -->
-                <button onclick="openOfficialLink('https://logisti.sa/search')" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors" title="البحث">
-                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
-                </button>
-
-                <!-- Announcement Bell -->
-                <button onclick="openOfficialLink('https://logisti.sa/notifications')" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors" title="التنبيهات">
-                    <i class="fa-solid fa-bullhorn text-lg"></i>
-                </button>
-
+            <!-- Right Side: Logisti Logo + Menu Bar (Exact Screenshot Layout) -->
+            <div class="flex items-center space-x-3 space-x-reverse">
                 <!-- Logisti Branding & Shield Logo -->
-                <a href="https://logisti.sa" target="_blank" class="flex items-center gap-2 group mr-2">
+                <a href="https://logisti.sa" target="_blank" class="flex items-center gap-2 group">
                     <div class="flex flex-col text-right">
-                        <span class="text-xl font-extrabold tracking-tight text-logisti-green font-cairo leading-none">لوجستي</span>
-                        <span class="text-[9px] font-bold tracking-widest text-gray-500 uppercase leading-none">LOGISTI</span>
+                        <span class="text-base font-bold tracking-tight text-logisti-green font-cairo leading-none">لوجستي</span>
+                        <span class="text-[8px] font-bold tracking-widest text-gray-400 uppercase leading-none">LOGISTI</span>
                     </div>
-                    <div class="w-10 h-10 bg-white border border-logisti-green/30 rounded-xl flex items-center justify-center shadow-sm group-hover:bg-gray-50 transition-all duration-300">
-                        <svg class="w-6 h-6 text-logisti-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <div class="w-8 h-8 bg-logisti-green rounded-lg flex items-center justify-center shadow-sm">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                         </svg>
                     </div>
                 </a>
+
+                <!-- Hamburger Menu Button -->
+                <button onclick="toggleDrawer()" class="p-1.5 text-gray-700 hover:text-logisti-green rounded-lg focus:outline-none" id="hamburger-btn" title="القائمة">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
             </div>
 
         </div>
@@ -211,59 +207,66 @@
     </aside>
 
     <!-- MAIN PAGE CONTENT -->
-    <main class="max-w-4xl mx-auto w-full px-4 sm:px-6 pt-8 pb-16 flex-grow font-cairo">
+    <main class="max-w-md mx-auto w-full px-4 pt-6 pb-16 flex-grow font-cairo">
         
-        <!-- PAGE TITLE ALIGNED TO THE SCREENSHOT -->
-        <div class="text-center mb-8">
-            <h1 id="page-title" class="text-xl sm:text-2xl font-bold text-logisti-green tracking-tight">
+        <!-- PAGE TITLE MATCHING SCREENSHOT FONT SIZE & COLOR -->
+        <div class="text-center mb-6">
+            <h1 id="page-title" class="text-lg font-semibold text-logisti-green">
                 تفاصيل بطاقة السائق
             </h1>
         </div>
 
-        <!-- 4. DRIVER CARD DETAILS CONTAINER -->
-        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 sm:p-10 max-w-lg mx-auto relative overflow-hidden">
+        <!-- 4. DRIVER CARD DETAILS CONTAINER (MATCHING EXACT SCREENSHOT FINE FONTS) -->
+        <div class="bg-white rounded-2xl p-5 max-w-sm mx-auto text-center space-y-4">
             
-            <div class="text-center mb-8 pb-4 border-b border-gray-100">
-                <h2 id="card-inner-heading" class="text-2xl font-black text-gray-900">
+            <div class="text-center pb-2">
+                <h2 id="card-inner-heading" class="text-xl font-bold text-gray-900">
                     بطاقة السائق
                 </h2>
             </div>
 
-            <div class="space-y-6 text-center">
+            <div class="space-y-4 text-center">
                 
-                <div class="space-y-1">
-                    <div id="lbl-card-num" class="text-sm font-semibold text-gray-500">رقم البطاقة</div>
-                    <div class="text-xl font-black text-gray-900 tracking-wider dir-ltr">33.00708466</div>
+                <!-- Card Number -->
+                <div class="space-y-0.5">
+                    <div id="lbl-card-num" class="text-xs font-normal text-gray-500">رقم البطاقة</div>
+                    <div class="text-base font-bold text-gray-800 dir-ltr">33.00708466</div>
                 </div>
 
-                <div class="space-y-1">
-                    <div id="lbl-driver-id" class="text-sm font-semibold text-gray-500">هوية السائق</div>
-                    <div class="text-xl font-black text-gray-900 tracking-wider dir-ltr">2606497747</div>
+                <!-- Driver ID -->
+                <div class="space-y-0.5">
+                    <div id="lbl-driver-id" class="text-xs font-normal text-gray-500">هوية السائق</div>
+                    <div class="text-base font-bold text-gray-800 dir-ltr">2606497747</div>
                 </div>
 
-                <div class="space-y-1">
-                    <div id="lbl-first-name" class="text-sm font-semibold text-gray-500">الاسم الأول</div>
-                    <div id="val-first-name" class="text-lg font-bold text-gray-900">محمد</div>
+                <!-- First Name -->
+                <div class="space-y-0.5">
+                    <div id="lbl-first-name" class="text-xs font-normal text-gray-500">الاسم الأول</div>
+                    <div id="val-first-name" class="text-sm font-bold text-gray-800">محمد</div>
                 </div>
 
-                <div class="space-y-1">
-                    <div id="lbl-family-name" class="text-sm font-semibold text-gray-500">اسم العائلة</div>
-                    <div id="val-family-name" class="text-lg font-bold text-gray-900">خان</div>
+                <!-- Family Name -->
+                <div class="space-y-0.5">
+                    <div id="lbl-family-name" class="text-xs font-normal text-gray-500">اسم العائلة</div>
+                    <div id="val-family-name" class="text-sm font-bold text-gray-800">خان</div>
                 </div>
 
-                <div class="space-y-1">
-                    <div id="lbl-issue-date" class="text-sm font-semibold text-gray-500">تاريخ إصدار البطاقة</div>
-                    <div class="text-lg font-bold text-gray-900 tracking-wider dir-ltr">2025-07-24</div>
+                <!-- Issue Date -->
+                <div class="space-y-0.5">
+                    <div id="lbl-issue-date" class="text-xs font-normal text-gray-500">تاريخ إصدار البطاقة</div>
+                    <div class="text-sm font-bold text-gray-800 dir-ltr">2025-07-24</div>
                 </div>
 
-                <div class="space-y-1">
-                    <div id="lbl-expiry-date" class="text-sm font-semibold text-gray-500">تاريخ إنتهاء البطاقة</div>
-                    <div class="text-lg font-bold text-gray-900 tracking-wider dir-ltr">2027-07-18</div>
+                <!-- Expiry Date -->
+                <div class="space-y-0.5">
+                    <div id="lbl-expiry-date" class="text-xs font-normal text-gray-500">تاريخ إنتهاء البطاقة</div>
+                    <div class="text-sm font-bold text-gray-800 dir-ltr">2027-07-18</div>
                 </div>
 
-                <div class="space-y-1 pt-2">
-                    <div id="lbl-card-type" class="text-sm font-semibold text-gray-500">نوع البطاقة</div>
-                    <div id="val-card-type" class="text-base font-bold text-logisti-green bg-logisti-green/5 py-3 px-4 rounded-2xl inline-block border border-logisti-green/20 max-w-full">
+                <!-- Card Type -->
+                <div class="space-y-1 pt-1">
+                    <div id="lbl-card-type" class="text-xs font-normal text-gray-500">نوع البطاقة</div>
+                    <div id="val-card-type" class="text-sm font-semibold text-gray-800">
                         نقل البضائع على الحساب الخاص
                     </div>
                 </div>
@@ -272,14 +275,14 @@
         </div>
 
         <!-- 5. FEEDBACK & RATING SECTION -->
-        <div class="mt-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100 text-center max-w-lg mx-auto">
+        <div class="mt-8 bg-white rounded-xl p-5 border-t border-logisti-green text-center max-w-sm mx-auto">
             
-            <div class="flex items-center justify-center gap-2 mb-3">
-                <span class="text-2xl font-black text-gray-800">4.26</span>
-                <span id="lbl-avg-rating" class="text-sm text-gray-500 font-medium">بلغ متوسط تقييم هذه الخدمة</span>
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <span class="text-lg font-bold text-gray-800">4.26</span>
+                <span id="lbl-avg-rating" class="text-xs text-gray-500">بلغ متوسط تقييم هذه الخدمة</span>
             </div>
             
-            <div class="flex justify-center items-center gap-1 text-xl text-yellow-400 mb-2 star-rating">
+            <div class="flex justify-center items-center gap-1 text-lg text-yellow-400 mb-2 star-rating">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -287,105 +290,105 @@
                 <i class="fa-solid fa-star"></i>
             </div>
 
-            <p class="text-xs text-gray-400 mb-5" id="lbl-eval-count">113 تقييمات</p>
+            <p class="text-xs text-gray-400 mb-4" id="lbl-eval-count">113 تقييمات</p>
 
-            <button onclick="openOfficialLink('https://logisti.sa/rate-service')" class="w-full bg-logisti-green hover:bg-logisti-darkGreen text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md active:scale-98 text-sm">
+            <button onclick="openOfficialLink('https://logisti.sa/rate-service')" class="w-full bg-logisti-green hover:bg-logisti-darkGreen text-white font-semibold py-2.5 px-4 rounded-lg transition-all text-xs">
                 قيم الخدمة
             </button>
 
-            <div class="mt-8 pt-6 border-t border-gray-100">
-                <p id="lbl-helpful-q" class="text-sm font-bold text-gray-700 mb-4">هل كانت هذه الصفحة مفيدة؟</p>
-                <div class="flex items-center justify-center gap-3">
-                    <button onclick="voteHelpful(true)" class="bg-logisti-green/10 hover:bg-logisti-green hover:text-white text-logisti-green font-bold py-2 px-6 rounded-lg transition-colors text-sm">
+            <div class="mt-6 pt-4 border-t border-gray-100">
+                <p id="lbl-helpful-q" class="text-xs font-semibold text-gray-700 mb-3">هل كانت هذه الصفحة مفيدة؟</p>
+                <div class="flex items-center justify-center gap-2">
+                    <button onclick="voteHelpful(true)" class="bg-logisti-green text-white font-semibold py-1.5 px-4 rounded-lg text-xs">
                         نعم
                     </button>
-                    <button onclick="voteHelpful(false)" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded-lg transition-colors text-sm">
+                    <button onclick="voteHelpful(false)" class="bg-logisti-green text-white font-semibold py-1.5 px-4 rounded-lg text-xs">
                         لا
                     </button>
                 </div>
-                <p class="text-xs text-gray-400 mt-3" id="lbl-helpful-stats">81% من المستخدمين قالوا نعم من أصل 27 تقييمات</p>
+                <p class="text-[11px] text-gray-400 mt-2" id="lbl-helpful-stats">81% من المستخدمين قالوا نعم من أصل 27 تقييمات</p>
             </div>
         </div>
 
         <!-- 6. EXTENDED FOOTER MENU & DIRECTORIES -->
-        <div class="mt-12 max-w-lg mx-auto space-y-8 text-right font-cairo">
+        <div class="mt-10 max-w-sm mx-auto space-y-6 text-right font-cairo">
             
             <!-- About Logisti Section -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-3">
-                <h3 class="font-bold text-gray-900 border-b border-gray-100 pb-2">عن لوجستي</h3>
-                <div class="space-y-2 text-sm text-gray-600">
-                    <a href="https://logisti.sa/about" target="_blank" class="block hover:text-logisti-green transition-colors">نبذة عامة</a>
-                    <a href="https://logisti.sa/partners" target="_blank" class="block hover:text-logisti-green transition-colors">شركاؤنا</a>
-                    <a href="https://logisti.sa/guide" target="_blank" class="block hover:text-logisti-green transition-colors">الدليل الإرشادي للخدمات</a>
-                    <a href="https://logisti.sa/warehouse-guide" target="_blank" class="block hover:text-logisti-green transition-colors">الدليل الاسترشادي الفني لبناء وتشغيل المستودعات</a>
-                    <a href="https://logisti.sa/news" target="_blank" class="block hover:text-logisti-green transition-colors">الأخبار والفعاليات</a>
-                    <a href="https://logisti.sa/sla" target="_blank" class="block hover:text-logisti-green transition-colors">اتفاقية مستوى الخدمة</a>
+            <div class="space-y-2">
+                <h3 class="font-bold text-sm text-gray-800">عن لوجستي</h3>
+                <div class="space-y-1.5 text-xs text-gray-600">
+                    <a href="https://logisti.sa/about" target="_blank" class="block hover:text-logisti-green">نبذة عامة</a>
+                    <a href="https://logisti.sa/partners" target="_blank" class="block hover:text-logisti-green">شركاؤنا</a>
+                    <a href="https://logisti.sa/guide" target="_blank" class="block hover:text-logisti-green">الدليل الإرشادي للخدمات</a>
+                    <a href="https://logisti.sa/warehouse-guide" target="_blank" class="block hover:text-logisti-green">الدليل الاسترشادي الفني لبناء وتشغيل المستودعات</a>
+                    <a href="https://logisti.sa/news" target="_blank" class="block hover:text-logisti-green">الأخبار والفعاليات</a>
+                    <a href="https://logisti.sa/sla" target="_blank" class="block hover:text-logisti-green">اتفاقية مستوى الخدمة</a>
                 </div>
             </div>
 
             <!-- Services Directory Section -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-3">
-                <h3 class="font-bold text-gray-900 border-b border-gray-100 pb-2">دليل الخدمات</h3>
-                <div class="space-y-2 text-sm text-gray-600">
-                    <a href="https://logisti.sa/services/land" target="_blank" class="block hover:text-logisti-green transition-colors">خدمات القطاع البري</a>
-                    <a href="https://logisti.sa/services/marine" target="_blank" class="block hover:text-logisti-green transition-colors">خدمات القطاع البحري</a>
-                    <a href="https://logisti.sa/services/rail" target="_blank" class="block hover:text-logisti-green transition-colors">خدمات القطاع السككي</a>
-                    <a href="https://logisti.sa/services/air" target="_blank" class="block hover:text-logisti-green transition-colors">خدمات القطاع الجوي</a>
-                    <a href="https://logisti.sa/services/customs" target="_blank" class="block hover:text-logisti-green transition-colors">خدمات القطاع الجمركي</a>
+            <div class="space-y-2 border-t border-gray-100 pt-4">
+                <h3 class="font-bold text-sm text-gray-800">دليل الخدمات</h3>
+                <div class="space-y-1.5 text-xs text-gray-600">
+                    <a href="https://logisti.sa/services/land" target="_blank" class="block hover:text-logisti-green">خدمات القطاع البري</a>
+                    <a href="https://logisti.sa/services/marine" target="_blank" class="block hover:text-logisti-green">خدمات القطاع البحري</a>
+                    <a href="https://logisti.sa/services/rail" target="_blank" class="block hover:text-logisti-green">خدمات القطاع السككي</a>
+                    <a href="https://logisti.sa/services/air" target="_blank" class="block hover:text-logisti-green">خدمات القطاع الجوي</a>
+                    <a href="https://logisti.sa/services/customs" target="_blank" class="block hover:text-logisti-green">خدمات القطاع الجمركي</a>
                 </div>
             </div>
 
             <!-- Contact & Support Section -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-3">
-                <h3 class="font-bold text-gray-900 border-b border-gray-100 pb-2">التواصل والدعم</h3>
-                <div class="space-y-2 text-sm text-gray-600">
-                    <a href="https://logisti.sa/contact" target="_blank" class="block hover:text-logisti-green transition-colors">تواصل معنا</a>
-                    <a href="https://logisti.sa/faq" target="_blank" class="block hover:text-logisti-green transition-colors">الأسئلة الشائعة</a>
-                    <a href="https://logisti.sa/complaints" target="_blank" class="block hover:text-logisti-green transition-colors">آلية تقديم الشكاوي</a>
+            <div class="space-y-2 border-t border-gray-100 pt-4">
+                <h3 class="font-bold text-sm text-gray-800">التواصل والدعم</h3>
+                <div class="space-y-1.5 text-xs text-gray-600">
+                    <a href="https://logisti.sa/contact" target="_blank" class="block hover:text-logisti-green">تواصل معنا</a>
+                    <a href="https://logisti.sa/faq" target="_blank" class="block hover:text-logisti-green">الأسئلة الشائعة</a>
+                    <a href="https://logisti.sa/complaints" target="_blank" class="block hover:text-logisti-green">آلية تقديم الشكاوي</a>
                 </div>
             </div>
 
             <!-- Social Media Icons -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center space-y-3">
-                <h3 class="font-bold text-gray-900">تابعنا</h3>
-                <div class="flex justify-center items-center gap-4 pt-2">
-                    <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-logisti-green hover:text-white hover:border-logisti-green transition-all">
-                        <i class="fa-brands fa-instagram text-lg"></i>
+            <div class="space-y-2 border-t border-gray-100 pt-4 text-center">
+                <h3 class="font-bold text-sm text-gray-800">تابعنا</h3>
+                <div class="flex justify-center items-center gap-3 pt-1">
+                    <a href="https://instagram.com" target="_blank" class="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-logisti-green hover:text-white transition-all">
+                        <i class="fa-brands fa-instagram text-sm"></i>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-logisti-green hover:text-white hover:border-logisti-green transition-all">
-                        <i class="fa-brands fa-linkedin-in text-lg"></i>
+                    <a href="https://linkedin.com" target="_blank" class="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-logisti-green hover:text-white transition-all">
+                        <i class="fa-brands fa-linkedin-in text-sm"></i>
                     </a>
-                    <a href="https://twitter.com" target="_blank" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-logisti-green hover:text-white hover:border-logisti-green transition-all">
-                        <i class="fa-brands fa-x-twitter text-lg"></i>
+                    <a href="https://twitter.com" target="_blank" class="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-logisti-green hover:text-white transition-all">
+                        <i class="fa-brands fa-x-twitter text-sm"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Accessibility Tools Section -->
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center space-y-3">
-                <h3 class="font-bold text-gray-900">أدوات الاتاحة والوصول</h3>
-                <div class="flex justify-center items-center gap-4 pt-2">
-                    <button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors" title="إمكانية الوصول">
-                        <i class="fa-solid fa-eye"></i>
+            <div class="space-y-2 border-t border-gray-100 pt-4 text-center">
+                <h3 class="font-bold text-sm text-gray-800">أدوات الاتاحة والوصول</h3>
+                <div class="flex justify-center items-center gap-3 pt-1">
+                    <button class="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-100" title="إمكانية الوصول">
+                        <i class="fa-solid fa-eye text-sm"></i>
                     </button>
-                    <button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors" title="تكبير الخط">
-                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    <button class="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-100" title="تكبير الخط">
+                        <i class="fa-solid fa-magnifying-glass-plus text-sm"></i>
                     </button>
-                    <button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors" title="خيارات أخرى">
-                        <i class="fa-solid fa-universal-access"></i>
+                    <button class="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-100" title="خيارات أخرى">
+                        <i class="fa-solid fa-universal-access text-sm"></i>
                     </button>
                 </div>
             </div>
 
             <!-- Footer Bottom Links -->
-            <div class="flex flex-wrap justify-center items-center gap-4 text-xs font-bold text-gray-600 pt-2">
-                <a href="https://logisti.sa/sitemap" target="_blank" class="hover:text-logisti-green transition-colors">خريطة الموقع</a>
+            <div class="flex flex-wrap justify-center items-center gap-2 text-[11px] font-bold text-gray-600 pt-3 border-t border-gray-100">
+                <a href="https://logisti.sa/sitemap" target="_blank" class="hover:text-logisti-green">خريطة الموقع</a>
                 <span>|</span>
-                <a href="https://logisti.sa/open-data" target="_blank" class="hover:text-logisti-green transition-colors">البيانات المفتوحة</a>
+                <a href="https://logisti.sa/open-data" target="_blank" class="hover:text-logisti-green">البيانات المفتوحة</a>
                 <span>|</span>
-                <a href="https://logisti.sa/privacy" target="_blank" class="hover:text-logisti-green transition-colors">سياسة الخصوصية</a>
+                <a href="https://logisti.sa/privacy" target="_blank" class="hover:text-logisti-green">سياسة الخصوصية</a>
                 <span>|</span>
-                <a href="https://logisti.sa/terms" target="_blank" class="hover:text-logisti-green transition-colors">الشروط والأحكام</a>
+                <a href="https://logisti.sa/terms" target="_blank" class="hover:text-logisti-green">الشروط والأحكام</a>
             </div>
 
         </div>
@@ -393,10 +396,10 @@
     </main>
 
     <!-- FOOTER SECTION -->
-    <footer class="bg-white border-t border-gray-200 py-10 font-cairo">
-        <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
-            <p class="text-sm text-gray-600 font-bold">جميع الحقوق محفوظة 2022 - 2026 © لمنصة لوجستي</p>
-            <p class="text-xs text-gray-400">من تطوير وصيانة شركة علم</p>
+    <footer class="bg-white border-t border-gray-200 py-6 font-cairo">
+        <div class="max-w-md mx-auto px-4 text-center space-y-2">
+            <p class="text-xs text-gray-700 font-bold">جميع الحقوق محفوظة 2022 - 2026 © لمنصة لوجستي</p>
+            <p class="text-[10px] text-gray-400">من تطوير وصيانة شركة علم</p>
         </div>
     </footer>
 
@@ -437,12 +440,10 @@
         function toggleLanguage() {
             isArabic = !isArabic;
             const html = document.documentElement;
-            const langBtn = document.getElementById('lang-indicator');
             
             if (!isArabic) {
                 html.setAttribute('dir', 'ltr');
                 html.setAttribute('lang', 'en');
-                langBtn.innerText = 'AR';
                 
                 document.getElementById('page-title').innerText = 'Driver Card Details';
                 document.getElementById('card-inner-heading').innerText = 'Driver Card';
@@ -461,7 +462,6 @@
             } else {
                 html.setAttribute('dir', 'rtl');
                 html.setAttribute('lang', 'ar');
-                langBtn.innerText = 'EN';
                 
                 document.getElementById('page-title').innerText = 'تفاصيل بطاقة السائق';
                 document.getElementById('card-inner-heading').innerText = 'بطاقة السائق';
