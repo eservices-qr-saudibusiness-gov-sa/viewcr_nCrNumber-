@@ -102,45 +102,45 @@
         </div>
     </div>
 
-    <!-- 2. HEADER BAR -->
+    <!-- 2. HEADER BAR (SLIMMER HEIGHT WITH SMALLER ICONS AND LOGO) -->
     <header class="bg-white sticky top-0 z-40 shadow-sm border-b border-logisti-border" dir="ltr">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-12 flex items-center justify-between">
             
-            <!-- Left Side: 4 Action Icons -->
-            <div class="flex items-center space-x-3 sm:space-x-4">
+            <!-- Left Side: 4 Action Icons (Reduced Size) -->
+            <div class="flex items-center space-x-2.5 sm:space-x-3">
                 <button onclick="openOfficialLink('https://logisti.sa/login')" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="الحساب">
-                    <i class="fa-regular fa-user text-lg"></i>
+                    <i class="fa-regular fa-user text-sm"></i>
                 </button>
                 
                 <button onclick="toggleLanguage()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors flex items-center gap-0.5" title="تغيير اللغة">
-                    <i class="fa-solid fa-language text-xl"></i>
+                    <i class="fa-solid fa-language text-base"></i>
                 </button>
 
                 <button onclick="openSearchModal()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="البحث">
-                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
                 </button>
 
                 <button onclick="openNotificationsModal()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="التنبيهات">
-                    <i class="fa-solid fa-bullhorn text-lg"></i>
+                    <i class="fa-solid fa-bullhorn text-sm"></i>
                 </button>
             </div>
 
-            <!-- Right Side: Logisti Branding & Shield Logo + Menu Icon -->
-            <div class="flex items-center space-x-3 sm:space-x-4">
-                <a href="https://logisti.sa" target="_blank" class="flex items-center gap-2 group" dir="rtl">
+            <!-- Right Side: Logisti Branding & Shield Logo + Menu Icon (Compact Scale) -->
+            <div class="flex items-center space-x-2.5 sm:space-x-3">
+                <a href="https://logisti.sa" target="_blank" class="flex items-center gap-1.5 group" dir="rtl">
                     <div class="flex flex-col text-right">
-                        <span class="text-base font-bold tracking-tight text-logisti-green font-arabic leading-none">لوجستي</span>
-                        <span class="text-[8px] font-bold tracking-widest text-gray-400 uppercase leading-none">LOGISTI</span>
+                        <span class="text-xs font-bold tracking-tight text-logisti-green font-arabic leading-none">لوجستي</span>
+                        <span class="text-[7px] font-bold tracking-widest text-gray-400 uppercase leading-none">LOGISTI</span>
                     </div>
-                    <div class="w-8 h-8 bg-logisti-green rounded-lg flex items-center justify-center shadow-sm">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <div class="w-6.5 h-6.5 bg-logisti-green rounded-md flex items-center justify-center shadow-sm" style="width: 26px; height: 26px;">
+                        <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                         </svg>
                     </div>
                 </a>
 
                 <button onclick="toggleDrawer()" class="p-1 text-gray-700 hover:text-logisti-green rounded-lg focus:outline-none" id="hamburger-btn" title="القائمة">
-                    <i class="fa-solid fa-bars text-2xl"></i>
+                    <i class="fa-solid fa-bars text-lg"></i>
                 </button>
             </div>
 
@@ -303,8 +303,8 @@
         </div>
     </div>
 
-    <!-- MAIN PAGE CONTENT -->
-    <main id="main-content-area" class="max-w-md mx-auto w-full px-4 pt-6 pb-12 flex-grow font-arabic flex flex-col items-center">
+    <!-- MAIN PAGE CONTENT (ADDED EXTRA TOP MARGIN/GAP FOR PERFECT SPACING) -->
+    <main id="main-content-area" class="max-w-md mx-auto w-full px-4 pt-10 pb-12 flex-grow font-arabic flex flex-col items-center">
         
         <!-- PAGE TITLE -->
         <div class="text-center mb-6 w-full">
@@ -562,7 +562,7 @@
 
     </main>
 
-    <!-- 7. FLOATING ACTION BUTTONS (EXACTLY POSITIONED ON BOTTOM-LEFT WITH SHINE GLOW EFFECT) -->
+    <!-- 7. FLOATING ACTION BUTTONS -->
     <div class="fixed bottom-4 left-4 z-50 flex items-center gap-3">
         <!-- Live Support / Headset Button (Dark Navy) -->
         <button onclick="toggleSupportModal()" class="w-12 h-12 bg-logisti-navy text-white rounded-full flex items-center justify-center floating-navy-glow cursor-pointer" title="الدعم الفني والواتساب">
