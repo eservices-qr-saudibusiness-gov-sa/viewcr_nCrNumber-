@@ -55,6 +55,25 @@
             direction: ltr !important;
             display: inline-block;
         }
+
+        /* Floating buttons custom shadow and glow effects matching official look */
+        .floating-btn-glow {
+            box-shadow: 0 10px 25px -3px rgba(0, 108, 76, 0.3), 0 4px 6px -2px rgba(0, 108, 76, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .floating-btn-glow:hover {
+            box-shadow: 0 15px 30px -3px rgba(0, 108, 76, 0.4), 0 6px 8px -2px rgba(0, 108, 76, 0.1);
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .floating-navy-glow {
+            box-shadow: 0 10px 25px -3px rgba(18, 25, 44, 0.3), 0 4px 6px -2px rgba(18, 25, 44, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .floating-navy-glow:hover {
+            box-shadow: 0 15px 30px -3px rgba(18, 25, 44, 0.4), 0 6px 8px -2px rgba(18, 25, 44, 0.1);
+            transform: translateY(-2px) scale(1.05);
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased selection:bg-logisti-green selection:text-white relative" id="body-root">
@@ -83,7 +102,7 @@
         </div>
     </div>
 
-    <!-- 2. HEADER BAR (EXACT FIXED ALIGNMENT: LOGISTI & MENU ON RIGHT, 4 ICONS ON LEFT) -->
+    <!-- 2. HEADER BAR -->
     <header class="bg-white sticky top-0 z-40 shadow-sm border-b border-logisti-border" dir="ltr">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             
@@ -97,18 +116,17 @@
                     <i class="fa-solid fa-language text-xl"></i>
                 </button>
 
-                <button onclick="openOfficialLink('https://logisti.sa/search')" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="البحث">
+                <button onclick="openSearchModal()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="البحث">
                     <i class="fa-solid fa-magnifying-glass text-lg"></i>
                 </button>
 
-                <button onclick="openOfficialLink('https://logisti.sa/notifications')" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="التنبيهات">
+                <button onclick="openNotificationsModal()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="التنبيهات">
                     <i class="fa-solid fa-bullhorn text-lg"></i>
                 </button>
             </div>
 
             <!-- Right Side: Logisti Branding & Shield Logo + Menu Icon -->
             <div class="flex items-center space-x-3 sm:space-x-4">
-                <!-- Logisti Branding & Shield Logo -->
                 <a href="https://logisti.sa" target="_blank" class="flex items-center gap-2 group" dir="rtl">
                     <div class="flex flex-col text-right">
                         <span class="text-base font-bold tracking-tight text-logisti-green font-arabic leading-none">لوجستي</span>
@@ -121,7 +139,6 @@
                     </div>
                 </a>
 
-                <!-- Hamburger Menu Button -->
                 <button onclick="toggleDrawer()" class="p-1 text-gray-700 hover:text-logisti-green rounded-lg focus:outline-none" id="hamburger-btn" title="القائمة">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
@@ -203,8 +220,91 @@
         </div>
     </aside>
 
+    <!-- SEARCH MODAL -->
+    <div id="search-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl font-arabic relative animate-fade-in">
+            <button onclick="closeSearchModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-700">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-lg font-bold text-logisti-green mb-4">البحث في منصة لوجستي</h3>
+            <div class="flex gap-2">
+                <input type="text" id="search-input" placeholder="ابحث عن الخدمات، التراخيص، أو المستندات..." class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:border-logisti-green text-sm">
+                <button onclick="performSearch()" class="bg-logisti-green text-white px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-logisti-darkGreen transition-colors">بحث</button>
+            </div>
+            <div id="search-results" class="mt-4 text-sm text-gray-600"></div>
+        </div>
+    </div>
+
+    <!-- NOTIFICATIONS MODAL -->
+    <div id="notifications-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl font-arabic relative animate-fade-in">
+            <button onclick="closeNotificationsModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-700">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-lg font-bold text-logisti-green mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-bullhorn"></i> التنبيهات والتعاميم
+            </h3>
+            <div class="space-y-3 text-sm text-gray-700">
+                <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                    <p class="font-bold text-logisti-green">تحديث جديد على خدمات القطاع البري</p>
+                    <p class="text-xs text-gray-500 mt-1">تم إطلاق الميزات الجديدة لتسهيل إصدار بطاقات السائقين وتراخيص النقل المتخصص.</p>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-xl border border-gray-100">
+                    <p class="font-bold text-logisti-green">صيانة دورية للنظام</p>
+                    <p class="text-xs text-gray-500 mt-1">نود إفادتكم بأن النظام يعمل بكفاءة عالية وتم تحديث الشهادات الأمنية.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACCESSIBILITY MODAL -->
+    <div id="accessibility-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl font-arabic relative">
+            <button onclick="toggleAccessibilityModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-700">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-lg font-bold text-logisti-green mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-universal-access"></i> أدوات إمكانية الوصول والاتاحة
+            </h3>
+            <div class="space-y-3">
+                <button onclick="adjustFontSize(1)" class="w-full py-2.5 px-4 bg-gray-50 hover:bg-gray-100 rounded-xl text-right font-medium text-gray-700 flex items-center justify-between">
+                    <span>تكبير حجم الخط</span>
+                    <i class="fa-solid fa-magnifying-glass-plus text-logisti-green"></i>
+                </button>
+                <button onclick="adjustFontSize(-1)" class="w-full py-2.5 px-4 bg-gray-50 hover:bg-gray-100 rounded-xl text-right font-medium text-gray-700 flex items-center justify-between">
+                    <span>تصغير حجم الخط</span>
+                    <i class="fa-solid fa-magnifying-glass-minus text-logisti-green"></i>
+                </button>
+                <button onclick="toggleHighContrast()" class="w-full py-2.5 px-4 bg-gray-50 hover:bg-gray-100 rounded-xl text-right font-medium text-gray-700 flex items-center justify-between">
+                    <span>تفعيل التباين العالي (الوضع المظلم/الفاتح)</span>
+                    <i class="fa-solid fa-eye text-logisti-green"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIVE SUPPORT / WHATSAPP MODAL -->
+    <div id="support-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl font-arabic relative text-center">
+            <button onclick="toggleSupportModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-700">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="w-16 h-16 bg-logisti-navy text-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <i class="fa-solid fa-headset text-3xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-logisti-navy mb-2">الدعم الفني وخدمة العملاء</h3>
+            <p class="text-xs text-gray-500 mb-6 leading-relaxed">فريق دعم منصة لوجستي متاح لمساعدتكم على مدار الساعة عبر قنوات التواصل الرسمية.</p>
+            <a href="https://api.whatsapp.com/send?phone=966920000000" target="_blank" class="block w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all text-sm mb-3">
+                <i class="fa-brands fa-whatsapp text-lg ml-2"></i> التواصل عبر واتساب الرسمي
+            </a>
+            <a href="tel:920000000" class="block w-full bg-logisti-navy hover:bg-black text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all text-sm">
+                <i class="fa-solid fa-phone text-sm ml-2"></i> الاتصال المباشر (920000000)
+            </a>
+        </div>
+    </div>
+
     <!-- MAIN PAGE CONTENT -->
-    <main class="max-w-md mx-auto w-full px-4 pt-6 pb-12 flex-grow font-arabic flex flex-col items-center">
+    <main id="main-content-area" class="max-w-md mx-auto w-full px-4 pt-6 pb-12 flex-grow font-arabic flex flex-col items-center">
         
         <!-- PAGE TITLE -->
         <div class="text-center mb-6 w-full">
@@ -324,16 +424,14 @@
             </button>
         </div>
 
-        <!-- 5. FEEDBACK & RATING SECTION (EXACT MATCH WITH SCREENSHOT 1000303567.png) -->
+        <!-- 5. FEEDBACK & RATING SECTION -->
         <div class="w-full max-w-sm border-t border-b border-[#006C4C] py-5 px-2 my-6 font-arabic text-center">
             
-            <!-- Average Rating Text -->
             <div class="flex items-center justify-center gap-1.5 mb-2">
                 <span class="text-[15px] font-semibold text-[#6B7280]">بلغ متوسط تقييم هذه الخدمة</span>
                 <span class="text-lg font-bold text-[#1F2937]">4.26</span>
             </div>
             
-            <!-- Stars & Reviews Count -->
             <div class="flex items-center justify-center gap-2 mb-4">
                 <div class="flex items-center gap-1 text-xl text-[#006C4C]">
                     <i class="fa-solid fa-star"></i>
@@ -345,12 +443,10 @@
                 <span class="text-xs font-semibold text-[#6B7280]">113 تقييمات</span>
             </div>
 
-            <!-- Rating Button -->
             <button onclick="openOfficialLink('https://logisti.sa/rate-service')" class="w-full bg-[#0A8F67] hover:bg-logisti-darkGreen text-white font-bold py-2.5 px-4 rounded-md transition-all text-base mb-6 shadow-sm">
                 قيّم الخدمة
             </button>
 
-            <!-- Was this page helpful? -->
             <div class="border-t border-gray-100 pt-4">
                 <p class="text-sm font-semibold text-[#1F2937] mb-3">هل كانت هذه الصفحة مفيدة؟</p>
                 <div class="flex items-center justify-center gap-3 mb-3">
@@ -367,10 +463,9 @@
             </div>
         </div>
 
-        <!-- 6. EXTENDED FOOTER MENU & DIRECTORIES (EXACT MATCH WITH SCREENSHOTS) -->
+        <!-- 6. EXTENDED FOOTER MENU & DIRECTORIES -->
         <div class="w-full max-w-sm space-y-6 text-right font-arabic">
             
-            <!-- About Logisti Section -->
             <div class="border-t border-gray-100 pt-4 space-y-3">
                 <h3 class="font-bold text-base text-[#1F2937]">عن لوجستي</h3>
                 <div class="space-y-2.5 text-sm font-normal text-[#4B5563]">
@@ -383,7 +478,6 @@
                 </div>
             </div>
 
-            <!-- Services Directory Section -->
             <div class="border-t border-gray-100 pt-4 space-y-3">
                 <h3 class="font-bold text-base text-[#1F2937]">دليل الخدمات</h3>
                 <div class="space-y-2.5 text-sm font-normal text-[#4B5563]">
@@ -395,7 +489,6 @@
                 </div>
             </div>
 
-            <!-- Contact & Support Section -->
             <div class="border-t border-gray-100 pt-4 space-y-3">
                 <h3 class="font-bold text-base text-[#1F2937]">التواصل والدعم</h3>
                 <div class="space-y-2.5 text-sm font-normal text-[#4B5563]">
@@ -405,7 +498,6 @@
                 </div>
             </div>
 
-            <!-- Social Media Icons Section -->
             <div class="border-t border-gray-100 pt-4 space-y-3">
                 <h3 class="font-bold text-base text-[#1F2937]">تابعنا</h3>
                 <div class="flex items-center justify-end gap-3 pt-1">
@@ -421,23 +513,21 @@
                 </div>
             </div>
 
-            <!-- Accessibility Tools Section -->
             <div class="border-t border-gray-100 pt-4 space-y-3">
                 <h3 class="font-bold text-base text-[#1F2937]">أدوات الاتاحة والوصول</h3>
                 <div class="flex items-center justify-end gap-3 pt-1">
-                    <button class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100" title="إمكانية الوصول">
+                    <button onclick="toggleAccessibilityModal()" class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100" title="إمكانية الوصول">
                         <i class="fa-solid fa-universal-access text-lg"></i>
                     </button>
-                    <button class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100" title="تكبير الخط">
+                    <button onclick="adjustFontSize(1)" class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100" title="تكبير الخط">
                         <i class="fa-solid fa-magnifying-glass-plus text-lg"></i>
                     </button>
-                    <button class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100" title="خيارات أخرى">
+                    <button onclick="toggleHighContrast()" class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100" title="خيارات أخرى">
                         <i class="fa-solid fa-eye text-lg"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Footer Bottom Links -->
             <div class="pt-6 space-y-3 text-center">
                 <div class="flex flex-wrap justify-center items-center gap-4 text-xs font-semibold text-[#4B5563]">
                     <a href="https://logisti.sa/sitemap" target="_blank" class="underline hover:text-logisti-green">خريطة الموقع</a>
@@ -448,13 +538,11 @@
                     <a href="https://logisti.sa/terms" target="_blank" class="underline hover:text-logisti-green">الشروط والأحكام</a>
                 </div>
                 
-                <!-- Rights & Elm Company -->
                 <div class="pt-4 space-y-1">
                     <p class="text-sm font-bold text-[#1F2937]">جميع الحقوق محفوظة 2022 - 2026 © لمنصة لوجستي</p>
                     <p class="text-xs text-[#6B7280]">من تطوير وصيانة شركة علم</p>
                 </div>
 
-                <!-- Footer Official Logisti Shield Logo -->
                 <div class="flex justify-center items-center pt-3 pb-6">
                     <a href="https://logisti.sa" target="_blank" class="flex items-center gap-2">
                         <div class="flex flex-col text-right">
@@ -474,17 +562,17 @@
 
     </main>
 
-    <!-- 7. FLOATING ACTION BUTTONS (BOTTOM-LEFT FIXED ON SCROLL - EXACT AS OFFICIAL WEBSITE) -->
-    <div class="fixed bottom-4 left-4 z-50 flex items-center gap-2">
-        <!-- Accessibility Button (Green) -->
-        <button onclick="alert('أدوات إمكانية الوصول')" class="w-12 h-12 bg-[#0A8F67] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-logisti-darkGreen transition-transform hover:scale-105" title="إمكانية الوصول">
-            <i class="fa-solid fa-universal-access text-2xl"></i>
+    <!-- 7. FLOATING ACTION BUTTONS (EXACTLY POSITIONED ON BOTTOM-LEFT WITH SHINE GLOW EFFECT) -->
+    <div class="fixed bottom-4 left-4 z-50 flex items-center gap-3">
+        <!-- Live Support / Headset Button (Dark Navy) -->
+        <button onclick="toggleSupportModal()" class="w-12 h-12 bg-logisti-navy text-white rounded-full flex items-center justify-center floating-navy-glow cursor-pointer" title="الدعم الفني والواتساب">
+            <i class="fa-solid fa-headset text-xl"></i>
         </button>
 
-        <!-- Live Support / Headset Button (Dark Navy) -->
-        <a href="https://api.whatsapp.com/send?phone=966920000000" target="_blank" class="w-12 h-12 bg-logisti-navy text-white rounded-full flex items-center justify-center shadow-lg hover:bg-black transition-transform hover:scale-105" title="الدعم الفني والواتساب">
-            <i class="fa-solid fa-headset text-xl"></i>
-        </a>
+        <!-- Accessibility Button (Green) -->
+        <button onclick="toggleAccessibilityModal()" class="w-12 h-12 bg-[#0A8F67] text-white rounded-full flex items-center justify-center floating-btn-glow cursor-pointer" title="إمكانية الوصول">
+            <i class="fa-solid fa-universal-access text-2xl"></i>
+        </button>
     </div>
 
     <!-- JAVASCRIPT LOGIC -->
@@ -544,6 +632,65 @@
 
         function voteHelpful(status) {
             alert(status ? "شكراً لمشاركتك برأيك!" : "شكراً لملاحظتك، سنعمل على تحسين الخدمة.");
+        }
+
+        // Search Modal Functions
+        function openSearchModal() {
+            document.getElementById('search-modal').classList.remove('hidden');
+        }
+        function closeSearchModal() {
+            document.getElementById('search-modal').classList.add('hidden');
+        }
+        function performSearch() {
+            const query = document.getElementById('search-input').value;
+            const res = document.getElementById('search-results');
+            if(query.trim() !== '') {
+                res.innerHTML = `<p class="p-3 bg-gray-50 rounded-xl mt-2 text-green-700 font-medium">نتائج البحث عن: "${query}" - النظام يعمل بكفاءة وتتوفر نتائج مطابقة.</p>`;
+            } else {
+                res.innerHTML = `<p class="p-3 bg-red-50 rounded-xl mt-2 text-red-600">الرجاء إدخال كلمة للبحث.</p>`;
+            }
+        }
+
+        // Notifications Modal Functions
+        function openNotificationsModal() {
+            document.getElementById('notifications-modal').classList.remove('hidden');
+        }
+        function closeNotificationsModal() {
+            document.getElementById('notifications-modal').classList.add('hidden');
+        }
+
+        // Accessibility Modal Functions
+        function toggleAccessibilityModal() {
+            const modal = document.getElementById('accessibility-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Support Modal Functions
+        function toggleSupportModal() {
+            const modal = document.getElementById('support-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Font Size & Contrast Adjustments
+        let currentScale = 1;
+        function adjustFontSize(direction) {
+            currentScale += direction * 0.05;
+            if (currentScale < 0.85) currentScale = 0.85;
+            if (currentScale > 1.25) currentScale = 1.25;
+            document.getElementById('main-content-area').style.transform = `scale(${currentScale})`;
+            document.getElementById('main-content-area').style.transformOrigin = 'top center';
+        }
+
+        let isHighContrast = false;
+        function toggleHighContrast() {
+            isHighContrast = !isHighContrast;
+            if (isHighContrast) {
+                document.body.style.backgroundColor = '#12192C';
+                document.body.style.color = '#FFFFFF';
+            } else {
+                document.body.style.backgroundColor = '#FAFCFB';
+                document.body.style.color = '#1F2937';
+            }
         }
     </script>
 </body>
