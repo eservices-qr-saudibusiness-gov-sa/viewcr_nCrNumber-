@@ -86,45 +86,52 @@
         </div>
     </div>
 
-    <!-- 2. HEADER BAR -->
+    <!-- 2. HEADER BAR (EXACT SCREENSHOT ALIGNMENT: ICONS & LOGO ON THE RIGHT) -->
     <header class="bg-white sticky top-0 z-40 shadow-sm border-b border-logisti-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             
+            <!-- Left Side: Hamburger Menu Button -->
+            <div class="flex items-center">
+                <button onclick="toggleDrawer()" class="p-2 text-gray-700 hover:text-logisti-green rounded-lg focus:outline-none" id="hamburger-btn" title="القائمة">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Right Side: Small Icons & Logisti Logo (Exact Screenshot Order) -->
             <div class="flex items-center space-x-3 sm:space-x-4 space-x-reverse">
+                <!-- User Profile -->
                 <button onclick="openOfficialLink('https://logisti.sa/login')" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors" title="الحساب">
                     <i class="fa-regular fa-user text-lg"></i>
                 </button>
                 
+                <!-- Language Translator Toggle -->
                 <button onclick="toggleLanguage()" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors flex items-center gap-1" title="تغيير اللغة">
                     <i class="fa-solid fa-language text-xl"></i>
                     <span id="lang-indicator" class="text-xs font-bold text-logisti-green font-cairo">EN</span>
                 </button>
 
+                <!-- Search Icon -->
                 <button onclick="openOfficialLink('https://logisti.sa/search')" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors" title="البحث">
                     <i class="fa-solid fa-magnifying-glass text-lg"></i>
                 </button>
 
+                <!-- Announcement Bell -->
                 <button onclick="openOfficialLink('https://logisti.sa/notifications')" class="p-2 text-gray-600 hover:text-logisti-green hover:bg-gray-100 rounded-full transition-colors" title="التنبيهات">
                     <i class="fa-solid fa-bullhorn text-lg"></i>
                 </button>
-            </div>
 
-            <div class="flex items-center space-x-3 space-x-reverse">
-                <a href="https://logisti.sa" target="_blank" class="flex items-center gap-2 group">
+                <!-- Logisti Branding & Shield Logo -->
+                <a href="https://logisti.sa" target="_blank" class="flex items-center gap-2 group mr-2">
                     <div class="flex flex-col text-right">
                         <span class="text-xl font-extrabold tracking-tight text-logisti-green font-cairo leading-none">لوجستي</span>
                         <span class="text-[9px] font-bold tracking-widest text-gray-500 uppercase leading-none">LOGISTI</span>
                     </div>
-                    <div class="w-10 h-10 bg-logisti-green rounded-xl flex items-center justify-center shadow-md group-hover:bg-logisti-darkGreen transition-all duration-300">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <div class="w-10 h-10 bg-white border border-logisti-green/30 rounded-xl flex items-center justify-center shadow-sm group-hover:bg-gray-50 transition-all duration-300">
+                        <svg class="w-6 h-6 text-logisti-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                         </svg>
                     </div>
                 </a>
-
-                <button onclick="toggleDrawer()" class="p-2 text-gray-700 hover:text-logisti-green rounded-lg focus:outline-none" id="hamburger-btn">
-                    <i class="fa-solid fa-bars text-2xl"></i>
-                </button>
             </div>
 
         </div>
@@ -206,8 +213,9 @@
     <!-- MAIN PAGE CONTENT -->
     <main class="max-w-4xl mx-auto w-full px-4 sm:px-6 pt-8 pb-16 flex-grow font-cairo">
         
+        <!-- PAGE TITLE ALIGNED TO THE SCREENSHOT -->
         <div class="text-center mb-8">
-            <h1 id="page-title" class="text-2xl sm:text-3xl font-extrabold text-logisti-green tracking-tight">
+            <h1 id="page-title" class="text-xl sm:text-2xl font-bold text-logisti-green tracking-tight">
                 تفاصيل بطاقة السائق
             </h1>
         </div>
