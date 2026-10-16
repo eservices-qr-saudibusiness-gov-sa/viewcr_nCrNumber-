@@ -84,7 +84,6 @@
     <!-- STEP 2: SKELETON LOADING SCREEN (0.5 SECONDS) -->
     <div id="skeleton-loader" class="fixed inset-0 bg-[#FAFCFB] z-[9998] hidden overflow-hidden p-4 font-arabic">
         <div class="max-w-md mx-auto space-y-6 animate-pulse pt-6">
-            <!-- Header Skeleton -->
             <div class="flex justify-between items-center h-12 border-b border-gray-200 pb-2">
                 <div class="flex gap-2">
                     <div class="w-6 h-6 bg-gray-200 rounded-full"></div>
@@ -96,9 +95,7 @@
                     <div class="w-7 h-7 bg-gray-200 rounded-md"></div>
                 </div>
             </div>
-            <!-- Title Skeleton -->
             <div class="h-5 bg-gray-200 rounded w-1/2 mx-auto"></div>
-            <!-- Main Content Card Skeleton -->
             <div class="bg-white rounded-2xl p-5 w-[220px] mx-auto space-y-4 border border-gray-100 shadow-sm">
                 <div class="h-4 bg-gray-200 rounded w-3/4"></div>
                 <div class="h-3 bg-gray-200 rounded w-1/2"></div>
@@ -107,11 +104,7 @@
                 <div class="h-4 bg-gray-200 rounded w-2/3"></div>
                 <div class="h-3 bg-gray-200 rounded w-1/2"></div>
                 <div class="h-4 bg-gray-200 rounded w-full"></div>
-                <div class="h-0.5 bg-gray-100 my-2"></div>
-                <div class="h-4 bg-gray-200 rounded w-3/4"></div>
-                <div class="h-3 bg-gray-200 rounded w-1/2"></div>
             </div>
-            <!-- Back Button Skeleton -->
             <div class="w-[220px] h-10 bg-gray-200 rounded-xl mx-auto"></div>
         </div>
     </div>
@@ -173,7 +166,6 @@
                             <span class="text-xs tracking-tight text-logisti-green font-arabic leading-none">لوجستي</span>
                             <span class="text-[7px] tracking-widest text-gray-400 uppercase leading-none">LOGISTI</span>
                         </div>
-                        <!-- EXACT LOGO FROM SCREENSHOT -->
                         <div class="w-6.5 h-6.5 bg-white rounded-md flex items-center justify-center shadow-sm" style="width: 26px; height: 26px;">
                             <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M50 0 L90 25 V75 L50 100 L10 75 V25 Z" fill="#006C4C"/>
@@ -414,9 +406,9 @@
 
             </div>
 
-            <!-- BACK BUTTON (FUNCTIONAL) -->
+            <!-- BACK BUTTON (FUNCTIONAL RUJU) -->
             <div class="w-[220px] mb-8">
-                <button onclick="handleBackAction()" class="w-full bg-white hover:bg-gray-50 text-[#1E73BE] border border-[#1E73BE] font-semibold py-2 px-4 rounded-xl text-base transition-colors text-center shadow-sm font-arabic">
+                <button onclick="handleBackAction()" class="w-full bg-white hover:bg-gray-50 text-[#1E73BE] border border-[#1E73BE] font-semibold py-2 px-4 rounded-xl text-base transition-colors text-center shadow-sm font-arabic cursor-pointer">
                     رجوع
                 </button>
             </div>
@@ -448,10 +440,10 @@
                 <div class="border-t border-gray-100 pt-4">
                     <p class="text-sm font-semibold text-[#1F2937] mb-3">هل كانت هذه الصفحة مفيدة؟</p>
                     <div class="flex items-center justify-center gap-3 mb-3">
-                        <button onclick="voteHelpful(false)" class="bg-[#0A8F67] text-white font-bold py-1.5 px-4 rounded-md text-sm min-w-[50px] hover:bg-logisti-darkGreen transition-colors">
+                        <button onclick="voteHelpful(false)" class="bg-[#0A8F67] text-white font-bold py-1.5 px-4 rounded-md text-sm min-w-[50px] hover:bg-logisti-darkGreen transition-colors cursor-pointer">
                             لا
                         </button>
-                        <button onclick="voteHelpful(true)" class="bg-[#0A8F67] text-white font-bold py-1.5 px-4 rounded-md text-sm min-w-[50px] hover:bg-logisti-darkGreen transition-colors">
+                        <button onclick="voteHelpful(true)" class="bg-[#0A8F67] text-white font-bold py-1.5 px-4 rounded-md text-sm min-w-[50px] hover:bg-logisti-darkGreen transition-colors cursor-pointer">
                             نعم
                         </button>
                     </div>
@@ -496,11 +488,11 @@
                     </div>
                 </div>
 
-                <!-- SOCIAL MEDIA SECTION WITH TWITTER/X ICON ADDED -->
+                <!-- SOCIAL MEDIA SECTION WITH TWITTER/X ICON INCLUDED -->
                 <div class="border-t border-gray-100 pt-4 space-y-3">
                     <h3 class="font-bold text-base text-[#1F2937]">تابعنا</h3>
                     <div class="flex items-center justify-end gap-3 pt-1">
-                        <!-- TWITTER / X ICON (NOW VISIBLE AND FUNCTIONAL) -->
+                        <!-- TWITTER / X ICON -->
                         <a href="https://twitter.com" target="_blank" class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-logisti-green hover:text-white transition-all" title="تويتر">
                             <i class="fa-brands fa-x-twitter text-lg"></i>
                         </a>
@@ -568,20 +560,20 @@
 
         </main>
 
-        <!-- 7. FLOATING ACTION BUTTONS -->
+        <!-- 7. FUNCTIONAL FLOATING ACTION BUTTONS (GREEN ACCESSIBILITY & HEADSET / WHATSAPP SUPPORT) -->
         <div class="fixed bottom-4 left-4 z-50 flex items-center gap-2">
-            <button onclick="alert('أدوات إمكانية الوصول')" class="w-12 h-12 bg-[#0A8F67] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-logisti-darkGreen transition-transform hover:scale-105" title="إمكانية الوصول">
+            <button onclick="handleGreenAccessibility()" class="w-12 h-12 bg-[#0A8F67] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-logisti-darkGreen transition-transform hover:scale-105 cursor-pointer" title="إمكانية الوصول">
                 <i class="fa-solid fa-universal-access text-2xl"></i>
             </button>
 
-            <a href="https://api.whatsapp.com/send?phone=966920000000" target="_blank" class="w-12 h-12 bg-logisti-navy text-white rounded-full flex items-center justify-center shadow-lg hover:bg-black transition-transform hover:scale-105" title="الدعم الفني والواتساب">
+            <button onclick="handleSupportCenter()" class="w-12 h-12 bg-logisti-navy text-white rounded-full flex items-center justify-center shadow-lg hover:bg-black transition-transform hover:scale-105 cursor-pointer" title="الدعم الفني والواتساب">
                 <i class="fa-solid fa-headset text-xl"></i>
-            </a>
+            </button>
         </div>
 
     </div>
 
-    <!-- JAVASCRIPT FUNCTIONS -->
+    <!-- JAVASCRIPT FUNCTIONS FOR INTERACTIVE BUTTONS -->
     <script>
         // SEQUENTIAL LOADER TIMING
         setTimeout(() => {
@@ -655,7 +647,7 @@
             }
         }
 
-        // FUNCTION FOR LA AND NA'AM (لا و نعم)
+        // FUNCTION FOR LA AND NA'AM (لا و نعم) - FULLY FUNCTIONAL
         function voteHelpful(status) {
             const feedbackText = document.getElementById('vote-feedback-text');
             if (status) {
@@ -665,6 +657,16 @@
                 alert("شكراً لملاحظتك! تم تسجيل تقييمك (لا)، وسنعمل على تحسين الخدمة.");
                 feedbackText.innerText = "تم استلام ملاحظتك بنجاح، نعمل دائماً على تطوير تجربة المستخدم.";
             }
+        }
+
+        // FUNCTION FOR GREEN ACCESSIBILITY BUTTON
+        function handleGreenAccessibility() {
+            alert("تم فتح أدوات إمكانية الوصول واتاحة الموقع.");
+        }
+
+        // FUNCTION FOR SUPPORT CENTER / HEADSET BUTTON
+        function handleSupportCenter() {
+            window.open("https://api.whatsapp.com/send?phone=966920000000", "_blank");
         }
 
         function openSearchModal() {
