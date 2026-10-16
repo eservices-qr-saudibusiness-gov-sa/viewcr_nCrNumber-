@@ -211,67 +211,120 @@
         
         <!-- PAGE TITLE -->
         <div class="text-center mb-6 w-full">
-            <h1 id="page-title" class="text-base sm:text-lg font-semibold text-logisti-green">
+            <h1 id="page-title" class="text-base sm:text-lg font-bold text-[#005B60]">
                 تفاصيل بطاقة السائق
             </h1>
         </div>
 
-        <!-- 4. DRIVER CARD DETAILS CONTAINER (MORE COMPACT, PERFECTLY CENTERED) -->
-        <div class="bg-white rounded-2xl p-4 w-[210px] space-y-3.5 shadow-sm border border-gray-100 mb-6 flex flex-col items-center">
+        <!-- 4. ALL DETAILS INSIDE ONE SINGLE COMPACT CENTERED BOX -->
+        <div class="bg-white rounded-2xl p-5 w-[220px] space-y-4 shadow-sm border border-gray-100 mb-6 flex flex-col items-center text-right">
             
-            <div class="w-full text-right pb-1">
-                <h2 id="card-inner-heading" class="text-base font-bold text-gray-900">
+            <!-- SECTION 1: بيانات المنشأة/الفرد -->
+            <div class="w-full space-y-3">
+                <h2 class="text-base font-bold text-[#005B60]">
+                    بيانات المنشأة/الفرد
+                </h2>
+
+                <div class="space-y-0.5">
+                    <div class="text-xs font-normal text-gray-500">الاسم</div>
+                    <div class="text-sm font-bold text-gray-900 leading-snug">مؤسسة موسى فارس العنزي</div>
+                </div>
+
+                <div class="space-y-0.5">
+                    <div class="text-xs font-normal text-gray-500">رقم هوية المنشأة</div>
+                    <div class="text-sm font-bold text-gray-900 dir-ltr">7049992592</div>
+                </div>
+            </div>
+
+            <!-- DIVIDER LINE 1 -->
+            <div class="w-full border-b border-teal-600/30 my-2"></div>
+
+            <!-- SECTION 2: معلومات الترخيص الرئيسي -->
+            <div class="w-full space-y-3">
+                <h2 class="text-base font-bold text-[#005B60]">
+                    معلومات الترخيص الرئيسي
+                </h2>
+
+                <div class="space-y-0.5">
+                    <div class="text-xs font-normal text-gray-500">رقم الترخيص</div>
+                    <div class="text-sm font-bold text-gray-900 dir-ltr">35/000271458</div>
+                </div>
+
+                <div class="space-y-0.5">
+                    <div class="text-xs font-normal text-gray-500">نوع الترخيص/النشاط</div>
+                    <div class="text-sm font-bold text-gray-900 leading-snug">النقل المتخصص</div>
+                </div>
+
+                <div class="space-y-0.5">
+                    <div class="text-xs font-normal text-gray-500">المدينة</div>
+                    <div class="text-sm font-bold text-gray-900">الرياض</div>
+                </div>
+
+                <div class="space-y-0.5">
+                    <div class="text-xs font-normal text-gray-500">تاريخ الإصدار</div>
+                    <div class="text-sm font-bold text-gray-900 dir-ltr">2024/02/13</div>
+                </div>
+
+                <div class="space-y-0.5">
+                    <div class="text-xs font-normal text-gray-500">تاريخ الإنهاء</div>
+                    <div class="text-sm font-bold text-gray-900 dir-ltr">2027/02/13</div>
+                </div>
+            </div>
+
+            <!-- DIVIDER LINE 2 -->
+            <div class="w-full border-b border-teal-600/30 my-2"></div>
+
+            <!-- SECTION 3: بطاقة السائق -->
+            <div class="w-full space-y-3">
+                <h2 class="text-base font-bold text-[#005B60]">
                     بطاقة السائق
                 </h2>
-            </div>
 
-            <div class="w-full space-y-3 text-right">
-                
-                <!-- Card Number -->
                 <div class="space-y-0.5">
-                    <div id="lbl-card-num" class="text-xs font-normal text-gray-500">رقم البطاقة</div>
-                    <div class="text-sm font-bold text-gray-800 dir-ltr">33.00708466</div>
+                    <div class="text-xs font-normal text-gray-500">رقم البطاقة</div>
+                    <div class="text-sm font-bold text-gray-900 dir-ltr">35.00657985</div>
                 </div>
 
-                <!-- Driver ID -->
                 <div class="space-y-0.5">
-                    <div id="lbl-driver-id" class="text-xs font-normal text-gray-500">هوية السائق</div>
-                    <div class="text-sm font-bold text-gray-800 dir-ltr">2606497747</div>
+                    <div class="text-xs font-normal text-gray-500">هوية السائق</div>
+                    <div class="text-sm font-bold text-gray-900 dir-ltr">2634501155</div>
                 </div>
 
-                <!-- First Name -->
                 <div class="space-y-0.5">
-                    <div id="lbl-first-name" class="text-xs font-normal text-gray-500">الاسم الأول</div>
-                    <div id="val-first-name" class="text-sm font-bold text-gray-800">محمد</div>
+                    <div class="text-xs font-normal text-gray-500">الاسم الأول</div>
+                    <div class="text-sm font-bold text-gray-900">أختر</div>
                 </div>
 
-                <!-- Family Name -->
                 <div class="space-y-0.5">
-                    <div id="lbl-family-name" class="text-xs font-normal text-gray-500">اسم العائلة</div>
-                    <div id="val-family-name" class="text-sm font-bold text-gray-800">خان</div>
+                    <div class="text-xs font-normal text-gray-500">اسم العائلة</div>
+                    <div class="text-sm font-bold text-gray-900">رحمن</div>
                 </div>
 
-                <!-- Issue Date -->
                 <div class="space-y-0.5">
-                    <div id="lbl-issue-date" class="text-xs font-normal text-gray-500">تاريخ إصدار البطاقة</div>
-                    <div class="text-sm font-bold text-gray-800 dir-ltr">2025-07-24</div>
+                    <div class="text-xs font-normal text-gray-500">تاريخ إصدار البطاقة</div>
+                    <div class="text-sm font-bold text-gray-900 dir-ltr">2026-09-13</div>
                 </div>
 
-                <!-- Expiry Date -->
                 <div class="space-y-0.5">
-                    <div id="lbl-expiry-date" class="text-xs font-normal text-gray-500">تاريخ إنتهاء البطاقة</div>
-                    <div class="text-sm font-bold text-gray-800 dir-ltr">2027-07-18</div>
+                    <div class="text-xs font-normal text-gray-500">تاريخ إنتهاء البطاقة</div>
+                    <div class="text-sm font-bold text-gray-900 dir-ltr">2027-09-13</div>
                 </div>
 
-                <!-- Card Type -->
                 <div class="space-y-0.5 pt-1">
-                    <div id="lbl-card-type" class="text-xs font-normal text-gray-500">نوع البطاقة</div>
-                    <div id="val-card-type" class="text-sm font-semibold text-gray-800 leading-relaxed">
-                        نقل البضائع على الحساب الخاص
+                    <div class="text-xs font-normal text-gray-500">نوع البطاقة</div>
+                    <div class="text-sm font-semibold text-gray-900 leading-relaxed">
+                        النقل المتخصص
                     </div>
                 </div>
-
             </div>
+
+        </div>
+
+        <!-- BACK BUTTON (رجوع) FROM SCREENSHOT 3 -->
+        <div class="w-[220px] mb-8">
+            <button onclick="window.history.back()" class="w-full bg-white hover:bg-gray-50 text-[#1E73BE] border border-[#1E73BE] font-semibold py-1.5 px-4 rounded-xl text-sm transition-colors text-center shadow-sm">
+                رجوع
+            </button>
         </div>
 
         <!-- 5. FEEDBACK & RATING SECTION -->
@@ -446,17 +499,6 @@
                 html.setAttribute('lang', 'en');
                 
                 document.getElementById('page-title').innerText = 'Driver Card Details';
-                document.getElementById('card-inner-heading').innerText = 'Driver Card';
-                document.getElementById('lbl-card-num').innerText = 'Card Number';
-                document.getElementById('lbl-driver-id').innerText = 'Driver ID';
-                document.getElementById('lbl-first-name').innerText = 'First Name';
-                document.getElementById('val-first-name').innerText = 'Mohammed';
-                document.getElementById('lbl-family-name').innerText = 'Family Name';
-                document.getElementById('val-family-name').innerText = 'Khan';
-                document.getElementById('lbl-issue-date').innerText = 'Card Issue Date';
-                document.getElementById('lbl-expiry-date').innerText = 'Card Expiry Date';
-                document.getElementById('lbl-card-type').innerText = 'Card Type';
-                document.getElementById('val-card-type').innerText = 'Private Freight Transport';
                 document.getElementById('gov-banner-text').innerText = 'An official government portal of the Kingdom of Saudi Arabia';
                 document.getElementById('gov-verify-btn').innerText = 'How to verify';
             } else {
@@ -464,17 +506,6 @@
                 html.setAttribute('lang', 'ar');
                 
                 document.getElementById('page-title').innerText = 'تفاصيل بطاقة السائق';
-                document.getElementById('card-inner-heading').innerText = 'بطاقة السائق';
-                document.getElementById('lbl-card-num').innerText = 'رقم البطاقة';
-                document.getElementById('lbl-driver-id').innerText = 'هوية السائق';
-                document.getElementById('lbl-first-name').innerText = 'الاسم الأول';
-                document.getElementById('val-first-name').innerText = 'محمد';
-                document.getElementById('lbl-family-name').innerText = 'اسم العائلة';
-                document.getElementById('val-family-name').innerText = 'خان';
-                document.getElementById('lbl-issue-date').innerText = 'تاريخ إصدار البطاقة';
-                document.getElementById('lbl-expiry-date').innerText = 'تاريخ إنتهاء البطاقة';
-                document.getElementById('lbl-card-type').innerText = 'نوع البطاقة';
-                document.getElementById('val-card-type').innerText = 'نقل البضائع على الحساب الخاص';
                 document.getElementById('gov-banner-text').innerText = 'موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية';
                 document.getElementById('gov-verify-btn').innerText = 'كيف تتحقق';
             }
