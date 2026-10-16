@@ -116,12 +116,13 @@
 
         <!-- 2. HEADER BAR -->
         <header class="bg-white sticky top-0 z-40 shadow-sm border-b border-logisti-border" dir="ltr">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-12 flex items-center justify-between">
-                <div class="flex items-center space-x-2.5 sm:space-x-3">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-12 flex items-center justify-between" id="header-container">
+                
+                <!-- Left Side Container -->
+                <div class="flex items-center space-x-2.5 sm:space-x-3" id="header-left-group">
                     <button onclick="openOfficialLink('https://logisti.sa/login')" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="الحساب">
                         <i class="fa-regular fa-user text-sm"></i>
                     </button>
-                    <!-- WORKING LANGUAGE TOGGLER -->
                     <button onclick="toggleLanguage()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors flex items-center gap-0.5" title="تغيير اللغة">
                         <i class="fa-solid fa-language text-base"></i>
                         <span id="lang-indicator" class="text-[10px] font-bold uppercase ml-0.5">EN</span>
@@ -134,7 +135,8 @@
                     </button>
                 </div>
 
-                <div class="flex items-center space-x-2.5 sm:space-x-3">
+                <!-- Right Side Container -->
+                <div class="flex items-center space-x-2.5 sm:space-x-3" id="header-right-group">
                     <a href="https://logisti.sa" target="_blank" class="flex items-center gap-1.5 group" dir="rtl">
                         <div class="flex flex-col text-right font-light">
                             <span class="text-xs tracking-tight text-logisti-green font-arabic leading-none" id="brand-text-ar">لوجستي</span>
@@ -156,10 +158,11 @@
                         <i class="fa-solid fa-bars text-lg"></i>
                     </button>
                 </div>
+
             </div>
         </header>
 
-        <!-- 3. INTERACTIVE SIDE DRAWER WITH FULL MENU OPTIONS -->
+        <!-- 3. INTERACTIVE SIDE DRAWER -->
         <div id="drawer-backdrop" onclick="toggleDrawer()" class="fixed inset-0 bg-black/50 z-50 hidden opacity-0 transition-opacity duration-300"></div>
         <aside id="main-drawer" class="fixed top-0 right-0 w-80 sm:w-96 h-full bg-white z-50 shadow-2xl transform translate-x-full drawer-transition overflow-y-auto flex flex-col justify-between">
             <div class="p-5 font-arabic">
@@ -270,7 +273,7 @@
             </div>
         </div>
 
-        <!-- ACCESSIBILITY MODAL BAR (OPENED VIA GREEN BUTTON) -->
+        <!-- ACCESSIBILITY MODAL BAR -->
         <div id="access-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
             <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl font-arabic relative text-center">
                 <button onclick="closeAccessModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-700">
@@ -294,7 +297,7 @@
                 </h1>
             </div>
 
-            <!-- DETAILS CARD -->
+            <!-- DETAILS CARD (UPDATED WITH NEW DATA) -->
             <div class="bg-white rounded-2xl p-5 w-[220px] space-y-4 shadow-sm border border-gray-100 mb-6 flex flex-col items-center text-right" id="main-card-box">
                 
                 <!-- SECTION 1 -->
@@ -304,11 +307,11 @@
                     </h2>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-name">الاسم</div>
-                        <div class="text-[15px] font-semibold text-[#1F2937] leading-snug" id="val-name">مؤسسة موسى فارس العنزي</div>
+                        <div class="text-[15px] font-semibold text-[#1F2937] leading-snug" id="val-name">قاسم حسن بن احمد اشبيني</div>
                     </div>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-facility-id">رقم هوية المنشأة</div>
-                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">7049992592</div>
+                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">1046971501</div>
                     </div>
                 </div>
 
@@ -321,7 +324,7 @@
                     </h2>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-lic-num">رقم الترخيص</div>
-                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">35/000271458</div>
+                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">35/00042948</div>
                     </div>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-lic-type">نوع الترخيص/النشاط</div>
@@ -333,44 +336,44 @@
                     </div>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-issue-date">تاريخ الإصدار</div>
-                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2024/02/13</div>
+                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2025/08/17</div>
                     </div>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-exp-date">تاريخ الإنهاء</div>
-                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2027/02/13</div>
+                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2027/08/16</div>
                     </div>
                 </div>
 
                 <div class="w-full border-b border-[#006C4C]/20 my-2"></div>
 
-                <!-- SECTION 3 (بطاقة السائق - GREEN COLOR #005B60) -->
+                <!-- SECTION 3 -->
                 <div class="w-full space-y-3">
                     <h2 class="text-[17px] font-semibold text-[#005B60] tracking-tight" id="sec-3-title">
                         بطاقة السائق
                     </h2>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-card-num">رقم البطاقة</div>
-                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">35.00657985</div>
+                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">33.00702910</div>
                     </div>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-driver-id">هوية السائق</div>
-                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2634501155</div>
+                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2590692444</div>
                     </div>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-first-name">الاسم الأول</div>
-                        <div class="text-[15px] font-bold text-[#1F2937]" id="val-first-name">أختر</div>
+                        <div class="text-[15px] font-bold text-[#1F2937]" id="val-first-name">واجد</div>
                     </div>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-last-name">اسم العائلة</div>
-                        <div class="text-[15px] font-bold text-[#1F2937]" id="val-last-name">رحمن</div>
+                        <div class="text-[15px] font-bold text-[#1F2937]" id="val-last-name">خان</div>
                     </div>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-card-issue">تاريخ إصدار البطاقة</div>
-                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2026-09-13</div>
+                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2026-10-15</div>
                     </div>
                     <div class="space-y-0.5">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-card-exp">تاريخ إنتهاء البطاقة</div>
-                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2027-09-13</div>
+                        <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2027-10-07</div>
                     </div>
                     <div class="space-y-0.5 pt-1">
                         <div class="text-[13px] font-normal text-[#6B7280]" id="lbl-card-type">نوع البطاقة</div>
@@ -380,14 +383,14 @@
 
             </div>
 
-            <!-- BACK BUTTON (WORKING RUJU ACTION) -->
+            <!-- BACK BUTTON -->
             <div class="w-[220px] mb-8">
                 <button onclick="handleBackAction()" class="w-full bg-white hover:bg-gray-50 text-[#1E73BE] border border-[#1E73BE] font-semibold py-2 px-4 rounded-xl text-base transition-colors text-center shadow-sm font-arabic cursor-pointer" id="btn-back-text">
                     رجوع
                 </button>
             </div>
 
-            <!-- FEEDBACK SECTION WITH WORKING LA AND NA'AM -->
+            <!-- FEEDBACK SECTION -->
             <div class="w-full max-w-sm border-t border-b border-[#006C4C] py-5 px-2 my-6 font-arabic text-center">
                 <div class="flex items-center justify-center gap-1.5 mb-2">
                     <span class="text-[15px] font-semibold text-[#6B7280]" id="rating-text">بلغ متوسط تقييم هذه الخدمة</span>
@@ -425,10 +428,9 @@
                 </div>
             </div>
 
-            <!-- COMPLETE FOOTER MENUS & SECTIONS RESTORED -->
+            <!-- FOOTER SECTIONS -->
             <div class="w-full max-w-sm space-y-6 text-right font-arabic">
                 
-                <!-- About Logisti Section -->
                 <div class="border-t border-gray-100 pt-4 space-y-3">
                     <h3 class="font-bold text-base text-[#1F2937]" id="f-about-head">عن لوجستي</h3>
                     <div class="space-y-2.5 text-sm font-normal text-[#4B5563]">
@@ -441,7 +443,6 @@
                     </div>
                 </div>
 
-                <!-- Services Directory Section -->
                 <div class="border-t border-gray-100 pt-4 space-y-3">
                     <h3 class="font-bold text-base text-[#1F2937]" id="f-serv-head">دليل الخدمات</h3>
                     <div class="space-y-2.5 text-sm font-normal text-[#4B5563]">
@@ -453,7 +454,6 @@
                     </div>
                 </div>
 
-                <!-- Contact & Support Section -->
                 <div class="border-t border-gray-100 pt-4 space-y-3">
                     <h3 class="font-bold text-base text-[#1F2937]" id="f-contact-head">التواصل والدعم</h3>
                     <div class="space-y-2.5 text-sm font-normal text-[#4B5563]">
@@ -463,7 +463,6 @@
                     </div>
                 </div>
 
-                <!-- SOCIAL MEDIA SECTION WITH TWITTER ICON -->
                 <div class="border-t border-gray-100 pt-4 space-y-3">
                     <h3 class="font-bold text-base text-[#1F2937]" id="f-follow-head">تابعنا</h3>
                     <div class="flex items-center justify-end gap-3 pt-1">
@@ -479,7 +478,6 @@
                     </div>
                 </div>
 
-                <!-- Accessibility Tools Section -->
                 <div class="border-t border-gray-100 pt-4 space-y-3">
                     <h3 class="font-bold text-base text-[#1F2937]" id="f-access-head">أدوات الاتاحة والوصول</h3>
                     <div class="flex items-center justify-end gap-3 pt-1">
@@ -495,7 +493,6 @@
                     </div>
                 </div>
 
-                <!-- Footer Bottom Links -->
                 <div class="pt-6 space-y-3 text-center">
                     <div class="flex flex-wrap justify-center items-center gap-4 text-xs font-semibold text-[#4B5563]">
                         <a href="https://logisti.sa/sitemap" target="_blank" class="underline hover:text-logisti-green" id="f-b1">خريطة الموقع</a>
@@ -535,14 +532,12 @@
 
         </main>
 
-        <!-- FLOATING ACTION BUTTONS (WORKING GREEN BUTTON & HEADSET SUPPORT) -->
+        <!-- FLOATING ACTION BUTTONS -->
         <div class="fixed bottom-4 left-4 z-50 flex items-center gap-2">
-            <!-- GREEN ACCESSIBILITY BUTTON -->
             <button type="button" onclick="handleGreenAccessibility()" class="w-12 h-12 bg-[#0A8F67] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-logisti-darkGreen transition-transform hover:scale-105 cursor-pointer" title="إمكانية الوصول">
                 <i class="fa-solid fa-universal-access text-2xl"></i>
             </button>
 
-            <!-- NAVY HEADSET SUPPORT BUTTON -->
             <button type="button" onclick="handleSupportCenter()" class="w-12 h-12 bg-logisti-navy text-white rounded-full flex items-center justify-center shadow-lg hover:bg-black transition-transform hover:scale-105 cursor-pointer" title="الدعم الفني والواتساب">
                 <i class="fa-solid fa-headset text-xl"></i>
             </button>
@@ -552,7 +547,6 @@
 
     <!-- JAVASCRIPT FUNCTIONS -->
     <script>
-        // LOADER TIMING
         setTimeout(() => {
             document.getElementById('blank-white-loader').classList.add('hidden');
             document.getElementById('skeleton-loader').classList.remove('hidden');
@@ -593,7 +587,6 @@
             window.open(url, '_blank');
         }
 
-        // WORKING BACK ACTION (رجوع)
         function handleBackAction() {
             if (window.history.length > 1) {
                 window.history.back();
@@ -602,7 +595,6 @@
             }
         }
 
-        // WORKING VOTE HELPFUL (لا و نعم)
         function voteHelpful(status) {
             const feedbackText = document.getElementById('vote-feedback-text');
             if (isArabic) {
@@ -624,7 +616,6 @@
             }
         }
 
-        // WORKING GREEN ACCESSIBILITY BUTTON
         function handleGreenAccessibility() {
             document.getElementById('access-modal').classList.remove('hidden');
         }
@@ -643,7 +634,6 @@
             document.body.classList.toggle('text-white');
         }
 
-        // WORKING HEADSET SUPPORT BUTTON
         function handleSupportCenter() {
             window.open("https://api.whatsapp.com/send?phone=966920000000", "_blank");
         }
@@ -671,30 +661,66 @@
             document.getElementById('notifications-modal').classList.add('hidden');
         }
 
-        // FULL ENGLISH / ARABIC TRANSLATION TOGGLER
         let isArabic = true;
         function toggleLanguage() {
             isArabic = !isArabic;
             const html = document.documentElement;
             const langIndicator = document.getElementById('lang-indicator');
+            const leftGroup = document.getElementById('header-left-group');
+            const rightGroup = document.getElementById('header-right-group');
             
             if (!isArabic) {
                 html.setAttribute('dir', 'ltr');
                 html.setAttribute('lang', 'en');
                 langIndicator.innerText = 'AR';
+
+                leftGroup.innerHTML = `
+                    <a href="https://logisti.sa" target="_blank" class="flex items-center gap-1.5 group" dir="rtl">
+                        <div class="flex flex-col text-right font-light">
+                            <span class="text-xs tracking-tight text-logisti-green font-arabic leading-none" id="brand-text-ar">لوجستي</span>
+                            <span class="text-[7px] tracking-widest text-gray-400 uppercase leading-none">LOGISTI</span>
+                        </div>
+                        <div class="w-6.5 h-6.5 bg-white rounded-md flex items-center justify-center shadow-sm" style="width: 26px; height: 26px;">
+                            <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50 0 L90 25 V75 L50 100 L10 75 V25 Z" fill="#006C4C"/>
+                                <path d="M50 0 L10 25 V75 L50 100 Z" fill="#12192C" opacity="0.1"/>
+                                <path d="M50 15 L80 35 V65 L50 85 L20 65 V35 Z" fill="#009788"/>
+                                <path d="M50 15 L20 35 V65 L50 85 Z" fill="#000000" opacity="0.1"/>
+                                <path d="M50 30 L65 70 L50 60 L35 70 Z" fill="#FFFFFF"/>
+                                <path d="M50 30 L35 70 L50 60 Z" fill="#000000" opacity="0.05"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <button onclick="toggleDrawer()" class="p-1 text-gray-700 hover:text-logisti-green rounded-lg focus:outline-none" id="hamburger-btn" title="القائمة">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                `;
+
+                rightGroup.innerHTML = `
+                    <button onclick="openOfficialLink('https://logisti.sa/login')" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="الحساب">
+                        <i class="fa-regular fa-user text-sm"></i>
+                    </button>
+                    <button onclick="toggleLanguage()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors flex items-center gap-0.5" title="تغيير اللغة">
+                        <i class="fa-solid fa-language text-base"></i>
+                        <span id="lang-indicator" class="text-[10px] font-bold uppercase ml-0.5">AR</span>
+                    </button>
+                    <button onclick="openSearchModal()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="البحث">
+                        <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                    </button>
+                    <button onclick="openNotificationsModal()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="التنبيهات">
+                        <i class="fa-solid fa-bullhorn text-sm"></i>
+                    </button>
+                `;
                 
-                // Banner & Title
                 document.getElementById('gov-banner-text').innerText = 'An official government portal of the Kingdom of Saudi Arabia';
                 document.getElementById('gov-verify-btn').innerText = 'How to verify';
                 document.getElementById('page-title').innerText = 'Driver Card Details';
                 
-                // Section 1
                 document.getElementById('sec-1-title').innerText = 'Facility / Individual Details';
                 document.getElementById('lbl-name').innerText = 'Name';
-                document.getElementById('val-name').innerText = 'Mousa Fares Al-Anazi Establishment';
+                document.getElementById('val-name').innerText = 'Qasim Hasan Bin Ahmed Al-Ushaibi';
                 document.getElementById('lbl-facility-id').innerText = 'Facility ID Number';
 
-                // Section 2
                 document.getElementById('sec-2-title').innerText = 'Main License Information';
                 document.getElementById('lbl-lic-num').innerText = 'License Number';
                 document.getElementById('lbl-lic-type').innerText = 'License / Activity Type';
@@ -704,20 +730,18 @@
                 document.getElementById('lbl-issue-date').innerText = 'Issue Date';
                 document.getElementById('lbl-exp-date').innerText = 'Expiry Date';
 
-                // Section 3
                 document.getElementById('sec-3-title').innerText = 'Driver Card';
                 document.getElementById('lbl-card-num').innerText = 'Card Number';
                 document.getElementById('lbl-driver-id').innerText = 'Driver ID';
                 document.getElementById('lbl-first-name').innerText = 'First Name';
-                document.getElementById('val-first-name').innerText = 'Akhtar';
+                document.getElementById('val-first-name').innerText = 'Wajid';
                 document.getElementById('lbl-last-name').innerText = 'Last Name';
-                document.getElementById('val-last-name').innerText = 'Rehman';
+                document.getElementById('val-last-name').innerText = 'Khan';
                 document.getElementById('lbl-card-issue').innerText = 'Card Issue Date';
                 document.getElementById('lbl-card-exp').innerText = 'Card Expiry Date';
                 document.getElementById('lbl-card-type').innerText = 'Card Type';
                 document.getElementById('val-card-type').innerText = 'Specialized Transport';
 
-                // Buttons & Rating
                 document.getElementById('btn-back-text').innerText = 'Back';
                 document.getElementById('rating-text').innerText = 'Average rating for this service';
                 document.getElementById('rating-count').innerText = '113 Ratings';
@@ -727,7 +751,6 @@
                 document.getElementById('btn-naam').innerText = 'Yes';
                 document.getElementById('vote-feedback-text').innerText = '81% of users said yes out of 27 ratings';
 
-                // Side Menu
                 document.getElementById('menu-title').innerText = 'Logisti Menu';
                 document.getElementById('m-home').innerText = 'Home';
                 document.getElementById('m-logisti').innerText = 'About Logisti';
@@ -749,7 +772,6 @@
                 document.getElementById('m-new-badge').innerText = 'NEW';
                 document.getElementById('m-faq').innerText = 'FAQ & Support';
 
-                // Footer Headers & Links
                 document.getElementById('f-about-head').innerText = 'About Logisti';
                 document.getElementById('f-a1').innerText = 'Overview';
                 document.getElementById('f-a2').innerText = 'Our Partners';
@@ -784,20 +806,54 @@
             } else {
                 html.setAttribute('dir', 'rtl');
                 html.setAttribute('lang', 'ar');
-                langIndicator.innerText = 'EN';
 
-                // Banner & Title
+                leftGroup.innerHTML = `
+                    <button onclick="openOfficialLink('https://logisti.sa/login')" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="الحساب">
+                        <i class="fa-regular fa-user text-sm"></i>
+                    </button>
+                    <button onclick="toggleLanguage()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors flex items-center gap-0.5" title="تغيير اللغة">
+                        <i class="fa-solid fa-language text-base"></i>
+                        <span id="lang-indicator" class="text-[10px] font-bold uppercase ml-0.5">EN</span>
+                    </button>
+                    <button onclick="openSearchModal()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="البحث">
+                        <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                    </button>
+                    <button onclick="openNotificationsModal()" class="p-1 text-gray-700 hover:text-logisti-green rounded-full transition-colors" title="التنبيهات">
+                        <i class="fa-solid fa-bullhorn text-sm"></i>
+                    </button>
+                `;
+
+                rightGroup.innerHTML = `
+                    <a href="https://logisti.sa" target="_blank" class="flex items-center gap-1.5 group" dir="rtl">
+                        <div class="flex flex-col text-right font-light">
+                            <span class="text-xs tracking-tight text-logisti-green font-arabic leading-none" id="brand-text-ar">لوجستي</span>
+                            <span class="text-[7px] tracking-widest text-gray-400 uppercase leading-none">LOGISTI</span>
+                        </div>
+                        <div class="w-6.5 h-6.5 bg-white rounded-md flex items-center justify-center shadow-sm" style="width: 26px; height: 26px;">
+                            <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50 0 L90 25 V75 L50 100 L10 75 V25 Z" fill="#006C4C"/>
+                                <path d="M50 0 L10 25 V75 L50 100 Z" fill="#12192C" opacity="0.1"/>
+                                <path d="M50 15 L80 35 V65 L50 85 L20 65 V35 Z" fill="#009788"/>
+                                <path d="M50 15 L20 35 V65 L50 85 Z" fill="#000000" opacity="0.1"/>
+                                <path d="M50 30 L65 70 L50 60 L35 70 Z" fill="#FFFFFF"/>
+                                <path d="M50 30 L35 70 L50 60 Z" fill="#000000" opacity="0.05"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <button onclick="toggleDrawer()" class="p-1 text-gray-700 hover:text-logisti-green rounded-lg focus:outline-none" id="hamburger-btn" title="القائمة">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                `;
+
                 document.getElementById('gov-banner-text').innerText = 'موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية';
                 document.getElementById('gov-verify-btn').innerText = 'كيف تتحقق';
                 document.getElementById('page-title').innerText = 'تفاصيل بطاقة السائق';
 
-                // Section 1
                 document.getElementById('sec-1-title').innerText = 'بيانات المنشأة/الفرد';
                 document.getElementById('lbl-name').innerText = 'الاسم';
-                document.getElementById('val-name').innerText = 'مؤسسة موسى فارس العنزي';
+                document.getElementById('val-name').innerText = 'قاسم حسن بن احمد اشبيني';
                 document.getElementById('lbl-facility-id').innerText = 'رقم هوية المنشأة';
 
-                // Section 2
                 document.getElementById('sec-2-title').innerText = 'معلومات الترخيص الرئيسي';
                 document.getElementById('lbl-lic-num').innerText = 'رقم الترخيص';
                 document.getElementById('lbl-lic-type').innerText = 'نوع الترخيص/النشاط';
@@ -807,20 +863,18 @@
                 document.getElementById('lbl-issue-date').innerText = 'تاريخ الإصدار';
                 document.getElementById('lbl-exp-date').innerText = 'تاريخ الإنهاء';
 
-                // Section 3
                 document.getElementById('sec-3-title').innerText = 'بطاقة السائق';
                 document.getElementById('lbl-card-num').innerText = 'رقم البطاقة';
                 document.getElementById('lbl-driver-id').innerText = 'هوية السائق';
                 document.getElementById('lbl-first-name').innerText = 'الاسم الأول';
-                document.getElementById('val-first-name').innerText = 'أختر';
+                document.getElementById('val-first-name').innerText = 'واجد';
                 document.getElementById('lbl-last-name').innerText = 'اسم العائلة';
-                document.getElementById('val-last-name').innerText = 'رحمن';
+                document.getElementById('val-last-name').innerText = 'خان';
                 document.getElementById('lbl-card-issue').innerText = 'تاريخ إصدار البطاقة';
                 document.getElementById('lbl-card-exp').innerText = 'تاريخ إنتهاء البطاقة';
                 document.getElementById('lbl-card-type').innerText = 'نوع البطاقة';
                 document.getElementById('val-card-type').innerText = 'النقل المتخصص';
 
-                // Buttons & Rating
                 document.getElementById('btn-back-text').innerText = 'رجوع';
                 document.getElementById('rating-text').innerText = 'بلغ متوسط تقييم هذه الخدمة';
                 document.getElementById('rating-count').innerText = '113 تقييمات';
@@ -830,7 +884,6 @@
                 document.getElementById('btn-naam').innerText = 'نعم';
                 document.getElementById('vote-feedback-text').innerText = '81% من المستخدمين قالوا نعم من أصل 27 تقييمات';
 
-                // Side Menu
                 document.getElementById('menu-title').innerText = 'قائمة لوجستي';
                 document.getElementById('m-home').innerText = 'الرئيسية';
                 document.getElementById('m-logisti').innerText = 'عن لوجستي';
@@ -852,7 +905,6 @@
                 document.getElementById('m-new-badge').innerText = 'جديد';
                 document.getElementById('m-faq').innerText = 'الأسئلة الشائعة والدعم';
 
-                // Footer Headers & Links
                 document.getElementById('f-about-head').innerText = 'عن لوجستي';
                 document.getElementById('f-a1').innerText = 'نبذة عامة';
                 document.getElementById('f-a2').innerText = 'شركاؤنا';
