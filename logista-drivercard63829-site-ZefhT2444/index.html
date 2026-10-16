@@ -6,10 +6,10 @@
     <title>تفاصيل بطاقة السائق | منصة لوجستي - Logisti</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Cairo -->
+    <!-- Google Fonts: IBM Plex Sans Arabic & Cairo (Exact Screenshot Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -32,7 +32,8 @@
                         }
                     },
                     fontFamily: {
-                        cairo: ['Cairo', 'sans-serif']
+                        cairo: ['Cairo', 'sans-serif'],
+                        arabic: ['"IBM Plex Sans Arabic"', 'Cairo', 'sans-serif']
                     }
                 }
             }
@@ -40,7 +41,7 @@
     </script>
     <style>
         body {
-            font-family: 'Cairo', sans-serif;
+            font-family: 'IBM Plex Sans Arabic', 'Cairo', sans-serif;
             background-color: #FAFCFB;
             color: #1F2937;
             -webkit-tap-highlight-color: transparent;
@@ -63,15 +64,15 @@
 <body class="min-h-screen flex flex-col justify-between antialiased selection:bg-logisti-green selection:text-white" id="body-root">
 
     <!-- 1. TOP OFFICIAL SAUDI GOVERNMENT BANNER -->
-    <div class="bg-gray-50 text-gray-600 text-[11px] py-1.5 px-4 border-b border-gray-100">
+    <div class="bg-gray-50 text-gray-600 text-[11px] py-1.5 px-4 border-b border-gray-100 font-arabic">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <div class="w-4 h-3 bg-logisti-green border border-gray-300 rounded-sm flex items-center justify-center font-bold text-[8px] text-white">
                     🇸🇦
                 </div>
-                <span id="gov-banner-text" class="text-gray-500">موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية</span>
+                <span id="gov-banner-text" class="text-gray-500 font-normal">موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية</span>
             </div>
-            <button onclick="toggleGovDropdown()" class="text-logisti-green hover:underline flex items-center gap-1 text-[11px] font-semibold focus:outline-none">
+            <button onclick="toggleGovDropdown()" class="text-logisti-green hover:underline flex items-center gap-1 text-[11px] font-medium focus:outline-none">
                 <span id="gov-verify-btn">كيف تتحقق</span>
                 <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200" id="gov-chevron"></i>
             </button>
@@ -79,7 +80,7 @@
     </div>
 
     <!-- GOV VERIFICATION DROPDOWN CONTENT -->
-    <div id="gov-dropdown" class="hidden bg-gray-100 text-gray-700 text-xs py-3 px-6 border-b border-gray-200 font-cairo">
+    <div id="gov-dropdown" class="hidden bg-gray-100 text-gray-700 text-xs py-3 px-6 border-b border-gray-200 font-arabic">
         <div class="max-w-7xl mx-auto space-y-2">
             <p id="gov-desc">المواقع الرسمية في المملكة العربية السعودية ينتهي نطاقها بـ <strong>.sa</strong> أو <strong>.gov.sa</strong></p>
             <p id="gov-desc-2">تأكد دائماً من وجود رمز القفل في شريط العنوان للتأكد من أمان الاتصال.</p>
@@ -114,7 +115,7 @@
                 <!-- Logisti Branding & Shield Logo -->
                 <a href="https://logisti.sa" target="_blank" class="flex items-center gap-2 group">
                     <div class="flex flex-col text-right">
-                        <span class="text-base font-bold tracking-tight text-logisti-green font-cairo leading-none">لوجستي</span>
+                        <span class="text-base font-bold tracking-tight text-logisti-green font-arabic leading-none">لوجستي</span>
                         <span class="text-[8px] font-bold tracking-widest text-gray-400 uppercase leading-none">LOGISTI</span>
                     </div>
                     <div class="w-8 h-8 bg-logisti-green rounded-lg flex items-center justify-center shadow-sm">
@@ -137,7 +138,7 @@
     <div id="drawer-backdrop" onclick="toggleDrawer()" class="fixed inset-0 bg-black/50 z-50 hidden opacity-0 transition-opacity duration-300"></div>
     
     <aside id="main-drawer" class="fixed top-0 right-0 w-80 sm:w-96 h-full bg-white z-50 shadow-2xl transform translate-x-full drawer-transition overflow-y-auto flex flex-col justify-between">
-        <div class="p-5 font-cairo">
+        <div class="p-5 font-arabic">
             <div class="flex justify-between items-center pb-4 border-b border-gray-200 mb-4">
                 <div class="flex items-center gap-2">
                     <div class="w-8 h-8 bg-logisti-green rounded-lg flex items-center justify-center text-white font-bold">
@@ -201,118 +202,118 @@
             </nav>
         </div>
 
-        <div class="p-4 border-t border-gray-100 bg-gray-50 text-xs text-gray-500 text-center font-cairo">
+        <div class="p-4 border-t border-gray-100 bg-gray-50 text-xs text-gray-500 text-center font-arabic">
             منصة لوجستي © 2026 - المملكة العربية السعودية
         </div>
     </aside>
 
     <!-- MAIN PAGE CONTENT -->
-    <main class="max-w-md mx-auto w-full px-4 pt-6 pb-16 flex-grow font-cairo flex flex-col items-center">
+    <main class="max-w-md mx-auto w-full px-4 pt-6 pb-16 flex-grow font-arabic flex flex-col items-center">
         
-        <!-- PAGE TITLE -->
+        <!-- PAGE TITLE (EXACT FONT STYLE & SIZE FROM SCREENSHOT) -->
         <div class="text-center mb-6 w-full">
-            <h1 id="page-title" class="text-base sm:text-lg font-bold text-[#005B60]">
+            <h1 id="page-title" class="text-[17px] font-medium text-[#006C4C] tracking-tight">
                 تفاصيل بطاقة السائق
             </h1>
         </div>
 
-        <!-- 4. ALL DETAILS INSIDE ONE SINGLE COMPACT CENTERED BOX -->
+        <!-- 4. ALL DETAILS INSIDE ONE SINGLE COMPACT CENTERED BOX (MATCHING EXACT FONT & SIZES) -->
         <div class="bg-white rounded-2xl p-5 w-[220px] space-y-4 shadow-sm border border-gray-100 mb-6 flex flex-col items-center text-right">
             
             <!-- SECTION 1: بيانات المنشأة/الفرد -->
             <div class="w-full space-y-3">
-                <h2 class="text-base font-bold text-[#005B60]">
+                <h2 class="text-[17px] font-semibold text-[#005B60] tracking-tight">
                     بيانات المنشأة/الفرد
                 </h2>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">الاسم</div>
-                    <div class="text-sm font-bold text-gray-900 leading-snug">مؤسسة موسى فارس العنزي</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">الاسم</div>
+                    <div class="text-[15px] font-semibold text-[#1F2937] leading-snug">مؤسسة موسى فارس العنزي</div>
                 </div>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">رقم هوية المنشأة</div>
-                    <div class="text-sm font-bold text-gray-900 dir-ltr">7049992592</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">رقم هوية المنشأة</div>
+                    <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">7049992592</div>
                 </div>
             </div>
 
             <!-- DIVIDER LINE 1 -->
-            <div class="w-full border-b border-teal-600/30 my-2"></div>
+            <div class="w-full border-b border-[#006C4C]/20 my-2"></div>
 
             <!-- SECTION 2: معلومات الترخيص الرئيسي -->
             <div class="w-full space-y-3">
-                <h2 class="text-base font-bold text-[#005B60]">
+                <h2 class="text-[17px] font-semibold text-[#005B60] tracking-tight">
                     معلومات الترخيص الرئيسي
                 </h2>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">رقم الترخيص</div>
-                    <div class="text-sm font-bold text-gray-900 dir-ltr">35/000271458</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">رقم الترخيص</div>
+                    <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">35/000271458</div>
                 </div>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">نوع الترخيص/النشاط</div>
-                    <div class="text-sm font-bold text-gray-900 leading-snug">النقل المتخصص</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">نوع الترخيص/النشاط</div>
+                    <div class="text-[15px] font-semibold text-[#1F2937] leading-snug">النقل المتخصص</div>
                 </div>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">المدينة</div>
-                    <div class="text-sm font-bold text-gray-900">الرياض</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">المدينة</div>
+                    <div class="text-[15px] font-semibold text-[#1F2937]">الرياض</div>
                 </div>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">تاريخ الإصدار</div>
-                    <div class="text-sm font-bold text-gray-900 dir-ltr">2024/02/13</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">تاريخ الإصدار</div>
+                    <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2024/02/13</div>
                 </div>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">تاريخ الإنهاء</div>
-                    <div class="text-sm font-bold text-gray-900 dir-ltr">2027/02/13</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">تاريخ الإنهاء</div>
+                    <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2027/02/13</div>
                 </div>
             </div>
 
             <!-- DIVIDER LINE 2 -->
-            <div class="w-full border-b border-teal-600/30 my-2"></div>
+            <div class="w-full border-b border-[#006C4C]/20 my-2"></div>
 
             <!-- SECTION 3: بطاقة السائق -->
             <div class="w-full space-y-3">
-                <h2 class="text-base font-bold text-[#005B60]">
+                <h2 class="text-[18px] font-bold text-[#1F2937] tracking-tight">
                     بطاقة السائق
                 </h2>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">رقم البطاقة</div>
-                    <div class="text-sm font-bold text-gray-900 dir-ltr">35.00657985</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">رقم البطاقة</div>
+                    <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">35.00657985</div>
                 </div>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">هوية السائق</div>
-                    <div class="text-sm font-bold text-gray-900 dir-ltr">2634501155</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">هوية السائق</div>
+                    <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2634501155</div>
                 </div>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">الاسم الأول</div>
-                    <div class="text-sm font-bold text-gray-900">أختر</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">الاسم الأول</div>
+                    <div class="text-[15px] font-bold text-[#1F2937]">أختر</div>
                 </div>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">اسم العائلة</div>
-                    <div class="text-sm font-bold text-gray-900">رحمن</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">اسم العائلة</div>
+                    <div class="text-[15px] font-bold text-[#1F2937]">رحمن</div>
                 </div>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">تاريخ إصدار البطاقة</div>
-                    <div class="text-sm font-bold text-gray-900 dir-ltr">2026-09-13</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">تاريخ إصدار البطاقة</div>
+                    <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2026-09-13</div>
                 </div>
 
                 <div class="space-y-0.5">
-                    <div class="text-xs font-normal text-gray-500">تاريخ إنتهاء البطاقة</div>
-                    <div class="text-sm font-bold text-gray-900 dir-ltr">2027-09-13</div>
+                    <div class="text-[13px] font-normal text-[#6B7280]">تاريخ إنتهاء البطاقة</div>
+                    <div class="text-[15px] font-bold text-[#1F2937] dir-ltr tracking-wider">2027-09-13</div>
                 </div>
 
                 <div class="space-y-0.5 pt-1">
-                    <div class="text-xs font-normal text-gray-500">نوع البطاقة</div>
-                    <div class="text-sm font-semibold text-gray-900 leading-relaxed">
+                    <div class="text-[13px] font-normal text-[#6B7280]">نوع البطاقة</div>
+                    <div class="text-[15px] font-semibold text-[#1F2937] leading-relaxed">
                         النقل المتخصص
                     </div>
                 </div>
@@ -322,13 +323,13 @@
 
         <!-- BACK BUTTON (رجوع) FROM SCREENSHOT 3 -->
         <div class="w-[220px] mb-8">
-            <button onclick="window.history.back()" class="w-full bg-white hover:bg-gray-50 text-[#1E73BE] border border-[#1E73BE] font-semibold py-1.5 px-4 rounded-xl text-sm transition-colors text-center shadow-sm">
+            <button onclick="window.history.back()" class="w-full bg-white hover:bg-gray-50 text-[#1E73BE] border border-[#1E73BE] font-medium py-1.5 px-4 rounded-xl text-sm transition-colors text-center shadow-sm font-arabic">
                 رجوع
             </button>
         </div>
 
         <!-- 5. FEEDBACK & RATING SECTION -->
-        <div class="bg-white rounded-xl p-4 border-t border-logisti-green text-center w-[250px] shadow-sm mb-6">
+        <div class="bg-white rounded-xl p-4 border-t border-logisti-green text-center w-[250px] shadow-sm mb-6 font-arabic">
             
             <div class="flex items-center justify-center gap-2 mb-2">
                 <span class="text-base font-bold text-gray-800">4.26</span>
@@ -364,7 +365,7 @@
         </div>
 
         <!-- 6. EXTENDED FOOTER MENU & DIRECTORIES -->
-        <div class="w-[250px] space-y-5 text-right font-cairo">
+        <div class="w-[250px] space-y-5 text-right font-arabic">
             
             <!-- About Logisti Section -->
             <div class="space-y-1.5">
@@ -449,7 +450,7 @@
     </main>
 
     <!-- FOOTER SECTION -->
-    <footer class="bg-white border-t border-gray-200 py-4 font-cairo">
+    <footer class="bg-white border-t border-gray-200 py-4 font-arabic">
         <div class="max-w-[250px] mx-auto px-4 text-center space-y-1">
             <p class="text-[11px] text-gray-700 font-bold">جميع الحقوق محفوظة 2022 - 2026 © لمنصة لوجستي</p>
             <p class="text-[9px] text-gray-400">من تطوير وصيانة شركة علم</p>
