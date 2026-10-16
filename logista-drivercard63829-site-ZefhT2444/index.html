@@ -28,7 +28,8 @@
                             text: '#1F2937',
                             muted: '#6B7280',
                             border: '#E5E7EB',
-                            badge: '#E11D48'
+                            badge: '#E11D48',
+                            customTeal: '#009788' /* Specific teal from image logo */
                         }
                     },
                     fontFamily: {
@@ -102,7 +103,7 @@
         </div>
     </div>
 
-    <!-- 2. HEADER BAR (SLIMMER HEIGHT WITH SMALLER ICONS AND LOGO) -->
+    <!-- 2. HEADER BAR (UPDATED: SLIMMER FONT AND EXACT LOGO) -->
     <header class="bg-white sticky top-0 z-40 shadow-sm border-b border-logisti-border" dir="ltr">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-12 flex items-center justify-between">
             
@@ -125,16 +126,22 @@
                 </button>
             </div>
 
-            <!-- Right Side: Logisti Branding & Shield Logo + Menu Icon (Compact Scale) -->
+            <!-- Right Side: Logisti Branding & EXACT Shield Logo + Menu Icon (SLIMMER FONT) -->
             <div class="flex items-center space-x-2.5 sm:space-x-3">
                 <a href="https://logisti.sa" target="_blank" class="flex items-center gap-1.5 group" dir="rtl">
-                    <div class="flex flex-col text-right">
-                        <span class="text-xs font-bold tracking-tight text-logisti-green font-arabic leading-none">لوجستي</span>
-                        <span class="text-[7px] font-bold tracking-widest text-gray-400 uppercase leading-none">LOGISTI</span>
+                    <div class="flex flex-col text-right font-light"> <!-- font-light for slimmest width -->
+                        <span class="text-xs tracking-tight text-logisti-green font-arabic leading-none">لوجستي</span>
+                        <span class="text-[7px] tracking-widest text-gray-400 uppercase leading-none">LOGISTI</span>
                     </div>
-                    <div class="w-6.5 h-6.5 bg-logisti-green rounded-md flex items-center justify-center shadow-sm" style="width: 26px; height: 26px;">
-                        <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                    <!-- EXACT LOGO from image_49.png -->
+                    <div class="w-6.5 h-6.5 bg-white rounded-md flex items-center justify-center shadow-sm" style="width: 26px; height: 26px;">
+                        <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 0 L90 25 V75 L50 100 L10 75 V25 Z" fill="#006C4C" class="fill-logisti-green"/>
+                            <path d="M50 0 L10 25 V75 L50 100 Z" fill="#12192C" class="fill-logisti-navy" opacity="0.1"/>
+                            <path d="M50 15 L80 35 V65 L50 85 L20 65 V35 Z" fill="#009788" class="fill-logisti-customTeal"/>
+                            <path d="M50 15 L20 35 V65 L50 85 Z" fill="#000000" opacity="0.1"/>
+                            <path d="M50 30 L65 70 L50 60 L35 70 Z" fill="#FFFFFF"/>
+                            <path d="M50 30 L35 70 L50 60 Z" fill="#000000" opacity="0.05"/>
                         </svg>
                     </div>
                 </a>
@@ -543,15 +550,22 @@
                     <p class="text-xs text-[#6B7280]">من تطوير وصيانة شركة علم</p>
                 </div>
 
+                <!-- FOOTER LOGO: EXACT MATCH -->
                 <div class="flex justify-center items-center pt-3 pb-6">
                     <a href="https://logisti.sa" target="_blank" class="flex items-center gap-2">
-                        <div class="flex flex-col text-right">
-                            <span class="text-base font-bold tracking-tight text-logisti-green font-arabic leading-none">لوجستي</span>
-                            <span class="text-[8px] font-bold tracking-widest text-gray-400 uppercase leading-none">LOGISTI</span>
+                        <div class="flex flex-col text-right font-light"> <!-- font-light for slimmest width -->
+                            <span class="text-xs tracking-tight text-logisti-green font-arabic leading-none">لوجستي</span>
+                            <span class="text-[8px] tracking-widest text-gray-400 uppercase leading-none">LOGISTI</span>
                         </div>
-                        <div class="w-8 h-8 bg-logisti-green rounded-lg flex items-center justify-center shadow-sm">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        <!-- EXACT LOGO from image_49.png -->
+                        <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-sm">
+                            <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50 0 L90 25 V75 L50 100 L10 75 V25 Z" fill="#006C4C" class="fill-logisti-green"/>
+                                <path d="M50 0 L10 25 V75 L50 100 Z" fill="#12192C" class="fill-logisti-navy" opacity="0.1"/>
+                                <path d="M50 15 L80 35 V65 L50 85 L20 65 V35 Z" fill="#009788" class="fill-logisti-customTeal"/>
+                                <path d="M50 15 L20 35 V65 L50 85 Z" fill="#000000" opacity="0.1"/>
+                                <path d="M50 30 L65 70 L50 60 L35 70 Z" fill="#FFFFFF"/>
+                                <path d="M50 30 L35 70 L50 60 Z" fill="#000000" opacity="0.05"/>
                             </svg>
                         </div>
                     </a>
