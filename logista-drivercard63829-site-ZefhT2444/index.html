@@ -6,7 +6,7 @@
     <title>تفاصيل بطاقة السائق | منصة لوجستي - Logisti</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: IBM Plex Sans Arabic & Cairo (Exact Screenshot Fonts) -->
+    <!-- Google Fonts: IBM Plex Sans Arabic & Cairo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -210,14 +210,14 @@
     <!-- MAIN PAGE CONTENT -->
     <main class="max-w-md mx-auto w-full px-4 pt-6 pb-16 flex-grow font-arabic flex flex-col items-center">
         
-        <!-- PAGE TITLE (EXACT FONT STYLE & SIZE FROM SCREENSHOT) -->
+        <!-- PAGE TITLE -->
         <div class="text-center mb-6 w-full">
             <h1 id="page-title" class="text-[17px] font-medium text-[#006C4C] tracking-tight">
                 تفاصيل بطاقة السائق
             </h1>
         </div>
 
-        <!-- 4. ALL DETAILS INSIDE ONE SINGLE COMPACT CENTERED BOX (MATCHING EXACT FONT & SIZES) -->
+        <!-- 4. ALL DETAILS INSIDE ONE SINGLE COMPACT CENTERED BOX -->
         <div class="bg-white rounded-2xl p-5 w-[220px] space-y-4 shadow-sm border border-gray-100 mb-6 flex flex-col items-center text-right">
             
             <!-- SECTION 1: بيانات المنشأة/الفرد -->
@@ -321,7 +321,7 @@
 
         </div>
 
-        <!-- BACK BUTTON (رجوع) FROM SCREENSHOT 3 -->
+        <!-- BACK BUTTON (رجوع) -->
         <div class="w-[220px] mb-8">
             <button onclick="window.history.back()" class="w-full bg-white hover:bg-gray-50 text-[#1E73BE] border border-[#1E73BE] font-medium py-1.5 px-4 rounded-xl text-sm transition-colors text-center shadow-sm font-arabic">
                 رجوع
@@ -459,6 +459,14 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
+        // اسکرپٹ جو لنک کے آخر میں آپ کی مرضی کا نام (حسب ضرورت نام) شو کر دے گا
+        window.addEventListener('DOMContentLoaded', (event) => {
+            if (!window.location.hash) {
+                // یہاں آپ اپنی مرضی کا نام لکھ سکتے ہیں جو لنک کے ساتھ نظر آئے گا
+                history.replaceState(null, null, window.location.pathname + '#مؤسسة_موسى_فارس_العنزي_بطاقة_السائق');
+            }
+        });
+
         function toggleGovDropdown() {
             const dropdown = document.getElementById('gov-dropdown');
             const chevron = document.getElementById('gov-chevron');
